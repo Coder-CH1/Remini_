@@ -10,7 +10,7 @@ import SwiftUI
 struct AIPhotosView: View {
     var body: some View {
         VStack(alignment: .leading) {
-            
+            AIPhotosLoadingView()
         }
     }
     
