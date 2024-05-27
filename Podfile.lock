@@ -1,0 +1,20 @@
+PODS:
+  - DSBottomSheet (0.3.0)
+  - SUIBottomSheet (0.1.1)
+
+DEPENDENCIES:
+  - DSBottomSheet
+  - SUIBottomSheet
+
+SPEC REPOS:
+  trunk:
+    - DSBottomSheet
+    - SUIBottomSheet
+
+SPEC CHECKSUMS:
+  DSBottomSheet: ca0ac37eb5af2dd54663f86b84382ed90a59be2a
+  SUIBottomSheet: 9a6f82077fd94d72895e72585bd767a1254d66f8
+
+PODFILE CHECKSUM: b2a5d894187f5e3ff118d38aea06801d0bd4bd99
+
+COCOAPODS: 1.15.2

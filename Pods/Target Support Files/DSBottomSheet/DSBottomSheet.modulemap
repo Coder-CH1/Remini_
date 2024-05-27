@@ -1,0 +1,6 @@
+framework module DSBottomSheet {
+  umbrella header "DSBottomSheet-umbrella.h"
+
+  export *
+  module * { export * }
+}
