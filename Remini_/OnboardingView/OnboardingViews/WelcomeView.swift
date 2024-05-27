@@ -356,7 +356,7 @@ struct OnboardingLoadingView: View {
                     .cornerRadius(30)
                 }
                     .fullScreenCover(isPresented: $isPresentedWelcomeView) {
-                        HomePageView()
+                        FirstImageView()
                     }
                     .padding()
                     .offset(y: -80)
