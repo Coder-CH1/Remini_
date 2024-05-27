@@ -97,31 +97,6 @@ struct LoadingView: View {
     }
 }
 
-struct PromoView: View {
-    @State var showNewView = false
-    @Environment(\.presentationMode) var presentationMode
-    var body: some View {
-        VStack(alignment: .leading) {
-            Button {
-                print("btn tapped")
-                presentationMode.wrappedValue.dismiss()
-                showNewView.toggle()
-            } label: {
-                Image(systemName: "xmark")
-                    .frame(width: 20, height: 20)
-                    .tint(.black)
-            }
-            .fullScreenCover(isPresented: $showNewView) {
-                GiveAccessView()
-            }
-            Spacer()
-                .frame(width: UIScreen.main.bounds.width/1.1)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.white)
-    }
-}
-
 struct GiveAccessView: View {
     @State var showNewView = false
     let columns = [

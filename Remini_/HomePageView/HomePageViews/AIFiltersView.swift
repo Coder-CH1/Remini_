@@ -36,20 +36,23 @@ struct AIFiltersLoadingView: View {
         ZStack(alignment: .top) {
             Color.black
                 .ignoresSafeArea()
+            VStack(alignment: .center) {
             Button {
                 print("btn tapped")
                 showNewView.toggle()
                 presentationMode.wrappedValue.dismiss()
             } label: {
                 Image(systemName: "xmark")
-                    .frame(width: 20, height: 20)
-                    .tint(.white)
+                    .font(.system(size: 20))
+                    .tint(.red)
             }
             .fullScreenCover(isPresented: $showNewView) {
                 HomePageView()
             }
+        }
+            .padding(.top, -350)
             .foregroundColor(.white)
-            .offset(x: UIScreen.main.bounds.width / -2.5, y: UIScreen.main.bounds.height / -2.4)
+            .offset(x: UIScreen.main.bounds.width / 2.5, y: UIScreen.main.bounds.height / 2.4)
             VStack {
                 HStack {
                     Text("Generate\nYour Photos\n with AI")

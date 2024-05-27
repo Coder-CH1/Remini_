@@ -35,28 +35,29 @@ struct AIPhotosView: View {
                     .frame(height: UIScreen.main.bounds.height)
                     .blur(radius: 10)
                 Image("backimage")
-                //.resizable()
+                    //.resizable()
                     .scaledToFit()
                     .aspectRatio(contentMode: .fill)
                     .frame(height: UIScreen.main.bounds.height/2)
-                
-                Button {
-                    print("btn tapped")
-                    showNewView.toggle()
-                    presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Image(systemName: "xmark")
-                        .frame(width: 20, height: 20)
-                        .tint(.white)
+                VStack(alignment: .center) {
+                    Button {
+                        print("btn tapped")
+                        showNewView.toggle()
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 30))
+                            .tint(.white)
+                    }
+                    .fullScreenCover(isPresented: $showNewView) {
+                        HomePageView()
+                    }
                 }
-                .fullScreenCover(isPresented: $showNewView) {
-                    HomePageView()
-                }
+                .padding(.top, -300)
                 .foregroundColor(.white)
                 .offset(x: UIScreen.main.bounds.width / -2.5, y: UIScreen.main.bounds.height / -2.4)
                 VStack(alignment: .center, spacing: 30) {
                     Spacer()
-                        .frame(height: 530)
                     Text("Revamp reality with\n AI Filters")
                         .font(.system(size: 35, weight: .bold))
                         .foregroundColor(.white)
@@ -89,6 +90,7 @@ struct AIPhotosView: View {
                         .background(.white)
                         .cornerRadius(30)
                     }
+                    .padding(.bottom, 50)
                 }
                 if isLoading {
                     ZStack {
