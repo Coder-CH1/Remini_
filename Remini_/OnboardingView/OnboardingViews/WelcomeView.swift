@@ -40,7 +40,9 @@ struct WelcomeLazyVGridView: View {
                             HStack {
                                 Text("Welcome to Remini!")
                                     .font(.system(size: 16, weight: .medium))
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(.gray).opacity(header ? 1.0 : 0.0)
+                                    .offset(y: header ? 0 : -30)
+                                    .animation(.easeInOut, value: header)
                             }
                         HStack {
                             Text("What brings you here?")
@@ -90,7 +92,7 @@ struct WelcomeLazyVGridView: View {
                         }
                     }
                     .coordinateSpace(name: "1")
-                    .offset(y: header ? 20 : 20)
+                    .offset(y: header ? 40 : 20)
                 }
             }
         }
@@ -111,7 +113,6 @@ struct WelcomeLazyVGridView: View {
                 .frame(width: UIScreen.main.bounds.width - 50, height: 60, alignment: .bottom)
                 .background(.white)
                 .cornerRadius(30)
-                //.offset(x: 20)
             }
         }
         .padding(.bottom, 40)
@@ -230,7 +231,7 @@ look at our [Privacy Policy](link1).
                         Text("Refuse")
                             .font(.system(size: 16, weight: .bold))
                             .foregroundColor(.black)
-                            .padding(.bottom, 20)
+                            .padding(.bottom, 10)
                     }
                     .frame(width: UIScreen.main.bounds.width - 50, height: 60)
                     .background(.white)
@@ -245,8 +246,8 @@ look at our [Privacy Policy](link1).
                     }
                 }
             }
-            .frame(width: UIScreen.main.bounds.width, height: 250)
-            .background(.black)
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/3.5)
+        .background(.black).ignoresSafeArea()
         }
     }
 

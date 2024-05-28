@@ -24,7 +24,6 @@ struct ThirdImageView: View {
             .padding(.bottom, 40)
             HStack(spacing: 30) {
                 Text("Meet the new \n you")
-                //.scaledFont(name: "", size: 24)
                     .font(.system(size: 34, weight: .black))
                     .foregroundColor(.white)
                 Button {
