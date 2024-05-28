@@ -90,7 +90,7 @@ struct LoadingView: View {
             }
         }
         .fullScreenCover(isPresented: $isPresentedView) {
-            PromoView()
+            GiveAccessView()
         }
         .background(.black)
         .ignoresSafeArea()
