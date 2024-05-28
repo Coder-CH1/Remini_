@@ -18,7 +18,7 @@ struct HomePageView: View {
             BottomTabHomePageView()
         }
         
-        .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(500)]) {
+        .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(550)]) {
             ChooseYourGenderBottomSheetView(dismissBottomSheet: {
                 bottomSheetPosition = .hidden
             } )
@@ -28,7 +28,7 @@ struct HomePageView: View {
         .showDragIndicator(false)
         .onAppear() {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                bottomSheetPosition = .absolute(500)
+                bottomSheetPosition = .absolute(550)
             }
         }
     }
@@ -43,7 +43,7 @@ struct HomePageView_Previews: PreviewProvider {
 struct ChooseYourGenderBottomSheetView: View {
     let dismissBottomSheet: () -> Void
     var body: some View {
-        VStack(spacing: 20) {
+        VStack {
             HStack {
                 Button {
                     print("btn tapped")
@@ -53,13 +53,54 @@ struct ChooseYourGenderBottomSheetView: View {
                         .font(.system(size: 20))
                         .foregroundColor(.black)
                 }
-            }
-            .padding(.top)
+            }.padding()
             .padding(.trailing, 300)
-            Image(systemName: "")
-            Text("What's your gender?")
-                .font(.title.bold())
-            Text("We will only use this information to personalize\n your experience.")
+            VStack(alignment: .center, spacing: 20) {
+                Image(systemName: "personalhotspot")
+                    .font(.system(size: UIScreen.main.bounds.width/4))
+                    .background(.yellow)
+                Text("What's your gender?")
+                    .font(.title.bold())
+                Text("We will only use this information to personalize your experience.")
+                Button {
+                    print("")
+                } label: {
+                    Text("Female")
+                        .font(.system(size: 16,weight: .semibold))
+                        .foregroundColor(.black)
+                }
+                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(.gray.opacity(0.3), lineWidth: 2)
+                )
+
+                Button {
+                    print("")
+                } label: {
+                    Text("Male")
+                        .font(.system(size: 16,weight: .semibold))
+                        .foregroundColor(.black)
+                }
+                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(.gray.opacity(0.3), lineWidth: 2)
+                )
+
+                Button {
+                    print("")
+                } label: {
+                    Text("Other")
+                        .font(.system(size: 16,weight: .semibold))
+                        .foregroundColor(.black)
+                }
+                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(.gray.opacity(0.3), lineWidth: 2)
+                )
+            }
         }
     }
 }
