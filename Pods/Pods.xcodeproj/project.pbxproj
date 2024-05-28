@@ -7,180 +7,158 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F4A2934E1E00B227E5FE0560E15E941 /* Pods-Remini_-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2243C093111FAD94C4142A1DFE753A /* Pods-Remini_-dummy.m */; };
-		24FEFB5B3710D9AC0AA9D73119C79937 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		2AD3BA823F9257AFDC514C09EBD480F9 /* close.png in Sources */ = {isa = PBXBuildFile; fileRef = F428F84ADF406379A5A938884E8157CA /* close.png */; };
-		3318DCF1D549C762C4111794F03A98A7 /* Color+Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC70D50024301B2E2080C56270C26B26 /* Color+Sheet.swift */; };
-		35A87AF8F5BE37DB307633139C446919 /* BottomSheetHandleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB162BD4A6DCA11AF0FA09498F82E081 /* BottomSheetHandleStyle.swift */; };
-		3993900C107217DD72742627C4C690F1 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = F428F84ADF406379A5A938884E8157CA /* close.png */; };
-		3E6E7FBC16A4316CA1E8811B720F7805 /* BottomSheetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E17D5C02ACFE4285DFE3AC14A0B1530 /* BottomSheetStyle.swift */; };
-		3ED06ACB5BB090504E57C7031C8B7219 /* SUIBottomSheet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 10007F59E218C3A131F935D3527189A8 /* SUIBottomSheet-dummy.m */; };
-		461AC1D10F01942F423ABA4D9907BBF9 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F8F3336BD9E1469A0394C38A3B124 /* BottomSheetView.swift */; };
-		4925597A840E1B43733ADD21FDF2D1AC /* BottomSheetHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F596AE0B312CABA9EC60F5F200EAB35 /* BottomSheetHandle.swift */; };
-		49E10435F816C3918D176325C854A5D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		4ED154C3EF0D5E364CE24E97E6452F97 /* Pods-Remini_-Remini_UITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A0A839676EF5FAEBE834BEA0E7B508BB /* Pods-Remini_-Remini_UITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		523DE8FA810581E5168D7D1B7467AF34 /* Root.plist in Sources */ = {isa = PBXBuildFile; fileRef = B31123DE5D3FCD3037C22F60FFC2A39A /* Root.plist */; };
-		5BF4595145B8E9F0527D329413A8268D /* DSBottomSheet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 445B7AF69D89DEF709449626088D48D1 /* DSBottomSheet-dummy.m */; };
-		5F8AC78D5F66B70208D4E0CAA0C5C6E1 /* BottomSheetOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047354D28DA549D4256EB641AB866F74 /* BottomSheetOptions.swift */; };
-		5FAF1F4E75F9D0C2E718D6ED13092EBB /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152DDA5F4E6DA9556B09FA3AF1E36527 /* BundleExtension.swift */; };
-		6867C9FEAE1DF1F7F6E069D8F770224A /* BottomSheetLabelModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BB3112BB0337584000620A4D0F625C /* BottomSheetLabelModifier.swift */; };
-		6AD21498DE8FA0B9C3B6EC33499F6FFC /* Bundle+Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7C1244BE229B672A23229EB5092BD /* Bundle+Module.swift */; };
-		6DD8A2CDACA37DEF29CB23B40DE7E7F6 /* Root.plist in Resources */ = {isa = PBXBuildFile; fileRef = B31123DE5D3FCD3037C22F60FFC2A39A /* Root.plist */; };
-		6F26D1E04B9B5E41F269D3EFE5625AB6 /* close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDCDE5B020707A1587BBC4DB374DF387 /* close@3x.png */; };
-		78EF3C8F7B4B5930A7471F4AEDD3B142 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAB5D0664B1D53654F54DE9053111DC /* close@2x.png */; };
-		7DC0A2847094B3FE8DDE926981580530 /* SUIBottomSheet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 343EF6AE4DABB2CDD6E7C6A03CD95764 /* SUIBottomSheet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		12BC3E1A4AF2553F6462EC3363E83CA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6E43695CA18D2ECCB99629180AF405 /* Foundation.framework */; };
+		1BC91F01C29B26A2B080DCA7006B5399 /* View+geometryFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EC6780ED753F2D2AD0A25B7B13E49D /* View+geometryFetch.swift */; };
+		1E1F53A3BA6D3FAF0205A9900649E5F7 /* Pods-Remini_-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5016A73FAA6DF3D3607DE56306DE807E /* Pods-Remini_-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2ED337521377EBC72C299C80B118656C /* Pods-Remini_-Remini_UITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A0A839676EF5FAEBE834BEA0E7B508BB /* Pods-Remini_-Remini_UITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4742BC449A96329548FA82FF6DE11721 /* Pods-Remini_-Remini_UITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3326017C7F06FAD339F3E64001718F4A /* Pods-Remini_-Remini_UITests-dummy.m */; };
+		548387A15133D9C63B42DC43FB5E6E1D /* UIKitIntrospectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0624FCDC2E81E71DBDCF63443743CEB9 /* UIKitIntrospectionView.swift */; };
+		570CC90B331AF79D04F17BEC10D4B403 /* Introspect-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A25ACF55774D9365DC96BEF711474F58 /* Introspect-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DFDDF6BC35A9F212CCEEA7D3597819C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6E43695CA18D2ECCB99629180AF405 /* Foundation.framework */; };
+		692A2C38169C3370FDC61DCBE651A15C /* View+onChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7F5DB2F08A85EF668EC439493F7575 /* View+onChange.swift */; };
+		69E2512D9FAE9213FCD14A8936FFCD87 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0E36001E64A26C7642A7F2A40EC757 /* SwiftUI.framework */; };
+		6A10452C7C1949F05ECA4C7AC8B4936E /* UIKitIntrospectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060C5EB0B858FB385AFE1DED7A9C200E /* UIKitIntrospectionViewController.swift */; };
+		709FBC171CA4A79D453A3498B03A88EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6E43695CA18D2ECCB99629180AF405 /* Foundation.framework */; };
+		76B3648900CCBD35599E0D6C131E8FED /* Introspect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF03C2D0B6D4972A1CD4D81B2BB61AD /* Introspect.swift */; };
+		7AD5A06580EC4006934E213FAFC411AE /* PresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C43993B6F6126FAF0FBE3371E6B6B /* PresentationView.swift */; };
 		7E25BF8F22F6E97CC7CC8CFEBE637E6B /* Pods-Remini_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F206AC0B89167B7083E1963972402F /* Pods-Remini_Tests-dummy.m */; };
-		81E95DC82D8E7A4C1FC01811CDCBBBA2 /* BottomSheetHandleStyle+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63568530005AB82A3AE3C3782E3448E0 /* BottomSheetHandleStyle+Deprecated.swift */; };
-		8355DC2E6DE577979F48341B4CC87692 /* BottomSheetHandleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5714012F9A19ABBBFC92C91E47E08F68 /* BottomSheetHandleBar.swift */; };
-		85DE326EB15D1A855B63C7A0B8F76897 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C51C64D5A19AE92642C40428C544B0C /* BottomSheet.swift */; };
-		9294594B2BFCCD4DEA962827BD34D8E8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B34E560004666E764716B105E111060 /* Colors.xcassets */; };
-		9CB6D05BE1D5DA71AA1194F19108E2E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		A35482B9337B2A41D7E193197D6FF752 /* Pods-Remini_-Remini_UITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3326017C7F06FAD339F3E64001718F4A /* Pods-Remini_-Remini_UITests-dummy.m */; };
-		A76349F3FB2203EEA5825AA74F347A3F /* Root.strings in Sources */ = {isa = PBXBuildFile; fileRef = 844B83B8321CFE8DB147F41D4A24CCAE /* Root.strings */; };
-		B51404E80ADD2BCAA6A2F0EB354D0DF5 /* close@2x.png in Sources */ = {isa = PBXBuildFile; fileRef = CAAB5D0664B1D53654F54DE9053111DC /* close@2x.png */; };
-		B5FFB943768FE8E7958CB4E435576C16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		B68E9007FCFBF1A0196EF2E25412983B /* SheetColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA781361B8FC2B6AB0DC0B401CAC5D67 /* SheetColor.swift */; };
-		BBFF232783DC696E0900867F3C7ACA92 /* SUIBottomSheet-BottomSheet in Resources */ = {isa = PBXBuildFile; fileRef = A786D71A1516B933B20B26297DA8A32A /* SUIBottomSheet-BottomSheet */; };
-		C2D2BF0E552F807B74682982E6AC0E32 /* close@3x.png in Sources */ = {isa = PBXBuildFile; fileRef = BDCDE5B020707A1587BBC4DB374DF387 /* close@3x.png */; };
-		C3407B85E7F2EDD8CEAA02788F209A71 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 9A0DCF5FB2EC60799AE320F8ED12BFF9 /* en.lproj */; };
-		CAA07F1FA761ECD0F03FB1C66320C614 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AF0F29CD3E5B25DF9C1A3BB2B47F10 /* Constants.swift */; };
-		CACA8069581EA9D63CEDD4BC69CD5FCE /* DSBottomSheet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C495BB9743E7565111D6E214A81766 /* DSBottomSheet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D3786151FA19A4C076CB6430B5CEAE6B /* BottomSheetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A6B4E9E1704248F98CB66878EE7187 /* BottomSheetState.swift */; };
-		D4E7ECC086278342FC72D02657B6A30D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		DFC25DCC12D27F761176BC898DE31391 /* Pods-Remini_-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5016A73FAA6DF3D3607DE56306DE807E /* Pods-Remini_-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EBB7B8790D97A7F1D036A0058E4F56A /* Introspect-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 798985B32650102AFDC6CB9D12295024 /* Introspect-dummy.m */; };
+		809FAA9335F8E8C7B2595FCB54644379 /* Pods-Remini_-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2243C093111FAD94C4142A1DFE753A /* Pods-Remini_-dummy.m */; };
+		864F9DEB1F1B8C92F62917A3B1884561 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1810D6204D82F43548780CBE2567A /* ViewExtensions.swift */; };
+		86AE9ED4C2453F772227E530FD789C45 /* +after.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D84436BF1B7A33A9A871D9F59141B5A /* +after.swift */; };
+		8B36C90D12FC262008757514CF1DF6B0 /* Binding+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443BCC65F5AFF4EABD300DEF542D252E /* Binding+ext.swift */; };
+		8CA584B6A6981D7B8125B4BB55553BAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9D6B54EB35BA403010B12AB1B9AEED /* UIKit.framework */; };
+		91B80D22E4F7894DDF1A40990AA7AE0B /* OvergrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C51DC2714AD4EB3303304DB5ED0DC5E /* OvergrowView.swift */; };
+		9203AF090F1DE1BE65B7202E966C6D29 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052B3F414628EE1DE24EADBF3CAE0510 /* BottomSheet.swift */; };
+		931C4BCED331AC51284E29D2037AA36C /* SwiftUIBottomSheet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 89A126ECBF52F185CF9984AFAEE3AC7F /* SwiftUIBottomSheet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B081C5F7A9991DFF44F0FC8A1D819A3C /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C52A3A737570586D065E53B4074748D /* View+CornerRadius.swift */; };
+		B5FFB943768FE8E7958CB4E435576C16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6E43695CA18D2ECCB99629180AF405 /* Foundation.framework */; };
+		C25AC5122FA97DF40B165EAC4FADBEFE /* SwiftUIBottomSheet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 224D7FA54CC2CA0603C7380EF35B0BBC /* SwiftUIBottomSheet-dummy.m */; };
+		CA2A90DDE529838E4715B213D44053D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6E43695CA18D2ECCB99629180AF405 /* Foundation.framework */; };
+		DDA1E785BFAC0034FA1B3BB8B818A552 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513E98DFDD9B349E42222E897B3883E5 /* BlurView.swift */; };
+		E7F4D02997FB23558D4EB355A9468399 /* AppKitIntrospectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E0F8809FF807D654B6AFF18C72ABDC /* AppKitIntrospectionView.swift */; };
 		E98F97D971E21142E7901107264D283F /* Pods-Remini_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F1CB16CB78294D9EA706DE455EF567DC /* Pods-Remini_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9D8E71A7543D3D64E290165856661B7 /* BottomSheetHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B5708679DD160FD2B3AA66BB32C790 /* BottomSheetHeight.swift */; };
-		EB9732D7296E76E4A544A85DDA1A2CD4 /* BottomSheetDragState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906D89AAF399927BA13E0A8F080A778B /* BottomSheetDragState.swift */; };
-		F24A3FA337DDA6274DCAFA4369217050 /* View+BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9802B10AAF13807E72F1D110CFA9F6EE /* View+BottomSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0B14E7FE6BB0639DB868A6498E75E4DD /* PBXContainerItemProxy */ = {
+		40A681E88E483AEB893CE4528C0A510A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97E3685499568DCCBA6C15905F707BDC;
+			remoteInfo = Introspect;
+		};
+		42232B47E3455559E33767D746F4D645 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D7B8DA668C17B8162094170968FD5B4D;
 			remoteInfo = "Pods-Remini_";
 		};
-		1678EA7CFF9A06F6DBC215B292C9D608 /* PBXContainerItemProxy */ = {
+		56E9182F68CDF6515AC39EBFB36D29F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3A87E72CF743B443198F48E423482BED;
-			remoteInfo = DSBottomSheet;
+			remoteGlobalIDString = 4D4A2B8AC49058798FE264FB45237448;
+			remoteInfo = SwiftUIBottomSheet;
 		};
-		1C31A01C05628CE51F31C8DD67B658B1 /* PBXContainerItemProxy */ = {
+		A76823DF73F1C66070DD62449711D16F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D61EFD0577F3D8117E87B2F95FBA6CB8;
-			remoteInfo = "SUIBottomSheet-BottomSheet";
+			remoteGlobalIDString = 97E3685499568DCCBA6C15905F707BDC;
+			remoteInfo = Introspect;
 		};
-		43F9E80A722EB354E36F754A087B56B9 /* PBXContainerItemProxy */ = {
+		ADD701D3F5268593DC69A8DC3DDD0403 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7892BD0E93C4740C2DCF46A4E1206E40;
-			remoteInfo = SUIBottomSheet;
+			remoteGlobalIDString = 97E3685499568DCCBA6C15905F707BDC;
+			remoteInfo = Introspect;
 		};
-		9507F0500FE380AEF86C46744A4EB835 /* PBXContainerItemProxy */ = {
+		DD767446DF44A2F5CCE0A8ADC4556AEE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7892BD0E93C4740C2DCF46A4E1206E40;
-			remoteInfo = SUIBottomSheet;
-		};
-		ACC2DD85230AFCF5FD04B7740DF256E7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3A87E72CF743B443198F48E423482BED;
-			remoteInfo = DSBottomSheet;
+			remoteGlobalIDString = 4D4A2B8AC49058798FE264FB45237448;
+			remoteInfo = SwiftUIBottomSheet;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		047354D28DA549D4256EB641AB866F74 /* BottomSheetOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetOptions.swift; path = Source/BottomSheetOptions.swift; sourceTree = "<group>"; };
-		06B8C7C5C8BB8B346A7C783806C5F2C1 /* SUIBottomSheet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SUIBottomSheet.debug.xcconfig; sourceTree = "<group>"; };
-		10007F59E218C3A131F935D3527189A8 /* SUIBottomSheet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SUIBottomSheet-dummy.m"; sourceTree = "<group>"; };
+		052B3F414628EE1DE24EADBF3CAE0510 /* BottomSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheet.swift; path = SwiftUIBottomSheet/Classes/BottomSheet.swift; sourceTree = "<group>"; };
+		060C5EB0B858FB385AFE1DED7A9C200E /* UIKitIntrospectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIKitIntrospectionViewController.swift; path = Introspect/UIKitIntrospectionViewController.swift; sourceTree = "<group>"; };
+		0624FCDC2E81E71DBDCF63443743CEB9 /* UIKitIntrospectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIKitIntrospectionView.swift; path = Introspect/UIKitIntrospectionView.swift; sourceTree = "<group>"; };
+		07E0F8809FF807D654B6AFF18C72ABDC /* AppKitIntrospectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppKitIntrospectionView.swift; path = Introspect/AppKitIntrospectionView.swift; sourceTree = "<group>"; };
 		1272E9EA04952CD5CC39B55F0A08E0E0 /* Pods-Remini_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Remini_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		152DDA5F4E6DA9556B09FA3AF1E36527 /* BundleExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BundleExtension.swift; path = Source/BundleExtension.swift; sourceTree = "<group>"; };
+		160040FCD8B42F8BA7F0695373C70FBB /* Introspect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Introspect.debug.xcconfig; sourceTree = "<group>"; };
 		192D67B7E64A1552A48D0D9490FFBD52 /* Pods-Remini_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Remini_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		1C9BE20BA6CF6A0A7512B1390E0553DB /* DSBottomSheet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DSBottomSheet.release.xcconfig; sourceTree = "<group>"; };
-		1E17D5C02ACFE4285DFE3AC14A0B1530 /* BottomSheetStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetStyle.swift; path = Sources/BottomSheet/BottomSheetStyle.swift; sourceTree = "<group>"; };
-		20A29AC1CEE2E5B4F645FFCB9E3CE963 /* DSBottomSheet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DSBottomSheet.modulemap; sourceTree = "<group>"; };
+		1D39AF7D6671058824EE4EF50018B5BE /* SwiftUIBottomSheet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftUIBottomSheet-prefix.pch"; sourceTree = "<group>"; };
+		1D84436BF1B7A33A9A871D9F59141B5A /* +after.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "+after.swift"; path = "SwiftUIBottomSheet/Classes/Extensions/+after.swift"; sourceTree = "<group>"; };
+		1F6E43695CA18D2ECCB99629180AF405 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		210B57DB12CF30E153222FB781DA3BB4 /* Pods-Remini_-Remini_UITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Remini_-Remini_UITests-frameworks.sh"; sourceTree = "<group>"; };
+		212A72A448A5F4C2A0E585F53AEFC1C5 /* Introspect.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Introspect.modulemap; sourceTree = "<group>"; };
 		223860E485F24E97CD53A665A8E64FF1 /* Pods-Remini_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Remini_Tests"; path = Pods_Remini_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		224D7FA54CC2CA0603C7380EF35B0BBC /* SwiftUIBottomSheet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftUIBottomSheet-dummy.m"; sourceTree = "<group>"; };
 		2739A40B7226894276AC07489F9D49B7 /* Pods-Remini_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Remini_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		2C51C64D5A19AE92642C40428C544B0C /* BottomSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheet.swift; path = Sources/BottomSheet/BottomSheet.swift; sourceTree = "<group>"; };
+		2C51DC2714AD4EB3303304DB5ED0DC5E /* OvergrowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OvergrowView.swift; path = SwiftUIBottomSheet/Classes/OvergrowView.swift; sourceTree = "<group>"; };
 		3326017C7F06FAD339F3E64001718F4A /* Pods-Remini_-Remini_UITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Remini_-Remini_UITests-dummy.m"; sourceTree = "<group>"; };
-		343EF6AE4DABB2CDD6E7C6A03CD95764 /* SUIBottomSheet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SUIBottomSheet-umbrella.h"; sourceTree = "<group>"; };
-		3CC42ECA6AD97414BA526F8B95931976 /* DSBottomSheet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DSBottomSheet-prefix.pch"; sourceTree = "<group>"; };
-		41C495BB9743E7565111D6E214A81766 /* DSBottomSheet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DSBottomSheet-umbrella.h"; sourceTree = "<group>"; };
-		445B7AF69D89DEF709449626088D48D1 /* DSBottomSheet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DSBottomSheet-dummy.m"; sourceTree = "<group>"; };
+		3C7F5DB2F08A85EF668EC439493F7575 /* View+onChange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "View+onChange.swift"; path = "SwiftUIBottomSheet/Classes/Extensions/View+onChange.swift"; sourceTree = "<group>"; };
+		443BCC65F5AFF4EABD300DEF542D252E /* Binding+ext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Binding+ext.swift"; path = "SwiftUIBottomSheet/Classes/Extensions/Binding+ext.swift"; sourceTree = "<group>"; };
 		464052E224438B787EC413B39C1844A2 /* Pods-Remini_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Remini_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		4A65D5441C0FDB5A231653D50546CD29 /* DSBottomSheet */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DSBottomSheet; path = DSBottomSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B34E560004666E764716B105E111060 /* Colors.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = Sources/BottomSheet/Resources/Colors.xcassets; sourceTree = "<group>"; };
 		4C89434AAE678CB47B304E3754356071 /* Pods-Remini_-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Remini_-Info.plist"; sourceTree = "<group>"; };
+		4E9C43993B6F6126FAF0FBE3371E6B6B /* PresentationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresentationView.swift; path = SwiftUIBottomSheet/Classes/PresentationView.swift; sourceTree = "<group>"; };
 		5016A73FAA6DF3D3607DE56306DE807E /* Pods-Remini_-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Remini_-umbrella.h"; sourceTree = "<group>"; };
-		553FC691F8D8DAB290EC58A12EF89ECB /* SUIBottomSheet-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SUIBottomSheet-Info.plist"; sourceTree = "<group>"; };
-		5714012F9A19ABBBFC92C91E47E08F68 /* BottomSheetHandleBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetHandleBar.swift; path = Sources/BottomSheet/BottomSheetHandleBar.swift; sourceTree = "<group>"; };
-		591C9F4A59688F456EDA38AC5FD4AE7A /* DSBottomSheet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DSBottomSheet.debug.xcconfig; sourceTree = "<group>"; };
+		513E98DFDD9B349E42222E897B3883E5 /* BlurView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlurView.swift; path = SwiftUIBottomSheet/Classes/BlurView.swift; sourceTree = "<group>"; };
 		5A9EE5E40598EDBF1E7D3803815B9685 /* Pods-Remini_-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Remini_-frameworks.sh"; sourceTree = "<group>"; };
-		63568530005AB82A3AE3C3782E3448E0 /* BottomSheetHandleStyle+Deprecated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheetHandleStyle+Deprecated.swift"; path = "Sources/BottomSheet/_Deprecated/BottomSheetHandleStyle+Deprecated.swift"; sourceTree = "<group>"; };
-		6F596AE0B312CABA9EC60F5F200EAB35 /* BottomSheetHandle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetHandle.swift; path = Sources/BottomSheet/BottomSheetHandle.swift; sourceTree = "<group>"; };
-		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5B76C57125781570142169AD41EEF3ED /* Introspect-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Introspect-Info.plist"; sourceTree = "<group>"; };
+		6C52A3A737570586D065E53B4074748D /* View+CornerRadius.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "View+CornerRadius.swift"; path = "SwiftUIBottomSheet/Classes/Extensions/View+CornerRadius.swift"; sourceTree = "<group>"; };
+		72E1810D6204D82F43548780CBE2567A /* ViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewExtensions.swift; path = Introspect/ViewExtensions.swift; sourceTree = "<group>"; };
 		77F206AC0B89167B7083E1963972402F /* Pods-Remini_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Remini_Tests-dummy.m"; sourceTree = "<group>"; };
-		7A2D5A24F9A25EA4009EE5AA884E38ED /* SUIBottomSheet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SUIBottomSheet.modulemap; sourceTree = "<group>"; };
+		798985B32650102AFDC6CB9D12295024 /* Introspect-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Introspect-dummy.m"; sourceTree = "<group>"; };
 		7C76993F51E5A8B1130859C23FC391AA /* Pods-Remini_-Remini_UITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Remini_-Remini_UITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7EF1AEAC0C71958BD1F1F1D1DA9FF34D /* Pods-Remini_-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Remini_-acknowledgements.markdown"; sourceTree = "<group>"; };
-		844B83B8321CFE8DB147F41D4A24CCAE /* Root.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Root.strings; path = en.lproj/Root.strings; sourceTree = "<group>"; };
-		845F8F3336BD9E1469A0394C38A3B124 /* BottomSheetView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetView.swift; path = Source/BottomSheetView.swift; sourceTree = "<group>"; };
-		84C7C1244BE229B672A23229EB5092BD /* Bundle+Module.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Bundle+Module.swift"; path = "Sources/BottomSheet/Bundle/Bundle+Module.swift"; sourceTree = "<group>"; };
-		906D89AAF399927BA13E0A8F080A778B /* BottomSheetDragState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetDragState.swift; path = Source/BottomSheetDragState.swift; sourceTree = "<group>"; };
-		915A5C717BB68A91E54C55E836F3EDDB /* SUIBottomSheet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SUIBottomSheet-prefix.pch"; sourceTree = "<group>"; };
+		89A126ECBF52F185CF9984AFAEE3AC7F /* SwiftUIBottomSheet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftUIBottomSheet-umbrella.h"; sourceTree = "<group>"; };
+		8D709C402658AAAC9849F1AFCA54FEAA /* SwiftUIBottomSheet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftUIBottomSheet.debug.xcconfig; sourceTree = "<group>"; };
+		91EC6780ED753F2D2AD0A25B7B13E49D /* View+geometryFetch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "View+geometryFetch.swift"; path = "SwiftUIBottomSheet/Classes/Extensions/View+geometryFetch.swift"; sourceTree = "<group>"; };
+		91FB1D44F2C194AC7B486257E6A67374 /* SwiftUIBottomSheet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftUIBottomSheet.modulemap; sourceTree = "<group>"; };
 		954EC9F6924D7D575B277EFF6FFDD713 /* Pods-Remini_ */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Remini_"; path = Pods_Remini_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		972A71638F9F6A3CC333BB49143E001F /* Pods-Remini_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Remini_Tests.modulemap"; sourceTree = "<group>"; };
-		9802B10AAF13807E72F1D110CFA9F6EE /* View+BottomSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "View+BottomSheet.swift"; path = "Sources/BottomSheet/View+BottomSheet.swift"; sourceTree = "<group>"; };
-		9A0DCF5FB2EC60799AE320F8ED12BFF9 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = Source/BottomSheet.bundle/en.lproj; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A0A839676EF5FAEBE834BEA0E7B508BB /* Pods-Remini_-Remini_UITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Remini_-Remini_UITests-umbrella.h"; sourceTree = "<group>"; };
-		A1BB3112BB0337584000620A4D0F625C /* BottomSheetLabelModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetLabelModifier.swift; path = Source/BottomSheetLabelModifier.swift; sourceTree = "<group>"; };
-		A4A6B4E9E1704248F98CB66878EE7187 /* BottomSheetState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetState.swift; path = Source/BottomSheetState.swift; sourceTree = "<group>"; };
-		A786D71A1516B933B20B26297DA8A32A /* SUIBottomSheet-BottomSheet */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "SUIBottomSheet-BottomSheet"; path = BottomSheet.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7AF0F29CD3E5B25DF9C1A3BB2B47F10 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Source/Constants.swift; sourceTree = "<group>"; };
+		A25ACF55774D9365DC96BEF711474F58 /* Introspect-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Introspect-umbrella.h"; sourceTree = "<group>"; };
+		A2D1A00627F47E4BDE7C2A9740FE6790 /* Introspect-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Introspect-prefix.pch"; sourceTree = "<group>"; };
 		A9E888E6765163AFB765F1D151F05E3F /* Pods-Remini_.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Remini_.release.xcconfig"; sourceTree = "<group>"; };
 		B1B87C560D7BCDCF3174053782358E78 /* Pods-Remini_.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Remini_.modulemap"; sourceTree = "<group>"; };
-		B31123DE5D3FCD3037C22F60FFC2A39A /* Root.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Root.plist; path = Source/BottomSheet.bundle/Root.plist; sourceTree = "<group>"; };
-		B33B88613277168F92BE9FAA8B3503D7 /* ResourceBundle-BottomSheet-SUIBottomSheet-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-BottomSheet-SUIBottomSheet-Info.plist"; sourceTree = "<group>"; };
 		B4778CB31029E20B571ADE6E1E696114 /* Pods-Remini_-Remini_UITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Remini_-Remini_UITests"; path = Pods_Remini__Remini_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7B5708679DD160FD2B3AA66BB32C790 /* BottomSheetHeight.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetHeight.swift; path = Sources/BottomSheet/BottomSheetHeight.swift; sourceTree = "<group>"; };
-		BDCDE5B020707A1587BBC4DB374DF387 /* close@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "close@3x.png"; path = "Source/BottomSheet.bundle/close@3x.png"; sourceTree = "<group>"; };
-		BED74F495AC075527485B6576D42EF04 /* SUIBottomSheet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SUIBottomSheet.release.xcconfig; sourceTree = "<group>"; };
-		C844E06919BA962832D63D90099C2370 /* DSBottomSheet-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DSBottomSheet-Info.plist"; sourceTree = "<group>"; };
-		CAAB5D0664B1D53654F54DE9053111DC /* close@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "close@2x.png"; path = "Source/BottomSheet.bundle/close@2x.png"; sourceTree = "<group>"; };
+		CC0E36001E64A26C7642A7F2A40EC757 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
 		CC2243C093111FAD94C4142A1DFE753A /* Pods-Remini_-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Remini_-dummy.m"; sourceTree = "<group>"; };
 		CD299F45FB221BB99ED23FB128949654 /* Pods-Remini_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Remini_Tests-Info.plist"; sourceTree = "<group>"; };
-		DA781361B8FC2B6AB0DC0B401CAC5D67 /* SheetColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SheetColor.swift; path = Sources/BottomSheet/Color/SheetColor.swift; sourceTree = "<group>"; };
-		DB162BD4A6DCA11AF0FA09498F82E081 /* BottomSheetHandleStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetHandleStyle.swift; path = Sources/BottomSheet/BottomSheetHandleStyle.swift; sourceTree = "<group>"; };
+		D0A70003FD5E49B30CA83DAAFE03116B /* Introspect */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Introspect; path = Introspect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D526DD1FEC06F3D11261530071FE23F4 /* SwiftUIBottomSheet-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftUIBottomSheet-Info.plist"; sourceTree = "<group>"; };
+		D99A921C6CE25E3D146D962BE7358B44 /* SwiftUIBottomSheet */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftUIBottomSheet; path = SwiftUIBottomSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA9D6B54EB35BA403010B12AB1B9AEED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		DB80A8956B5EC84C5E0C41943F37B49D /* Pods-Remini_-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Remini_-acknowledgements.plist"; sourceTree = "<group>"; };
-		DC70D50024301B2E2080C56270C26B26 /* Color+Sheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Color+Sheet.swift"; path = "Sources/BottomSheet/Color/Color+Sheet.swift"; sourceTree = "<group>"; };
+		E143E96C69D53BA420B5A5B1E483C040 /* SwiftUIBottomSheet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftUIBottomSheet.release.xcconfig; sourceTree = "<group>"; };
 		E21D4AE84E30FBDDF67B0010FCA0AF2A /* Pods-Remini_-Remini_UITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Remini_-Remini_UITests.modulemap"; sourceTree = "<group>"; };
 		E39BADDC60ABA165E27EC675245CE566 /* Pods-Remini_-Remini_UITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Remini_-Remini_UITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		E4B9AC6C85F4555670DED6F2DFB591CB /* SUIBottomSheet */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SUIBottomSheet; path = SUIBottomSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E53C05DB9E2197736D89BF57CB146D1A /* Pods-Remini_-Remini_UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Remini_-Remini_UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E8C6007CAB21B306A1186FAAF29943D8 /* Pods-Remini_-Remini_UITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Remini_-Remini_UITests-Info.plist"; sourceTree = "<group>"; };
+		EFF03C2D0B6D4972A1CD4D81B2BB61AD /* Introspect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Introspect.swift; path = Introspect/Introspect.swift; sourceTree = "<group>"; };
 		F1CB16CB78294D9EA706DE455EF567DC /* Pods-Remini_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Remini_Tests-umbrella.h"; sourceTree = "<group>"; };
-		F428F84ADF406379A5A938884E8157CA /* close.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = close.png; path = Source/BottomSheet.bundle/close.png; sourceTree = "<group>"; };
 		FBDC75ABCED7B7FCA225DA9D8ADF03F8 /* Pods-Remini_-Remini_UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Remini_-Remini_UITests.release.xcconfig"; sourceTree = "<group>"; };
 		FC8612FC472D91561A008AD0E5C7A715 /* Pods-Remini_.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Remini_.debug.xcconfig"; sourceTree = "<group>"; };
+		FDDB659A1173F0C4CA4E5CA722E8A7AE /* Introspect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Introspect.release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		01D4118DA29CADDB81070D62D340CC23 /* Frameworks */ = {
+		449296AD071BE998D83E79FEDD2D7072 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA2A90DDE529838E4715B213D44053D0 /* Foundation.framework in Frameworks */,
+				69E2512D9FAE9213FCD14A8936FFCD87 /* SwiftUI.framework in Frameworks */,
+				8CA584B6A6981D7B8125B4BB55553BAE /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,60 +170,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		968C9A0950D107D7ECF17CD69BAE704B /* Frameworks */ = {
+		7E904345B4B0593AEDD2D272D441F53C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4E7ECC086278342FC72D02657B6A30D /* Foundation.framework in Frameworks */,
+				5DFDDF6BC35A9F212CCEEA7D3597819C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C1E8C8F6B365E58E95B63F5179D079A9 /* Frameworks */ = {
+		AD72E8F3AF9B26B541E427272911EEC4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49E10435F816C3918D176325C854A5D4 /* Foundation.framework in Frameworks */,
+				709FBC171CA4A79D453A3498B03A88EA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA1E0230FF8B42EA56629076CF55E5BE /* Frameworks */ = {
+		D0292CF5669AE585F07266E0060FFF2F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24FEFB5B3710D9AC0AA9D73119C79937 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E48111C467D26A17966F2D9E7BCA6861 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9CB6D05BE1D5DA71AA1194F19108E2E5 /* Foundation.framework in Frameworks */,
+				12BC3E1A4AF2553F6462EC3363E83CA8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03DF31DDCBE223B838F0B0B114B1133D /* Products */ = {
+		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4A65D5441C0FDB5A231653D50546CD29 /* DSBottomSheet */,
-				954EC9F6924D7D575B277EFF6FFDD713 /* Pods-Remini_ */,
-				B4778CB31029E20B571ADE6E1E696114 /* Pods-Remini_-Remini_UITests */,
-				223860E485F24E97CD53A665A8E64FF1 /* Pods-Remini_Tests */,
-				E4B9AC6C85F4555670DED6F2DFB591CB /* SUIBottomSheet */,
-				A786D71A1516B933B20B26297DA8A32A /* SUIBottomSheet-BottomSheet */,
+				F5526776CFB064E883CCCEF07083471F /* iOS */,
 			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		0F8A881B811F3AF1BFE7304D53A79336 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				4B34E560004666E764716B105E111060 /* Colors.xcassets */,
-			);
-			name = Resources;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		19C70ECE1537002BAAFA50CB2A86CC85 /* Targets Support Files */ = {
@@ -274,59 +231,16 @@
 			path = "Target Support Files/Pods-Remini_Tests";
 			sourceTree = "<group>";
 		};
-		4A05DACFAC193B145E8E786E5E0F871B /* SUIBottomSheet */ = {
+		6C7670E8711689351540BDC946994B3D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				906D89AAF399927BA13E0A8F080A778B /* BottomSheetDragState.swift */,
-				A1BB3112BB0337584000620A4D0F625C /* BottomSheetLabelModifier.swift */,
-				047354D28DA549D4256EB641AB866F74 /* BottomSheetOptions.swift */,
-				A4A6B4E9E1704248F98CB66878EE7187 /* BottomSheetState.swift */,
-				845F8F3336BD9E1469A0394C38A3B124 /* BottomSheetView.swift */,
-				152DDA5F4E6DA9556B09FA3AF1E36527 /* BundleExtension.swift */,
-				F428F84ADF406379A5A938884E8157CA /* close.png */,
-				CAAB5D0664B1D53654F54DE9053111DC /* close@2x.png */,
-				BDCDE5B020707A1587BBC4DB374DF387 /* close@3x.png */,
-				A7AF0F29CD3E5B25DF9C1A3BB2B47F10 /* Constants.swift */,
-				B31123DE5D3FCD3037C22F60FFC2A39A /* Root.plist */,
-				69166657FE20C073D61E45686447FFDD /* Root.strings */,
-				E88A97B31E2ECB8D2F8BBB443277D0D9 /* Resources */,
-				580663DDFDC41ACC1E431F4F819CB9F3 /* Support Files */,
+				D0A70003FD5E49B30CA83DAAFE03116B /* Introspect */,
+				954EC9F6924D7D575B277EFF6FFDD713 /* Pods-Remini_ */,
+				B4778CB31029E20B571ADE6E1E696114 /* Pods-Remini_-Remini_UITests */,
+				223860E485F24E97CD53A665A8E64FF1 /* Pods-Remini_Tests */,
+				D99A921C6CE25E3D146D962BE7358B44 /* SwiftUIBottomSheet */,
 			);
-			name = SUIBottomSheet;
-			path = SUIBottomSheet;
-			sourceTree = "<group>";
-		};
-		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		580663DDFDC41ACC1E431F4F819CB9F3 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B33B88613277168F92BE9FAA8B3503D7 /* ResourceBundle-BottomSheet-SUIBottomSheet-Info.plist */,
-				7A2D5A24F9A25EA4009EE5AA884E38ED /* SUIBottomSheet.modulemap */,
-				10007F59E218C3A131F935D3527189A8 /* SUIBottomSheet-dummy.m */,
-				553FC691F8D8DAB290EC58A12EF89ECB /* SUIBottomSheet-Info.plist */,
-				915A5C717BB68A91E54C55E836F3EDDB /* SUIBottomSheet-prefix.pch */,
-				343EF6AE4DABB2CDD6E7C6A03CD95764 /* SUIBottomSheet-umbrella.h */,
-				06B8C7C5C8BB8B346A7C783806C5F2C1 /* SUIBottomSheet.debug.xcconfig */,
-				BED74F495AC075527485B6576D42EF04 /* SUIBottomSheet.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SUIBottomSheet";
-			sourceTree = "<group>";
-		};
-		64E06ABCB8426BD28B007DBDB8E158A8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C742062C80BE402641AD4C1DA93DF3CE /* DSBottomSheet */,
-				4A05DACFAC193B145E8E786E5E0F871B /* SUIBottomSheet */,
-			);
-			name = Pods;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		83AE04A9E8A612BD749CE8717C9168AC /* Pods-Remini_ */ = {
@@ -346,59 +260,71 @@
 			path = "Target Support Files/Pods-Remini_";
 			sourceTree = "<group>";
 		};
-		C27A8228E410F8960D96E0A64B33B93A /* Support Files */ = {
+		9524CC790212A0B3F0CCE47B01BF4A8B /* SwiftUIBottomSheet */ = {
 			isa = PBXGroup;
 			children = (
-				20A29AC1CEE2E5B4F645FFCB9E3CE963 /* DSBottomSheet.modulemap */,
-				445B7AF69D89DEF709449626088D48D1 /* DSBottomSheet-dummy.m */,
-				C844E06919BA962832D63D90099C2370 /* DSBottomSheet-Info.plist */,
-				3CC42ECA6AD97414BA526F8B95931976 /* DSBottomSheet-prefix.pch */,
-				41C495BB9743E7565111D6E214A81766 /* DSBottomSheet-umbrella.h */,
-				591C9F4A59688F456EDA38AC5FD4AE7A /* DSBottomSheet.debug.xcconfig */,
-				1C9BE20BA6CF6A0A7512B1390E0553DB /* DSBottomSheet.release.xcconfig */,
+				1D84436BF1B7A33A9A871D9F59141B5A /* +after.swift */,
+				443BCC65F5AFF4EABD300DEF542D252E /* Binding+ext.swift */,
+				513E98DFDD9B349E42222E897B3883E5 /* BlurView.swift */,
+				052B3F414628EE1DE24EADBF3CAE0510 /* BottomSheet.swift */,
+				2C51DC2714AD4EB3303304DB5ED0DC5E /* OvergrowView.swift */,
+				4E9C43993B6F6126FAF0FBE3371E6B6B /* PresentationView.swift */,
+				6C52A3A737570586D065E53B4074748D /* View+CornerRadius.swift */,
+				91EC6780ED753F2D2AD0A25B7B13E49D /* View+geometryFetch.swift */,
+				3C7F5DB2F08A85EF668EC439493F7575 /* View+onChange.swift */,
+				EAEE0D4825B593D4A4CEBFFC20B2FCB7 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/DSBottomSheet";
+			name = SwiftUIBottomSheet;
+			path = SwiftUIBottomSheet;
 			sourceTree = "<group>";
 		};
-		C742062C80BE402641AD4C1DA93DF3CE /* DSBottomSheet */ = {
+		A7DEB8E8CE61AD89B27FF024C196D4B2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2C51C64D5A19AE92642C40428C544B0C /* BottomSheet.swift */,
-				6F596AE0B312CABA9EC60F5F200EAB35 /* BottomSheetHandle.swift */,
-				5714012F9A19ABBBFC92C91E47E08F68 /* BottomSheetHandleBar.swift */,
-				DB162BD4A6DCA11AF0FA09498F82E081 /* BottomSheetHandleStyle.swift */,
-				63568530005AB82A3AE3C3782E3448E0 /* BottomSheetHandleStyle+Deprecated.swift */,
-				B7B5708679DD160FD2B3AA66BB32C790 /* BottomSheetHeight.swift */,
-				1E17D5C02ACFE4285DFE3AC14A0B1530 /* BottomSheetStyle.swift */,
-				84C7C1244BE229B672A23229EB5092BD /* Bundle+Module.swift */,
-				DC70D50024301B2E2080C56270C26B26 /* Color+Sheet.swift */,
-				DA781361B8FC2B6AB0DC0B401CAC5D67 /* SheetColor.swift */,
-				9802B10AAF13807E72F1D110CFA9F6EE /* View+BottomSheet.swift */,
-				0F8A881B811F3AF1BFE7304D53A79336 /* Resources */,
-				C27A8228E410F8960D96E0A64B33B93A /* Support Files */,
+				E09690CB2599CDE6650003826C6CC22B /* Introspect */,
+				9524CC790212A0B3F0CCE47B01BF4A8B /* SwiftUIBottomSheet */,
 			);
-			name = DSBottomSheet;
-			path = DSBottomSheet;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				64E06ABCB8426BD28B007DBDB8E158A8 /* Pods */,
-				03DF31DDCBE223B838F0B0B114B1133D /* Products */,
+				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
+				A7DEB8E8CE61AD89B27FF024C196D4B2 /* Pods */,
+				6C7670E8711689351540BDC946994B3D /* Products */,
 				19C70ECE1537002BAAFA50CB2A86CC85 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+		D809E6C9E910CBFCD01D2B07DDCCE857 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				578452D2E740E91742655AC8F1636D1F /* iOS */,
+				212A72A448A5F4C2A0E585F53AEFC1C5 /* Introspect.modulemap */,
+				798985B32650102AFDC6CB9D12295024 /* Introspect-dummy.m */,
+				5B76C57125781570142169AD41EEF3ED /* Introspect-Info.plist */,
+				A2D1A00627F47E4BDE7C2A9740FE6790 /* Introspect-prefix.pch */,
+				A25ACF55774D9365DC96BEF711474F58 /* Introspect-umbrella.h */,
+				160040FCD8B42F8BA7F0695373C70FBB /* Introspect.debug.xcconfig */,
+				FDDB659A1173F0C4CA4E5CA722E8A7AE /* Introspect.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = "Support Files";
+			path = "../Target Support Files/Introspect";
+			sourceTree = "<group>";
+		};
+		E09690CB2599CDE6650003826C6CC22B /* Introspect */ = {
+			isa = PBXGroup;
+			children = (
+				07E0F8809FF807D654B6AFF18C72ABDC /* AppKitIntrospectionView.swift */,
+				EFF03C2D0B6D4972A1CD4D81B2BB61AD /* Introspect.swift */,
+				0624FCDC2E81E71DBDCF63443743CEB9 /* UIKitIntrospectionView.swift */,
+				060C5EB0B858FB385AFE1DED7A9C200E /* UIKitIntrospectionViewController.swift */,
+				72E1810D6204D82F43548780CBE2567A /* ViewExtensions.swift */,
+				D809E6C9E910CBFCD01D2B07DDCCE857 /* Support Files */,
+			);
+			name = Introspect;
+			path = Introspect;
 			sourceTree = "<group>";
 		};
 		E3425A6D2303C233559616FFA802FB0B /* Pods-Remini_-Remini_UITests */ = {
@@ -418,30 +344,39 @@
 			path = "Target Support Files/Pods-Remini_-Remini_UITests";
 			sourceTree = "<group>";
 		};
-		E88A97B31E2ECB8D2F8BBB443277D0D9 /* Resources */ = {
+		EAEE0D4825B593D4A4CEBFFC20B2FCB7 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				9A0DCF5FB2EC60799AE320F8ED12BFF9 /* en.lproj */,
+				91FB1D44F2C194AC7B486257E6A67374 /* SwiftUIBottomSheet.modulemap */,
+				224D7FA54CC2CA0603C7380EF35B0BBC /* SwiftUIBottomSheet-dummy.m */,
+				D526DD1FEC06F3D11261530071FE23F4 /* SwiftUIBottomSheet-Info.plist */,
+				1D39AF7D6671058824EE4EF50018B5BE /* SwiftUIBottomSheet-prefix.pch */,
+				89A126ECBF52F185CF9984AFAEE3AC7F /* SwiftUIBottomSheet-umbrella.h */,
+				8D709C402658AAAC9849F1AFCA54FEAA /* SwiftUIBottomSheet.debug.xcconfig */,
+				E143E96C69D53BA420B5A5B1E483C040 /* SwiftUIBottomSheet.release.xcconfig */,
 			);
-			name = Resources;
+			name = "Support Files";
+			path = "../Target Support Files/SwiftUIBottomSheet";
+			sourceTree = "<group>";
+		};
+		F5526776CFB064E883CCCEF07083471F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1F6E43695CA18D2ECCB99629180AF405 /* Foundation.framework */,
+				CC0E36001E64A26C7642A7F2A40EC757 /* SwiftUI.framework */,
+				DA9D6B54EB35BA403010B12AB1B9AEED /* UIKit.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0A15003BD54C7778D94475543E21C6FE /* Headers */ = {
+		1285B629A26B86C5ADF443C16661F352 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ED154C3EF0D5E364CE24E97E6452F97 /* Pods-Remini_-Remini_UITests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0E2C479293213F3A6A7573274D7FBCA0 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DFC25DCC12D27F761176BC898DE31391 /* Pods-Remini_-umbrella.h in Headers */,
+				931C4BCED331AC51284E29D2037AA36C /* SwiftUIBottomSheet-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,113 +388,104 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75DDC58CE1ED9C473483D82818F628C5 /* Headers */ = {
+		71E7D300AB735BF70F1076B853118288 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DC0A2847094B3FE8DDE926981580530 /* SUIBottomSheet-umbrella.h in Headers */,
+				1E1F53A3BA6D3FAF0205A9900649E5F7 /* Pods-Remini_-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D0899F31CEF9A0FD45196B336859F4D6 /* Headers */ = {
+		83CC153F28E7FE180B38CC94F140D026 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CACA8069581EA9D63CEDD4BC69CD5FCE /* DSBottomSheet-umbrella.h in Headers */,
+				2ED337521377EBC72C299C80B118656C /* Pods-Remini_-Remini_UITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAE798048E07C983DD95742428F9C4D5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				570CC90B331AF79D04F17BEC10D4B403 /* Introspect-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3A87E72CF743B443198F48E423482BED /* DSBottomSheet */ = {
+		4D4A2B8AC49058798FE264FB45237448 /* SwiftUIBottomSheet */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 25606B259FB9F2E7CCF13AE40AC28921 /* Build configuration list for PBXNativeTarget "DSBottomSheet" */;
+			buildConfigurationList = F860F8640F8D229D33980DB7A64FD83F /* Build configuration list for PBXNativeTarget "SwiftUIBottomSheet" */;
 			buildPhases = (
-				D0899F31CEF9A0FD45196B336859F4D6 /* Headers */,
-				94DC33E56F1034C7168E1FADD6BEDB8F /* Sources */,
-				968C9A0950D107D7ECF17CD69BAE704B /* Frameworks */,
-				A05D993BE57E237C84A9B908A28D3BC6 /* Resources */,
+				1285B629A26B86C5ADF443C16661F352 /* Headers */,
+				C986C21D4D20437E35DE39B3DDD215F4 /* Sources */,
+				449296AD071BE998D83E79FEDD2D7072 /* Frameworks */,
+				E07497410463F36422BC30B49D82809C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0A201F9D004E9342D4E92E738770A300 /* PBXTargetDependency */,
 			);
-			name = DSBottomSheet;
-			productName = DSBottomSheet;
-			productReference = 4A65D5441C0FDB5A231653D50546CD29 /* DSBottomSheet */;
+			name = SwiftUIBottomSheet;
+			productName = SwiftUIBottomSheet;
+			productReference = D99A921C6CE25E3D146D962BE7358B44 /* SwiftUIBottomSheet */;
 			productType = "com.apple.product-type.framework";
 		};
-		7892BD0E93C4740C2DCF46A4E1206E40 /* SUIBottomSheet */ = {
+		97E3685499568DCCBA6C15905F707BDC /* Introspect */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E750A27C1709D02EE6DD7C63F9696206 /* Build configuration list for PBXNativeTarget "SUIBottomSheet" */;
+			buildConfigurationList = 1B4245D565E60AD5C4C309E57C32E817 /* Build configuration list for PBXNativeTarget "Introspect" */;
 			buildPhases = (
-				75DDC58CE1ED9C473483D82818F628C5 /* Headers */,
-				89E9960D31627664AF69A9839BBABD2C /* Sources */,
-				DA1E0230FF8B42EA56629076CF55E5BE /* Frameworks */,
-				9CE5E4CAA63BCE35A66804DE4F9214C7 /* Resources */,
+				EAE798048E07C983DD95742428F9C4D5 /* Headers */,
+				F725BB609AF8A992324F803F361DC21C /* Sources */,
+				7E904345B4B0593AEDD2D272D441F53C /* Frameworks */,
+				C5A66D00CCBA1409A8491FC061A6BA0B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C5191E45924BCFF5B3CC30C8885A13ED /* PBXTargetDependency */,
 			);
-			name = SUIBottomSheet;
-			productName = SUIBottomSheet;
-			productReference = E4B9AC6C85F4555670DED6F2DFB591CB /* SUIBottomSheet */;
+			name = Introspect;
+			productName = Introspect;
+			productReference = D0A70003FD5E49B30CA83DAAFE03116B /* Introspect */;
 			productType = "com.apple.product-type.framework";
 		};
 		C7742D8420576B1FFFDE996FF00E5126 /* Pods-Remini_-Remini_UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D3B644836C6371DEA033F052795B8552 /* Build configuration list for PBXNativeTarget "Pods-Remini_-Remini_UITests" */;
+			buildConfigurationList = DF2F10E69376D772ABF4F99881CC8D04 /* Build configuration list for PBXNativeTarget "Pods-Remini_-Remini_UITests" */;
 			buildPhases = (
-				0A15003BD54C7778D94475543E21C6FE /* Headers */,
-				7AB1A5CA00EB20402881AEFE0DB460C9 /* Sources */,
-				E48111C467D26A17966F2D9E7BCA6861 /* Frameworks */,
-				A28FDF4F600169D36A005A35A8F75B4F /* Resources */,
+				83CC153F28E7FE180B38CC94F140D026 /* Headers */,
+				3F9B6D30F3A2840D82F7A26C90441C4C /* Sources */,
+				AD72E8F3AF9B26B541E427272911EEC4 /* Frameworks */,
+				CE9F425BCC86D14C7D32EFB64DCD7990 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				71BF560E17693E2DBF8D734A29D79F49 /* PBXTargetDependency */,
-				1F815CCA381AFED53F566B1DB5EF4E7A /* PBXTargetDependency */,
+				22154FF65F5EFC4C49BE6CA2B06379C8 /* PBXTargetDependency */,
+				10ADC6328EC4A33214488B42B05951C1 /* PBXTargetDependency */,
 			);
 			name = "Pods-Remini_-Remini_UITests";
 			productName = Pods_Remini__Remini_UITests;
 			productReference = B4778CB31029E20B571ADE6E1E696114 /* Pods-Remini_-Remini_UITests */;
 			productType = "com.apple.product-type.framework";
 		};
-		D61EFD0577F3D8117E87B2F95FBA6CB8 /* SUIBottomSheet-BottomSheet */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8263CAD337BC4A4D4B0A632130322116 /* Build configuration list for PBXNativeTarget "SUIBottomSheet-BottomSheet" */;
-			buildPhases = (
-				4C883A1651AA4DCDE5AFDC03A23C5F25 /* Sources */,
-				01D4118DA29CADDB81070D62D340CC23 /* Frameworks */,
-				AB1481B77B4B0EDBEC5740E5C09A29AD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "SUIBottomSheet-BottomSheet";
-			productName = BottomSheet;
-			productReference = A786D71A1516B933B20B26297DA8A32A /* SUIBottomSheet-BottomSheet */;
-			productType = "com.apple.product-type.bundle";
-		};
 		D7B8DA668C17B8162094170968FD5B4D /* Pods-Remini_ */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D94ECF0D9BCCDAFA1BAF347A3611E79F /* Build configuration list for PBXNativeTarget "Pods-Remini_" */;
+			buildConfigurationList = BB339D2631D26CB6EA6403F13D103CE9 /* Build configuration list for PBXNativeTarget "Pods-Remini_" */;
 			buildPhases = (
-				0E2C479293213F3A6A7573274D7FBCA0 /* Headers */,
-				07DFDA162AC074E6B29D5D7511E8101A /* Sources */,
-				C1E8C8F6B365E58E95B63F5179D079A9 /* Frameworks */,
-				278009984B650AEE8C20510385D03CB1 /* Resources */,
+				71E7D300AB735BF70F1076B853118288 /* Headers */,
+				7101A443C4BECB06975167125DB5892B /* Sources */,
+				D0292CF5669AE585F07266E0060FFF2F /* Frameworks */,
+				7740D47B2E4ED08F789A40ABFB499AB6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4C29227A84E96A695C8BFA50DDA2DC8B /* PBXTargetDependency */,
-				DBFDAB4E57E7862929739DC4368A21CE /* PBXTargetDependency */,
+				0DE92ABB2562374918286836BEB96187 /* PBXTargetDependency */,
+				8FE6B1EF77E6AC3C082C0D8E18367E50 /* PBXTargetDependency */,
 			);
 			name = "Pods-Remini_";
 			productName = Pods_Remini_;
@@ -578,7 +504,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D14EA0C87AA4DF1CA9893D06E1101630 /* PBXTargetDependency */,
+				EA25E4E7A0F44C2064DA900A0492900A /* PBXTargetDependency */,
 			);
 			name = "Pods-Remini_Tests";
 			productName = Pods_Remini_Tests;
@@ -603,22 +529,21 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 03DF31DDCBE223B838F0B0B114B1133D /* Products */;
+			productRefGroup = 6C7670E8711689351540BDC946994B3D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3A87E72CF743B443198F48E423482BED /* DSBottomSheet */,
+				97E3685499568DCCBA6C15905F707BDC /* Introspect */,
 				D7B8DA668C17B8162094170968FD5B4D /* Pods-Remini_ */,
 				C7742D8420576B1FFFDE996FF00E5126 /* Pods-Remini_-Remini_UITests */,
 				FAAE255B14B59826362C3D250DE1BF29 /* Pods-Remini_Tests */,
-				7892BD0E93C4740C2DCF46A4E1206E40 /* SUIBottomSheet */,
-				D61EFD0577F3D8117E87B2F95FBA6CB8 /* SUIBottomSheet-BottomSheet */,
+				4D4A2B8AC49058798FE264FB45237448 /* SwiftUIBottomSheet */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		278009984B650AEE8C20510385D03CB1 /* Resources */ = {
+		7740D47B2E4ED08F789A40ABFB499AB6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -632,56 +557,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9CE5E4CAA63BCE35A66804DE4F9214C7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BBFF232783DC696E0900867F3C7ACA92 /* SUIBottomSheet-BottomSheet in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A05D993BE57E237C84A9B908A28D3BC6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9294594B2BFCCD4DEA962827BD34D8E8 /* Colors.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A28FDF4F600169D36A005A35A8F75B4F /* Resources */ = {
+		C5A66D00CCBA1409A8491FC061A6BA0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB1481B77B4B0EDBEC5740E5C09A29AD /* Resources */ = {
+		CE9F425BCC86D14C7D32EFB64DCD7990 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3993900C107217DD72742627C4C690F1 /* close.png in Resources */,
-				78EF3C8F7B4B5930A7471F4AEDD3B142 /* close@2x.png in Resources */,
-				6F26D1E04B9B5E41F269D3EFE5625AB6 /* close@3x.png in Resources */,
-				C3407B85E7F2EDD8CEAA02788F209A71 /* en.lproj in Resources */,
-				6DD8A2CDACA37DEF29CB23B40DE7E7F6 /* Root.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E07497410463F36422BC30B49D82809C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		07DFDA162AC074E6B29D5D7511E8101A /* Sources */ = {
+		3F9B6D30F3A2840D82F7A26C90441C4C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F4A2934E1E00B227E5FE0560E15E941 /* Pods-Remini_-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4C883A1651AA4DCDE5AFDC03A23C5F25 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				4742BC449A96329548FA82FF6DE11721 /* Pods-Remini_-Remini_UITests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,182 +597,87 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7AB1A5CA00EB20402881AEFE0DB460C9 /* Sources */ = {
+		7101A443C4BECB06975167125DB5892B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A35482B9337B2A41D7E193197D6FF752 /* Pods-Remini_-Remini_UITests-dummy.m in Sources */,
+				809FAA9335F8E8C7B2595FCB54644379 /* Pods-Remini_-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		89E9960D31627664AF69A9839BBABD2C /* Sources */ = {
+		C986C21D4D20437E35DE39B3DDD215F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB9732D7296E76E4A544A85DDA1A2CD4 /* BottomSheetDragState.swift in Sources */,
-				6867C9FEAE1DF1F7F6E069D8F770224A /* BottomSheetLabelModifier.swift in Sources */,
-				5F8AC78D5F66B70208D4E0CAA0C5C6E1 /* BottomSheetOptions.swift in Sources */,
-				D3786151FA19A4C076CB6430B5CEAE6B /* BottomSheetState.swift in Sources */,
-				461AC1D10F01942F423ABA4D9907BBF9 /* BottomSheetView.swift in Sources */,
-				5FAF1F4E75F9D0C2E718D6ED13092EBB /* BundleExtension.swift in Sources */,
-				2AD3BA823F9257AFDC514C09EBD480F9 /* close.png in Sources */,
-				B51404E80ADD2BCAA6A2F0EB354D0DF5 /* close@2x.png in Sources */,
-				C2D2BF0E552F807B74682982E6AC0E32 /* close@3x.png in Sources */,
-				CAA07F1FA761ECD0F03FB1C66320C614 /* Constants.swift in Sources */,
-				523DE8FA810581E5168D7D1B7467AF34 /* Root.plist in Sources */,
-				A76349F3FB2203EEA5825AA74F347A3F /* Root.strings in Sources */,
-				3ED06ACB5BB090504E57C7031C8B7219 /* SUIBottomSheet-dummy.m in Sources */,
+				86AE9ED4C2453F772227E530FD789C45 /* +after.swift in Sources */,
+				8B36C90D12FC262008757514CF1DF6B0 /* Binding+ext.swift in Sources */,
+				DDA1E785BFAC0034FA1B3BB8B818A552 /* BlurView.swift in Sources */,
+				9203AF090F1DE1BE65B7202E966C6D29 /* BottomSheet.swift in Sources */,
+				91B80D22E4F7894DDF1A40990AA7AE0B /* OvergrowView.swift in Sources */,
+				7AD5A06580EC4006934E213FAFC411AE /* PresentationView.swift in Sources */,
+				C25AC5122FA97DF40B165EAC4FADBEFE /* SwiftUIBottomSheet-dummy.m in Sources */,
+				B081C5F7A9991DFF44F0FC8A1D819A3C /* View+CornerRadius.swift in Sources */,
+				1BC91F01C29B26A2B080DCA7006B5399 /* View+geometryFetch.swift in Sources */,
+				692A2C38169C3370FDC61DCBE651A15C /* View+onChange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		94DC33E56F1034C7168E1FADD6BEDB8F /* Sources */ = {
+		F725BB609AF8A992324F803F361DC21C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85DE326EB15D1A855B63C7A0B8F76897 /* BottomSheet.swift in Sources */,
-				4925597A840E1B43733ADD21FDF2D1AC /* BottomSheetHandle.swift in Sources */,
-				8355DC2E6DE577979F48341B4CC87692 /* BottomSheetHandleBar.swift in Sources */,
-				35A87AF8F5BE37DB307633139C446919 /* BottomSheetHandleStyle.swift in Sources */,
-				81E95DC82D8E7A4C1FC01811CDCBBBA2 /* BottomSheetHandleStyle+Deprecated.swift in Sources */,
-				E9D8E71A7543D3D64E290165856661B7 /* BottomSheetHeight.swift in Sources */,
-				3E6E7FBC16A4316CA1E8811B720F7805 /* BottomSheetStyle.swift in Sources */,
-				6AD21498DE8FA0B9C3B6EC33499F6FFC /* Bundle+Module.swift in Sources */,
-				3318DCF1D549C762C4111794F03A98A7 /* Color+Sheet.swift in Sources */,
-				5BF4595145B8E9F0527D329413A8268D /* DSBottomSheet-dummy.m in Sources */,
-				B68E9007FCFBF1A0196EF2E25412983B /* SheetColor.swift in Sources */,
-				F24A3FA337DDA6274DCAFA4369217050 /* View+BottomSheet.swift in Sources */,
+				E7F4D02997FB23558D4EB355A9468399 /* AppKitIntrospectionView.swift in Sources */,
+				76B3648900CCBD35599E0D6C131E8FED /* Introspect.swift in Sources */,
+				7EBB7B8790D97A7F1D036A0058E4F56A /* Introspect-dummy.m in Sources */,
+				548387A15133D9C63B42DC43FB5E6E1D /* UIKitIntrospectionView.swift in Sources */,
+				6A10452C7C1949F05ECA4C7AC8B4936E /* UIKitIntrospectionViewController.swift in Sources */,
+				864F9DEB1F1B8C92F62917A3B1884561 /* ViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1F815CCA381AFED53F566B1DB5EF4E7A /* PBXTargetDependency */ = {
+		0A201F9D004E9342D4E92E738770A300 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = SUIBottomSheet;
-			target = 7892BD0E93C4740C2DCF46A4E1206E40 /* SUIBottomSheet */;
-			targetProxy = 43F9E80A722EB354E36F754A087B56B9 /* PBXContainerItemProxy */;
+			name = Introspect;
+			target = 97E3685499568DCCBA6C15905F707BDC /* Introspect */;
+			targetProxy = A76823DF73F1C66070DD62449711D16F /* PBXContainerItemProxy */;
 		};
-		4C29227A84E96A695C8BFA50DDA2DC8B /* PBXTargetDependency */ = {
+		0DE92ABB2562374918286836BEB96187 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = DSBottomSheet;
-			target = 3A87E72CF743B443198F48E423482BED /* DSBottomSheet */;
-			targetProxy = 1678EA7CFF9A06F6DBC215B292C9D608 /* PBXContainerItemProxy */;
+			name = Introspect;
+			target = 97E3685499568DCCBA6C15905F707BDC /* Introspect */;
+			targetProxy = 40A681E88E483AEB893CE4528C0A510A /* PBXContainerItemProxy */;
 		};
-		71BF560E17693E2DBF8D734A29D79F49 /* PBXTargetDependency */ = {
+		10ADC6328EC4A33214488B42B05951C1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = DSBottomSheet;
-			target = 3A87E72CF743B443198F48E423482BED /* DSBottomSheet */;
-			targetProxy = ACC2DD85230AFCF5FD04B7740DF256E7 /* PBXContainerItemProxy */;
+			name = SwiftUIBottomSheet;
+			target = 4D4A2B8AC49058798FE264FB45237448 /* SwiftUIBottomSheet */;
+			targetProxy = DD767446DF44A2F5CCE0A8ADC4556AEE /* PBXContainerItemProxy */;
 		};
-		C5191E45924BCFF5B3CC30C8885A13ED /* PBXTargetDependency */ = {
+		22154FF65F5EFC4C49BE6CA2B06379C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "SUIBottomSheet-BottomSheet";
-			target = D61EFD0577F3D8117E87B2F95FBA6CB8 /* SUIBottomSheet-BottomSheet */;
-			targetProxy = 1C31A01C05628CE51F31C8DD67B658B1 /* PBXContainerItemProxy */;
+			name = Introspect;
+			target = 97E3685499568DCCBA6C15905F707BDC /* Introspect */;
+			targetProxy = ADD701D3F5268593DC69A8DC3DDD0403 /* PBXContainerItemProxy */;
 		};
-		D14EA0C87AA4DF1CA9893D06E1101630 /* PBXTargetDependency */ = {
+		8FE6B1EF77E6AC3C082C0D8E18367E50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftUIBottomSheet;
+			target = 4D4A2B8AC49058798FE264FB45237448 /* SwiftUIBottomSheet */;
+			targetProxy = 56E9182F68CDF6515AC39EBFB36D29F6 /* PBXContainerItemProxy */;
+		};
+		EA25E4E7A0F44C2064DA900A0492900A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Remini_";
 			target = D7B8DA668C17B8162094170968FD5B4D /* Pods-Remini_ */;
-			targetProxy = 0B14E7FE6BB0639DB868A6498E75E4DD /* PBXContainerItemProxy */;
-		};
-		DBFDAB4E57E7862929739DC4368A21CE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SUIBottomSheet;
-			target = 7892BD0E93C4740C2DCF46A4E1206E40 /* SUIBottomSheet */;
-			targetProxy = 9507F0500FE380AEF86C46744A4EB835 /* PBXContainerItemProxy */;
+			targetProxy = 42232B47E3455559E33767D746F4D645 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		69166657FE20C073D61E45686447FFDD /* Root.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				844B83B8321CFE8DB147F41D4A24CCAE /* Root.strings */,
-			);
-			name = Root.strings;
-			path = Source/BottomSheet.bundle;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		0D41BB8C3182892844E4895C2C2B6376 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9E888E6765163AFB765F1D151F05E3F /* Pods-Remini_.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Remini_/Pods-Remini_-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Remini_/Pods-Remini_.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		33178A73AB0C7747C1B6BDFF71544160 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BED74F495AC075527485B6576D42EF04 /* SUIBottomSheet.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SUIBottomSheet/SUIBottomSheet-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SUIBottomSheet/SUIBottomSheet-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SUIBottomSheet/SUIBottomSheet.modulemap";
-				PRODUCT_MODULE_NAME = SUIBottomSheet;
-				PRODUCT_NAME = SUIBottomSheet;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		36C68CDE34EE2903C4470F7CAB5393D3 /* Debug */ = {
+		3BD7596BF40821B50ADBE6395FEFBB35 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E53C05DB9E2197736D89BF57CB146D1A /* Pods-Remini_-Remini_UITests.debug.xcconfig */;
 			buildSettings = {
@@ -905,22 +714,40 @@
 			};
 			name = Debug;
 		};
-		3E99670B90E561FB87A58493056E6A7E /* Release */ = {
+		3CE95973F756037744869E3424259570 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BED74F495AC075527485B6576D42EF04 /* SUIBottomSheet.release.xcconfig */;
+			baseConfigurationReference = 160040FCD8B42F8BA7F0695373C70FBB /* Introspect.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SUIBottomSheet";
-				IBSC_MODULE = SUIBottomSheet;
-				INFOPLIST_FILE = "Target Support Files/SUIBottomSheet/ResourceBundle-BottomSheet-SUIBottomSheet-Info.plist";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Introspect/Introspect-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Introspect/Introspect-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_NAME = BottomSheet;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Introspect/Introspect.modulemap";
+				PRODUCT_MODULE_NAME = Introspect;
+				PRODUCT_NAME = Introspect;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.5;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		446BA1B9A1F1F2F95D04E5F82EB1B0F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -988,41 +815,6 @@
 			};
 			name = Debug;
 		};
-		4BB0D018A4F4EB0DC3D2215ABC4D2B32 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06B8C7C5C8BB8B346A7C783806C5F2C1 /* SUIBottomSheet.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SUIBottomSheet/SUIBottomSheet-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SUIBottomSheet/SUIBottomSheet-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SUIBottomSheet/SUIBottomSheet.modulemap";
-				PRODUCT_MODULE_NAME = SUIBottomSheet;
-				PRODUCT_NAME = SUIBottomSheet;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		5D47E2EFAC6FAC81A782D9BFD8736F53 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1085,44 +877,6 @@
 			};
 			name = Release;
 		};
-		5E967CD746F58B2E379519C42DC7BF1C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FBDC75ABCED7B7FCA225DA9D8ADF03F8 /* Pods-Remini_-Remini_UITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		6221AEDF0E5785E583DDBCF021D87930 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 192D67B7E64A1552A48D0D9490FFBD52 /* Pods-Remini_Tests.release.xcconfig */;
@@ -1161,9 +915,9 @@
 			};
 			name = Release;
 		};
-		6E247290B73C3BF809683A2A73F8FDBB /* Release */ = {
+		64FA15E1F4415CA32212E9D12B22BB62 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C9BE20BA6CF6A0A7512B1390E0553DB /* DSBottomSheet.release.xcconfig */;
+			baseConfigurationReference = E143E96C69D53BA420B5A5B1E483C040 /* SwiftUIBottomSheet.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1174,8 +928,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/DSBottomSheet/DSBottomSheet-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DSBottomSheet/DSBottomSheet-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftUIBottomSheet/SwiftUIBottomSheet-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftUIBottomSheet/SwiftUIBottomSheet-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1183,13 +937,13 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/DSBottomSheet/DSBottomSheet.modulemap";
-				PRODUCT_MODULE_NAME = DSBottomSheet;
-				PRODUCT_NAME = DSBottomSheet;
+				MODULEMAP_FILE = "Target Support Files/SwiftUIBottomSheet/SwiftUIBottomSheet.modulemap";
+				PRODUCT_MODULE_NAME = SwiftUIBottomSheet;
+				PRODUCT_NAME = SwiftUIBottomSheet;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.3;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1197,7 +951,119 @@
 			};
 			name = Release;
 		};
-		7E27FDCFCCD8229F2066EA309D2B2DEB /* Debug */ = {
+		83E8B24CC9AA953E4C11505CE5E93DF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBDC75ABCED7B7FCA225DA9D8ADF03F8 /* Pods-Remini_-Remini_UITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		859831A5891DC9DDEC72FB6AB7DFD27E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9E888E6765163AFB765F1D151F05E3F /* Pods-Remini_.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Remini_/Pods-Remini_-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Remini_/Pods-Remini_.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A57910526321D778DF4C1555D70F56D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDDB659A1173F0C4CA4E5CA722E8A7AE /* Introspect.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Introspect/Introspect-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Introspect/Introspect-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Introspect/Introspect.modulemap";
+				PRODUCT_MODULE_NAME = Introspect;
+				PRODUCT_NAME = Introspect;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.5;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B3DE3FD0FCF57BB7C1FC1B686BEF3B38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FC8612FC472D91561A008AD0E5C7A715 /* Pods-Remini_.debug.xcconfig */;
 			buildSettings = {
@@ -1228,41 +1094,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		9F5FFCE0441B53C85ED42A1AF76E4CE3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 591C9F4A59688F456EDA38AC5FD4AE7A /* DSBottomSheet.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/DSBottomSheet/DSBottomSheet-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DSBottomSheet/DSBottomSheet-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/DSBottomSheet/DSBottomSheet.modulemap";
-				PRODUCT_MODULE_NAME = DSBottomSheet;
-				PRODUCT_NAME = DSBottomSheet;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1306,31 +1137,49 @@
 			};
 			name = Debug;
 		};
-		C4F828C577EB580A5D204062D97F51F2 /* Debug */ = {
+		D5BF94BD3126A33C1AA7E07D0E0258A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06B8C7C5C8BB8B346A7C783806C5F2C1 /* SUIBottomSheet.debug.xcconfig */;
+			baseConfigurationReference = 8D709C402658AAAC9849F1AFCA54FEAA /* SwiftUIBottomSheet.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SUIBottomSheet";
-				IBSC_MODULE = SUIBottomSheet;
-				INFOPLIST_FILE = "Target Support Files/SUIBottomSheet/ResourceBundle-BottomSheet-SUIBottomSheet-Info.plist";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftUIBottomSheet/SwiftUIBottomSheet-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftUIBottomSheet/SwiftUIBottomSheet-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_NAME = BottomSheet;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftUIBottomSheet/SwiftUIBottomSheet.modulemap";
+				PRODUCT_MODULE_NAME = SwiftUIBottomSheet;
+				PRODUCT_NAME = SwiftUIBottomSheet;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		25606B259FB9F2E7CCF13AE40AC28921 /* Build configuration list for PBXNativeTarget "DSBottomSheet" */ = {
+		1B4245D565E60AD5C4C309E57C32E817 /* Build configuration list for PBXNativeTarget "Introspect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9F5FFCE0441B53C85ED42A1AF76E4CE3 /* Debug */,
-				6E247290B73C3BF809683A2A73F8FDBB /* Release */,
+				3CE95973F756037744869E3424259570 /* Debug */,
+				A57910526321D778DF4C1555D70F56D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1344,11 +1193,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8263CAD337BC4A4D4B0A632130322116 /* Build configuration list for PBXNativeTarget "SUIBottomSheet-BottomSheet" */ = {
+		BB339D2631D26CB6EA6403F13D103CE9 /* Build configuration list for PBXNativeTarget "Pods-Remini_" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C4F828C577EB580A5D204062D97F51F2 /* Debug */,
-				3E99670B90E561FB87A58493056E6A7E /* Release */,
+				B3DE3FD0FCF57BB7C1FC1B686BEF3B38 /* Debug */,
+				859831A5891DC9DDEC72FB6AB7DFD27E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1362,29 +1211,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D3B644836C6371DEA033F052795B8552 /* Build configuration list for PBXNativeTarget "Pods-Remini_-Remini_UITests" */ = {
+		DF2F10E69376D772ABF4F99881CC8D04 /* Build configuration list for PBXNativeTarget "Pods-Remini_-Remini_UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				36C68CDE34EE2903C4470F7CAB5393D3 /* Debug */,
-				5E967CD746F58B2E379519C42DC7BF1C /* Release */,
+				3BD7596BF40821B50ADBE6395FEFBB35 /* Debug */,
+				83E8B24CC9AA953E4C11505CE5E93DF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D94ECF0D9BCCDAFA1BAF347A3611E79F /* Build configuration list for PBXNativeTarget "Pods-Remini_" */ = {
+		F860F8640F8D229D33980DB7A64FD83F /* Build configuration list for PBXNativeTarget "SwiftUIBottomSheet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7E27FDCFCCD8229F2066EA309D2B2DEB /* Debug */,
-				0D41BB8C3182892844E4895C2C2B6376 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E750A27C1709D02EE6DD7C63F9696206 /* Build configuration list for PBXNativeTarget "SUIBottomSheet" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4BB0D018A4F4EB0DC3D2215ABC4D2B32 /* Debug */,
-				33178A73AB0C7747C1B6BDFF71544160 /* Release */,
+				D5BF94BD3126A33C1AA7E07D0E0258A9 /* Debug */,
+				64FA15E1F4415CA32212E9D12B22BB62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

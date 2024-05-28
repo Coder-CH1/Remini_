@@ -33,7 +33,6 @@
 		04A033492C01F561008B8D0D /* AIPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A033482C01F561008B8D0D /* AIPhotosView.swift */; };
 		04A0334B2C01F598008B8D0D /* AIFiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0334A2C01F598008B8D0D /* AIFiltersView.swift */; };
 		04A0334D2C01F5BB008B8D0D /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0334C2C01F5BB008B8D0D /* ExploreView.swift */; };
-		04E4C4762C04AC1300AF53BF /* Eg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4C4752C04AC1300AF53BF /* Eg.swift */; };
 		A34321E135AEAFF843116D31 /* Pods_Remini_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C53656B1A5B83CA3D8EDA2 /* Pods_Remini_Tests.framework */; };
 		C75525284E742E55F7802092 /* Pods_Remini__Remini_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2F36E454B18E71468CAFE1 /* Pods_Remini__Remini_UITests.framework */; };
 		E786A616AF7CED39CC565D4F /* Pods_Remini_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D2052ED94B7195DD3D08F4 /* Pods_Remini_.framework */; };
@@ -81,7 +80,6 @@
 		04A033482C01F561008B8D0D /* AIPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPhotosView.swift; sourceTree = "<group>"; };
 		04A0334A2C01F598008B8D0D /* AIFiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFiltersView.swift; sourceTree = "<group>"; };
 		04A0334C2C01F5BB008B8D0D /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
-		04E4C4752C04AC1300AF53BF /* Eg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eg.swift; sourceTree = "<group>"; };
 		05D2052ED94B7195DD3D08F4 /* Pods_Remini_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Remini_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3665E5BE4D11E4904CA866A5 /* Pods-Remini_.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Remini_.debug.xcconfig"; path = "Target Support Files/Pods-Remini_/Pods-Remini_.debug.xcconfig"; sourceTree = "<group>"; };
 		4A7B816E463B32B5AA817574 /* Pods-Remini_-Remini_UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Remini_-Remini_UITests.release.xcconfig"; path = "Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 				044030AF2C03F636008FE57A /* HomePageView */,
 				041BCF6C2BFCE61700E0C367 /* Assets.xcassets */,
 				041BCF6E2BFCE61700E0C367 /* Preview Content */,
-				04E4C4752C04AC1300AF53BF /* Eg.swift */,
 			);
 			path = Remini_;
 			sourceTree = "<group>";
@@ -520,7 +517,6 @@
 				04A033292BFD29C8008B8D0D /* ViewCoordinator.swift in Sources */,
 				04A033432C00431B008B8D0D /* HomePageView.swift in Sources */,
 				04A0333F2BFF5A5D008B8D0D /* SecondImageView.swift in Sources */,
-				04E4C4762C04AC1300AF53BF /* Eg.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

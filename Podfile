@@ -15,7 +15,6 @@ target 'Remini_' do
   target 'Remini_UITests' do
     # Pods for testing
   end
-pod ‘SUIBottomSheet'
-pod ‘DSBottomSheet’
+pod ‘SwiftUIBottomSheet’
 
 end

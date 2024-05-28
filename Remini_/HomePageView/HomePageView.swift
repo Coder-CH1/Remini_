@@ -6,21 +6,36 @@
 //
 
 import SwiftUI
-import SUIBottomSheet
+import SwiftUIBottomSheet
 
 struct HomePageView: View {
     @State var showGenderSelector = false
     @State var dismissGenderSelector = false
-    
+    @State var requestedSize: CGFloat = 400
+    @State var height: CGFloat = 430
+    @State var hideDragIndicator = false
     var body: some View {
         VStack(spacing: 0) {
             TopNavHomePageView()
             MiddleHomePageView()
             BottomTabHomePageView()
         }
-       
+        
+        .bottomSheet(isPresented: $showGenderSelector, config: BottomSheetConfig(overlayColor: Color.gray.opacity(0.9), topBarCornerRadius: 40)) {
+            
+            Color.white.opacity(0.5).ignoresSafeArea()
+                .presentationDragIndicator(.hidden)
+                .frame(height: height)
+            ChooseYourGenderBottomSheetView(isOpen: $showGenderSelector)
+                
+    }
+        .onAppear() {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+               showGenderSelector = true
+            }
         }
     }
+}
 
 struct HomePageView_Previews: PreviewProvider {
     static var previews: some View {
@@ -29,38 +44,14 @@ struct HomePageView_Previews: PreviewProvider {
 }
 
 struct ChooseYourGenderBottomSheetView: View {
-    @Binding var isSheetExpanded: Bool
-        var body: some View {
-        ZStack {
-            Text("hi")
+    @Binding var isOpen: Bool
+    var body: some View {
+        VStack {
+            Text("BottomSheet")
+                .font(.title.bold())
         }
     }
 }
-
-struct RoundedCorner: Shape {
-        var radius: CGFloat = .infinity
-        var corners: UIRectCorner = .allCorners
-        
-        func path(in rect: CGRect) -> Path {
-            let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-            return Path(path.cgPath)
-        }
-    }
-    
-    extension View {
-        func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-            clipShape(RoundedCorner(radius: radius, corners: corners))
-        }
-    }
-struct CornerRadiusModifier: ViewModifier {
-    let radius: CGFloat
-    
-    func body(content: Content) -> some View {
-        content
-            .clipShape(RoundedRectangle(cornerRadius: radius))
-    }
-}
-    
 
 struct TopNavHomePageView: View {
     @State var showPromoView = false
