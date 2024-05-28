@@ -161,7 +161,7 @@ struct WelcomeCellView: View {
             .disabled(!cellsEnabled)
             .offset(x: -20)
         }
-        .frame(width: screenSize.width, height: 100)
+        .frame(width: screenSize.width, height: UIScreen.main.bounds.height/8)
         .background(.secondary)
         .cornerRadius(30)
     }

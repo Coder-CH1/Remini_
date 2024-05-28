@@ -13,19 +13,21 @@ struct ExploreView: View {
     var body: some View {
         VStack {
             HStack() {
-                Button(action: {
-                    print("btn tapped")
-                    showNewView.toggle()
-                }) {
-                    Image(systemName: "chevron.down")
-                        .font(.system(size: 30, weight: .semibold))
-                        .foregroundColor(.white)
-                    
+                HStack {
+                    Button(action: {
+                        print("btn tapped")
+                        showNewView.toggle()
+                    }) {
+                        Image(systemName: "chevron.down")
+                            .font(.system(size: 30, weight: .semibold))
+                            .foregroundColor(.white)
+                        
+                    }
                 }
+                .padding(.horizontal, -80)
                 .fullScreenCover(isPresented: $showNewView) {
                     HomePageView()
                 }
-                .padding(.horizontal, -80)
                 Text("Explore All Features")
                     .font(.system(size: 18, weight: .bold))
                     .foregroundColor(.white)
@@ -73,24 +75,21 @@ struct ExploreCellView: View {
                 Spacer()
                 Button(action: {
                     print("btn tapped")
+                    showImagePickerView.toggle()
                 }) {
                     Image(systemName: "chevron.right")
                         .font(.system(size: 20))
                         .foregroundColor(.white)
                 }
-                .offset(x: -20)
             }
-            .onTapGesture {
-                showImagePickerView.toggle()
-            }
+            .padding(.trailing, 20)
             .fullScreenCover(isPresented: $showImagePickerView) {
                 ExploreImagePicker(selectedImage: $selectedImage)
             }
-            .frame(width: screenSize.width, height: 100)
+            .frame(width: screenSize.width, height: UIScreen.main.bounds.height/8)
             .background(.secondary)
             .cornerRadius(30)
         }
-        //.background(.gray)
     }
 }
 

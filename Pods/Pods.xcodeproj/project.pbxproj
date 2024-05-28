@@ -7,158 +7,180 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12BC3E1A4AF2553F6462EC3363E83CA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6E43695CA18D2ECCB99629180AF405 /* Foundation.framework */; };
-		1BC91F01C29B26A2B080DCA7006B5399 /* View+geometryFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EC6780ED753F2D2AD0A25B7B13E49D /* View+geometryFetch.swift */; };
-		1E1F53A3BA6D3FAF0205A9900649E5F7 /* Pods-Remini_-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5016A73FAA6DF3D3607DE56306DE807E /* Pods-Remini_-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2ED337521377EBC72C299C80B118656C /* Pods-Remini_-Remini_UITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A0A839676EF5FAEBE834BEA0E7B508BB /* Pods-Remini_-Remini_UITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4742BC449A96329548FA82FF6DE11721 /* Pods-Remini_-Remini_UITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3326017C7F06FAD339F3E64001718F4A /* Pods-Remini_-Remini_UITests-dummy.m */; };
-		548387A15133D9C63B42DC43FB5E6E1D /* UIKitIntrospectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0624FCDC2E81E71DBDCF63443743CEB9 /* UIKitIntrospectionView.swift */; };
-		570CC90B331AF79D04F17BEC10D4B403 /* Introspect-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A25ACF55774D9365DC96BEF711474F58 /* Introspect-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DFDDF6BC35A9F212CCEEA7D3597819C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6E43695CA18D2ECCB99629180AF405 /* Foundation.framework */; };
-		692A2C38169C3370FDC61DCBE651A15C /* View+onChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7F5DB2F08A85EF668EC439493F7575 /* View+onChange.swift */; };
-		69E2512D9FAE9213FCD14A8936FFCD87 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0E36001E64A26C7642A7F2A40EC757 /* SwiftUI.framework */; };
-		6A10452C7C1949F05ECA4C7AC8B4936E /* UIKitIntrospectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060C5EB0B858FB385AFE1DED7A9C200E /* UIKitIntrospectionViewController.swift */; };
-		709FBC171CA4A79D453A3498B03A88EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6E43695CA18D2ECCB99629180AF405 /* Foundation.framework */; };
-		76B3648900CCBD35599E0D6C131E8FED /* Introspect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF03C2D0B6D4972A1CD4D81B2BB61AD /* Introspect.swift */; };
-		7AD5A06580EC4006934E213FAFC411AE /* PresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C43993B6F6126FAF0FBE3371E6B6B /* PresentationView.swift */; };
+		09EC8E7A29FDDBCE36D530B1108F547F /* BottomSheet+AppleScrollBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD3B70B71FCABA0FE8120CE5D2426B /* BottomSheet+AppleScrollBehavior.swift */; };
+		0DEFC1244D9E13AD8866BA087805FFC5 /* BottomSheet+SheetWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B06A009809F4B09F9C448F8140F69 /* BottomSheet+SheetWidth.swift */; };
+		23ADD91A087D53E44BA494DAAEB77F10 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C332B4609CB6E0F3A165A44DA6D233 /* BottomSheet.swift */; };
+		2AA10F3B3FD22F84A547C8E3072E1A0F /* BottomSheetView+KeyboardHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306CE7B6809861EE296CB0260E72D96A /* BottomSheetView+KeyboardHeight.swift */; };
+		35CD986B3D488640ED4B1FB3D4CD92B5 /* BottomSheet+DragIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA279423E97E37636C2A132C45C8B5C3 /* BottomSheet+DragIndicator.swift */; };
+		3C38C440BC3018EC606DBB6242A80580 /* Pods-Remini_-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5016A73FAA6DF3D3607DE56306DE807E /* Pods-Remini_-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		419DCED0E51D97AE2CAF052F0C5B3316 /* BottomSheet+CustomBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010A438ECE201D6DA491645A38A87C51 /* BottomSheet+CustomBackground.swift */; };
+		47D95F7D82DC9E12D319F975513EA547 /* BottomSheetSwiftUI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E34E049E9C2D655DA0DF911149735584 /* BottomSheetSwiftUI-dummy.m */; };
+		492D63A5708CA9356860A697808EE8AF /* DragGestureExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F277DEA298E779C0EDDE4556024499 /* DragGestureExtension.swift */; };
+		51AD28540A090E079C150908CA65F00C /* BottomSheetPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A236D34BA491A3B6129FBB14322E87D /* BottomSheetPosition.swift */; };
+		5A0A7448FBD83446D98022AF23313C90 /* BottomSheet+TapToDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8A4F1AA44F0D8985ACC9A236C8E73D /* BottomSheet+TapToDismiss.swift */; };
+		60B179618E757F45F9925AB4A35698A4 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76735016E87805712129542DE28A350 /* UIApplicationExtension.swift */; };
+		68F5D3C826F636B9F099EE9EDEFC48B6 /* BottomSheet+DragGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB015491798043A8BDD381E489CBC20 /* BottomSheet+DragGesture.swift */; };
+		694DCA6B49680C25A19B257292BA9E28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		6ABBC766EB47CB1FB8995C90168DED73 /* UIScrollViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB2D5ECC17791F50283683A7AEAE3EB /* UIScrollViewWrapper.swift */; };
+		6BD2C254ABCBADA64C73A2BBD98B7B94 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA432747D45148BFD5775D120373C498 /* Media.xcassets */; };
+		6E00F49B2B3F711C4AB98CDFF92AD23A /* BottomSheet+Threshold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E86CD01BAC57347E237F2BDEE6B8D7B /* BottomSheet+Threshold.swift */; };
+		6EBBDAD9265EC11CE7F3C272AF6EBC79 /* BottomSheet+CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2DE14446C5AB0A99973B5DB4365857 /* BottomSheet+CloseButton.swift */; };
+		6F1422377CA8C733AFFBBC7A08CFEAF5 /* BottomSheet+OnDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E4661014C977E4E6BAB6865FF72F22 /* BottomSheet+OnDismiss.swift */; };
+		709D0806142C10621962E884761F76AD /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061B2B054DE9C60A31FB0CFA69666BAB /* VisualEffectView.swift */; };
+		70A7532FB8E31A250D0BA974C100CBF2 /* BottomSheet+AccountingForKeyboardHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB4BEB6018C6631C8030904FE26F207 /* BottomSheet+AccountingForKeyboardHeight.swift */; };
+		72D8ECE57A013CC0D825BC01245CC8AE /* Pods-Remini_-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2243C093111FAD94C4142A1DFE753A /* Pods-Remini_-dummy.m */; };
+		72DBEC5EBC6E70BEE9CF88CAA487E397 /* BottomSheet+ContentDrag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B8059019C79299ADCF42E71D42B51E /* BottomSheet+ContentDrag.swift */; };
+		7DB24CC61642A1EACBB8705AFC0BE505 /* BottomSheetView+SwitchPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E7028EFBAE60F5DE90F0AC9869951B /* BottomSheetView+SwitchPosition.swift */; };
+		7DFB42E021D8B78D636B84B0A7DEBE33 /* BottomSheetView+DragIndicatorAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0931D838B2C1EC0B1C8FEF396F5BE51B /* BottomSheetView+DragIndicatorAction.swift */; };
 		7E25BF8F22F6E97CC7CC8CFEBE637E6B /* Pods-Remini_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F206AC0B89167B7083E1963972402F /* Pods-Remini_Tests-dummy.m */; };
-		7EBB7B8790D97A7F1D036A0058E4F56A /* Introspect-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 798985B32650102AFDC6CB9D12295024 /* Introspect-dummy.m */; };
-		809FAA9335F8E8C7B2595FCB54644379 /* Pods-Remini_-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2243C093111FAD94C4142A1DFE753A /* Pods-Remini_-dummy.m */; };
-		864F9DEB1F1B8C92F62917A3B1884561 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1810D6204D82F43548780CBE2567A /* ViewExtensions.swift */; };
-		86AE9ED4C2453F772227E530FD789C45 /* +after.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D84436BF1B7A33A9A871D9F59141B5A /* +after.swift */; };
-		8B36C90D12FC262008757514CF1DF6B0 /* Binding+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443BCC65F5AFF4EABD300DEF542D252E /* Binding+ext.swift */; };
-		8CA584B6A6981D7B8125B4BB55553BAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9D6B54EB35BA403010B12AB1B9AEED /* UIKit.framework */; };
-		91B80D22E4F7894DDF1A40990AA7AE0B /* OvergrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C51DC2714AD4EB3303304DB5ED0DC5E /* OvergrowView.swift */; };
-		9203AF090F1DE1BE65B7202E966C6D29 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052B3F414628EE1DE24EADBF3CAE0510 /* BottomSheet.swift */; };
-		931C4BCED331AC51284E29D2037AA36C /* SwiftUIBottomSheet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 89A126ECBF52F185CF9984AFAEE3AC7F /* SwiftUIBottomSheet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B081C5F7A9991DFF44F0FC8A1D819A3C /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C52A3A737570586D065E53B4074748D /* View+CornerRadius.swift */; };
-		B5FFB943768FE8E7958CB4E435576C16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6E43695CA18D2ECCB99629180AF405 /* Foundation.framework */; };
-		C25AC5122FA97DF40B165EAC4FADBEFE /* SwiftUIBottomSheet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 224D7FA54CC2CA0603C7380EF35B0BBC /* SwiftUIBottomSheet-dummy.m */; };
-		CA2A90DDE529838E4715B213D44053D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6E43695CA18D2ECCB99629180AF405 /* Foundation.framework */; };
-		DDA1E785BFAC0034FA1B3BB8B818A552 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513E98DFDD9B349E42222E897B3883E5 /* BlurView.swift */; };
-		E7F4D02997FB23558D4EB355A9468399 /* AppKitIntrospectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E0F8809FF807D654B6AFF18C72ABDC /* AppKitIntrospectionView.swift */; };
+		8C36332E5D60C1E4A99CFF8654C0536E /* BottomSheet+SwipeToDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C8569D007CCF83B5B45F2561C1687 /* BottomSheet+SwipeToDismiss.swift */; };
+		8C88A48FBA132AE20FD707646F028D2A /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEECBE1312ACDEB8DB54BDBD6428B8 /* BundleExtension.swift */; };
+		A418FBA73A534803027FAF33E8AF4E05 /* BottomSheetSwiftUI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D7EBD04BD518DC214B03BAF17C40BAE7 /* BottomSheetSwiftUI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A58B9C677E223954106CE2CF4879A94F /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4980141B03746413FFB8738966F1B4C5 /* BottomSheetView.swift */; };
+		A7DD48B61974FA468F2C3FE80BCAABF6 /* BottomSheetView+HelperViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94A045E21ACD3FF69CC6D50F2822922 /* BottomSheetView+HelperViews.swift */; };
+		AA8B477F753C36E771054371DB13935B /* IgnoresSafeAreaCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFDA1E0B71A934249EC8A8195719FF1 /* IgnoresSafeAreaCompatible.swift */; };
+		B0E6D6062F40D77643EA5D93A4AEFAFA /* BottomSheetView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C442BE34BE05884FE1B22D39ACEF3D /* BottomSheetView+Gestures.swift */; };
+		B29087DAC38DFADCBDA1AD422719C047 /* BottomSheetView+Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578121AC1E874141B3CCF810BD18C283 /* BottomSheetView+Calculations.swift */; };
+		B31B1B5E59D7B636ED4A9778ACDF26D8 /* BottomSheet+CustomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A73C47B6E4B6B95B4B8CE60D6758A /* BottomSheet+CustomAnimation.swift */; };
+		B5FFB943768FE8E7958CB4E435576C16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		B6B3B7089D5584953DBF33078722E4FF /* BottomSheet+FloatingIPadSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94E30E069A998B53FBC861112CFFC94 /* BottomSheet+FloatingIPadSheet.swift */; };
+		BE433C51CA9FEAC07909BE50B4C24487 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		C5A0E43702243107A88F03B0F81E3DE8 /* BottomSheet+BackgroundBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8914D55BC19379F03A2295F24AC95D9E /* BottomSheet+BackgroundBlur.swift */; };
+		CA3BFC6742AFCE546C94A62538093DF0 /* Pods-Remini_-Remini_UITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A0A839676EF5FAEBE834BEA0E7B508BB /* Pods-Remini_-Remini_UITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD5B00749F3C01EB7EF922FC1435D62C /* BottomSheetWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E2AA282EBEB2CBF24DB591B2CD1E68 /* BottomSheetWidth.swift */; };
+		D16E99EDFBEE7964AA2B5FD14331BF9C /* TimerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D539447F05040E5F1540B9C4F8A83CC /* TimerAnimation.swift */; };
+		D3FD3C7C09075F1EF353FF0E7DFEC2CF /* BottomSheetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35218FF5A05503EA0DF0A5684CE9B518 /* BottomSheetConfiguration.swift */; };
+		D4118C090F40FCD97201BE90B32C5AF0 /* BottomSheetSwiftUI-BottomSheet_BottomSheet in Resources */ = {isa = PBXBuildFile; fileRef = 3B1E482C8EE0B14DB42A26599C4062F1 /* BottomSheetSwiftUI-BottomSheet_BottomSheet */; };
+		D4C9559E8A9FB87C37190A41117BD41E /* BottomSheet+Resizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F668D51A6118E6DD73C419BA5A32D9E3 /* BottomSheet+Resizable.swift */; };
+		DC6C09CBB87B1DAD459914FD8CC6C8D5 /* RoundedCornerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CAADB72F938B98C1B51D161B31A136 /* RoundedCornerViewModifier.swift */; };
+		E56897502FDD2401E7DCEDDA58272212 /* BottomSheet+CustomBackground+iOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D3EDFCD6614B1CB35E6B85367D198 /* BottomSheet+CustomBackground+iOS15.swift */; };
+		E98F59790FA075922E864F13BA7B5154 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF74442C5B1D5D03FA393F10F9072092 /* ColorExtension.swift */; };
 		E98F97D971E21142E7901107264D283F /* Pods-Remini_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F1CB16CB78294D9EA706DE455EF567DC /* Pods-Remini_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED082D976EDF770C79271873C95264BC /* BottomSheet+FlickThrough.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63DD577957012D4D1E5E50334D9961A /* BottomSheet+FlickThrough.swift */; };
+		F6A5B50CF6FD91944EB9585C13B5B443 /* Pods-Remini_-Remini_UITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3326017C7F06FAD339F3E64001718F4A /* Pods-Remini_-Remini_UITests-dummy.m */; };
+		FDE0673026C165A82CE4A0C39248233B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		40A681E88E483AEB893CE4528C0A510A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 97E3685499568DCCBA6C15905F707BDC;
-			remoteInfo = Introspect;
-		};
-		42232B47E3455559E33767D746F4D645 /* PBXContainerItemProxy */ = {
+		4539023B0FC6A37EBDDE0FA39BEB39EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D7B8DA668C17B8162094170968FD5B4D;
 			remoteInfo = "Pods-Remini_";
 		};
-		56E9182F68CDF6515AC39EBFB36D29F6 /* PBXContainerItemProxy */ = {
+		BC576DD861BD1ADD804EB076E3C71C21 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4D4A2B8AC49058798FE264FB45237448;
-			remoteInfo = SwiftUIBottomSheet;
+			remoteGlobalIDString = 61FDE7A4822C11816823B0B7DE20543B;
+			remoteInfo = BottomSheetSwiftUI;
 		};
-		A76823DF73F1C66070DD62449711D16F /* PBXContainerItemProxy */ = {
+		E2FFB3525E14EF8A83417A2E0FD83E83 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 97E3685499568DCCBA6C15905F707BDC;
-			remoteInfo = Introspect;
+			remoteGlobalIDString = E286A6BA2B08BDFD4227ABF333810972;
+			remoteInfo = "BottomSheetSwiftUI-BottomSheet_BottomSheet";
 		};
-		ADD701D3F5268593DC69A8DC3DDD0403 /* PBXContainerItemProxy */ = {
+		F6F74BE3ED2E4E736C46A4B219A001FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 97E3685499568DCCBA6C15905F707BDC;
-			remoteInfo = Introspect;
-		};
-		DD767446DF44A2F5CCE0A8ADC4556AEE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4D4A2B8AC49058798FE264FB45237448;
-			remoteInfo = SwiftUIBottomSheet;
+			remoteGlobalIDString = 61FDE7A4822C11816823B0B7DE20543B;
+			remoteInfo = BottomSheetSwiftUI;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		052B3F414628EE1DE24EADBF3CAE0510 /* BottomSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheet.swift; path = SwiftUIBottomSheet/Classes/BottomSheet.swift; sourceTree = "<group>"; };
-		060C5EB0B858FB385AFE1DED7A9C200E /* UIKitIntrospectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIKitIntrospectionViewController.swift; path = Introspect/UIKitIntrospectionViewController.swift; sourceTree = "<group>"; };
-		0624FCDC2E81E71DBDCF63443743CEB9 /* UIKitIntrospectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIKitIntrospectionView.swift; path = Introspect/UIKitIntrospectionView.swift; sourceTree = "<group>"; };
-		07E0F8809FF807D654B6AFF18C72ABDC /* AppKitIntrospectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppKitIntrospectionView.swift; path = Introspect/AppKitIntrospectionView.swift; sourceTree = "<group>"; };
+		003722302856594810651B96C100AA8A /* ResourceBundle-BottomSheet_BottomSheet-BottomSheetSwiftUI-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-BottomSheet_BottomSheet-BottomSheetSwiftUI-Info.plist"; sourceTree = "<group>"; };
+		010A438ECE201D6DA491645A38A87C51 /* BottomSheet+CustomBackground.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+CustomBackground.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+CustomBackground.swift"; sourceTree = "<group>"; };
+		061B2B054DE9C60A31FB0CFA69666BAB /* VisualEffectView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VisualEffectView.swift; path = Sources/BottomSheet/Helper/Views/VisualEffectView.swift; sourceTree = "<group>"; };
+		0931D838B2C1EC0B1C8FEF396F5BE51B /* BottomSheetView+DragIndicatorAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheetView+DragIndicatorAction.swift"; path = "Sources/BottomSheet/BottomSheetView/BottomSheetView+DragIndicatorAction.swift"; sourceTree = "<group>"; };
+		0B8A4F1AA44F0D8985ACC9A236C8E73D /* BottomSheet+TapToDismiss.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+TapToDismiss.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+TapToDismiss.swift"; sourceTree = "<group>"; };
+		0FFD3B70B71FCABA0FE8120CE5D2426B /* BottomSheet+AppleScrollBehavior.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+AppleScrollBehavior.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+AppleScrollBehavior.swift"; sourceTree = "<group>"; };
 		1272E9EA04952CD5CC39B55F0A08E0E0 /* Pods-Remini_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Remini_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		160040FCD8B42F8BA7F0695373C70FBB /* Introspect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Introspect.debug.xcconfig; sourceTree = "<group>"; };
+		173A73C47B6E4B6B95B4B8CE60D6758A /* BottomSheet+CustomAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+CustomAnimation.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+CustomAnimation.swift"; sourceTree = "<group>"; };
 		192D67B7E64A1552A48D0D9490FFBD52 /* Pods-Remini_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Remini_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		1D39AF7D6671058824EE4EF50018B5BE /* SwiftUIBottomSheet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftUIBottomSheet-prefix.pch"; sourceTree = "<group>"; };
-		1D84436BF1B7A33A9A871D9F59141B5A /* +after.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "+after.swift"; path = "SwiftUIBottomSheet/Classes/Extensions/+after.swift"; sourceTree = "<group>"; };
-		1F6E43695CA18D2ECCB99629180AF405 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		210B57DB12CF30E153222FB781DA3BB4 /* Pods-Remini_-Remini_UITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Remini_-Remini_UITests-frameworks.sh"; sourceTree = "<group>"; };
-		212A72A448A5F4C2A0E585F53AEFC1C5 /* Introspect.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Introspect.modulemap; sourceTree = "<group>"; };
 		223860E485F24E97CD53A665A8E64FF1 /* Pods-Remini_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Remini_Tests"; path = Pods_Remini_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		224D7FA54CC2CA0603C7380EF35B0BBC /* SwiftUIBottomSheet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftUIBottomSheet-dummy.m"; sourceTree = "<group>"; };
+		26F277DEA298E779C0EDDE4556024499 /* DragGestureExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DragGestureExtension.swift; path = Sources/BottomSheet/Helper/AppleScrollBehaviourScrollView/DragGestureExtension.swift; sourceTree = "<group>"; };
 		2739A40B7226894276AC07489F9D49B7 /* Pods-Remini_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Remini_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		2C51DC2714AD4EB3303304DB5ED0DC5E /* OvergrowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OvergrowView.swift; path = SwiftUIBottomSheet/Classes/OvergrowView.swift; sourceTree = "<group>"; };
+		306CE7B6809861EE296CB0260E72D96A /* BottomSheetView+KeyboardHeight.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheetView+KeyboardHeight.swift"; path = "Sources/BottomSheet/BottomSheetView/BottomSheetView+KeyboardHeight.swift"; sourceTree = "<group>"; };
 		3326017C7F06FAD339F3E64001718F4A /* Pods-Remini_-Remini_UITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Remini_-Remini_UITests-dummy.m"; sourceTree = "<group>"; };
-		3C7F5DB2F08A85EF668EC439493F7575 /* View+onChange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "View+onChange.swift"; path = "SwiftUIBottomSheet/Classes/Extensions/View+onChange.swift"; sourceTree = "<group>"; };
-		443BCC65F5AFF4EABD300DEF542D252E /* Binding+ext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Binding+ext.swift"; path = "SwiftUIBottomSheet/Classes/Extensions/Binding+ext.swift"; sourceTree = "<group>"; };
+		35218FF5A05503EA0DF0A5684CE9B518 /* BottomSheetConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetConfiguration.swift; path = Sources/BottomSheet/Models/BottomSheetConfiguration.swift; sourceTree = "<group>"; };
+		35C332B4609CB6E0F3A165A44DA6D233 /* BottomSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheet.swift; path = Sources/BottomSheet/BottomSheet.swift; sourceTree = "<group>"; };
+		3B1E482C8EE0B14DB42A26599C4062F1 /* BottomSheetSwiftUI-BottomSheet_BottomSheet */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "BottomSheetSwiftUI-BottomSheet_BottomSheet"; path = BottomSheet_BottomSheet.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		464052E224438B787EC413B39C1844A2 /* Pods-Remini_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Remini_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		4980141B03746413FFB8738966F1B4C5 /* BottomSheetView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetView.swift; path = Sources/BottomSheet/BottomSheetView/BottomSheetView.swift; sourceTree = "<group>"; };
 		4C89434AAE678CB47B304E3754356071 /* Pods-Remini_-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Remini_-Info.plist"; sourceTree = "<group>"; };
-		4E9C43993B6F6126FAF0FBE3371E6B6B /* PresentationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresentationView.swift; path = SwiftUIBottomSheet/Classes/PresentationView.swift; sourceTree = "<group>"; };
 		5016A73FAA6DF3D3607DE56306DE807E /* Pods-Remini_-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Remini_-umbrella.h"; sourceTree = "<group>"; };
-		513E98DFDD9B349E42222E897B3883E5 /* BlurView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlurView.swift; path = SwiftUIBottomSheet/Classes/BlurView.swift; sourceTree = "<group>"; };
+		578121AC1E874141B3CCF810BD18C283 /* BottomSheetView+Calculations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheetView+Calculations.swift"; path = "Sources/BottomSheet/BottomSheetView/BottomSheetView+Calculations.swift"; sourceTree = "<group>"; };
+		58CAADB72F938B98C1B51D161B31A136 /* RoundedCornerViewModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoundedCornerViewModifier.swift; path = Sources/BottomSheet/Helper/ViewModifiers/RoundedCornerViewModifier.swift; sourceTree = "<group>"; };
+		5A236D34BA491A3B6129FBB14322E87D /* BottomSheetPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetPosition.swift; path = Sources/BottomSheet/Models/BottomSheetPosition.swift; sourceTree = "<group>"; };
 		5A9EE5E40598EDBF1E7D3803815B9685 /* Pods-Remini_-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Remini_-frameworks.sh"; sourceTree = "<group>"; };
-		5B76C57125781570142169AD41EEF3ED /* Introspect-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Introspect-Info.plist"; sourceTree = "<group>"; };
-		6C52A3A737570586D065E53B4074748D /* View+CornerRadius.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "View+CornerRadius.swift"; path = "SwiftUIBottomSheet/Classes/Extensions/View+CornerRadius.swift"; sourceTree = "<group>"; };
-		72E1810D6204D82F43548780CBE2567A /* ViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewExtensions.swift; path = Introspect/ViewExtensions.swift; sourceTree = "<group>"; };
+		5E9C8569D007CCF83B5B45F2561C1687 /* BottomSheet+SwipeToDismiss.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+SwipeToDismiss.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+SwipeToDismiss.swift"; sourceTree = "<group>"; };
+		658B06A009809F4B09F9C448F8140F69 /* BottomSheet+SheetWidth.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+SheetWidth.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+SheetWidth.swift"; sourceTree = "<group>"; };
+		67B8059019C79299ADCF42E71D42B51E /* BottomSheet+ContentDrag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+ContentDrag.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+ContentDrag.swift"; sourceTree = "<group>"; };
+		6D539447F05040E5F1540B9C4F8A83CC /* TimerAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimerAnimation.swift; path = Sources/BottomSheet/Helper/AppleScrollBehaviourScrollView/TimerAnimation.swift; sourceTree = "<group>"; };
+		6F2DE14446C5AB0A99973B5DB4365857 /* BottomSheet+CloseButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+CloseButton.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+CloseButton.swift"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		77F206AC0B89167B7083E1963972402F /* Pods-Remini_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Remini_Tests-dummy.m"; sourceTree = "<group>"; };
-		798985B32650102AFDC6CB9D12295024 /* Introspect-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Introspect-dummy.m"; sourceTree = "<group>"; };
 		7C76993F51E5A8B1130859C23FC391AA /* Pods-Remini_-Remini_UITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Remini_-Remini_UITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7DB2D5ECC17791F50283683A7AEAE3EB /* UIScrollViewWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIScrollViewWrapper.swift; path = Sources/BottomSheet/Helper/AppleScrollBehaviourScrollView/UIScrollViewWrapper.swift; sourceTree = "<group>"; };
 		7EF1AEAC0C71958BD1F1F1D1DA9FF34D /* Pods-Remini_-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Remini_-acknowledgements.markdown"; sourceTree = "<group>"; };
-		89A126ECBF52F185CF9984AFAEE3AC7F /* SwiftUIBottomSheet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftUIBottomSheet-umbrella.h"; sourceTree = "<group>"; };
-		8D709C402658AAAC9849F1AFCA54FEAA /* SwiftUIBottomSheet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftUIBottomSheet.debug.xcconfig; sourceTree = "<group>"; };
-		91EC6780ED753F2D2AD0A25B7B13E49D /* View+geometryFetch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "View+geometryFetch.swift"; path = "SwiftUIBottomSheet/Classes/Extensions/View+geometryFetch.swift"; sourceTree = "<group>"; };
-		91FB1D44F2C194AC7B486257E6A67374 /* SwiftUIBottomSheet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftUIBottomSheet.modulemap; sourceTree = "<group>"; };
+		8874D191C874F66D33F8A42152A818A3 /* BottomSheetSwiftUI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BottomSheetSwiftUI.modulemap; sourceTree = "<group>"; };
+		8914D55BC19379F03A2295F24AC95D9E /* BottomSheet+BackgroundBlur.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+BackgroundBlur.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+BackgroundBlur.swift"; sourceTree = "<group>"; };
+		8E86CD01BAC57347E237F2BDEE6B8D7B /* BottomSheet+Threshold.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+Threshold.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+Threshold.swift"; sourceTree = "<group>"; };
+		8FB015491798043A8BDD381E489CBC20 /* BottomSheet+DragGesture.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+DragGesture.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+DragGesture.swift"; sourceTree = "<group>"; };
+		93C442BE34BE05884FE1B22D39ACEF3D /* BottomSheetView+Gestures.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheetView+Gestures.swift"; path = "Sources/BottomSheet/BottomSheetView/BottomSheetView+Gestures.swift"; sourceTree = "<group>"; };
 		954EC9F6924D7D575B277EFF6FFDD713 /* Pods-Remini_ */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Remini_"; path = Pods_Remini_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		972A71638F9F6A3CC333BB49143E001F /* Pods-Remini_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Remini_Tests.modulemap"; sourceTree = "<group>"; };
+		9BFDA1E0B71A934249EC8A8195719FF1 /* IgnoresSafeAreaCompatible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IgnoresSafeAreaCompatible.swift; path = Sources/BottomSheet/Helper/ViewModifiers/IgnoresSafeAreaCompatible.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A0A839676EF5FAEBE834BEA0E7B508BB /* Pods-Remini_-Remini_UITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Remini_-Remini_UITests-umbrella.h"; sourceTree = "<group>"; };
-		A25ACF55774D9365DC96BEF711474F58 /* Introspect-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Introspect-umbrella.h"; sourceTree = "<group>"; };
-		A2D1A00627F47E4BDE7C2A9740FE6790 /* Introspect-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Introspect-prefix.pch"; sourceTree = "<group>"; };
+		A62D3EDFCD6614B1CB35E6B85367D198 /* BottomSheet+CustomBackground+iOS15.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+CustomBackground+iOS15.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+CustomBackground+iOS15.swift"; sourceTree = "<group>"; };
+		A94A045E21ACD3FF69CC6D50F2822922 /* BottomSheetView+HelperViews.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheetView+HelperViews.swift"; path = "Sources/BottomSheet/BottomSheetView/BottomSheetView+HelperViews.swift"; sourceTree = "<group>"; };
 		A9E888E6765163AFB765F1D151F05E3F /* Pods-Remini_.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Remini_.release.xcconfig"; sourceTree = "<group>"; };
 		B1B87C560D7BCDCF3174053782358E78 /* Pods-Remini_.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Remini_.modulemap"; sourceTree = "<group>"; };
 		B4778CB31029E20B571ADE6E1E696114 /* Pods-Remini_-Remini_UITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Remini_-Remini_UITests"; path = Pods_Remini__Remini_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC0E36001E64A26C7642A7F2A40EC757 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
+		B76735016E87805712129542DE28A350 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIApplicationExtension.swift; path = Sources/BottomSheet/Helper/Extensions/UIApplicationExtension.swift; sourceTree = "<group>"; };
+		BA432747D45148BFD5775D120373C498 /* Media.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = Sources/BottomSheet/Media.xcassets; sourceTree = "<group>"; };
+		BAB9B6434CDE6F58BC1C53565FE515AB /* BottomSheetSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BottomSheetSwiftUI.release.xcconfig; sourceTree = "<group>"; };
+		BE39E1373E43C5B403E763DA6CBBDE11 /* BottomSheetSwiftUI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BottomSheetSwiftUI-prefix.pch"; sourceTree = "<group>"; };
+		BF74442C5B1D5D03FA393F10F9072092 /* ColorExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = Sources/BottomSheet/Helper/Extensions/ColorExtension.swift; sourceTree = "<group>"; };
+		C94E30E069A998B53FBC861112CFFC94 /* BottomSheet+FloatingIPadSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+FloatingIPadSheet.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+FloatingIPadSheet.swift"; sourceTree = "<group>"; };
+		C9C764D8E5143FAA3268BF9B5A4B28E0 /* BottomSheetSwiftUI */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BottomSheetSwiftUI; path = BottomSheetSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC2243C093111FAD94C4142A1DFE753A /* Pods-Remini_-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Remini_-dummy.m"; sourceTree = "<group>"; };
 		CD299F45FB221BB99ED23FB128949654 /* Pods-Remini_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Remini_Tests-Info.plist"; sourceTree = "<group>"; };
-		D0A70003FD5E49B30CA83DAAFE03116B /* Introspect */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Introspect; path = Introspect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D526DD1FEC06F3D11261530071FE23F4 /* SwiftUIBottomSheet-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftUIBottomSheet-Info.plist"; sourceTree = "<group>"; };
-		D99A921C6CE25E3D146D962BE7358B44 /* SwiftUIBottomSheet */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftUIBottomSheet; path = SwiftUIBottomSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA9D6B54EB35BA403010B12AB1B9AEED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		D1E7028EFBAE60F5DE90F0AC9869951B /* BottomSheetView+SwitchPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheetView+SwitchPosition.swift"; path = "Sources/BottomSheet/BottomSheetView/BottomSheetView+SwitchPosition.swift"; sourceTree = "<group>"; };
+		D63DD577957012D4D1E5E50334D9961A /* BottomSheet+FlickThrough.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+FlickThrough.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+FlickThrough.swift"; sourceTree = "<group>"; };
+		D755AF1FA7ADDE5555C44CE1FFBEEC17 /* BottomSheetSwiftUI-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "BottomSheetSwiftUI-Info.plist"; sourceTree = "<group>"; };
+		D7EBD04BD518DC214B03BAF17C40BAE7 /* BottomSheetSwiftUI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BottomSheetSwiftUI-umbrella.h"; sourceTree = "<group>"; };
+		D8E4661014C977E4E6BAB6865FF72F22 /* BottomSheet+OnDismiss.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+OnDismiss.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+OnDismiss.swift"; sourceTree = "<group>"; };
+		D965F6A8F9D93EC93363B884EC65A39F /* BottomSheetSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BottomSheetSwiftUI.debug.xcconfig; sourceTree = "<group>"; };
 		DB80A8956B5EC84C5E0C41943F37B49D /* Pods-Remini_-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Remini_-acknowledgements.plist"; sourceTree = "<group>"; };
-		E143E96C69D53BA420B5A5B1E483C040 /* SwiftUIBottomSheet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftUIBottomSheet.release.xcconfig; sourceTree = "<group>"; };
 		E21D4AE84E30FBDDF67B0010FCA0AF2A /* Pods-Remini_-Remini_UITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Remini_-Remini_UITests.modulemap"; sourceTree = "<group>"; };
+		E34E049E9C2D655DA0DF911149735584 /* BottomSheetSwiftUI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BottomSheetSwiftUI-dummy.m"; sourceTree = "<group>"; };
 		E39BADDC60ABA165E27EC675245CE566 /* Pods-Remini_-Remini_UITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Remini_-Remini_UITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		E53C05DB9E2197736D89BF57CB146D1A /* Pods-Remini_-Remini_UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Remini_-Remini_UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E8C6007CAB21B306A1186FAAF29943D8 /* Pods-Remini_-Remini_UITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Remini_-Remini_UITests-Info.plist"; sourceTree = "<group>"; };
-		EFF03C2D0B6D4972A1CD4D81B2BB61AD /* Introspect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Introspect.swift; path = Introspect/Introspect.swift; sourceTree = "<group>"; };
+		EBDEECBE1312ACDEB8DB54BDBD6428B8 /* BundleExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BundleExtension.swift; path = Sources/BottomSheet/Helper/Extensions/BundleExtension.swift; sourceTree = "<group>"; };
+		EDB4BEB6018C6631C8030904FE26F207 /* BottomSheet+AccountingForKeyboardHeight.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+AccountingForKeyboardHeight.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+AccountingForKeyboardHeight.swift"; sourceTree = "<group>"; };
 		F1CB16CB78294D9EA706DE455EF567DC /* Pods-Remini_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Remini_Tests-umbrella.h"; sourceTree = "<group>"; };
+		F3E2AA282EBEB2CBF24DB591B2CD1E68 /* BottomSheetWidth.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetWidth.swift; path = Sources/BottomSheet/Models/BottomSheetWidth.swift; sourceTree = "<group>"; };
+		F668D51A6118E6DD73C419BA5A32D9E3 /* BottomSheet+Resizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+Resizable.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+Resizable.swift"; sourceTree = "<group>"; };
+		FA279423E97E37636C2A132C45C8B5C3 /* BottomSheet+DragIndicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BottomSheet+DragIndicator.swift"; path = "Sources/BottomSheet/BottomSheet+ViewModifiers/BottomSheet+DragIndicator.swift"; sourceTree = "<group>"; };
 		FBDC75ABCED7B7FCA225DA9D8ADF03F8 /* Pods-Remini_-Remini_UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Remini_-Remini_UITests.release.xcconfig"; sourceTree = "<group>"; };
 		FC8612FC472D91561A008AD0E5C7A715 /* Pods-Remini_.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Remini_.debug.xcconfig"; sourceTree = "<group>"; };
-		FDDB659A1173F0C4CA4E5CA722E8A7AE /* Introspect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Introspect.release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		449296AD071BE998D83E79FEDD2D7072 /* Frameworks */ = {
+		2191A5589A07E890B6B4BA588C5EBBDA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA2A90DDE529838E4715B213D44053D0 /* Foundation.framework in Frameworks */,
-				69E2512D9FAE9213FCD14A8936FFCD87 /* SwiftUI.framework in Frameworks */,
-				8CA584B6A6981D7B8125B4BB55553BAE /* UIKit.framework in Frameworks */,
+				FDE0673026C165A82CE4A0C39248233B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,39 +192,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7E904345B4B0593AEDD2D272D441F53C /* Frameworks */ = {
+		72EE22BB70F23F799F1272F8E97CCF91 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DFDDF6BC35A9F212CCEEA7D3597819C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AD72E8F3AF9B26B541E427272911EEC4 /* Frameworks */ = {
+		9B6FAFB39B44C6C579E2F6ABC8455D2C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				709FBC171CA4A79D453A3498B03A88EA /* Foundation.framework in Frameworks */,
+				694DCA6B49680C25A19B257292BA9E28 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D0292CF5669AE585F07266E0060FFF2F /* Frameworks */ = {
+		D3BE7B1EDB5D3A694E79F1C2F7D2FCB3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12BC3E1A4AF2553F6462EC3363E83CA8 /* Foundation.framework in Frameworks */,
+				BE433C51CA9FEAC07909BE50B4C24487 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
+		02A2A33E5535C6F04BA7B94277FF1157 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F5526776CFB064E883CCCEF07083471F /* iOS */,
+				BA432747D45148BFD5775D120373C498 /* Media.xcassets */,
 			);
-			name = Frameworks;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		19C70ECE1537002BAAFA50CB2A86CC85 /* Targets Support Files */ = {
@@ -231,16 +252,40 @@
 			path = "Target Support Files/Pods-Remini_Tests";
 			sourceTree = "<group>";
 		};
-		6C7670E8711689351540BDC946994B3D /* Products */ = {
+		41C7B84C8C7CC5E2AF4E195C1DEDAD06 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D0A70003FD5E49B30CA83DAAFE03116B /* Introspect */,
+				C9C764D8E5143FAA3268BF9B5A4B28E0 /* BottomSheetSwiftUI */,
+				3B1E482C8EE0B14DB42A26599C4062F1 /* BottomSheetSwiftUI-BottomSheet_BottomSheet */,
 				954EC9F6924D7D575B277EFF6FFDD713 /* Pods-Remini_ */,
 				B4778CB31029E20B571ADE6E1E696114 /* Pods-Remini_-Remini_UITests */,
 				223860E485F24E97CD53A665A8E64FF1 /* Pods-Remini_Tests */,
-				D99A921C6CE25E3D146D962BE7358B44 /* SwiftUIBottomSheet */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		6E1D9597F10F09641703233D4D23D334 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8874D191C874F66D33F8A42152A818A3 /* BottomSheetSwiftUI.modulemap */,
+				E34E049E9C2D655DA0DF911149735584 /* BottomSheetSwiftUI-dummy.m */,
+				D755AF1FA7ADDE5555C44CE1FFBEEC17 /* BottomSheetSwiftUI-Info.plist */,
+				BE39E1373E43C5B403E763DA6CBBDE11 /* BottomSheetSwiftUI-prefix.pch */,
+				D7EBD04BD518DC214B03BAF17C40BAE7 /* BottomSheetSwiftUI-umbrella.h */,
+				D965F6A8F9D93EC93363B884EC65A39F /* BottomSheetSwiftUI.debug.xcconfig */,
+				BAB9B6434CDE6F58BC1C53565FE515AB /* BottomSheetSwiftUI.release.xcconfig */,
+				003722302856594810651B96C100AA8A /* ResourceBundle-BottomSheet_BottomSheet-BottomSheetSwiftUI-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/BottomSheetSwiftUI";
 			sourceTree = "<group>";
 		};
 		83AE04A9E8A612BD749CE8717C9168AC /* Pods-Remini_ */ = {
@@ -260,71 +305,79 @@
 			path = "Target Support Files/Pods-Remini_";
 			sourceTree = "<group>";
 		};
-		9524CC790212A0B3F0CCE47B01BF4A8B /* SwiftUIBottomSheet */ = {
+		A46A4203C85CB2EA738A60DF2A281D79 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1D84436BF1B7A33A9A871D9F59141B5A /* +after.swift */,
-				443BCC65F5AFF4EABD300DEF542D252E /* Binding+ext.swift */,
-				513E98DFDD9B349E42222E897B3883E5 /* BlurView.swift */,
-				052B3F414628EE1DE24EADBF3CAE0510 /* BottomSheet.swift */,
-				2C51DC2714AD4EB3303304DB5ED0DC5E /* OvergrowView.swift */,
-				4E9C43993B6F6126FAF0FBE3371E6B6B /* PresentationView.swift */,
-				6C52A3A737570586D065E53B4074748D /* View+CornerRadius.swift */,
-				91EC6780ED753F2D2AD0A25B7B13E49D /* View+geometryFetch.swift */,
-				3C7F5DB2F08A85EF668EC439493F7575 /* View+onChange.swift */,
-				EAEE0D4825B593D4A4CEBFFC20B2FCB7 /* Support Files */,
-			);
-			name = SwiftUIBottomSheet;
-			path = SwiftUIBottomSheet;
-			sourceTree = "<group>";
-		};
-		A7DEB8E8CE61AD89B27FF024C196D4B2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E09690CB2599CDE6650003826C6CC22B /* Introspect */,
-				9524CC790212A0B3F0CCE47B01BF4A8B /* SwiftUIBottomSheet */,
+				AC037203472FC03E9080790521CDC845 /* BottomSheetSwiftUI */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC037203472FC03E9080790521CDC845 /* BottomSheetSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				35C332B4609CB6E0F3A165A44DA6D233 /* BottomSheet.swift */,
+				EDB4BEB6018C6631C8030904FE26F207 /* BottomSheet+AccountingForKeyboardHeight.swift */,
+				0FFD3B70B71FCABA0FE8120CE5D2426B /* BottomSheet+AppleScrollBehavior.swift */,
+				8914D55BC19379F03A2295F24AC95D9E /* BottomSheet+BackgroundBlur.swift */,
+				6F2DE14446C5AB0A99973B5DB4365857 /* BottomSheet+CloseButton.swift */,
+				67B8059019C79299ADCF42E71D42B51E /* BottomSheet+ContentDrag.swift */,
+				173A73C47B6E4B6B95B4B8CE60D6758A /* BottomSheet+CustomAnimation.swift */,
+				010A438ECE201D6DA491645A38A87C51 /* BottomSheet+CustomBackground.swift */,
+				A62D3EDFCD6614B1CB35E6B85367D198 /* BottomSheet+CustomBackground+iOS15.swift */,
+				8FB015491798043A8BDD381E489CBC20 /* BottomSheet+DragGesture.swift */,
+				FA279423E97E37636C2A132C45C8B5C3 /* BottomSheet+DragIndicator.swift */,
+				D63DD577957012D4D1E5E50334D9961A /* BottomSheet+FlickThrough.swift */,
+				C94E30E069A998B53FBC861112CFFC94 /* BottomSheet+FloatingIPadSheet.swift */,
+				D8E4661014C977E4E6BAB6865FF72F22 /* BottomSheet+OnDismiss.swift */,
+				F668D51A6118E6DD73C419BA5A32D9E3 /* BottomSheet+Resizable.swift */,
+				658B06A009809F4B09F9C448F8140F69 /* BottomSheet+SheetWidth.swift */,
+				5E9C8569D007CCF83B5B45F2561C1687 /* BottomSheet+SwipeToDismiss.swift */,
+				0B8A4F1AA44F0D8985ACC9A236C8E73D /* BottomSheet+TapToDismiss.swift */,
+				8E86CD01BAC57347E237F2BDEE6B8D7B /* BottomSheet+Threshold.swift */,
+				35218FF5A05503EA0DF0A5684CE9B518 /* BottomSheetConfiguration.swift */,
+				5A236D34BA491A3B6129FBB14322E87D /* BottomSheetPosition.swift */,
+				4980141B03746413FFB8738966F1B4C5 /* BottomSheetView.swift */,
+				578121AC1E874141B3CCF810BD18C283 /* BottomSheetView+Calculations.swift */,
+				0931D838B2C1EC0B1C8FEF396F5BE51B /* BottomSheetView+DragIndicatorAction.swift */,
+				93C442BE34BE05884FE1B22D39ACEF3D /* BottomSheetView+Gestures.swift */,
+				A94A045E21ACD3FF69CC6D50F2822922 /* BottomSheetView+HelperViews.swift */,
+				306CE7B6809861EE296CB0260E72D96A /* BottomSheetView+KeyboardHeight.swift */,
+				D1E7028EFBAE60F5DE90F0AC9869951B /* BottomSheetView+SwitchPosition.swift */,
+				F3E2AA282EBEB2CBF24DB591B2CD1E68 /* BottomSheetWidth.swift */,
+				EBDEECBE1312ACDEB8DB54BDBD6428B8 /* BundleExtension.swift */,
+				BF74442C5B1D5D03FA393F10F9072092 /* ColorExtension.swift */,
+				26F277DEA298E779C0EDDE4556024499 /* DragGestureExtension.swift */,
+				9BFDA1E0B71A934249EC8A8195719FF1 /* IgnoresSafeAreaCompatible.swift */,
+				58CAADB72F938B98C1B51D161B31A136 /* RoundedCornerViewModifier.swift */,
+				6D539447F05040E5F1540B9C4F8A83CC /* TimerAnimation.swift */,
+				B76735016E87805712129542DE28A350 /* UIApplicationExtension.swift */,
+				7DB2D5ECC17791F50283683A7AEAE3EB /* UIScrollViewWrapper.swift */,
+				061B2B054DE9C60A31FB0CFA69666BAB /* VisualEffectView.swift */,
+				02A2A33E5535C6F04BA7B94277FF1157 /* Resources */,
+				6E1D9597F10F09641703233D4D23D334 /* Support Files */,
+			);
+			name = BottomSheetSwiftUI;
+			path = BottomSheetSwiftUI;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
-				A7DEB8E8CE61AD89B27FF024C196D4B2 /* Pods */,
-				6C7670E8711689351540BDC946994B3D /* Products */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				A46A4203C85CB2EA738A60DF2A281D79 /* Pods */,
+				41C7B84C8C7CC5E2AF4E195C1DEDAD06 /* Products */,
 				19C70ECE1537002BAAFA50CB2A86CC85 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D809E6C9E910CBFCD01D2B07DDCCE857 /* Support Files */ = {
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				212A72A448A5F4C2A0E585F53AEFC1C5 /* Introspect.modulemap */,
-				798985B32650102AFDC6CB9D12295024 /* Introspect-dummy.m */,
-				5B76C57125781570142169AD41EEF3ED /* Introspect-Info.plist */,
-				A2D1A00627F47E4BDE7C2A9740FE6790 /* Introspect-prefix.pch */,
-				A25ACF55774D9365DC96BEF711474F58 /* Introspect-umbrella.h */,
-				160040FCD8B42F8BA7F0695373C70FBB /* Introspect.debug.xcconfig */,
-				FDDB659A1173F0C4CA4E5CA722E8A7AE /* Introspect.release.xcconfig */,
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Introspect";
-			sourceTree = "<group>";
-		};
-		E09690CB2599CDE6650003826C6CC22B /* Introspect */ = {
-			isa = PBXGroup;
-			children = (
-				07E0F8809FF807D654B6AFF18C72ABDC /* AppKitIntrospectionView.swift */,
-				EFF03C2D0B6D4972A1CD4D81B2BB61AD /* Introspect.swift */,
-				0624FCDC2E81E71DBDCF63443743CEB9 /* UIKitIntrospectionView.swift */,
-				060C5EB0B858FB385AFE1DED7A9C200E /* UIKitIntrospectionViewController.swift */,
-				72E1810D6204D82F43548780CBE2567A /* ViewExtensions.swift */,
-				D809E6C9E910CBFCD01D2B07DDCCE857 /* Support Files */,
-			);
-			name = Introspect;
-			path = Introspect;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E3425A6D2303C233559616FFA802FB0B /* Pods-Remini_-Remini_UITests */ = {
@@ -344,42 +397,9 @@
 			path = "Target Support Files/Pods-Remini_-Remini_UITests";
 			sourceTree = "<group>";
 		};
-		EAEE0D4825B593D4A4CEBFFC20B2FCB7 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				91FB1D44F2C194AC7B486257E6A67374 /* SwiftUIBottomSheet.modulemap */,
-				224D7FA54CC2CA0603C7380EF35B0BBC /* SwiftUIBottomSheet-dummy.m */,
-				D526DD1FEC06F3D11261530071FE23F4 /* SwiftUIBottomSheet-Info.plist */,
-				1D39AF7D6671058824EE4EF50018B5BE /* SwiftUIBottomSheet-prefix.pch */,
-				89A126ECBF52F185CF9984AFAEE3AC7F /* SwiftUIBottomSheet-umbrella.h */,
-				8D709C402658AAAC9849F1AFCA54FEAA /* SwiftUIBottomSheet.debug.xcconfig */,
-				E143E96C69D53BA420B5A5B1E483C040 /* SwiftUIBottomSheet.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftUIBottomSheet";
-			sourceTree = "<group>";
-		};
-		F5526776CFB064E883CCCEF07083471F /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				1F6E43695CA18D2ECCB99629180AF405 /* Foundation.framework */,
-				CC0E36001E64A26C7642A7F2A40EC757 /* SwiftUI.framework */,
-				DA9D6B54EB35BA403010B12AB1B9AEED /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1285B629A26B86C5ADF443C16661F352 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				931C4BCED331AC51284E29D2037AA36C /* SwiftUIBottomSheet-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1DF365EA488F10BA842265FA0AB1B952 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,84 +408,65 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		71E7D300AB735BF70F1076B853118288 /* Headers */ = {
+		21C963C77103D4984786DD4F91F90130 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E1F53A3BA6D3FAF0205A9900649E5F7 /* Pods-Remini_-umbrella.h in Headers */,
+				A418FBA73A534803027FAF33E8AF4E05 /* BottomSheetSwiftUI-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		83CC153F28E7FE180B38CC94F140D026 /* Headers */ = {
+		2216E7D3551B75F6C6C6B6450C0E6C4E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2ED337521377EBC72C299C80B118656C /* Pods-Remini_-Remini_UITests-umbrella.h in Headers */,
+				3C38C440BC3018EC606DBB6242A80580 /* Pods-Remini_-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EAE798048E07C983DD95742428F9C4D5 /* Headers */ = {
+		E600CEEF5FD2033AC2ED785E712222BE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				570CC90B331AF79D04F17BEC10D4B403 /* Introspect-umbrella.h in Headers */,
+				CA3BFC6742AFCE546C94A62538093DF0 /* Pods-Remini_-Remini_UITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4D4A2B8AC49058798FE264FB45237448 /* SwiftUIBottomSheet */ = {
+		61FDE7A4822C11816823B0B7DE20543B /* BottomSheetSwiftUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F860F8640F8D229D33980DB7A64FD83F /* Build configuration list for PBXNativeTarget "SwiftUIBottomSheet" */;
+			buildConfigurationList = 997DEBA401AC8CD5AA97E63C623B3057 /* Build configuration list for PBXNativeTarget "BottomSheetSwiftUI" */;
 			buildPhases = (
-				1285B629A26B86C5ADF443C16661F352 /* Headers */,
-				C986C21D4D20437E35DE39B3DDD215F4 /* Sources */,
-				449296AD071BE998D83E79FEDD2D7072 /* Frameworks */,
-				E07497410463F36422BC30B49D82809C /* Resources */,
+				21C963C77103D4984786DD4F91F90130 /* Headers */,
+				E9F5C4D6F0AE31D7181CF7F540BEB795 /* Sources */,
+				9B6FAFB39B44C6C579E2F6ABC8455D2C /* Frameworks */,
+				4661932F969C1E19FB6BB01C2EB9963A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0A201F9D004E9342D4E92E738770A300 /* PBXTargetDependency */,
+				ADAC04EB9C6FBB0BB6E52A95D4453726 /* PBXTargetDependency */,
 			);
-			name = SwiftUIBottomSheet;
-			productName = SwiftUIBottomSheet;
-			productReference = D99A921C6CE25E3D146D962BE7358B44 /* SwiftUIBottomSheet */;
-			productType = "com.apple.product-type.framework";
-		};
-		97E3685499568DCCBA6C15905F707BDC /* Introspect */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1B4245D565E60AD5C4C309E57C32E817 /* Build configuration list for PBXNativeTarget "Introspect" */;
-			buildPhases = (
-				EAE798048E07C983DD95742428F9C4D5 /* Headers */,
-				F725BB609AF8A992324F803F361DC21C /* Sources */,
-				7E904345B4B0593AEDD2D272D441F53C /* Frameworks */,
-				C5A66D00CCBA1409A8491FC061A6BA0B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Introspect;
-			productName = Introspect;
-			productReference = D0A70003FD5E49B30CA83DAAFE03116B /* Introspect */;
+			name = BottomSheetSwiftUI;
+			productName = BottomSheetSwiftUI;
+			productReference = C9C764D8E5143FAA3268BF9B5A4B28E0 /* BottomSheetSwiftUI */;
 			productType = "com.apple.product-type.framework";
 		};
 		C7742D8420576B1FFFDE996FF00E5126 /* Pods-Remini_-Remini_UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DF2F10E69376D772ABF4F99881CC8D04 /* Build configuration list for PBXNativeTarget "Pods-Remini_-Remini_UITests" */;
+			buildConfigurationList = 27E0FF4CDF2D824981C0640AD82142B8 /* Build configuration list for PBXNativeTarget "Pods-Remini_-Remini_UITests" */;
 			buildPhases = (
-				83CC153F28E7FE180B38CC94F140D026 /* Headers */,
-				3F9B6D30F3A2840D82F7A26C90441C4C /* Sources */,
-				AD72E8F3AF9B26B541E427272911EEC4 /* Frameworks */,
-				CE9F425BCC86D14C7D32EFB64DCD7990 /* Resources */,
+				E600CEEF5FD2033AC2ED785E712222BE /* Headers */,
+				9D16EF3231096FD1141B4846B598DD6F /* Sources */,
+				2191A5589A07E890B6B4BA588C5EBBDA /* Frameworks */,
+				454D77D7FDC3D0C5BAFDE8524F7BE0B7 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				22154FF65F5EFC4C49BE6CA2B06379C8 /* PBXTargetDependency */,
-				10ADC6328EC4A33214488B42B05951C1 /* PBXTargetDependency */,
+				490E7176E232809D04F6971949203954 /* PBXTargetDependency */,
 			);
 			name = "Pods-Remini_-Remini_UITests";
 			productName = Pods_Remini__Remini_UITests;
@@ -474,23 +475,39 @@
 		};
 		D7B8DA668C17B8162094170968FD5B4D /* Pods-Remini_ */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BB339D2631D26CB6EA6403F13D103CE9 /* Build configuration list for PBXNativeTarget "Pods-Remini_" */;
+			buildConfigurationList = A8FFDBAD2E60BEDD772758D75B338F35 /* Build configuration list for PBXNativeTarget "Pods-Remini_" */;
 			buildPhases = (
-				71E7D300AB735BF70F1076B853118288 /* Headers */,
-				7101A443C4BECB06975167125DB5892B /* Sources */,
-				D0292CF5669AE585F07266E0060FFF2F /* Frameworks */,
-				7740D47B2E4ED08F789A40ABFB499AB6 /* Resources */,
+				2216E7D3551B75F6C6C6B6450C0E6C4E /* Headers */,
+				16862CD5643F10F7FE25B9E45E81C93D /* Sources */,
+				D3BE7B1EDB5D3A694E79F1C2F7D2FCB3 /* Frameworks */,
+				59EE1BBCCCBB412BF2409909F2BAF396 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0DE92ABB2562374918286836BEB96187 /* PBXTargetDependency */,
-				8FE6B1EF77E6AC3C082C0D8E18367E50 /* PBXTargetDependency */,
+				492788DEC6A9EB937B2188C4D737C089 /* PBXTargetDependency */,
 			);
 			name = "Pods-Remini_";
 			productName = Pods_Remini_;
 			productReference = 954EC9F6924D7D575B277EFF6FFDD713 /* Pods-Remini_ */;
 			productType = "com.apple.product-type.framework";
+		};
+		E286A6BA2B08BDFD4227ABF333810972 /* BottomSheetSwiftUI-BottomSheet_BottomSheet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F189593012D675060E22992509A6199 /* Build configuration list for PBXNativeTarget "BottomSheetSwiftUI-BottomSheet_BottomSheet" */;
+			buildPhases = (
+				7BC6AD2FBC1C45EE8B5975E76355BE87 /* Sources */,
+				72EE22BB70F23F799F1272F8E97CCF91 /* Frameworks */,
+				8227CAC5DCFCE7EFAF518D70ABD7F51B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BottomSheetSwiftUI-BottomSheet_BottomSheet";
+			productName = BottomSheet_BottomSheet;
+			productReference = 3B1E482C8EE0B14DB42A26599C4062F1 /* BottomSheetSwiftUI-BottomSheet_BottomSheet */;
+			productType = "com.apple.product-type.bundle";
 		};
 		FAAE255B14B59826362C3D250DE1BF29 /* Pods-Remini_Tests */ = {
 			isa = PBXNativeTarget;
@@ -504,7 +521,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				EA25E4E7A0F44C2064DA900A0492900A /* PBXTargetDependency */,
+				20113D418F8F03A33CFDB7131765010A /* PBXTargetDependency */,
 			);
 			name = "Pods-Remini_Tests";
 			productName = Pods_Remini_Tests;
@@ -529,24 +546,47 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 6C7670E8711689351540BDC946994B3D /* Products */;
+			productRefGroup = 41C7B84C8C7CC5E2AF4E195C1DEDAD06 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				97E3685499568DCCBA6C15905F707BDC /* Introspect */,
+				61FDE7A4822C11816823B0B7DE20543B /* BottomSheetSwiftUI */,
+				E286A6BA2B08BDFD4227ABF333810972 /* BottomSheetSwiftUI-BottomSheet_BottomSheet */,
 				D7B8DA668C17B8162094170968FD5B4D /* Pods-Remini_ */,
 				C7742D8420576B1FFFDE996FF00E5126 /* Pods-Remini_-Remini_UITests */,
 				FAAE255B14B59826362C3D250DE1BF29 /* Pods-Remini_Tests */,
-				4D4A2B8AC49058798FE264FB45237448 /* SwiftUIBottomSheet */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7740D47B2E4ED08F789A40ABFB499AB6 /* Resources */ = {
+		454D77D7FDC3D0C5BAFDE8524F7BE0B7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4661932F969C1E19FB6BB01C2EB9963A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4118C090F40FCD97201BE90B32C5AF0 /* BottomSheetSwiftUI-BottomSheet_BottomSheet in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59EE1BBCCCBB412BF2409909F2BAF396 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8227CAC5DCFCE7EFAF518D70ABD7F51B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BD2C254ABCBADA64C73A2BBD98B7B94 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,35 +597,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C5A66D00CCBA1409A8491FC061A6BA0B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CE9F425BCC86D14C7D32EFB64DCD7990 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E07497410463F36422BC30B49D82809C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3F9B6D30F3A2840D82F7A26C90441C4C /* Sources */ = {
+		16862CD5643F10F7FE25B9E45E81C93D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4742BC449A96329548FA82FF6DE11721 /* Pods-Remini_-Remini_UITests-dummy.m in Sources */,
+				72D8ECE57A013CC0D825BC01245CC8AE /* Pods-Remini_-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,87 +616,98 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7101A443C4BECB06975167125DB5892B /* Sources */ = {
+		7BC6AD2FBC1C45EE8B5975E76355BE87 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				809FAA9335F8E8C7B2595FCB54644379 /* Pods-Remini_-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C986C21D4D20437E35DE39B3DDD215F4 /* Sources */ = {
+		9D16EF3231096FD1141B4846B598DD6F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86AE9ED4C2453F772227E530FD789C45 /* +after.swift in Sources */,
-				8B36C90D12FC262008757514CF1DF6B0 /* Binding+ext.swift in Sources */,
-				DDA1E785BFAC0034FA1B3BB8B818A552 /* BlurView.swift in Sources */,
-				9203AF090F1DE1BE65B7202E966C6D29 /* BottomSheet.swift in Sources */,
-				91B80D22E4F7894DDF1A40990AA7AE0B /* OvergrowView.swift in Sources */,
-				7AD5A06580EC4006934E213FAFC411AE /* PresentationView.swift in Sources */,
-				C25AC5122FA97DF40B165EAC4FADBEFE /* SwiftUIBottomSheet-dummy.m in Sources */,
-				B081C5F7A9991DFF44F0FC8A1D819A3C /* View+CornerRadius.swift in Sources */,
-				1BC91F01C29B26A2B080DCA7006B5399 /* View+geometryFetch.swift in Sources */,
-				692A2C38169C3370FDC61DCBE651A15C /* View+onChange.swift in Sources */,
+				F6A5B50CF6FD91944EB9585C13B5B443 /* Pods-Remini_-Remini_UITests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F725BB609AF8A992324F803F361DC21C /* Sources */ = {
+		E9F5C4D6F0AE31D7181CF7F540BEB795 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7F4D02997FB23558D4EB355A9468399 /* AppKitIntrospectionView.swift in Sources */,
-				76B3648900CCBD35599E0D6C131E8FED /* Introspect.swift in Sources */,
-				7EBB7B8790D97A7F1D036A0058E4F56A /* Introspect-dummy.m in Sources */,
-				548387A15133D9C63B42DC43FB5E6E1D /* UIKitIntrospectionView.swift in Sources */,
-				6A10452C7C1949F05ECA4C7AC8B4936E /* UIKitIntrospectionViewController.swift in Sources */,
-				864F9DEB1F1B8C92F62917A3B1884561 /* ViewExtensions.swift in Sources */,
+				23ADD91A087D53E44BA494DAAEB77F10 /* BottomSheet.swift in Sources */,
+				70A7532FB8E31A250D0BA974C100CBF2 /* BottomSheet+AccountingForKeyboardHeight.swift in Sources */,
+				09EC8E7A29FDDBCE36D530B1108F547F /* BottomSheet+AppleScrollBehavior.swift in Sources */,
+				C5A0E43702243107A88F03B0F81E3DE8 /* BottomSheet+BackgroundBlur.swift in Sources */,
+				6EBBDAD9265EC11CE7F3C272AF6EBC79 /* BottomSheet+CloseButton.swift in Sources */,
+				72DBEC5EBC6E70BEE9CF88CAA487E397 /* BottomSheet+ContentDrag.swift in Sources */,
+				B31B1B5E59D7B636ED4A9778ACDF26D8 /* BottomSheet+CustomAnimation.swift in Sources */,
+				419DCED0E51D97AE2CAF052F0C5B3316 /* BottomSheet+CustomBackground.swift in Sources */,
+				E56897502FDD2401E7DCEDDA58272212 /* BottomSheet+CustomBackground+iOS15.swift in Sources */,
+				68F5D3C826F636B9F099EE9EDEFC48B6 /* BottomSheet+DragGesture.swift in Sources */,
+				35CD986B3D488640ED4B1FB3D4CD92B5 /* BottomSheet+DragIndicator.swift in Sources */,
+				ED082D976EDF770C79271873C95264BC /* BottomSheet+FlickThrough.swift in Sources */,
+				B6B3B7089D5584953DBF33078722E4FF /* BottomSheet+FloatingIPadSheet.swift in Sources */,
+				6F1422377CA8C733AFFBBC7A08CFEAF5 /* BottomSheet+OnDismiss.swift in Sources */,
+				D4C9559E8A9FB87C37190A41117BD41E /* BottomSheet+Resizable.swift in Sources */,
+				0DEFC1244D9E13AD8866BA087805FFC5 /* BottomSheet+SheetWidth.swift in Sources */,
+				8C36332E5D60C1E4A99CFF8654C0536E /* BottomSheet+SwipeToDismiss.swift in Sources */,
+				5A0A7448FBD83446D98022AF23313C90 /* BottomSheet+TapToDismiss.swift in Sources */,
+				6E00F49B2B3F711C4AB98CDFF92AD23A /* BottomSheet+Threshold.swift in Sources */,
+				D3FD3C7C09075F1EF353FF0E7DFEC2CF /* BottomSheetConfiguration.swift in Sources */,
+				51AD28540A090E079C150908CA65F00C /* BottomSheetPosition.swift in Sources */,
+				47D95F7D82DC9E12D319F975513EA547 /* BottomSheetSwiftUI-dummy.m in Sources */,
+				A58B9C677E223954106CE2CF4879A94F /* BottomSheetView.swift in Sources */,
+				B29087DAC38DFADCBDA1AD422719C047 /* BottomSheetView+Calculations.swift in Sources */,
+				7DFB42E021D8B78D636B84B0A7DEBE33 /* BottomSheetView+DragIndicatorAction.swift in Sources */,
+				B0E6D6062F40D77643EA5D93A4AEFAFA /* BottomSheetView+Gestures.swift in Sources */,
+				A7DD48B61974FA468F2C3FE80BCAABF6 /* BottomSheetView+HelperViews.swift in Sources */,
+				2AA10F3B3FD22F84A547C8E3072E1A0F /* BottomSheetView+KeyboardHeight.swift in Sources */,
+				7DB24CC61642A1EACBB8705AFC0BE505 /* BottomSheetView+SwitchPosition.swift in Sources */,
+				CD5B00749F3C01EB7EF922FC1435D62C /* BottomSheetWidth.swift in Sources */,
+				8C88A48FBA132AE20FD707646F028D2A /* BundleExtension.swift in Sources */,
+				E98F59790FA075922E864F13BA7B5154 /* ColorExtension.swift in Sources */,
+				492D63A5708CA9356860A697808EE8AF /* DragGestureExtension.swift in Sources */,
+				AA8B477F753C36E771054371DB13935B /* IgnoresSafeAreaCompatible.swift in Sources */,
+				DC6C09CBB87B1DAD459914FD8CC6C8D5 /* RoundedCornerViewModifier.swift in Sources */,
+				D16E99EDFBEE7964AA2B5FD14331BF9C /* TimerAnimation.swift in Sources */,
+				60B179618E757F45F9925AB4A35698A4 /* UIApplicationExtension.swift in Sources */,
+				6ABBC766EB47CB1FB8995C90168DED73 /* UIScrollViewWrapper.swift in Sources */,
+				709D0806142C10621962E884761F76AD /* VisualEffectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0A201F9D004E9342D4E92E738770A300 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Introspect;
-			target = 97E3685499568DCCBA6C15905F707BDC /* Introspect */;
-			targetProxy = A76823DF73F1C66070DD62449711D16F /* PBXContainerItemProxy */;
-		};
-		0DE92ABB2562374918286836BEB96187 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Introspect;
-			target = 97E3685499568DCCBA6C15905F707BDC /* Introspect */;
-			targetProxy = 40A681E88E483AEB893CE4528C0A510A /* PBXContainerItemProxy */;
-		};
-		10ADC6328EC4A33214488B42B05951C1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftUIBottomSheet;
-			target = 4D4A2B8AC49058798FE264FB45237448 /* SwiftUIBottomSheet */;
-			targetProxy = DD767446DF44A2F5CCE0A8ADC4556AEE /* PBXContainerItemProxy */;
-		};
-		22154FF65F5EFC4C49BE6CA2B06379C8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Introspect;
-			target = 97E3685499568DCCBA6C15905F707BDC /* Introspect */;
-			targetProxy = ADD701D3F5268593DC69A8DC3DDD0403 /* PBXContainerItemProxy */;
-		};
-		8FE6B1EF77E6AC3C082C0D8E18367E50 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftUIBottomSheet;
-			target = 4D4A2B8AC49058798FE264FB45237448 /* SwiftUIBottomSheet */;
-			targetProxy = 56E9182F68CDF6515AC39EBFB36D29F6 /* PBXContainerItemProxy */;
-		};
-		EA25E4E7A0F44C2064DA900A0492900A /* PBXTargetDependency */ = {
+		20113D418F8F03A33CFDB7131765010A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Remini_";
 			target = D7B8DA668C17B8162094170968FD5B4D /* Pods-Remini_ */;
-			targetProxy = 42232B47E3455559E33767D746F4D645 /* PBXContainerItemProxy */;
+			targetProxy = 4539023B0FC6A37EBDDE0FA39BEB39EC /* PBXContainerItemProxy */;
+		};
+		490E7176E232809D04F6971949203954 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BottomSheetSwiftUI;
+			target = 61FDE7A4822C11816823B0B7DE20543B /* BottomSheetSwiftUI */;
+			targetProxy = F6F74BE3ED2E4E736C46A4B219A001FB /* PBXContainerItemProxy */;
+		};
+		492788DEC6A9EB937B2188C4D737C089 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BottomSheetSwiftUI;
+			target = 61FDE7A4822C11816823B0B7DE20543B /* BottomSheetSwiftUI */;
+			targetProxy = BC576DD861BD1ADD804EB076E3C71C21 /* PBXContainerItemProxy */;
+		};
+		ADAC04EB9C6FBB0BB6E52A95D4453726 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "BottomSheetSwiftUI-BottomSheet_BottomSheet";
+			target = E286A6BA2B08BDFD4227ABF333810972 /* BottomSheetSwiftUI-BottomSheet_BottomSheet */;
+			targetProxy = E2FFB3525E14EF8A83417A2E0FD83E83 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		3BD7596BF40821B50ADBE6395FEFBB35 /* Debug */ = {
+		09097B784ABFF922FFE89C5316BEB864 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E53C05DB9E2197736D89BF57CB146D1A /* Pods-Remini_-Remini_UITests.debug.xcconfig */;
 			buildSettings = {
@@ -714,9 +744,9 @@
 			};
 			name = Debug;
 		};
-		3CE95973F756037744869E3424259570 /* Debug */ = {
+		223C89B89CC6DABC2EB5BDF505A9935B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 160040FCD8B42F8BA7F0695373C70FBB /* Introspect.debug.xcconfig */;
+			baseConfigurationReference = BAB9B6434CDE6F58BC1C53565FE515AB /* BottomSheetSwiftUI.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -727,8 +757,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Introspect/Introspect-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Introspect/Introspect-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/BottomSheetSwiftUI/BottomSheetSwiftUI-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BottomSheetSwiftUI/BottomSheetSwiftUI-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -736,18 +766,73 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/Introspect/Introspect.modulemap";
-				PRODUCT_MODULE_NAME = Introspect;
-				PRODUCT_NAME = Introspect;
+				MODULEMAP_FILE = "Target Support Files/BottomSheetSwiftUI/BottomSheetSwiftUI.modulemap";
+				PRODUCT_MODULE_NAME = BottomSheetSwiftUI;
+				PRODUCT_NAME = BottomSheetSwiftUI;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.5;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2F2937138B63FBDECD8E4126714901B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC8612FC472D91561A008AD0E5C7A715 /* Pods-Remini_.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Remini_/Pods-Remini_-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Remini_/Pods-Remini_.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		3876E69A487F1DD97657FC04FC2D83B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAB9B6434CDE6F58BC1C53565FE515AB /* BottomSheetSwiftUI.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/BottomSheetSwiftUI";
+				IBSC_MODULE = BottomSheetSwiftUI;
+				INFOPLIST_FILE = "Target Support Files/BottomSheetSwiftUI/ResourceBundle-BottomSheet_BottomSheet-BottomSheetSwiftUI-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_NAME = BottomSheet_BottomSheet;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
 		};
 		446BA1B9A1F1F2F95D04E5F82EB1B0F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -915,9 +1000,9 @@
 			};
 			name = Release;
 		};
-		64FA15E1F4415CA32212E9D12B22BB62 /* Release */ = {
+		7C1F08EE8E078C039ADD4E5102D16C2B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E143E96C69D53BA420B5A5B1E483C040 /* SwiftUIBottomSheet.release.xcconfig */;
+			baseConfigurationReference = D965F6A8F9D93EC93363B884EC65A39F /* BottomSheetSwiftUI.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -928,8 +1013,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftUIBottomSheet/SwiftUIBottomSheet-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftUIBottomSheet/SwiftUIBottomSheet-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/BottomSheetSwiftUI/BottomSheetSwiftUI-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BottomSheetSwiftUI/BottomSheetSwiftUI-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -937,59 +1022,20 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/SwiftUIBottomSheet/SwiftUIBottomSheet.modulemap";
-				PRODUCT_MODULE_NAME = SwiftUIBottomSheet;
-				PRODUCT_NAME = SwiftUIBottomSheet;
+				MODULEMAP_FILE = "Target Support Files/BottomSheetSwiftUI/BottomSheetSwiftUI.modulemap";
+				PRODUCT_MODULE_NAME = BottomSheetSwiftUI;
+				PRODUCT_NAME = BottomSheetSwiftUI;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 5.5;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		83E8B24CC9AA953E4C11505CE5E93DF1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FBDC75ABCED7B7FCA225DA9D8ADF03F8 /* Pods-Remini_-Remini_UITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		859831A5891DC9DDEC72FB6AB7DFD27E /* Release */ = {
+		AAA77566C8FE9E1A0631B06DBE726437 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A9E888E6765163AFB765F1D151F05E3F /* Pods-Remini_.release.xcconfig */;
 			buildSettings = {
@@ -1027,45 +1073,9 @@
 			};
 			name = Release;
 		};
-		A57910526321D778DF4C1555D70F56D0 /* Release */ = {
+		B18AFD8286A8303D7F3B985C369A38BD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDDB659A1173F0C4CA4E5CA722E8A7AE /* Introspect.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Introspect/Introspect-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Introspect/Introspect-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Introspect/Introspect.modulemap";
-				PRODUCT_MODULE_NAME = Introspect;
-				PRODUCT_NAME = Introspect;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.5;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B3DE3FD0FCF57BB7C1FC1B686BEF3B38 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC8612FC472D91561A008AD0E5C7A715 /* Pods-Remini_.debug.xcconfig */;
+			baseConfigurationReference = FBDC75ABCED7B7FCA225DA9D8ADF03F8 /* Pods-Remini_-Remini_UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1077,7 +1087,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Remini_/Pods-Remini_-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1086,7 +1096,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Remini_/Pods-Remini_.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -1095,10 +1105,11 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		B5710EAB6E4F6B37B654D5295CDEB76D /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1137,49 +1148,40 @@
 			};
 			name = Debug;
 		};
-		D5BF94BD3126A33C1AA7E07D0E0258A9 /* Debug */ = {
+		FD0C54990236D4394CB00F1DDE431395 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D709C402658AAAC9849F1AFCA54FEAA /* SwiftUIBottomSheet.debug.xcconfig */;
+			baseConfigurationReference = D965F6A8F9D93EC93363B884EC65A39F /* BottomSheetSwiftUI.debug.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftUIBottomSheet/SwiftUIBottomSheet-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftUIBottomSheet/SwiftUIBottomSheet-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/BottomSheetSwiftUI";
+				IBSC_MODULE = BottomSheetSwiftUI;
+				INFOPLIST_FILE = "Target Support Files/BottomSheetSwiftUI/ResourceBundle-BottomSheet_BottomSheet-BottomSheetSwiftUI-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftUIBottomSheet/SwiftUIBottomSheet.modulemap";
-				PRODUCT_MODULE_NAME = SwiftUIBottomSheet;
-				PRODUCT_NAME = SwiftUIBottomSheet;
+				PRODUCT_NAME = BottomSheet_BottomSheet;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1B4245D565E60AD5C4C309E57C32E817 /* Build configuration list for PBXNativeTarget "Introspect" */ = {
+		1F189593012D675060E22992509A6199 /* Build configuration list for PBXNativeTarget "BottomSheetSwiftUI-BottomSheet_BottomSheet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3CE95973F756037744869E3424259570 /* Debug */,
-				A57910526321D778DF4C1555D70F56D0 /* Release */,
+				FD0C54990236D4394CB00F1DDE431395 /* Debug */,
+				3876E69A487F1DD97657FC04FC2D83B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27E0FF4CDF2D824981C0640AD82142B8 /* Build configuration list for PBXNativeTarget "Pods-Remini_-Remini_UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09097B784ABFF922FFE89C5316BEB864 /* Debug */,
+				B18AFD8286A8303D7F3B985C369A38BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1193,11 +1195,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BB339D2631D26CB6EA6403F13D103CE9 /* Build configuration list for PBXNativeTarget "Pods-Remini_" */ = {
+		997DEBA401AC8CD5AA97E63C623B3057 /* Build configuration list for PBXNativeTarget "BottomSheetSwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B3DE3FD0FCF57BB7C1FC1B686BEF3B38 /* Debug */,
-				859831A5891DC9DDEC72FB6AB7DFD27E /* Release */,
+				7C1F08EE8E078C039ADD4E5102D16C2B /* Debug */,
+				223C89B89CC6DABC2EB5BDF505A9935B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8FFDBAD2E60BEDD772758D75B338F35 /* Build configuration list for PBXNativeTarget "Pods-Remini_" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F2937138B63FBDECD8E4126714901B4 /* Debug */,
+				AAA77566C8FE9E1A0631B06DBE726437 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1207,24 +1218,6 @@
 			buildConfigurations = (
 				B5710EAB6E4F6B37B654D5295CDEB76D /* Debug */,
 				6221AEDF0E5785E583DDBCF021D87930 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DF2F10E69376D772ABF4F99881CC8D04 /* Build configuration list for PBXNativeTarget "Pods-Remini_-Remini_UITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3BD7596BF40821B50ADBE6395FEFBB35 /* Debug */,
-				83E8B24CC9AA953E4C11505CE5E93DF1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F860F8640F8D229D33980DB7A64FD83F /* Build configuration list for PBXNativeTarget "SwiftUIBottomSheet" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D5BF94BD3126A33C1AA7E07D0E0258A9 /* Debug */,
-				64FA15E1F4415CA32212E9D12B22BB62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

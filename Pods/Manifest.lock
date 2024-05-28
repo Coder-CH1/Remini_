@@ -1,20 +1,16 @@
 PODS:
-  - Introspect (0.12.0)
-  - SwiftUIBottomSheet (1.2.5):
-    - Introspect
+  - BottomSheetSwiftUI (3.1.1)
 
 DEPENDENCIES:
-  - SwiftUIBottomSheet
+  - BottomSheetSwiftUI
 
 SPEC REPOS:
   trunk:
-    - Introspect
-    - SwiftUIBottomSheet
+    - BottomSheetSwiftUI
 
 SPEC CHECKSUMS:
-  Introspect: b66b675de8a85d9ef832f3a710d8e3c7db186884
-  SwiftUIBottomSheet: 6ac66f2a3c68ce8813dbb29b57a9353a9d8cb143
+  BottomSheetSwiftUI: 08b5ada340a164b7ef49cf04b6733a0bd3f02957
 
-PODFILE CHECKSUM: 35073147624e755eaf720f30f2b8575b22163060
+PODFILE CHECKSUM: 9c088a5010f8700fdd6a17efa5dc26e6cf276ea1
 
 COCOAPODS: 1.15.2

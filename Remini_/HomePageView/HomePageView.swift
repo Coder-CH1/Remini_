@@ -6,14 +6,11 @@
 //
 
 import SwiftUI
-import SwiftUIBottomSheet
+import BottomSheetSwiftUI
 
 struct HomePageView: View {
+    @State var bottomSheetPosition: BottomSheetPosition = .hidden
     @State var showGenderSelector = false
-    @State var dismissGenderSelector = false
-    @State var requestedSize: CGFloat = 400
-    @State var height: CGFloat = 430
-    @State var hideDragIndicator = false
     var body: some View {
         VStack(spacing: 0) {
             TopNavHomePageView()
@@ -21,17 +18,17 @@ struct HomePageView: View {
             BottomTabHomePageView()
         }
         
-        .bottomSheet(isPresented: $showGenderSelector, config: BottomSheetConfig(overlayColor: Color.gray.opacity(0.9), topBarCornerRadius: 40)) {
-            
-            Color.white.opacity(0.5).ignoresSafeArea()
-                .presentationDragIndicator(.hidden)
-                .frame(height: height)
-            ChooseYourGenderBottomSheetView(isOpen: $showGenderSelector)
-                
-    }
+        .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(500)]) {
+            ChooseYourGenderBottomSheetView(dismissBottomSheet: {
+                bottomSheetPosition = .hidden
+            } )
+        }
+        .enableBackgroundBlur(true)
+        .customBackground(.white)
+        .showDragIndicator(false)
         .onAppear() {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-               showGenderSelector = true
+                bottomSheetPosition = .absolute(500)
             }
         }
     }
@@ -44,11 +41,25 @@ struct HomePageView_Previews: PreviewProvider {
 }
 
 struct ChooseYourGenderBottomSheetView: View {
-    @Binding var isOpen: Bool
+    let dismissBottomSheet: () -> Void
     var body: some View {
-        VStack {
-            Text("BottomSheet")
+        VStack(spacing: 20) {
+            HStack {
+                Button {
+                    print("btn tapped")
+                    dismissBottomSheet()
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 20))
+                        .foregroundColor(.black)
+                }
+            }
+            .padding(.top)
+            .padding(.trailing, 300)
+            Image(systemName: "")
+            Text("What's your gender?")
                 .font(.title.bold())
+            Text("We will only use this information to personalize\n your experience.")
         }
     }
 }
@@ -71,12 +82,12 @@ struct TopNavHomePageView: View {
                         showPromoView.toggle()
                     } label: {
                         Text("PRO")
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size: 16, weight: .bold))
                             .foregroundColor(.white)
                     }.fullScreenCover(isPresented: $showPromoView) {
                         PromoView()
                     }
-                    .frame(width: 60, height: 40)
+                    .frame(width: 50, height: 40)
                     .background(.red)
                     .cornerRadius(35)
                     
@@ -115,7 +126,7 @@ struct MiddleHomePageView: View {
                 LazyVGrid(columns: columns) {
                     
                     //MARK: - Section Zero -
-                    Section(header:  VStack(alignment: .leading){ HStack(alignment: .center, spacing: 20) {
+                    Section(header:  VStack(alignment: .leading, spacing: 20){ HStack(alignment: .center, spacing: 20) {
                         Text("Enhance")
                             .font(.system(size: 20, weight: .bold))
                             .foregroundColor(.white)  + Text(
