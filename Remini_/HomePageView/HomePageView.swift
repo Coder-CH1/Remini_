@@ -779,16 +779,63 @@ struct ModalView: View {
             Color.black.opacity(0.4)
                 .edgesIgnoringSafeArea(.vertical)
             VStack(spacing: 20) {
-                Button(action: {
-                    dismissModal()
-                }) {
-                    Image(systemName: "xmark")
-                        .foregroundColor(.white)
-                        .frame(width: 50, height: 50)
-                        .background(.black.opacity(0.2))
-                        .cornerRadius(25)
-                }.padding(.leading, -120)
-                Spacer().frame(height: 350)
+                HStack {
+                    Button(action: {
+                        dismissModal()
+                    }) {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.white)
+                            .frame(width: 50, height: 50)
+                            .background(.black.opacity(0.2))
+                            .cornerRadius(25)
+                    }
+                }
+                .padding(.leading, -120)
+                .padding(.top)
+                Spacer()
+                HStack {
+                    VStack {
+                    Button {
+                        print("btn tapped")
+                    } label: {
+                        HStack(spacing: 30) {
+                            Text("Enhance")
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundColor(.white)
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.white)
+                        }
+                    }
+                    .frame(width: UIScreen.main.bounds.width - 120, height: 70)
+                    .background(.black)
+                    .cornerRadius(35)
+                        Button {
+                            print("btn tapped")
+                        } label: {
+                            HStack(spacing: 40) {
+                                Image(systemName: "person.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 70, height: 70)
+                                    .background(.red)
+                                    .cornerRadius(35)
+                                Text("Retake shot\n random text")
+                                    .font(.system(size: 10, weight: .bold))
+                                    .foregroundColor(.white)
+                                Image(systemName: "chevron.right")
+                                    .font(.system(size: 20, weight: .bold))
+                                    .foregroundColor(.black)
+                            }
+                        }
+                        .frame(width: UIScreen.main.bounds.width - 120, height: 80)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(.gray.opacity(0.3), lineWidth: 2)
+                        )
+                    }
+                }
+                .padding(.bottom, 10)
             }
             .frame(width: 300, height: 500)
             .background(Color.white)
