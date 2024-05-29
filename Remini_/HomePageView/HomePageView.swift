@@ -163,6 +163,7 @@ struct TopNavHomePageView: View {
 struct MiddleHomePageView: View {
     @Binding var image: Image
     @Binding var showingModal: Bool
+    @State var showSeeAllView = false
     let columns = [GridItem(.flexible(), spacing: 80, alignment: .center)]
     let rows = [
         GridItem(.flexible(), spacing: 0, alignment: .center)
@@ -235,7 +236,7 @@ struct MiddleHomePageView: View {
                             .foregroundColor(.white)
                         Spacer()
                         Button {
-                            print("btn tapped")
+                            showSeeAllView.toggle()
                         } label: {
                             Text("See All")
                                 .font(.system(size: 18, weight: .medium))
@@ -246,7 +247,9 @@ struct MiddleHomePageView: View {
                                         .stroke(.gray, lineWidth: 2)
                                 )
                         }
-                        
+                        .fullScreenCover(isPresented: $showSeeAllView) {
+                            SeeAllView()
+                        }
                     }){
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows, spacing: 8) {
@@ -847,5 +850,99 @@ struct ModalView: View {
 extension CGRect {
     var center : CGPoint {
         return CGPoint(x: self.midX, y: self.midY)
+    }
+}
+
+struct SeeAllView: View {
+    @State var showNewView = false
+    @Environment(\.presentationMode) var presentationMode
+    let columns = [
+        GridItem(.flexible(), spacing: 0, alignment: .center)
+    ]
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack(spacing: 50) {
+                Button {
+                    print("btn tapped")
+                    presentationMode.wrappedValue.dismiss()
+                    showNewView.toggle()
+                } label: {
+                    Image(systemName: "xmark")
+                        .background(Rectangle().fill(.white))
+                            .frame(width: UIScreen.main.bounds.width/9, height: 40)
+                            .font(.system(size: 20, weight: .semibold))
+                            .foregroundColor(.black)
+                            .background(.white)
+                            .cornerRadius(20)
+                }
+                .fullScreenCover(isPresented: $showNewView) {
+                    HomePageView()
+                }
+                Text("Couple photos").font(.system(size: 24, weight: .bold)).foregroundColor(.white)
+            }
+            VStack {
+                ScrollView(.vertical) {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(0..<12) { index in
+                            SeeAllCellView()
+                        }
+                    }
+                }
+                .scrollIndicators(.hidden)
+            }
+            .padding(.top)
+    }
+    .padding(.bottom)
+    .background(Color(red: 0.1, green: 0.1, blue: 0.1))
+    
+    }
+}
+
+struct SeeAllView_Previews: PreviewProvider {
+    static var previews: some View {
+        SeeAllView()
+    }
+}
+
+struct SeeAllCellView: View{
+    var body: some View {
+        VStack {
+                Image(systemName: "person.fill")
+                    .frame(width: UIScreen.main.bounds.width/1.1, height: 150)
+                    .background(.red)
+                    .cornerRadius(20)
+            VStack(spacing: 5) {
+                HStack {
+                Text("Random title text")
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundColor(.white)
+            }
+            .padding(.leading, -160)
+                HStack(spacing: 70) {
+                    Text("12 PHOTOS")
+                        .background(Rectangle().fill(.gray))
+                        .frame(width: UIScreen.main.bounds.width/3.2, height: 40)
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundColor(.white)
+                            .background(.gray)
+                            .cornerRadius(10)
+                    Button {
+                        print("")
+                    } label: {
+                        Text("Get This Pack")
+                            .font(.system(size: 16, weight: .bold))
+                            .foregroundColor(.black)
+                            .frame(width: UIScreen.main.bounds.width/3, height: 60)
+                            .background(.white)
+                            .cornerRadius(30)
+                    }
+                }
+            }
+            .padding(.leading)
+            .frame(width: UIScreen.main.bounds.width/1.1, height: 100)
+        }
+        .frame(width: UIScreen.main.bounds.width/1.1, height: 250)
+        .background(.secondary)
+        .cornerRadius(20)
     }
 }
