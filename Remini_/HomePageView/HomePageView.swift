@@ -18,17 +18,17 @@ struct HomePageView: View {
             BottomTabHomePageView()
         }
         
-        .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(550)]) {
+        .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(UIScreen.main.bounds.height/2)]) {
             ChooseYourGenderBottomSheetView(dismissBottomSheet: {
                 bottomSheetPosition = .hidden
             } )
         }
         .enableBackgroundBlur(true)
-        .customBackground(.white)
+        .customBackground(Color.white.cornerRadius(30))
         .showDragIndicator(false)
         .onAppear() {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                bottomSheetPosition = .absolute(550)
+                bottomSheetPosition = .absolute(UIScreen.main.bounds.height/1.5)
             }
         }
     }
@@ -58,7 +58,7 @@ struct ChooseYourGenderBottomSheetView: View {
             VStack(alignment: .center, spacing: 20) {
                 Image(systemName: "personalhotspot")
                     .font(.system(size: UIScreen.main.bounds.width/4))
-                    .background(.yellow)
+                    //.background(.yellow)
                 Text("What's your gender?")
                     .font(.title.bold())
                 Text("We will only use this information to personalize your experience.")
