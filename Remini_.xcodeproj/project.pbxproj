@@ -15,6 +15,7 @@
 		041BCF842BFCE61700E0C367 /* Remini_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF832BFCE61700E0C367 /* Remini_UITests.swift */; };
 		041BCF862BFCE61700E0C367 /* Remini_UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF852BFCE61700E0C367 /* Remini_UITestsLaunchTests.swift */; };
 		041BCF932BFCE68100E0C367 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF922BFCE68100E0C367 /* SplashView.swift */; };
+		041C7B9B2C0745FE007649F2 /* CellsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C7B9A2C0745FE007649F2 /* CellsContentView.swift */; };
 		044030AD2C03F627008FE57A /* FirstImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0333C2BFF5A4A008B8D0D /* FirstImageView.swift */; };
 		044030AE2C03F627008FE57A /* FirstImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0333C2BFF5A4A008B8D0D /* FirstImageView.swift */; };
 		04756E5F2C054E86008B1F9B /* PromoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04756E5E2C054E86008B1F9B /* PromoView.swift */; };
@@ -67,6 +68,7 @@
 		041BCF832BFCE61700E0C367 /* Remini_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remini_UITests.swift; sourceTree = "<group>"; };
 		041BCF852BFCE61700E0C367 /* Remini_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remini_UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		041BCF922BFCE68100E0C367 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		041C7B9A2C0745FE007649F2 /* CellsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsContentView.swift; sourceTree = "<group>"; };
 		04756E5E2C054E86008B1F9B /* PromoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoView.swift; sourceTree = "<group>"; };
 		04A033252BFCF998008B8D0D /* Remini--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Remini--Info.plist"; sourceTree = SOURCE_ROOT; };
 		04A033282BFD29C8008B8D0D /* ViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoordinator.swift; sourceTree = "<group>"; };
@@ -182,6 +184,14 @@
 			path = Remini_UITests;
 			sourceTree = "<group>";
 		};
+		041C7B992C074587007649F2 /* HomePageCellsContent */ = {
+			isa = PBXGroup;
+			children = (
+				041C7B9A2C0745FE007649F2 /* CellsContentView.swift */,
+			);
+			path = HomePageCellsContent;
+			sourceTree = "<group>";
+		};
 		044030A92C03F593008FE57A /* AppCoordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				04A033422C00431B008B8D0D /* HomePageView.swift */,
+				041C7B992C074587007649F2 /* HomePageCellsContent */,
 				044030B02C03F653008FE57A /* HomePageViews */,
 			);
 			path = HomePageView;
@@ -517,6 +528,7 @@
 				04A033292BFD29C8008B8D0D /* ViewCoordinator.swift in Sources */,
 				04A033432C00431B008B8D0D /* HomePageView.swift in Sources */,
 				04A0333F2BFF5A5D008B8D0D /* SecondImageView.swift in Sources */,
+				041C7B9B2C0745FE007649F2 /* CellsContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

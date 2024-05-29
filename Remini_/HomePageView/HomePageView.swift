@@ -9,26 +9,34 @@ import SwiftUI
 import BottomSheetSwiftUI
 
 struct HomePageView: View {
+    @State private var showingModal = false
+    @State var image: Image = Image("")
     @State var bottomSheetPosition: BottomSheetPosition = .hidden
     @State var showGenderSelector = false
     var body: some View {
-        VStack(spacing: 0) {
-            TopNavHomePageView()
-            MiddleHomePageView()
-            BottomTabHomePageView()
-        }
-        
-        .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(UIScreen.main.bounds.height/2)]) {
-            ChooseYourGenderBottomSheetView(dismissBottomSheet: {
-                bottomSheetPosition = .hidden
-            } )
-        }
-        .enableBackgroundBlur(true)
-        .customBackground(Color.white.cornerRadius(30))
-        .showDragIndicator(false)
-        .onAppear() {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                bottomSheetPosition = .absolute(UIScreen.main.bounds.height/1.5)
+        ZStack {
+            VStack(spacing: 0) {
+                TopNavHomePageView()
+                MiddleHomePageView(image: $image, showingModal: $showingModal)
+                BottomTabHomePageView()
+            }
+            .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(UIScreen.main.bounds.height/2)]) {
+                ChooseYourGenderBottomSheetView(dismissBottomSheet: {
+                    bottomSheetPosition = .hidden
+                } )
+            }
+            .enableBackgroundBlur(true)
+            .customBackground(Color.white.cornerRadius(30))
+            .showDragIndicator(false)
+            .onAppear() {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    bottomSheetPosition = .absolute(UIScreen.main.bounds.height/1.5)
+                }
+            }
+            if $showingModal.wrappedValue {
+                ModalView(showingModal: $showingModal, image: $image, dismissModal: {
+                    showingModal = false
+                })
             }
         }
     }
@@ -54,11 +62,11 @@ struct ChooseYourGenderBottomSheetView: View {
                         .foregroundColor(.black)
                 }
             }.padding()
-            .padding(.trailing, 300)
+                .padding(.trailing, 300)
             VStack(alignment: .center, spacing: 20) {
                 Image(systemName: "personalhotspot")
                     .font(.system(size: UIScreen.main.bounds.width/4))
-                    //.background(.yellow)
+                //.background(.yellow)
                 Text("What's your gender?")
                     .font(.title.bold())
                 Text("We will only use this information to personalize your experience.")
@@ -74,7 +82,7 @@ struct ChooseYourGenderBottomSheetView: View {
                     RoundedRectangle(cornerRadius: 25)
                         .stroke(.gray.opacity(0.3), lineWidth: 2)
                 )
-
+                
                 Button {
                     print("")
                 } label: {
@@ -87,7 +95,7 @@ struct ChooseYourGenderBottomSheetView: View {
                     RoundedRectangle(cornerRadius: 25)
                         .stroke(.gray.opacity(0.3), lineWidth: 2)
                 )
-
+                
                 Button {
                     print("")
                 } label: {
@@ -153,6 +161,8 @@ struct TopNavHomePageView: View {
 }
 
 struct MiddleHomePageView: View {
+    @Binding var image: Image
+    @Binding var showingModal: Bool
     let columns = [GridItem(.flexible(), spacing: 80, alignment: .center)]
     let rows = [
         GridItem(.flexible(), spacing: 0, alignment: .center)
@@ -211,14 +221,13 @@ struct MiddleHomePageView: View {
                             ScrollView(.horizontal) {
                                 LazyHGrid(rows: sectionZeroRows, spacing: 5) {
                                     ForEach(0..<20) { index in
-                                        SectionZeroCell()
+                                        SectionZeroCell(showingModal: $showingModal, image: $image)
                                     }
                                 }
                                 .frame(height: 250)
                             }
                             .scrollIndicators(.hidden)
                         }
-                    
                     //MARK: - Section One -
                     Section(header:   HStack{
                         Text("Couple photos")
@@ -530,9 +539,9 @@ struct BottomTabHomePageView: View {
     let rows = [GridItem(.flexible())]
     var body: some View {
         VStack {
-                LazyHGrid(rows: rows, alignment: .bottom, spacing: 20) {
-                    ForEach(0..<3) { index in
-                        BottomTabHomePageCells()
+            LazyHGrid(rows: rows, alignment: .bottom, spacing: 20) {
+                ForEach(0..<3) { index in
+                    BottomTabHomePageCells()
                 }
             }
         }
@@ -633,12 +642,50 @@ struct BottomTabHomePageCells: View {
     }
 }
 
+struct EnhanceImagePicker: UIViewControllerRepresentable {
+    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        @Binding var selectedImage: UIImage?
+        init(selectedImage: Binding<UIImage?>) {
+            self._selectedImage = selectedImage
+        }
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            guard let image = info[.originalImage] as? UIImage else {return}
+            selectedImage = image
+            picker.dismiss(animated: true)
+        }
+    }
+    @Binding var selectedImage: UIImage?
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(selectedImage: $selectedImage)
+    }
+    
+    func makeUIViewController(context: Context) ->  UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.delegate = context.coordinator
+        return picker
+    }
+    
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
+        
+    }
+}
+
 struct SectionZeroCell: View {
+    @Binding var showingModal: Bool
+    @Binding var image: Image
     var body: some View {
-        Image(systemName: "person.fill")
-            .frame(width: UIScreen.main.bounds.width/3.3, height: 120)
-            .background(.red)
-            .cornerRadius(10)
+        VStack {
+            ZStack {
+                Image(systemName: "person.fill")
+                    .frame(width: UIScreen.main.bounds.width/3.3, height: 120)
+                    .background(.red)
+                    .cornerRadius(10)
+                    .onTapGesture {
+                        showingModal = true
+                    }
+            }
+        }
     }
 }
 
@@ -723,31 +770,35 @@ struct SectionNineCell: View {
     }
 }
 
-struct EnhanceImagePicker: UIViewControllerRepresentable {
-    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        @Binding var selectedImage: UIImage?
-        init(selectedImage: Binding<UIImage?>) {
-            self._selectedImage = selectedImage
+struct ModalView: View {
+    @Binding var showingModal: Bool
+    @Binding var image: Image
+    let dismissModal: () -> Void
+    var body: some View {
+        ZStack {
+            Color.black.opacity(0.4)
+                .edgesIgnoringSafeArea(.vertical)
+            VStack(spacing: 20) {
+                Button(action: {
+                    dismissModal()
+                }) {
+                    Image(systemName: "xmark")
+                        .foregroundColor(.white)
+                        .frame(width: 50, height: 50)
+                        .background(.black.opacity(0.2))
+                        .cornerRadius(25)
+                }.padding(.leading, -120)
+                Spacer().frame(height: 350)
+            }
+            .frame(width: 300, height: 500)
+            .background(Color.white)
+            .cornerRadius(20).shadow(radius: 20)
         }
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            guard let image = info[.originalImage] as? UIImage else {return}
-            selectedImage = image
-            picker.dismiss(animated: true)
-        }
     }
-    @Binding var selectedImage: UIImage?
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(selectedImage: $selectedImage)
-    }
-     
-    func makeUIViewController(context: Context) ->  UIImagePickerController {
-        let picker = UIImagePickerController()
-        picker.delegate = context.coordinator
-        return picker
-    }
-    
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
-        
+}
+
+extension CGRect {
+    var center : CGPoint {
+        return CGPoint(x: self.midX, y: self.midY)
     }
 }
