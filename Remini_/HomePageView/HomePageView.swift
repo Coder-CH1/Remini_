@@ -933,7 +933,7 @@ struct SeeAllCellView: View{
             Image(systemName: item.image)
                 .frame(width: UIScreen.main.bounds.width/1.1, height: 150)
                 .background(.red)
-                .cornerRadius(20)
+                //.cornerRadius(20)
             VStack(spacing: 5) {
                 HStack {
                     Text(item.title)
@@ -971,51 +971,58 @@ struct SeeAllCellView: View{
 }
 
 struct DetailsView: View {
+    @State var showPickForTwo = false
     @Binding var selection: SeeAllCellData?
     var body: some View {
-        VStack {
-            if let selection = selection {
-                Image(selection.image)
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/2).ignoresSafeArea()
-                    .background(.red)
-                Spacer()
-                VStack(alignment: .center, spacing: 20) {
-                    VStack(spacing: 30) {
-                        Text(selection.details)
-                            .background(Rectangle().fill(.gray))
-                            .frame(width: UIScreen.main.bounds.width/3.2, height: 40)
-                            .font(.system(size: 18, weight: .semibold))
-                            .foregroundColor(.white)
-                            .background(.gray)
-                            .cornerRadius(10)
-                        Text(selection.title)
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(.white)
-                    }
-                    .padding(.top, -120)
-                    Text("Create beautiful wedding pictures of you\n and your better half")
-                        .font(.system(size: 12, weight: .regular))
-                        .foregroundColor(.white)
-                    Button {
-                        print("btn tapped")
-                    } label: {
-                        HStack(spacing: 30) {
-                            Text("Pick Two People")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(.black)
-                            Image(systemName: "plus")
-                                .font(.system(size: 20))
-                                .foregroundColor(.black)
+        NavigationView {
+            VStack {
+                if let selection = selection {
+                    Image(selection.image)
+                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/2).ignoresSafeArea()
+                        .background(.red)
+                    Spacer()
+                    VStack(alignment: .center, spacing: 20) {
+                        VStack(spacing: 30) {
+                            Text(selection.details)
+                                .background(Rectangle().fill(.gray))
+                                .frame(width: UIScreen.main.bounds.width/3.2, height: 40)
+                                .font(.system(size: 18, weight: .semibold))
+                                .foregroundColor(.white)
+                                .background(.gray)
+                                .cornerRadius(10)
+                            Text(selection.title)
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundColor(.white)
                         }
-                        .frame(width: UIScreen.main.bounds.width - 100, height: 60)
-                        .background(.white)
-                        .cornerRadius(30)
+                        .padding(.top, -120)
+                        Text("Create beautiful wedding pictures of you\n and your better half")
+                            .font(.system(size: 12, weight: .regular))
+                            .foregroundColor(.white)
+                        NavigationLink(destination: PickForTwoView(), isActive: $showPickForTwo) {
+                            Button {
+                                showPickForTwo.toggle()
+                            } label: {
+                                HStack(spacing: 30) {
+                                    Text("Pick Two People")
+                                        .font(.system(size: 16, weight: .semibold))
+                                        .foregroundColor(.black)
+                                    Image(systemName: "plus")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.black)
+                                }
+                                .frame(width: UIScreen.main.bounds.width - 100, height: 60)
+                                .background(.white)
+                                .cornerRadius(30)
+                            }
+                        }
+                        .navigationBarBackButtonHidden(true)
+                        .navigationBarTitle("")
                     }
-
                 }
             }
+            .background(Color(red: 0.1, green: 0.1, blue: 0.1))
         }
-        .background(Color(red: 0.1, green: 0.1, blue: 0.1))
+        .accentColor(.white)
     }
 }
 
@@ -1024,4 +1031,96 @@ struct SeeAllCellData: Identifiable {
     let image: String
     let title: String
     let details: String
+}
+
+struct PickForTwoView: View {
+    let sectionZeroRows = [
+        GridItem(.flexible(), spacing: -20, alignment: .center),
+        GridItem(.flexible(), spacing: -20, alignment: .center),
+        GridItem(.flexible(), spacing: -20, alignment: .center)
+    ]
+    var body: some View {
+        VStack {
+            VStack {
+                HStack {
+                    Text("Pick 2 People")
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.white)
+                }
+            }
+            VStack {
+                ScrollView(.vertical) {
+                    Section(header: HStack(spacing: 100) {
+                        Text("Your photos")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(.white)
+                        Button {
+                            print("btn tapped")
+                        } label: {
+                            Text("Open Gallery")
+                                .font(.system(size: 18, weight: .medium))
+                                .foregroundColor(.white)
+                                .frame(width: UIScreen.main.bounds.width/3, height: 50)
+                                .background(Color(red: 0.1, green: 0.1, blue: 0.1))
+                                .cornerRadius(25)
+                        }
+                    }
+                    ) {
+                        LazyVGrid(columns: sectionZeroRows, spacing: 5) {
+                            ForEach(0..<18) { index in
+                                PickForTwoViewCell()
+                            }
+                        }
+                    }
+                    .scrollIndicators(.hidden)
+                }
+            }
+            HStack(spacing: 20) {
+                Button {
+                    print("")
+                } label: {
+                    VStack {
+                        Image(systemName: "camera.metering.spot")
+                            .font(.system(size: 50))
+                            .foregroundColor(.gray)
+                        Text("Person 1")
+                            .font(.system(size: 14, weight: .regular))
+                            .foregroundColor(.gray)
+                    }
+                    .padding(.top)
+                }
+                
+                Button {
+                    print("")
+                } label: {
+                    VStack {
+                        Image(systemName: "camera.metering.spot")
+                            .font(.system(size: 50))
+                            .foregroundColor(.gray)
+                        Text("Person 2")
+                            .font(.system(size: 14, weight: .regular))
+                            .foregroundColor(.gray)
+                    }
+                    .padding(.top)
+                }
+            }
+            .padding(.leading, -160)
+        }
+        .padding(.bottom, 70)
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/1.1)
+        .background(Color.black.ignoresSafeArea())
+    }
+}
+
+struct PickForTwoViewCell: View {
+    var body: some View {
+        VStack {
+            ZStack {
+                Image(systemName: "person.fill")
+                    .frame(width: UIScreen.main.bounds.width/3.3, height: 120)
+                    .background(.red)
+                    .cornerRadius(10)
+            }
+        }
+    }
 }
