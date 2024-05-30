@@ -1386,7 +1386,7 @@ struct SecondSelectGenderView: View {
             Spacer()
                 .frame(height: 20)
             HStack {
-                Text("By tapping Start Generation, declare that you have all necessary\n right and permissions to share these images and information with us\n and that you will use the images generated lawfully\n\n If you upload images that include minors, by tapping Start\n Generation, declare that you have parental responsibility for them\n and the necessary rights to share the images.")
+Text("By tapping Start Generation, declare that you have all necessary\n right and permissions to share these images and information with us\n and that you will use the images generated lawfully\n\n If you upload images that include minors, by tapping Start\n Generation, declare that you have parental responsibility for them\n and the necessary rights to share the images.")
                     .font(.system(size: 10, weight: .regular))
                     .foregroundColor(.white)
                     .opacity(showTermsAndConditions ? 1 : 0)
@@ -1394,9 +1394,9 @@ struct SecondSelectGenderView: View {
             VStack {
                 Spacer()
                     .frame(height: 20)
-                HStack(spacing: 30) {
+                VStack(spacing: 30) {
                     Button {
-                        //showNextView.toggle()
+                        showLoadingView = true
                     } label: {
                         HStack(spacing: 30) {
                             Text("Start Generation")
@@ -1412,6 +1412,9 @@ struct SecondSelectGenderView: View {
                     .background(isNextButtonEnabled ? Color.white : Color.gray)
                     .cornerRadius(30)
                 }
+                .fullScreenCover(isPresented: $showLoadingView) {
+                    GenderSelectionLoadingView(isActive: true)
+                }
                 .padding(.bottom, 50)
             }
         }
@@ -1421,9 +1424,40 @@ struct SecondSelectGenderView: View {
 }
 
 struct GenderSelectionLoadingView: View {
+    @State var isPresentedView = false
+    @State var isActive: Bool
+    @State var rotatingAngle: Double = 0.0
+    @State var trimAmount: Double = 0.1
     var body: some View {
         VStack {
-            Text("")
+            Circle()
+                .trim(from: trimAmount, to: 1)
+                .stroke(
+                    Color.white,
+                    style:
+                        StrokeStyle(lineWidth: 5, lineCap:
+                                .round, lineJoin:
+                                .round, miterLimit:
+                                .infinity, dashPhase: 0))
+                .frame(width: 20, height: 20)
+                .rotationEffect(.degrees(rotatingAngle))
+                .animation(.linear(duration: 1.5).repeatForever(), value: rotatingAngle)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.black)
+        .ignoresSafeArea()
+        .onAppear{
+            self.rotatingAngle = 360.0
+            self.trimAmount = 1
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                withAnimation {
+                    self.isActive = true
+                    isPresentedView.toggle()
+                }
+            }
+        }
+        
+        .background(.black.opacity(0.2))
+        .ignoresSafeArea()
     }
 }
