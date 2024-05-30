@@ -1034,85 +1034,114 @@ struct SeeAllCellData: Identifiable {
 }
 
 struct PickForTwoView: View {
+    @State var showSelectGenderView = false
+    @State var selectedImage1: Image?
+    @State var selectedImage2: Image?
+    @State var showContinueButton = false
     let sectionZeroRows = [
         GridItem(.flexible(), spacing: -20, alignment: .center),
         GridItem(.flexible(), spacing: -20, alignment: .center),
         GridItem(.flexible(), spacing: -20, alignment: .center)
     ]
     var body: some View {
-        VStack {
             VStack {
-                HStack {
-                    Text("Pick 2 People")
-                        .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(.white)
-                }
-            }
-            VStack {
-                ScrollView(.vertical) {
-                    Section(header: HStack(spacing: 100) {
-                        Text("Your photos")
+                VStack {
+                    HStack {
+                        Text("Pick 2 People")
                             .font(.system(size: 20, weight: .bold))
                             .foregroundColor(.white)
-                        Button {
-                            print("btn tapped")
-                        } label: {
-                            Text("Open Gallery")
-                                .font(.system(size: 18, weight: .medium))
+                    }
+                }
+                VStack {
+                    ScrollView(.vertical) {
+                        Section(header: HStack(spacing: 100) {
+                            Text("Your photos")
+                                .font(.system(size: 20, weight: .bold))
                                 .foregroundColor(.white)
-                                .frame(width: UIScreen.main.bounds.width/3, height: 50)
-                                .background(Color(red: 0.1, green: 0.1, blue: 0.1))
+                            Button {
+                                print("btn tapped")
+                            } label: {
+                                Text("Open Gallery")
+                                    .font(.system(size: 18, weight: .medium))
+                                    .foregroundColor(.white)
+                                    .frame(width: UIScreen.main.bounds.width/3, height: 50)
+                                    .background(Color(red: 0.1, green: 0.1, blue: 0.1))
+                                    .cornerRadius(25)
+                            }
+                        }
+                        ) {
+                            LazyVGrid(columns: sectionZeroRows, spacing: 5) {
+                                ForEach(0..<18) { index in
+                                    PickForTwoViewCell(onTap: { image in
+                                        if selectedImage1 == nil {
+                                            selectedImage1 = image
+                                        } else if selectedImage2 == nil {
+                                            selectedImage2 = image
+                                            showContinueButton = true
+                                        }
+                                        
+                                    })
+                                }
+                            }
+                        }
+                        .scrollIndicators(.hidden)
+                    }
+                }
+                HStack(spacing: 20) {
+                    Button {
+                        print("")
+                    } label: {
+                        VStack {
+                            selectedImage1
+                                .font(.system(size: 50))
+                                .foregroundColor(.gray)
+                            Text("Person 1")
+                                .font(.system(size: 14, weight: .regular))
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.top)
+                    }
+                    
+                    Button {
+                        print("")
+                    } label: {
+                        VStack {
+                            selectedImage2
+                                .font(.system(size: 50))
+                                .foregroundColor(.gray)
+                            Text("Person 2")
+                                .font(.system(size: 14, weight: .regular))
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.top)
+                    }
+                }
+                .padding(.leading, -160)
+                if showContinueButton {
+                    NavigationLink(destination: SelectGenderView(), isActive: $showSelectGenderView) {
+                        Button {
+                            showSelectGenderView.toggle()
+                        } label: {
+                            Text("Continue")
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundColor(.black)
+                                .frame(width: UIScreen.main.bounds.width/1.5, height: 50)
+                                .background(.white)
                                 .cornerRadius(25)
                         }
                     }
-                    ) {
-                        LazyVGrid(columns: sectionZeroRows, spacing: 5) {
-                            ForEach(0..<18) { index in
-                                PickForTwoViewCell()
-                            }
-                        }
-                    }
-                    .scrollIndicators(.hidden)
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarTitle("")
                 }
             }
-            HStack(spacing: 20) {
-                Button {
-                    print("")
-                } label: {
-                    VStack {
-                        Image(systemName: "camera.metering.spot")
-                            .font(.system(size: 50))
-                            .foregroundColor(.gray)
-                        Text("Person 1")
-                            .font(.system(size: 14, weight: .regular))
-                            .foregroundColor(.gray)
-                    }
-                    .padding(.top)
-                }
-                
-                Button {
-                    print("")
-                } label: {
-                    VStack {
-                        Image(systemName: "camera.metering.spot")
-                            .font(.system(size: 50))
-                            .foregroundColor(.gray)
-                        Text("Person 2")
-                            .font(.system(size: 14, weight: .regular))
-                            .foregroundColor(.gray)
-                    }
-                    .padding(.top)
-                }
-            }
-            .padding(.leading, -160)
-        }
-        .padding(.bottom, 70)
-        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/1.1)
-        .background(Color.black.ignoresSafeArea())
+            .padding(.bottom, 50)
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/1.1)
+            .background(Color.black.ignoresSafeArea())
     }
 }
 
 struct PickForTwoViewCell: View {
+    var onTap: (Image) -> Void
     var body: some View {
         VStack {
             ZStack {
@@ -1120,7 +1149,20 @@ struct PickForTwoViewCell: View {
                     .frame(width: UIScreen.main.bounds.width/3.3, height: 120)
                     .background(.red)
                     .cornerRadius(10)
+                    .onTapGesture {
+                        onTap(Image(systemName: "person.fill"))
+                    }
             }
         }
+    }
+}
+
+struct SelectGenderView: View {
+    var body: some View {
+        VStack {
+            Text("")
+        }
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        .background(Color.black.ignoresSafeArea())
     }
 }
