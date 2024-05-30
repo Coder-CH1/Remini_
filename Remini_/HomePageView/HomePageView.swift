@@ -7,6 +7,7 @@
 
 import SwiftUI
 import BottomSheetSwiftUI
+import Photos
 
 struct HomePageView: View {
     @State private var showingModal = false
@@ -1162,6 +1163,8 @@ struct PickForTwoViewCell: View {
 struct SelectGenderView: View {
     @Binding var selectedImage1: Image?
     @Binding var selectedImage2: Image?
+    @State var selectedGender: String? = nil
+    @State var isNextButtonEnabled = false
     var textPerson1: String
     var textPerson2: String
     var body: some View {
@@ -1175,6 +1178,7 @@ struct SelectGenderView: View {
                             .frame(width: 150, height: 150)
                             .background(.red)
                             .cornerRadius(25)
+                            
                     }
                     Text(textPerson1)
                         .font(.system(size: 20, weight: .bold))
@@ -1188,21 +1192,24 @@ struct SelectGenderView: View {
                             .frame(width: 150, height: 150)
                             .background(.red)
                             .cornerRadius(25)
+                            .disabled(true)
                     }
                     Text(textPerson2)
                         .font(.system(size: 20, weight: .bold))
                         .foregroundColor(.white)
+                        .hidden()
                 }
             }
             .padding(.leading, 50)
             Spacer()
                 .frame(height: 100)
-            VStack {
+            VStack(spacing: 20) {
                 Text("Gender")
                     .font(.system(size: 24, weight: .bold))
                     .foregroundColor(.white)
                 Button {
-                    print("")
+                    selectedGender = "Female"
+                    isNextButtonEnabled = true
                 } label: {
                     Text("Female")
                         .font(.system(size: 16,weight: .semibold))
@@ -1211,11 +1218,12 @@ struct SelectGenderView: View {
                 .frame(width: UIScreen.main.bounds.width - 50, height: 60)
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
-                        .stroke(.gray.opacity(0.3), lineWidth: 2)
+                        .stroke(selectedGender == "Female" ? .white : .gray.opacity(0.3), lineWidth: 2)
                 )
                 
                 Button {
-                    print("")
+                    selectedGender = "Male"
+                    isNextButtonEnabled = true
                 } label: {
                     Text("Male")
                         .font(.system(size: 16,weight: .semibold))
@@ -1224,11 +1232,12 @@ struct SelectGenderView: View {
                 .frame(width: UIScreen.main.bounds.width - 50, height: 60)
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
-                        .stroke(.gray.opacity(0.3), lineWidth: 2)
+                        .stroke(selectedGender == "Male" ? .white : .gray.opacity(0.3), lineWidth: 2)
                 )
                 
                 Button {
-                    print("")
+                    selectedGender = "Other"
+                    isNextButtonEnabled = true
                 } label: {
                     Text("Other")
                         .font(.system(size: 16,weight: .semibold))
@@ -1237,12 +1246,13 @@ struct SelectGenderView: View {
                 .frame(width: UIScreen.main.bounds.width - 50, height: 60)
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
-                        .stroke(.gray.opacity(0.3), lineWidth: 2)
+                        .stroke(selectedGender == "Other" ? .white : .gray.opacity(0.3), lineWidth: 2)
                 )
                 
             }
             .frame(width: UIScreen.main.bounds.width, height: 300)
             .background(.secondary)
+            .cornerRadius(20)
             Spacer()
                 .frame(height: 80)
             VStack {
@@ -1260,7 +1270,8 @@ struct SelectGenderView: View {
                         }
                     }
                     .frame(width: UIScreen.main.bounds.width - 100, height: 60)
-                    .background(.white)
+                    .disabled(!isNextButtonEnabled)
+                    .background(isNextButtonEnabled ? Color.white : Color.gray)
                     .cornerRadius(30)
                 }
                 .padding(.bottom, 50)
@@ -1270,3 +1281,21 @@ struct SelectGenderView: View {
         .background(Color.black.ignoresSafeArea())
     }
 }
+
+//class PhotoLibraryService: ObservableObject {
+//    func requestAuthorization(handleError: (() -> Void)? = nil ) {
+//        PHPhotoLibrary.requestAuthorization { [weak self] status in
+//            switch status {
+//            case .authorized,
+//                    .limited:
+//                self.fetchAllPhotos()
+//            case .denied,
+//                    .notDetermined, .restricted:
+//                handleError? (.restrictedAccess)
+//            default:
+//                break
+//            }
+//        }
+//    }
+//    var authoriZation: PHAuthorizationStatus = .notDetermined
+//}
