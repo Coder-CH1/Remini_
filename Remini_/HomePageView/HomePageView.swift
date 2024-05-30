@@ -10,15 +10,18 @@ import BottomSheetSwiftUI
 import Photos
 
 struct HomePageView: View {
-    @State private var showingModal = false
+    @State var showDetailsView = false
+    @State var showingModal = false
     @State var image: Image = Image("")
     @State var bottomSheetPosition: BottomSheetPosition = .hidden
     @State var showGenderSelector = false
+    @State var item: SectionOneData?
+    @State var items: SeeAllCellData?
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 TopNavHomePageView()
-                MiddleHomePageView(image: $image, showingModal: $showingModal)
+                MiddleHomePageView(image: $image, showDetailsView: $showDetailsView, showingModal: $showingModal, selected: $item)
                 BottomTabHomePageView()
             }
             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(UIScreen.main.bounds.height/2)]) {
@@ -33,6 +36,9 @@ struct HomePageView: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     bottomSheetPosition = .absolute(UIScreen.main.bounds.height/1.5)
                 }
+            }
+                .fullScreenCover(isPresented: $showDetailsView) {
+                    DetailsView(selection: $items)
             }
             if $showingModal.wrappedValue {
                 ModalView(showingModal: $showingModal, image: $image, dismissModal: {
@@ -163,8 +169,21 @@ struct TopNavHomePageView: View {
 
 struct MiddleHomePageView: View {
     @Binding var image: Image
+    @Binding var showDetailsView: Bool
     @Binding var showingModal: Bool
+    @Binding var selected: SectionOneData?
     @State var showSeeAllView = false
+    let sectionOneItems: [SectionOneData] = [
+        SectionOneData(id: UUID(), image: "person.fill", title: "Couple Wedding\n Photos"),
+        SectionOneData(id: UUID(), image: "person.fill", title: "Couple Wedding\n Photos"),
+        SectionOneData(id: UUID(), image: "person.fill", title: "Couple Wedding\n Photos"),
+        SectionOneData(id: UUID(), image: "person.fill", title: "Couple Wedding\n Photos"),
+        SectionOneData(id: UUID(), image: "person.fill", title: "Couple Wedding\n Photos"),
+        SectionOneData(id: UUID(), image: "person.fill", title: "Couple Wedding\n Photos"),
+        SectionOneData(id: UUID(), image: "person.fill", title: "Couple Wedding\n Photos"),
+        SectionOneData(id: UUID(), image: "person.fill", title: "Couple Wedding\n Photos"),
+        SectionOneData(id: UUID(), image: "person.fill", title: "Couple Wedding\n Photos")
+    ]
     let columns = [GridItem(.flexible(), spacing: 80, alignment: .center)]
     let rows = [
         GridItem(.flexible(), spacing: 0, alignment: .center)
@@ -173,6 +192,7 @@ struct MiddleHomePageView: View {
         GridItem(.flexible(), spacing: 0, alignment: .center),
         GridItem(.flexible(), spacing: 0, alignment: .center)
     ]
+
     var body: some View {
         VStack {
             ScrollView(.vertical) {
@@ -254,8 +274,8 @@ struct MiddleHomePageView: View {
                     }){
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows, spacing: 8) {
-                                ForEach(5..<20) { index in
-                                    SectionOneCell()
+                                ForEach(0..<9) { index in
+                                    SectionOneCell(showDetailsView: $showDetailsView, selected: $selected, item: sectionOneItems[index])
                                 }
                             }
                         }
@@ -694,22 +714,40 @@ struct SectionZeroCell: View {
 }
 
 struct SectionOneCell: View {
+    @Binding var showDetailsView: Bool
+    @Binding var selected: SectionOneData?
+    var item: SectionOneData
     var body: some View {
-        Image(systemName: "person.fill")
-            .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
-            .background(.red)
-            .cornerRadius(30)
+        ZStack {
+            Image(item.image)
+                .resizable()
+                .scaledToFit()
+                .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
+                .background(.red)
+                .cornerRadius(30)
+            Text(item.title)
+                .font(.system(size: 12, weight: .bold))
+                .foregroundColor(.white)
+                .padding(.all, 5)
+        }
+        .onTapGesture {
+            selected = item
+            showDetailsView = true
+        }
     }
 }
 
 struct SectionTwoCell: View {
     var body: some View {
-        Image(systemName: "person.fill")
-            .frame(width: UIScreen.main.bounds.width, height: 200)
-            .background(.red)
-            .cornerRadius(10)
+        ZStack {
+            Image(systemName: "person.fill")
+                .frame(width: UIScreen.main.bounds.width, height: 200)
+                .background(.red)
+                .cornerRadius(10)
+        }
     }
 }
+
 
 struct SectionThreeCell: View {
     var body: some View {
@@ -862,7 +900,7 @@ struct SeeAllView: View {
     let columns = [
         GridItem(.flexible(), spacing: 0, alignment: .center)
     ]
-    let items: [SeeAllCellData] = [
+    let seeAllCellItems: [SeeAllCellData] = [
         SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS"),
         SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS"),
         SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS"),
@@ -872,11 +910,12 @@ struct SeeAllView: View {
         SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS"),
         SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS"),
         SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS"),
-        SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS")
+        SeeAllCellData(id: UUID(), image:  "person.fill", title: "Title Text", details: "12 PHOTOS")
     ]
+
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(spacing: 50) {
+            HStack(spacing: 30) {
                 Button {
                     print("btn tapped")
                     presentationMode.wrappedValue.dismiss()
@@ -895,16 +934,16 @@ struct SeeAllView: View {
                 }
                 Text("Couple photos").font(.system(size: 24, weight: .bold)).foregroundColor(.white)
             }
+            .padding(.leading, 20)
             VStack {
                 ScrollView(.vertical) {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(0..<10) { index in
-                            SeeAllCellView(item: items[index], isSelected: $selectedData)
+                            SeeAllCellView(item: seeAllCellItems[index], isSelected: $selectedData)
                                 .onTapGesture {
-                                    selectedData = items[index]
+                                    selectedData = seeAllCellItems[index]
                                     showDetailsView.toggle()
-                                }
-                            
+                            }
                         }
                     }
                 }
@@ -931,10 +970,11 @@ struct SeeAllCellView: View{
     @Binding var isSelected: SeeAllCellData?
     var body: some View {
         VStack {
-            Image(systemName: item.image)
+            Image(item.image)
+                .resizable()
+                .scaledToFit()
                 .frame(width: UIScreen.main.bounds.width/1.1, height: 150)
                 .background(.red)
-                //.cornerRadius(20)
             VStack(spacing: 5) {
                 HStack {
                     Text(item.title)
@@ -1025,13 +1065,6 @@ struct DetailsView: View {
         }
         .accentColor(.white)
     }
-}
-
-struct SeeAllCellData: Identifiable {
-    let id: UUID
-    let image: String
-    let title: String
-    let details: String
 }
 
 struct PickForTwoView: View {
