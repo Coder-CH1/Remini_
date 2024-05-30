@@ -798,21 +798,21 @@ struct ModalView: View {
                 Spacer()
                 HStack {
                     VStack {
-                    Button {
-                        print("btn tapped")
-                    } label: {
-                        HStack(spacing: 30) {
-                            Text("Enhance")
-                                .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(.white)
-                            Image(systemName: "chevron.right")
-                                .font(.system(size: 20, weight: .bold))
-                                .foregroundColor(.white)
+                        Button {
+                            print("btn tapped")
+                        } label: {
+                            HStack(spacing: 30) {
+                                Text("Enhance")
+                                    .font(.system(size: 18, weight: .bold))
+                                    .foregroundColor(.white)
+                                Image(systemName: "chevron.right")
+                                    .font(.system(size: 20, weight: .bold))
+                                    .foregroundColor(.white)
+                            }
                         }
-                    }
-                    .frame(width: UIScreen.main.bounds.width - 120, height: 70)
-                    .background(.black)
-                    .cornerRadius(35)
+                        .frame(width: UIScreen.main.bounds.width - 120, height: 70)
+                        .background(.black)
+                        .cornerRadius(35)
                         Button {
                             print("btn tapped")
                         } label: {
@@ -854,10 +854,24 @@ extension CGRect {
 }
 
 struct SeeAllView: View {
+    @State var selectedData: SeeAllCellData?
     @State var showNewView = false
+    @State var showDetailsView = false
     @Environment(\.presentationMode) var presentationMode
     let columns = [
         GridItem(.flexible(), spacing: 0, alignment: .center)
+    ]
+    let items: [SeeAllCellData] = [
+        SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS"),
+        SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS"),
+        SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS"),
+        SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS"),
+        SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS"),
+        SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS"),
+        SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS"),
+        SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS"),
+        SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS"),
+        SeeAllCellData(id: UUID(), image: "person.fill", title: "Title Text", details: "12 PHOTOS")
     ]
     var body: some View {
         VStack(alignment: .leading) {
@@ -869,11 +883,11 @@ struct SeeAllView: View {
                 } label: {
                     Image(systemName: "xmark")
                         .background(Rectangle().fill(.white))
-                            .frame(width: UIScreen.main.bounds.width/9, height: 40)
-                            .font(.system(size: 20, weight: .semibold))
-                            .foregroundColor(.black)
-                            .background(.white)
-                            .cornerRadius(20)
+                        .frame(width: UIScreen.main.bounds.width/9, height: 40)
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundColor(.black)
+                        .background(.white)
+                        .cornerRadius(20)
                 }
                 .fullScreenCover(isPresented: $showNewView) {
                     HomePageView()
@@ -883,18 +897,25 @@ struct SeeAllView: View {
             VStack {
                 ScrollView(.vertical) {
                     LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(0..<12) { index in
-                            SeeAllCellView()
+                        ForEach(0..<10) { index in
+                            SeeAllCellView(item: items[index], isSelected: $selectedData)
+                                .onTapGesture {
+                                    selectedData = items[index]
+                                    showDetailsView.toggle()
+                                }
+                            
                         }
                     }
                 }
                 .scrollIndicators(.hidden)
             }
             .padding(.top)
-    }
-    .padding(.bottom)
-    .background(Color(red: 0.1, green: 0.1, blue: 0.1))
-    
+            .fullScreenCover(item: $selectedData) { _ in
+                DetailsView(selection: $selectedData)
+            }
+        }
+        .padding(.bottom)
+        .background(Color(red: 0.1, green: 0.1, blue: 0.1))
     }
 }
 
@@ -905,27 +926,29 @@ struct SeeAllView_Previews: PreviewProvider {
 }
 
 struct SeeAllCellView: View{
+    let item: SeeAllCellData
+    @Binding var isSelected: SeeAllCellData?
     var body: some View {
         VStack {
-                Image(systemName: "person.fill")
-                    .frame(width: UIScreen.main.bounds.width/1.1, height: 150)
-                    .background(.red)
-                    .cornerRadius(20)
+            Image(systemName: item.image)
+                .frame(width: UIScreen.main.bounds.width/1.1, height: 150)
+                .background(.red)
+                .cornerRadius(20)
             VStack(spacing: 5) {
                 HStack {
-                Text("Random title text")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.white)
-            }
-            .padding(.leading, -160)
+                    Text(item.title)
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.white)
+                }
+                .padding(.leading, -160)
                 HStack(spacing: 70) {
-                    Text("12 PHOTOS")
+                    Text(item.details)
                         .background(Rectangle().fill(.gray))
                         .frame(width: UIScreen.main.bounds.width/3.2, height: 40)
-                            .font(.system(size: 18, weight: .semibold))
-                            .foregroundColor(.white)
-                            .background(.gray)
-                            .cornerRadius(10)
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.white)
+                        .background(.gray)
+                        .cornerRadius(10)
                     Button {
                         print("")
                     } label: {
@@ -945,4 +968,60 @@ struct SeeAllCellView: View{
         .background(.secondary)
         .cornerRadius(20)
     }
+}
+
+struct DetailsView: View {
+    @Binding var selection: SeeAllCellData?
+    var body: some View {
+        VStack {
+            if let selection = selection {
+                Image(selection.image)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/2).ignoresSafeArea()
+                    .background(.red)
+                Spacer()
+                VStack(alignment: .center, spacing: 20) {
+                    VStack(spacing: 30) {
+                        Text(selection.details)
+                            .background(Rectangle().fill(.gray))
+                            .frame(width: UIScreen.main.bounds.width/3.2, height: 40)
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundColor(.white)
+                            .background(.gray)
+                            .cornerRadius(10)
+                        Text(selection.title)
+                            .font(.system(size: 18, weight: .bold))
+                            .foregroundColor(.white)
+                    }
+                    .padding(.top, -120)
+                    Text("Create beautiful wedding pictures of you\n and your better half")
+                        .font(.system(size: 12, weight: .regular))
+                        .foregroundColor(.white)
+                    Button {
+                        print("btn tapped")
+                    } label: {
+                        HStack(spacing: 30) {
+                            Text("Pick Two People")
+                                .font(.system(size: 16, weight: .semibold))
+                                .foregroundColor(.black)
+                            Image(systemName: "plus")
+                                .font(.system(size: 20))
+                                .foregroundColor(.black)
+                        }
+                        .frame(width: UIScreen.main.bounds.width - 100, height: 60)
+                        .background(.white)
+                        .cornerRadius(30)
+                    }
+
+                }
+            }
+        }
+        .background(Color(red: 0.1, green: 0.1, blue: 0.1))
+    }
+}
+
+struct SeeAllCellData: Identifiable {
+    let id: UUID
+    let image: String
+    let title: String
+    let details: String
 }
