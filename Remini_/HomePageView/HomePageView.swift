@@ -1038,6 +1038,8 @@ struct PickForTwoView: View {
     @State var selectedImage1: Image?
     @State var selectedImage2: Image?
     @State var showContinueButton = false
+    let textPerson1 = "Person 1"
+    let textPerson2 = "Person 2"
     let sectionZeroRows = [
         GridItem(.flexible(), spacing: -20, alignment: .center),
         GridItem(.flexible(), spacing: -20, alignment: .center),
@@ -1095,7 +1097,7 @@ struct PickForTwoView: View {
                             selectedImage1
                                 .font(.system(size: 50))
                                 .foregroundColor(.gray)
-                            Text("Person 1")
+                            Text(textPerson1)
                                 .font(.system(size: 14, weight: .regular))
                                 .foregroundColor(.gray)
                         }
@@ -1109,7 +1111,7 @@ struct PickForTwoView: View {
                             selectedImage2
                                 .font(.system(size: 50))
                                 .foregroundColor(.gray)
-                            Text("Person 2")
+                            Text(textPerson2)
                                 .font(.system(size: 14, weight: .regular))
                                 .foregroundColor(.gray)
                         }
@@ -1118,7 +1120,7 @@ struct PickForTwoView: View {
                 }
                 .padding(.leading, -160)
                 if showContinueButton {
-                    NavigationLink(destination: SelectGenderView(), isActive: $showSelectGenderView) {
+        NavigationLink(destination: SelectGenderView(selectedImage1: $selectedImage1, selectedImage2: $selectedImage2, textPerson1: textPerson1, textPerson2: textPerson2), isActive: $showSelectGenderView) {
                         Button {
                             showSelectGenderView.toggle()
                         } label: {
@@ -1158,9 +1160,111 @@ struct PickForTwoViewCell: View {
 }
 
 struct SelectGenderView: View {
+    @Binding var selectedImage1: Image?
+    @Binding var selectedImage2: Image?
+    var textPerson1: String
+    var textPerson2: String
     var body: some View {
         VStack {
-            Text("")
+            HStack(spacing: 20) {
+                VStack {
+                    if let image1 = selectedImage1 {
+                        image1
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 150, height: 150)
+                            .background(.red)
+                            .cornerRadius(25)
+                    }
+                    Text(textPerson1)
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.white)
+                }
+                VStack {
+                    if let image2 = selectedImage2 {
+                        image2
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 150, height: 150)
+                            .background(.red)
+                            .cornerRadius(25)
+                    }
+                    Text(textPerson2)
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.white)
+                }
+            }
+            .padding(.leading, 50)
+            Spacer()
+                .frame(height: 100)
+            VStack {
+                Text("Gender")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundColor(.white)
+                Button {
+                    print("")
+                } label: {
+                    Text("Female")
+                        .font(.system(size: 16,weight: .semibold))
+                        .foregroundColor(.white)
+                }
+                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(.gray.opacity(0.3), lineWidth: 2)
+                )
+                
+                Button {
+                    print("")
+                } label: {
+                    Text("Male")
+                        .font(.system(size: 16,weight: .semibold))
+                        .foregroundColor(.white)
+                }
+                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(.gray.opacity(0.3), lineWidth: 2)
+                )
+                
+                Button {
+                    print("")
+                } label: {
+                    Text("Other")
+                        .font(.system(size: 16,weight: .semibold))
+                        .foregroundColor(.white)
+                }
+                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(.gray.opacity(0.3), lineWidth: 2)
+                )
+                
+            }
+            .frame(width: UIScreen.main.bounds.width, height: 300)
+            .background(.secondary)
+            Spacer()
+                .frame(height: 80)
+            VStack {
+                HStack(spacing: 30) {
+                    Button {
+                        print("btn tapped")
+                    } label: {
+                        HStack(spacing: 30) {
+                            Text("Next")
+                                .font(.system(size: 16, weight: .semibold))
+                                .foregroundColor(.black)
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 20))
+                                .foregroundColor(.black)
+                        }
+                    }
+                    .frame(width: UIScreen.main.bounds.width - 100, height: 60)
+                    .background(.white)
+                    .cornerRadius(30)
+                }
+                .padding(.bottom, 50)
+            }
         }
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         .background(Color.black.ignoresSafeArea())
