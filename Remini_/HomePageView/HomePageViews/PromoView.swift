@@ -22,7 +22,7 @@ struct PromoView: View {
                     .tint(.black)
             }
             .fullScreenCover(isPresented: $showNewView) {
-                HomePageView(item: SectionOneData(id: UUID(), image: UIImage(), title: ""))
+        HomePageView(item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
             }
             Spacer()
                 .frame(width: UIScreen.main.bounds.width/1.1)

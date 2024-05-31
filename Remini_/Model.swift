@@ -21,4 +21,9 @@ struct SectionOneData: Identifiable {
     let title: String
 }
 
-
+struct SectionFourData: Identifiable {
+    let id: UUID
+    let image: UIImage
+    let title: String
+    let icon: UIImage
+}
