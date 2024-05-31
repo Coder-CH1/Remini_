@@ -11,6 +11,7 @@ import Photos
 
 struct HomePageView: View {
     @State var showDetailsView = false
+    @State var showAIPhotosView = false
     @State var showingModal = false
     @State var image: Image = Image("")
     @State var bottomSheetPosition: BottomSheetPosition = .hidden
@@ -21,7 +22,7 @@ struct HomePageView: View {
         ZStack {
             VStack(spacing: 0) {
                 TopNavHomePageView()
-                MiddleHomePageView(image: $image, showDetailsView: $showDetailsView, showingModal: $showingModal, selected: $item)
+                MiddleHomePageView(image: $image, showDetailsView: $showDetailsView, showingModal: $showingModal, showAIPhotosView: $showAIPhotosView, selected: $item)
                 BottomTabHomePageView()
             }
             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(UIScreen.main.bounds.height/2)]) {
@@ -40,6 +41,9 @@ struct HomePageView: View {
                 .fullScreenCover(isPresented: $showDetailsView) {
                     DetailsView(selection1: $selected, selection2: $item)
             }
+                .fullScreenCover(isPresented: $showAIPhotosView) {
+                    AIPhotosView()
+                }
             if $showingModal.wrappedValue {
                 ModalView(showingModal: $showingModal, image: $image, dismissModal: {
                     showingModal = false
@@ -171,8 +175,11 @@ struct MiddleHomePageView: View {
     @Binding var image: Image
     @Binding var showDetailsView: Bool
     @Binding var showingModal: Bool
+    @Binding var showAIPhotosView: Bool
     @Binding var selected: SectionOneData
-    @State var showSeeAllView = false
+    @State var showSeeAllSectionOneView = false
+    @State var showSeeAllSectionThreeView = false
+    
     let sectionOneItems: [SectionOneData] = [
         SectionOneData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage(), title: "Couple Wedding\n Photos"),
         SectionOneData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage(), title: "Couple Wedding\n Photos"),
@@ -257,7 +264,7 @@ struct MiddleHomePageView: View {
                             .foregroundColor(.white)
                         Spacer()
                         Button {
-                            showSeeAllView.toggle()
+                            showSeeAllSectionOneView.toggle()
                         } label: {
                             Text("See All")
                                 .font(.system(size: 18, weight: .medium))
@@ -268,7 +275,7 @@ struct MiddleHomePageView: View {
                                         .stroke(.gray, lineWidth: 2)
                                 )
                         }
-                        .fullScreenCover(isPresented: $showSeeAllView) {
+                        .fullScreenCover(isPresented: $showSeeAllSectionOneView) {
                             SeeAllView(selectedData2: selected)
                         }
                     }){
@@ -276,47 +283,11 @@ struct MiddleHomePageView: View {
                             LazyHGrid(rows: rows, spacing: 8) {
                                 ForEach(0..<9) { index in
                                     SectionOneCell(showDetailsView: $showDetailsView, selected: $selected, item: sectionOneItems[index])
-//                                        .onTapGesture {
-//                                            showDetailsView.toggle()
-//                                    }
                                 }
                             }
                         }
                         .scrollIndicators(.hidden)
                     }
-                    
-                    //MARK: - Section Two -
-                    Section(header:  HStack{
-                        HStack(alignment: .center, spacing: 20) {
-                            Text("Stop-motion clay movie")
-                                .font(.system(size: 20, weight: .bold))
-                                .foregroundColor(.white) + Text(
-                                    Image(systemName: "paintpalette.fill"))
-                                .font(.system(size: 20, weight: .bold))
-                                .foregroundColor(.yellow)
-                        }
-                        Spacer()
-                        Button {
-                            print("btn tapped")
-                        } label: {
-                            Text("See All")
-                                .font(.system(size: 18, weight: .medium))
-                                .foregroundColor(.white)
-                                .frame(width: UIScreen.main.bounds.width/4, height: 40)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 25)
-                                        .stroke(.gray, lineWidth: 2)
-                                )
-                        }
-                        
-                    }) {
-                        LazyHGrid(rows: rows) {
-                            ForEach(0..<1) { index in
-                                SectionTwoCell()
-                            }
-                        }
-                    }
-                    
                     //MARK: - Section Three -
                     Section(header:  HStack{
                         HStack(alignment: .center, spacing: 20) {
@@ -329,7 +300,7 @@ struct MiddleHomePageView: View {
                         }
                         Spacer()
                         Button {
-                            print("btn tapped")
+                            showSeeAllSectionThreeView.toggle()
                         } label: {
                             Text("See All")
                                 .font(.system(size: 18, weight: .medium))
@@ -340,12 +311,15 @@ struct MiddleHomePageView: View {
                                         .stroke(.gray, lineWidth: 2)
                                 )
                         }
+                        .fullScreenCover(isPresented: $showSeeAllSectionThreeView) {
+                            AIPhotosView()
+                        }
                         
                     }) {
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows) {
                                 ForEach(5..<20) { index in
-                                    SectionThreeCell()
+                                    SectionThreeCell(showAIPhotosView: $showAIPhotosView)
                                 }
                             }
                         }
@@ -705,6 +679,8 @@ struct SectionZeroCell: View {
         VStack {
             ZStack {
                 Image(systemName: "person.fill")
+                    .resizable()
+                    .scaledToFit()
                     .frame(width: UIScreen.main.bounds.width/3.3, height: 120)
                     .background(.red)
                     .cornerRadius(10)
@@ -740,30 +716,28 @@ struct SectionOneCell: View {
     }
 }
 
-struct SectionTwoCell: View {
-    var body: some View {
-        ZStack {
-            Image(systemName: "person.fill")
-                .frame(width: UIScreen.main.bounds.width, height: 200)
-                .background(.red)
-                .cornerRadius(10)
-        }
-    }
-}
-
-
 struct SectionThreeCell: View {
+    @Binding var showAIPhotosView: Bool
     var body: some View {
-        Image(systemName: "person.fill")
-            .frame(width: UIScreen.main.bounds.width/3.3, height: 150)
-            .background(.red)
-            .cornerRadius(30)
+        VStack {
+            Image(systemName: "person.fill")
+                .resizable()
+                .scaledToFit()
+                .frame(width: UIScreen.main.bounds.width/3.3, height: 150)
+                .background(.red)
+                .cornerRadius(30)
+            }
+        .onTapGesture {
+            showAIPhotosView = true
+        }
     }
 }
 
 struct SectionFourCell: View {
     var body: some View {
         Image(systemName: "person.fill")
+            .resizable()
+            .scaledToFit()
             .frame(width: UIScreen.main.bounds.width, height: 200)
             .background(.red)
             .cornerRadius(10)
@@ -773,6 +747,8 @@ struct SectionFourCell: View {
 struct SectionFiveCell: View {
     var body: some View {
         Image(systemName: "person.fill")
+            .resizable()
+            .scaledToFit()
             .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
             .background(.red)
             .cornerRadius(30)
@@ -782,6 +758,8 @@ struct SectionFiveCell: View {
 struct SectionSixCell: View {
     var body: some View {
         Image(systemName: "person.fill")
+            .resizable()
+            .scaledToFit()
             .frame(width: UIScreen.main.bounds.width, height: 200)
             .background(.red)
             .cornerRadius(10)
@@ -791,6 +769,8 @@ struct SectionSixCell: View {
 struct SectionSevenCell: View {
     var body: some View {
         Image(systemName: "person.fill")
+            .resizable()
+            .scaledToFit()
             .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
             .background(.red)
             .cornerRadius(30)
@@ -800,6 +780,8 @@ struct SectionSevenCell: View {
 struct SectionEightCell: View {
     var body: some View {
         Image(systemName: "person.fill")
+            .resizable()
+            .scaledToFit()
             .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
             .background(.red)
             .cornerRadius(30)
@@ -809,6 +791,8 @@ struct SectionEightCell: View {
 struct SectionNineCell: View {
     var body: some View {
         Image(systemName: "person.fill")
+            .resizable()
+            .scaledToFit()
             .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
             .background(.red)
             .cornerRadius(30)
@@ -1067,7 +1051,7 @@ struct DetailsView: View {
                         .navigationBarBackButtonHidden(true)
                         .navigationBarTitle("")
                     }
-                }else if let selection2 = selection2 {
+                } else if let selection2 = selection2 {
                     Image(uiImage: selection2.image)
                         .resizable()
                         .scaledToFit()
