@@ -20,12 +20,11 @@ struct HomePageView: View {
     @State var item: SectionOneData
     @State var selectedCellData: SeeAllCellData?
     @State var selectedSectionFourData: SectionFourData
-    //@State var
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 TopNavHomePageView()
-    MiddleHomePageView(image: $image, showDetailsView: $showDetailsView, showingModal: $showingModal, showAIPhotosView: $showAIPhotosView, showYellowToolView: $showYellowToon, selectedSectionOneData: $item, selectedSectionFourData: $selectedSectionFourData)
+                MiddleHomePageView(image: $image, showDetailsView: $showDetailsView, showingModal: $showingModal, showAIPhotosView: $showAIPhotosView, showYellowToolView: $showYellowToon, selectedSectionOneData: $item, selectedSectionFourData: $selectedSectionFourData)
                 BottomTabHomePageView()
             }
             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(UIScreen.main.bounds.height/2)]) {
@@ -41,15 +40,15 @@ struct HomePageView: View {
                     bottomSheetPosition = .absolute(UIScreen.main.bounds.height/1.5)
                 }
             }
-                .fullScreenCover(isPresented: $showDetailsView) {
-                    DetailsView(selection1: $selectedCellData, selection2: $item)
+            .fullScreenCover(isPresented: $showDetailsView) {
+                DetailsView(selection1: $selectedCellData, selection2: $item)
             }
-                .fullScreenCover(isPresented: $showAIPhotosView) {
-                    AIPhotosView()
-                }
-                .fullScreenCover(isPresented: $showYellowToon) {
-                    YellowToonView()
-                }
+            .fullScreenCover(isPresented: $showAIPhotosView) {
+                AIPhotosView()
+            }
+            .fullScreenCover(isPresented: $showYellowToon) {
+                YellowToonView()
+            }
             if $showingModal.wrappedValue {
                 ModalView(showingModal: $showingModal, image: $image, dismissModal: {
                     showingModal = false
@@ -203,7 +202,7 @@ struct MiddleHomePageView: View {
     
     let sectionFourItems: [SectionFourData] = [
         SectionFourData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage(), title: "Get your personalized characters now!", icon: UIImage(systemName: "chevron.right") ?? UIImage())
-        ]
+    ]
     
     let columns = [GridItem(.flexible(), spacing: 80, alignment: .center)]
     let rows = [
@@ -213,7 +212,7 @@ struct MiddleHomePageView: View {
         GridItem(.flexible(), spacing: 0, alignment: .center),
         GridItem(.flexible(), spacing: 0, alignment: .center)
     ]
-
+    
     var body: some View {
         VStack {
             ScrollView(.vertical) {
@@ -296,12 +295,44 @@ struct MiddleHomePageView: View {
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows, spacing: 8) {
                                 ForEach(0..<9) { index in
-                        SectionOneCell(showDetailsView: $showDetailsView, selected: $selectedSectionOneData, item: sectionOneItems[index])
+                                    SectionOneCell(showDetailsView: $showDetailsView, selected: $selectedSectionOneData, item: sectionOneItems[index])
                                 }
                             }
                         }
                         .scrollIndicators(.hidden)
                     }
+                    //MARK: - Section Two -
+                    Section(header:  HStack{
+                        HStack(alignment: .center, spacing: 20) {
+                            Text("Stop-motion clay movie")
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.white) + Text(
+                                    Image(systemName: "paintpalette.fill"))
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.yellow)
+                        }
+                        Spacer()
+                        Button {
+                            print("btn tapped")
+                        } label: {
+                            Text("See All")
+                                .font(.system(size: 18, weight: .medium))
+                                .foregroundColor(.white)
+                                .frame(width: UIScreen.main.bounds.width/4, height: 40)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .stroke(.gray, lineWidth: 2)
+                                )
+                        }
+                        
+                    }) {
+                        LazyHGrid(rows: rows) {
+                            ForEach(0..<1) { index in
+                                SectionTwoCell()
+                            }
+                        }
+                    }
+                    
                     //MARK: - Section Three -
                     Section(header:  HStack{
                         HStack(alignment: .center, spacing: 20) {
@@ -341,7 +372,7 @@ struct MiddleHomePageView: View {
                     }
                     
                     //MARK: - Section Four -
-                    NavigationView {
+                   // NavigationView {
                         Section(header:  HStack{
                             HStack(alignment: .center, spacing: 20) {
                                 Text("Yellow Toon")
@@ -371,8 +402,8 @@ struct MiddleHomePageView: View {
                         }) {
                             LazyHGrid(rows: rows) {
                                 ForEach(0..<1) { index in
-                                    SectionFourCell(item: sectionFourItems[index], showYellowToolView: $showYellowToolView, selected: $selectedSectionFourData)
-                                }
+                        SectionFourCell(item: sectionFourItems[index], showYellowToolView: $showYellowToolView, selected: $selectedSectionFourData)
+                                //}
                             }
                         }
                     }
@@ -734,6 +765,18 @@ struct SectionOneCell: View {
     }
 }
 
+struct SectionTwoCell: View {
+    var body: some View {
+        ZStack {
+            Image(systemName: "person.fill")
+                .frame(width: UIScreen.main.bounds.width, height: 200)
+                .background(.red)
+                .cornerRadius(10)
+        }
+    }
+}
+
+
 struct SectionThreeCell: View {
     @Binding var showAIPhotosView: Bool
     var body: some View {
@@ -744,7 +787,7 @@ struct SectionThreeCell: View {
                 .frame(width: UIScreen.main.bounds.width/3.3, height: 150)
                 .background(.red)
                 .cornerRadius(30)
-            }
+        }
         .onTapGesture {
             showAIPhotosView = true
         }
@@ -939,50 +982,50 @@ struct SeeAllView: View {
     
     var body: some View {
         //NavigationView {
-            VStack(alignment: .leading) {
-                HStack(spacing: 30) {
-                    Button {
-                        print("btn tapped")
-                        presentationMode.wrappedValue.dismiss()
-                        showNewView.toggle()
-                    } label: {
-                        Image(systemName: "xmark")
-                            .background(Rectangle().fill(.white))
-                            .frame(width: UIScreen.main.bounds.width/9, height: 40)
-                            .font(.system(size: 20, weight: .semibold))
-                            .foregroundColor(.black)
-                            .background(.white)
-                            .cornerRadius(20)
-                    }
-                    .fullScreenCover(isPresented: $showNewView) {
-                        HomePageView(item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
-                    }
-                    Text("Couple photos").font(.system(size: 24, weight: .bold)).foregroundColor(.white)
+        VStack(alignment: .leading) {
+            HStack(spacing: 30) {
+                Button {
+                    print("btn tapped")
+                    presentationMode.wrappedValue.dismiss()
+                    showNewView.toggle()
+                } label: {
+                    Image(systemName: "xmark")
+                        .background(Rectangle().fill(.white))
+                        .frame(width: UIScreen.main.bounds.width/9, height: 40)
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundColor(.black)
+                        .background(.white)
+                        .cornerRadius(20)
                 }
-                .padding(.leading, 20)
-                VStack {
-                    ScrollView(.vertical) {
-                        LazyVGrid(columns: columns, spacing: 20) {
-                            ForEach(0..<10) { index in
-                                SeeAllCellView(item: seeAllCellItems[index], isSelected: $selectedData)
-                                    .onTapGesture {
-                                        selectedData = seeAllCellItems[index]
-                                        showDetailsView.toggle()
-                                    }
-                            }
+                .fullScreenCover(isPresented: $showNewView) {
+                    HomePageView(item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
+                }
+                Text("Couple photos").font(.system(size: 24, weight: .bold)).foregroundColor(.white)
+            }
+            .padding(.leading, 20)
+            VStack {
+                ScrollView(.vertical) {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(0..<10) { index in
+                            SeeAllCellView(item: seeAllCellItems[index], isSelected: $selectedData)
+                                .onTapGesture {
+                                    selectedData = seeAllCellItems[index]
+                                    showDetailsView.toggle()
+                                }
                         }
                     }
-                    .scrollIndicators(.hidden)
                 }
-                .padding(.top)
-                .fullScreenCover(item: $selectedData) { _ in
-                    DetailsView(selection1: $selectedData, selection2: $selectedData2)
-                }
+                .scrollIndicators(.hidden)
             }
-            .padding(.bottom)
-            .background(Color(red: 0.1, green: 0.1, blue: 0.1))
-//        }
-//        .accentColor(.white)
+            .padding(.top)
+            .fullScreenCover(item: $selectedData) { _ in
+                DetailsView(selection1: $selectedData, selection2: $selectedData2)
+            }
+        }
+        .padding(.bottom)
+        .background(Color(red: 0.1, green: 0.1, blue: 0.1))
+        //        }
+        //        .accentColor(.white)
     }
 }
 
@@ -1223,7 +1266,7 @@ struct PickForTwoView: View {
                 }
                 .padding(.leading, -160)
                 if showContinueButton {
-        NavigationLink(destination: FirstSelectGenderView(selectedImage1: $selectedImage1, selectedImage2: $selectedImage2, textPerson1: textPerson1, textPerson2: textPerson2), isActive: $showSelectGenderView) {
+                    NavigationLink(destination: FirstSelectGenderView(selectedImage1: $selectedImage1, selectedImage2: $selectedImage2, textPerson1: textPerson1, textPerson2: textPerson2), isActive: $showSelectGenderView) {
                         Button {
                             showSelectGenderView.toggle()
                         } label: {
@@ -1273,119 +1316,119 @@ struct FirstSelectGenderView: View {
     var textPerson2: String
     var body: some View {
         //NavigationView {
-            VStack {
-                HStack(spacing: 20) {
-                    VStack {
-                        if let image1 = selectedImage1 {
-                            image1
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 150, height: 150)
-                                .background(.red)
-                                .cornerRadius(25)
-                            
-                        }
-                        Text(textPerson1)
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.white)
-                    }
-                    VStack {
-                        if let image2 = selectedImage2 {
-                            image2
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 150, height: 150)
-                                .background(.red)
-                                .cornerRadius(25)
-                                .disabled(true)
-                        }
-                        Text(textPerson2)
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.white)
-                            .hidden()
-                    }
-                }
-                .padding(.leading, 50)
-                Spacer()
-                    .frame(height: 100)
-                VStack(spacing: 20) {
-                    Text("Gender")
-                        .font(.system(size: 24, weight: .bold))
-                        .foregroundColor(.white)
-                    Button {
-                        selectedGender = "Female"
-                        isNextButtonEnabled = true
-                    } label: {
-                        Text("Female")
-                            .font(.system(size: 16,weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-                    .frame(width: UIScreen.main.bounds.width - 50, height: 60)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 25)
-                            .stroke(selectedGender == "Female" ? .white : .gray.opacity(0.3), lineWidth: 2)
-                    )
-                    
-                    Button {
-                        selectedGender = "Male"
-                        isNextButtonEnabled = true
-                    } label: {
-                        Text("Male")
-                            .font(.system(size: 16,weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-                    .frame(width: UIScreen.main.bounds.width - 50, height: 60)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 25)
-                            .stroke(selectedGender == "Male" ? .white : .gray.opacity(0.3), lineWidth: 2)
-                    )
-            NavigationLink(destination: SecondSelectGenderView(selectedImage1: $selectedImage1, selectedImage2: $selectedImage2, textPerson1: textPerson1, textPerson2: textPerson2), isActive: $showNextView) {
-                        Button {
-                            selectedGender = "Other"
-                            isNextButtonEnabled = true
-                        } label: {
-                            Text("Other")
-                                .font(.system(size: 16,weight: .semibold))
-                                .foregroundColor(.white)
-                        }
-                        .frame(width: UIScreen.main.bounds.width - 50, height: 60)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 25)
-                                .stroke(selectedGender == "Other" ? .white : .gray.opacity(0.3), lineWidth: 2)
-                        )
-                    }
-                    .navigationBarBackButtonHidden(true)
-                    .navigationBarTitle("")
-                }
-                .frame(width: UIScreen.main.bounds.width, height: 300)
-                .background(.secondary)
-                .cornerRadius(20)
-                Spacer()
-                    .frame(height: 80)
+        VStack {
+            HStack(spacing: 20) {
                 VStack {
-                    HStack(spacing: 30) {
-                        Button {
-                            showNextView.toggle()
-                        } label: {
-                            HStack(spacing: 30) {
-                                Text("Next")
-                                    .font(.system(size: 16, weight: .semibold))
-                                    .foregroundColor(.black)
-                                Image(systemName: "chevron.right")
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.black)
-                            }
-                        }
-                        .frame(width: UIScreen.main.bounds.width - 100, height: 60)
-                        .disabled(!isNextButtonEnabled)
-                        .background(isNextButtonEnabled ? Color.white : Color.gray)
-                        .cornerRadius(30)
+                    if let image1 = selectedImage1 {
+                        image1
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 150, height: 150)
+                            .background(.red)
+                            .cornerRadius(25)
+                        
                     }
-                    .padding(.bottom, 50)
+                    Text(textPerson1)
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.white)
+                }
+                VStack {
+                    if let image2 = selectedImage2 {
+                        image2
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 150, height: 150)
+                            .background(.red)
+                            .cornerRadius(25)
+                            .disabled(true)
+                    }
+                    Text(textPerson2)
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.white)
+                        .hidden()
                 }
             }
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-            .background(Color.black.ignoresSafeArea())
+            .padding(.leading, 50)
+            Spacer()
+                .frame(height: 100)
+            VStack(spacing: 20) {
+                Text("Gender")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundColor(.white)
+                Button {
+                    selectedGender = "Female"
+                    isNextButtonEnabled = true
+                } label: {
+                    Text("Female")
+                        .font(.system(size: 16,weight: .semibold))
+                        .foregroundColor(.white)
+                }
+                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(selectedGender == "Female" ? .white : .gray.opacity(0.3), lineWidth: 2)
+                )
+                
+                Button {
+                    selectedGender = "Male"
+                    isNextButtonEnabled = true
+                } label: {
+                    Text("Male")
+                        .font(.system(size: 16,weight: .semibold))
+                        .foregroundColor(.white)
+                }
+                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(selectedGender == "Male" ? .white : .gray.opacity(0.3), lineWidth: 2)
+                )
+                NavigationLink(destination: SecondSelectGenderView(selectedImage1: $selectedImage1, selectedImage2: $selectedImage2, textPerson1: textPerson1, textPerson2: textPerson2), isActive: $showNextView) {
+                    Button {
+                        selectedGender = "Other"
+                        isNextButtonEnabled = true
+                    } label: {
+                        Text("Other")
+                            .font(.system(size: 16,weight: .semibold))
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(selectedGender == "Other" ? .white : .gray.opacity(0.3), lineWidth: 2)
+                    )
+                }
+                .navigationBarBackButtonHidden(true)
+                .navigationBarTitle("")
+            }
+            .frame(width: UIScreen.main.bounds.width, height: 300)
+            .background(.secondary)
+            .cornerRadius(20)
+            Spacer()
+                .frame(height: 80)
+            VStack {
+                HStack(spacing: 30) {
+                    Button {
+                        showNextView.toggle()
+                    } label: {
+                        HStack(spacing: 30) {
+                            Text("Next")
+                                .font(.system(size: 16, weight: .semibold))
+                                .foregroundColor(.black)
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 20))
+                                .foregroundColor(.black)
+                        }
+                    }
+                    .frame(width: UIScreen.main.bounds.width - 100, height: 60)
+                    .disabled(!isNextButtonEnabled)
+                    .background(isNextButtonEnabled ? Color.white : Color.gray)
+                    .cornerRadius(30)
+                }
+                .padding(.bottom, 50)
+            }
+        }
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        .background(Color.black.ignoresSafeArea())
         //}
     }
 }
@@ -1402,129 +1445,129 @@ struct SecondSelectGenderView: View {
     var textPerson2: String
     var body: some View {
         //NavigationView {
-            VStack {
-                HStack(spacing: 20) {
-                    VStack {
-                        if let image1 = selectedImage1 {
-                            image1
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 150, height: 150)
-                                .background(.red)
-                                .cornerRadius(25)
-                                .disabled(true)
-                            
-                        }
-                        Text(textPerson1)
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.white)
-                            .hidden()
+        VStack {
+            HStack(spacing: 20) {
+                VStack {
+                    if let image1 = selectedImage1 {
+                        image1
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 150, height: 150)
+                            .background(.red)
+                            .cornerRadius(25)
+                            .disabled(true)
+                        
                     }
-                    VStack {
-                        if let image2 = selectedImage2 {
-                            image2
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 150, height: 150)
-                                .background(.red)
-                                .cornerRadius(25)
-                        }
-                        Text(textPerson2)
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.white)
-                    }
-                }
-                .padding(.leading, 50)
-                Spacer()
-                    .frame(height: 70)
-                VStack(spacing: 20) {
-                    Text("Gender")
-                        .font(.system(size: 24, weight: .bold))
+                    Text(textPerson1)
+                        .font(.system(size: 20, weight: .bold))
                         .foregroundColor(.white)
-                    Button {
-                        selectedGender = "Female"
-                        isNextButtonEnabled = true
-                        showTermsAndConditions = true
-                    } label: {
-                        Text("Female")
-                            .font(.system(size: 16,weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-                    .frame(width: UIScreen.main.bounds.width - 50, height: 60)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 25)
-                            .stroke(selectedGender == "Female" ? .white : .gray.opacity(0.3), lineWidth: 2)
-                    )
-                    
-                    Button {
-                        selectedGender = "Male"
-                        isNextButtonEnabled = true
-                        showTermsAndConditions = true
-                    } label: {
-                        Text("Male")
-                            .font(.system(size: 16,weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-                    .frame(width: UIScreen.main.bounds.width - 50, height: 60)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 25)
-                            .stroke(selectedGender == "Male" ? .white : .gray.opacity(0.3), lineWidth: 2)
-                    )
-                    Button {
-                        selectedGender = "Other"
-                        isNextButtonEnabled = true
-                        showTermsAndConditions = true
-                    } label: {
-                        Text("Other")
-                            .font(.system(size: 16,weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-                    .frame(width: UIScreen.main.bounds.width - 50, height: 60)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 25)
-                            .stroke(selectedGender == "Other" ? .white : .gray.opacity(0.3), lineWidth: 2)
-                    )
-                }
-                .frame(width: UIScreen.main.bounds.width, height: 300)
-                .background(.secondary)
-                .cornerRadius(20)
-                Spacer()
-                    .frame(height: 20)
-                HStack {
-                    Text("By tapping Start Generation, declare that you have all necessary\n right and permissions to share these images and information with us\n and that you will use the images generated lawfully\n\n If you upload images that include minors, by tapping Start\n Generation, declare that you have parental responsibility for them\n and the necessary rights to share the images.")
-                        .font(.system(size: 10, weight: .regular))
-                        .foregroundColor(.white)
-                        .opacity(showTermsAndConditions ? 1 : 0)
+                        .hidden()
                 }
                 VStack {
-                    Spacer()
-                        .frame(height: 20)
-                    VStack(spacing: 30) {
-                        Button {
-                            showLoadingView = true
-                        } label: {
-                            HStack(spacing: 30) {
-                                Text("Start Generation")
-                                    .font(.system(size: 16, weight: .semibold))
-                                    .foregroundColor(.black)
-                                Image(systemName: "chevron.right")
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.black)
-                            }
-                        }
-                        .frame(width: UIScreen.main.bounds.width - 100, height: 60)
-                        .disabled(!isNextButtonEnabled)
-                        .background(isNextButtonEnabled ? Color.white : Color.gray)
-                        .cornerRadius(30)
+                    if let image2 = selectedImage2 {
+                        image2
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 150, height: 150)
+                            .background(.red)
+                            .cornerRadius(25)
                     }
-                    .fullScreenCover(isPresented: $showLoadingView) {
-                        GenderSelectionLoadingView(isActive: true)
-                    }
-                    .padding(.bottom, 50)
+                    Text(textPerson2)
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.white)
                 }
             }
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-            .background(Color.black.ignoresSafeArea())
+            .padding(.leading, 50)
+            Spacer()
+                .frame(height: 70)
+            VStack(spacing: 20) {
+                Text("Gender")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundColor(.white)
+                Button {
+                    selectedGender = "Female"
+                    isNextButtonEnabled = true
+                    showTermsAndConditions = true
+                } label: {
+                    Text("Female")
+                        .font(.system(size: 16,weight: .semibold))
+                        .foregroundColor(.white)
+                }
+                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(selectedGender == "Female" ? .white : .gray.opacity(0.3), lineWidth: 2)
+                )
+                
+                Button {
+                    selectedGender = "Male"
+                    isNextButtonEnabled = true
+                    showTermsAndConditions = true
+                } label: {
+                    Text("Male")
+                        .font(.system(size: 16,weight: .semibold))
+                        .foregroundColor(.white)
+                }
+                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(selectedGender == "Male" ? .white : .gray.opacity(0.3), lineWidth: 2)
+                )
+                Button {
+                    selectedGender = "Other"
+                    isNextButtonEnabled = true
+                    showTermsAndConditions = true
+                } label: {
+                    Text("Other")
+                        .font(.system(size: 16,weight: .semibold))
+                        .foregroundColor(.white)
+                }
+                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(selectedGender == "Other" ? .white : .gray.opacity(0.3), lineWidth: 2)
+                )
+            }
+            .frame(width: UIScreen.main.bounds.width, height: 300)
+            .background(.secondary)
+            .cornerRadius(20)
+            Spacer()
+                .frame(height: 20)
+            HStack {
+                Text("By tapping Start Generation, declare that you have all necessary\n right and permissions to share these images and information with us\n and that you will use the images generated lawfully\n\n If you upload images that include minors, by tapping Start\n Generation, declare that you have parental responsibility for them\n and the necessary rights to share the images.")
+                    .font(.system(size: 10, weight: .regular))
+                    .foregroundColor(.white)
+                    .opacity(showTermsAndConditions ? 1 : 0)
+            }
+            VStack {
+                Spacer()
+                    .frame(height: 20)
+                VStack(spacing: 30) {
+                    Button {
+                        showLoadingView = true
+                    } label: {
+                        HStack(spacing: 30) {
+                            Text("Start Generation")
+                                .font(.system(size: 16, weight: .semibold))
+                                .foregroundColor(.black)
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 20))
+                                .foregroundColor(.black)
+                        }
+                    }
+                    .frame(width: UIScreen.main.bounds.width - 100, height: 60)
+                    .disabled(!isNextButtonEnabled)
+                    .background(isNextButtonEnabled ? Color.white : Color.gray)
+                    .cornerRadius(30)
+                }
+                .fullScreenCover(isPresented: $showLoadingView) {
+                    GenderSelectionLoadingView(isActive: true)
+                }
+                .padding(.bottom, 50)
+            }
+        }
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        .background(Color.black.ignoresSafeArea())
         //}
     }
 }
