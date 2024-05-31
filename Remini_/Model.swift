@@ -10,14 +10,14 @@ import SwiftUI
 
 struct SeeAllCellData: Identifiable {
     let id: UUID
-    let image: String
+    let image: UIImage
     let title: String
     let details: String
 }
 
 struct SectionOneData: Identifiable {
     let id: UUID
-    let image: String
+    let image: UIImage
     let title: String
 }
 

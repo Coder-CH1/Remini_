@@ -138,7 +138,7 @@ struct GiveAccessView: View {
                     .cornerRadius(30)
             }
             .fullScreenCover(isPresented: $showNewView) {
-                HomePageView()
+                HomePageView(item: SectionOneData(id: UUID(), image: UIImage(), title: ""))
             }
             Button {
                 print("btn tapped")

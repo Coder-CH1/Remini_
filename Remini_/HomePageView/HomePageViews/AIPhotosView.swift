@@ -50,7 +50,7 @@ struct AIPhotosView: View {
                             .tint(.white)
                     }
                     .fullScreenCover(isPresented: $showNewView) {
-                        HomePageView()
+                        HomePageView(item: SectionOneData(id: UUID(), image: UIImage(), title: ""))
                     }
                 }
                 .padding(.top, -300)

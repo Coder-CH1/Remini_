@@ -26,7 +26,7 @@ struct ExploreView: View {
                 }
                 .padding(.horizontal, -80)
                 .fullScreenCover(isPresented: $showNewView) {
-                    HomePageView()
+                    HomePageView(item: SectionOneData(id: UUID(), image: UIImage(), title: ""))
                 }
                 Text("Explore All Features")
                     .font(.system(size: 18, weight: .bold))

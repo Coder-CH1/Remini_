@@ -26,7 +26,7 @@ struct SettingsView: View {
                         .tint(.white)
                 }
                 .fullScreenCover(isPresented: $showNewView) {
-                    HomePageView()
+                    HomePageView(item: SectionOneData(id: UUID(), image: UIImage(), title: ""))
                 }
             }
             Section(header:  Text("Settings").font(.system(size: 24, weight: .bold)).foregroundColor(.white)) {
