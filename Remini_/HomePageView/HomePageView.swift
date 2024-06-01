@@ -64,71 +64,6 @@ struct HomePageView_Previews: PreviewProvider {
     }
 }
 
-struct ChooseYourGenderBottomSheetView: View {
-    let dismissBottomSheet: () -> Void
-    var body: some View {
-        VStack {
-            HStack {
-                Button {
-                    print("btn tapped")
-                    dismissBottomSheet()
-                } label: {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 20))
-                        .foregroundColor(.black)
-                }
-            }.padding()
-                .padding(.trailing, 300)
-            VStack(alignment: .center, spacing: 20) {
-                Image(systemName: "personalhotspot")
-                    .font(.system(size: UIScreen.main.bounds.width/4))
-                //.background(.yellow)
-                Text("What's your gender?")
-                    .font(.title.bold())
-                Text("We will only use this information to personalize your experience.")
-                Button {
-                    print("")
-                } label: {
-                    Text("Female")
-                        .font(.system(size: 16,weight: .semibold))
-                        .foregroundColor(.black)
-                }
-                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(.gray.opacity(0.3), lineWidth: 2)
-                )
-                
-                Button {
-                    print("")
-                } label: {
-                    Text("Male")
-                        .font(.system(size: 16,weight: .semibold))
-                        .foregroundColor(.black)
-                }
-                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(.gray.opacity(0.3), lineWidth: 2)
-                )
-                
-                Button {
-                    print("")
-                } label: {
-                    Text("Other")
-                        .font(.system(size: 16,weight: .semibold))
-                        .foregroundColor(.black)
-                }
-                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(.gray.opacity(0.3), lineWidth: 2)
-                )
-            }
-        }
-    }
-}
-
 struct TopNavHomePageView: View {
     @State var showPromoView = false
     @State var showSettingView = false
@@ -301,38 +236,7 @@ struct MiddleHomePageView: View {
                         }
                         .scrollIndicators(.hidden)
                     }
-                    //MARK: - Section Two -
-                    Section(header:  HStack{
-                        HStack(alignment: .center, spacing: 20) {
-                            Text("Stop-motion clay movie")
-                                .font(.system(size: 20, weight: .bold))
-                                .foregroundColor(.white) + Text(
-                                    Image(systemName: "paintpalette.fill"))
-                                .font(.system(size: 20, weight: .bold))
-                                .foregroundColor(.yellow)
-                        }
-                        Spacer()
-                        Button {
-                            print("btn tapped")
-                        } label: {
-                            Text("See All")
-                                .font(.system(size: 18, weight: .medium))
-                                .foregroundColor(.white)
-                                .frame(width: UIScreen.main.bounds.width/4, height: 40)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 25)
-                                        .stroke(.gray, lineWidth: 2)
-                                )
-                        }
-                        
-                    }) {
-                        LazyHGrid(rows: rows) {
-                            ForEach(0..<1) { index in
-                                SectionTwoCell()
-                            }
-                        }
-                    }
-                    
+
                     //MARK: - Section Three -
                     Section(header:  HStack{
                         HStack(alignment: .center, spacing: 20) {
@@ -378,9 +282,9 @@ struct MiddleHomePageView: View {
                                 Text("Yellow Toon")
                                     .font(.system(size: 20, weight: .bold))
                                     .foregroundColor(.white) + Text(
-                                        Image(systemName: "figure.stand"))
+                                        Image(systemName: "sun.max"))
                                     .font(.system(size: 20, weight: .bold))
-                                    .foregroundColor(.blue)
+                                    .foregroundColor(.orange)
                             }
                             Spacer()
                             Button {
@@ -396,7 +300,7 @@ struct MiddleHomePageView: View {
                                     )
                             }
                             .fullScreenCover(isPresented: $showYellowToon) {
-                                YellowToonView()
+                    YellowToonView()
                             }
                             
                         }) {
@@ -585,6 +489,73 @@ struct MiddleHomePageView: View {
     }
 }
 
+
+
+struct ChooseYourGenderBottomSheetView: View {
+    let dismissBottomSheet: () -> Void
+    var body: some View {
+        VStack {
+            HStack {
+                Button {
+                    print("btn tapped")
+                    dismissBottomSheet()
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 20))
+                        .foregroundColor(.black)
+                }
+            }.padding()
+                .padding(.trailing, 300)
+            VStack(alignment: .center, spacing: 20) {
+                Image(systemName: "personalhotspot")
+                    .font(.system(size: UIScreen.main.bounds.width/4))
+                //.background(.yellow)
+                Text("What's your gender?")
+                    .font(.title.bold())
+                Text("We will only use this information to personalize your experience.")
+                Button {
+                    print("")
+                } label: {
+                    Text("Female")
+                        .font(.system(size: 16,weight: .semibold))
+                        .foregroundColor(.black)
+                }
+                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(.gray.opacity(0.3), lineWidth: 2)
+                )
+                
+                Button {
+                    print("")
+                } label: {
+                    Text("Male")
+                        .font(.system(size: 16,weight: .semibold))
+                        .foregroundColor(.black)
+                }
+                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(.gray.opacity(0.3), lineWidth: 2)
+                )
+                
+                Button {
+                    print("")
+                } label: {
+                    Text("Other")
+                        .font(.system(size: 16,weight: .semibold))
+                        .foregroundColor(.black)
+                }
+                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(.gray.opacity(0.3), lineWidth: 2)
+                )
+            }
+        }
+    }
+}
+
 struct BottomTabHomePageView: View {
     let rows = [GridItem(.flexible())]
     var body: some View {
@@ -692,6 +663,7 @@ struct BottomTabHomePageCells: View {
     }
 }
 
+
 struct EnhanceImagePicker: UIViewControllerRepresentable {
     class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         @Binding var selectedImage: UIImage?
@@ -764,18 +736,6 @@ struct SectionOneCell: View {
         }
     }
 }
-
-struct SectionTwoCell: View {
-    var body: some View {
-        ZStack {
-            Image(systemName: "person.fill")
-                .frame(width: UIScreen.main.bounds.width, height: 200)
-                .background(.red)
-                .cornerRadius(10)
-        }
-    }
-}
-
 
 struct SectionThreeCell: View {
     @Binding var showAIPhotosView: Bool
