@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct YellowToonView: View {
-    
+    @State var header = true
+    @State var showBottomButton = false
+//    @State var safeArea: EdgeInsets
+//    @State var size: CGSize = 0
+    @State var scrollViewContentHeight: CGFloat = 0
+    @State var scrollViewHeight: CGFloat = 0
     let columns = [
         GridItem(.flexible(), spacing: 20, alignment: .center),
         GridItem(.flexible(), spacing: 20, alignment: .center)
@@ -17,46 +22,66 @@ struct YellowToonView: View {
         NavigationView {
             VStack(spacing: 20) {
                 //MARK: - Section Eight -
-                ScrollView(.vertical) {
-                Section(header:  VStack(spacing: 20){
-                        Text("15 PHOTOS")
-                        .background(Rectangle().fill(.gray))
-                        .frame(width: UIScreen.main.bounds.width/3.2, height: 40)
-                        .font(.system(size: 18, weight: .semibold))
-                        .foregroundColor(.white)
-                        .background(.gray)
-                        .cornerRadius(10)
-                        Text("Yellow Toon")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.white) + Text(
-                                Image(systemName: "sun.max"))
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.orange)
-
-                    Text("Get your personalized characters now!")
-                        .font(.system(size: 16, weight: .regular))
-                        .foregroundColor(.white)
-                    Button {
-                        print("btn tapped")
-                    } label: {
-                        Text("Get Full Park")
-                            .font(.system(size: 18, weight: .medium))
-                            .foregroundColor(.black)
-                            .frame(width: UIScreen.main.bounds.width/2, height: 50)
+                //ScrollViewReader { g in
+                    ScrollView(.vertical, showsIndicators: false) {
+                        Section(header:  VStack(spacing: 20){
+                            Text("15 PHOTOS")
+                                .background(Rectangle().fill(.gray))
+                                .frame(width: UIScreen.main.bounds.width/3.2, height: 40)
+                                .font(.system(size: 18, weight: .semibold))
+                                .foregroundColor(.white)
+                                .background(.gray)
+                                .cornerRadius(10)
+                            Text("Yellow Toon")
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.white) + Text(
+                                    Image(systemName: "sun.max"))
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.orange)
+                            
+                            Text("Get your personalized characters now!")
+                                .font(.system(size: 16, weight: .regular))
+                                .foregroundColor(.white)
+                            HStack(spacing: 30) {
+                                Button {
+                                    print("btn tapped")
+                                } label: {
+                                    Text("Get Full Park")
+                                        .font(.system(size: 18, weight: .medium))
+                                        .foregroundColor(.black)
+                                }
+                                Image(systemName: "chevron.right")
+                                    .font(.system(size: 20))
+                                    .foregroundColor(.black)
+                            }
+                            .frame(width: UIScreen.main.bounds.width/1.2, height: 50)
                             .background(.white)
                             .cornerRadius(25)
-                    }
-                    
-                }) {
-                        LazyVGrid(columns: columns, spacing: 10) {
-                            ForEach(0..<6) { index in
-                                YellowToonCellView()
+                            
+                        }) {
+                            LazyVGrid(columns: columns, spacing: 10) {
+                                ForEach(0..<6) { index in
+                                    YellowToonCellView()
+                                }
                             }
+                                HStack(spacing: 30) {
+                                    Button {
+                                        print("btn tapped")
+                                    } label: {
+                                        Text("Get Full Park")
+                                            .font(.system(size: 18, weight: .medium))
+                                            .foregroundColor(.black)
+                                    }
+                                    Image(systemName: "chevron.right")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.black)
+                                }
+                                .frame(width: UIScreen.main.bounds.width/1.2, height: 50)
+                                .background(.white)
+                                .cornerRadius(25)
                         }
                     }
-                    .scrollIndicators(.hidden)
-                }
-                
+                //}
             }
             .padding(.top, 50)
             .padding(.bottom, 50)
@@ -65,7 +90,6 @@ struct YellowToonView: View {
         }
     }
 }
-
 struct YellowToonView_Previews: PreviewProvider {
     @State var item: SectionFourData
     static var previews: some View {
@@ -83,5 +107,12 @@ struct YellowToonCellView: View {
                 .padding(.leading, 3)
                 .padding(.trailing, 3)
         }
+    }
+}
+
+struct ViewOffsetKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
     }
 }
