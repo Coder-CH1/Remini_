@@ -8,54 +8,37 @@
 import SwiftUI
 
 struct YellowToonView: View {
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.backgroundColor = .black
+        UINavigationBar.appearance().standardAppearance = appearance
+    }
     @State var showBottomButton = false
     @State var scrollViewOffset: CGFloat = 0
     @State var scrollViewContentOffset: CGFloat = 0
-    @State var showHeader = true
+    @State var headerOffset: CGFloat = 0
+    var headerStr = "Yellow Toon"
     let columns = [
         GridItem(.flexible(), spacing: 20, alignment: .center),
         GridItem(.flexible(), spacing: 20, alignment: .center)
     ]
-    
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
                 ScrollView(.vertical, showsIndicators: false) {
                     Section(header: VStack(spacing: 20) {
-                        Text("15 PHOTOS")
-                            .background(Rectangle().fill(.gray))
-                            .frame(width: UIScreen.main.bounds.width/3.2, height: 40)
-                            .font(.system(size: 18, weight: .semibold))
-                            .foregroundColor(.white)
-                            .background(.gray)
-                            .cornerRadius(10)
-                            if showHeader || scrollViewOffset > 0{
-                                Text("Yellow Toon")
-                                    .font(.system(size: 20, weight: .bold))
-                                    .foregroundColor(.white) + Text(
-                                        Image(systemName: "sun.max"))
-                                    .font(.system(size: 20, weight: .bold))
+                        TopHeaderContent()
+                        VStack {
+                            Text(headerStr)
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.white) +
+                                Text(Image(systemName: "sun.max"))
+                                    .font(.system(size: 20))
                                     .foregroundColor(.orange)
                             }
-                        Text("Get your personalized characters now!")
-                            .font(.system(size: 16, weight: .regular))
-                            .foregroundColor(.white)
-                        HStack(spacing: 30) {
-                            Button {
-                                print("btn tapped")
-                            } label: {
-                                Text("Get Full Park")
-                                    .font(.system(size: 18, weight: .medium))
-                                    .foregroundColor(.black)
-                            }
-                            Image(systemName: "chevron.right")
-                                .font(.system(size: 20))
-                                .foregroundColor(.black)
-                        }
-                        .frame(width: UIScreen.main.bounds.width/1.2, height: 50)
-                        .background(.white)
-                        .cornerRadius(25)
-                        
+                        .navigationBarTitle(headerStr, displayMode: .automatic)
+                        HeaderContents()
                     }) {
                         LazyVGrid(columns: columns, spacing: 10) {
                             ForEach(0..<6) { index in
@@ -69,12 +52,10 @@ struct YellowToonView: View {
                 .onChange(of: scrollViewOffset) { offset in
                     if offset < 50 {
                         withAnimation {
-                            showHeader = false
                             showBottomButton = true
                         }
                     } else {
                         withAnimation {
-                            showHeader = true
                             showBottomButton = false
                         }
                     }
@@ -127,23 +108,16 @@ extension View {
         self.background(
             GeometryReader { proxy in
                 Color.clear
-                    .preference(key: ContentOffsetKey.self, value: proxy.frame(in: .named("scrollView")).minY)
+                    .preference(key: ViewOffsetKey.self, value: proxy.frame(in: .named("scrollView")).minY)
             }
-                .onPreferenceChange(ContentOffsetKey.self) { value in
+                .onPreferenceChange(ViewOffsetKey.self) { value in
                     scrollViewContentOffset.wrappedValue = value
                 }
         )
     }
 }
 
-private struct ViewOffsetKey: PreferenceKey {
-    static var defaultValue: CGFloat = 0
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = nextValue()
-    }
-}
-
-private struct ContentOffsetKey: PreferenceKey {
+struct ViewOffsetKey: PreferenceKey {
     static var defaultValue: CGFloat = 0
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = nextValue()
@@ -159,6 +133,45 @@ struct YellowToonCellView: View {
                 .cornerRadius(10)
                 .padding(.leading, 3)
                 .padding(.trailing, 3)
+        }
+    }
+}
+
+struct HeaderContents: View {
+    var body: some View {
+        VStack {
+            Text("Get your personalized characters now!")
+                .font(.system(size: 16, weight: .regular))
+                .foregroundColor(.white)
+            HStack(spacing: 30) {
+                Button {
+                    print("btn tapped")
+                } label: {
+                    Text("Get Full Park")
+                        .font(.system(size: 18, weight: .medium))
+                        .foregroundColor(.black)
+                }
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 20))
+                    .foregroundColor(.black)
+            }
+            .frame(width: UIScreen.main.bounds.width/1.2, height: 50)
+            .background(.white)
+            .cornerRadius(25)
+        }
+    }
+}
+
+struct TopHeaderContent: View {
+    var body: some View {
+        VStack {
+            Text("15 PHOTOS")
+                .background(Rectangle().fill(.gray))
+                .frame(width: UIScreen.main.bounds.width/3.2, height: 40)
+                .font(.system(size: 18, weight: .semibold))
+                .foregroundColor(.white)
+                .background(.gray)
+                .cornerRadius(10)
         }
     }
 }
