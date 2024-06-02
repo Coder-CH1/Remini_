@@ -18,6 +18,7 @@ struct YellowToonView: View {
     @State var scrollViewOffset: CGFloat = 0
     @State var scrollViewContentOffset: CGFloat = 0
     @State var headerOffset: CGFloat = 0
+    @State var showNewView = false
     var headerStr = "Yellow Toon"
     let columns = [
         GridItem(.flexible(), spacing: 20, alignment: .center),
@@ -26,6 +27,7 @@ struct YellowToonView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
+                
                 ScrollView(.vertical, showsIndicators: false) {
                     Section(header: VStack(spacing: 20) {
                         TopHeaderContent()
@@ -33,11 +35,11 @@ struct YellowToonView: View {
                             Text(headerStr)
                                 .font(.system(size: 20, weight: .bold))
                                 .foregroundColor(.white) +
-                                Text(Image(systemName: "sun.max"))
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.orange)
-                            }
-                        .navigationBarTitle(headerStr, displayMode: .automatic)
+                            Text(Image(systemName: "sun.max"))
+                                .font(.system(size: 20))
+                                .foregroundColor(.orange)
+                        }
+                        .navigationBarTitle(Text(""))
                         HeaderContents()
                     }) {
                         LazyVGrid(columns: columns, spacing: 10) {
@@ -76,10 +78,23 @@ struct YellowToonView: View {
                     .cornerRadius(25)
                 }
             }
-            .padding(.top, 50)
+            .padding(.top, 40)
             .padding(.bottom, 50)
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/1.1)
             .background(Color.black.ignoresSafeArea())
+            
+            .navigationBarBackButtonHidden(false)
+            .navigationBarItems(leading: Button {
+                showNewView.toggle()
+            } label: {
+                Image(systemName: "chevron.backward")
+                    .font(.system(size: 20))
+                    .foregroundColor(.white)
+            }.fullScreenCover(isPresented: $showNewView) {
+                HomePageView(item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
+                }
+            
+            )
         }
     }
 }
