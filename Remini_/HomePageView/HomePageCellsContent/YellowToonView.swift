@@ -18,7 +18,8 @@ struct YellowToonView: View {
     @State var scrollViewOffset: CGFloat = 0
     @State var scrollViewContentOffset: CGFloat = 0
     @State var headerOffset: CGFloat = 0
-    @State var showNewView = false
+    @State var showHomePageView = false
+    @State var showAIPhotosView = false
     var headerStr = "Yellow Toon"
     let columns = [
         GridItem(.flexible(), spacing: 20, alignment: .center),
@@ -39,8 +40,8 @@ struct YellowToonView: View {
                                 .font(.system(size: 20))
                                 .foregroundColor(.orange)
                         }
-                        .navigationBarTitle(Text(""))
-                        HeaderContents()
+                        
+                        HeaderContents(showAIPhotosView: $showAIPhotosView)
                     }) {
                         LazyVGrid(columns: columns, spacing: 10) {
                             ForEach(0..<6) { index in
@@ -64,7 +65,7 @@ struct YellowToonView: View {
                 }
                 if showBottomButton {
                     HStack(spacing: 30) {
-                        Button { print("btn tapped") } label: {
+                        Button { showAIPhotosView.toggle() } label: {
                             Text("Get Full Park")
                                 .font(.system(size: 18, weight: .medium))
                                 .foregroundColor(.black)
@@ -72,6 +73,9 @@ struct YellowToonView: View {
                         Image(systemName: "chevron.right")
                             .font(.system(size: 20))
                             .foregroundColor(.black)
+                            .fullScreenCover(isPresented: $showAIPhotosView) {
+                                AIPhotosView()
+                            }
                     }
                     .frame(width: UIScreen.main.bounds.width/1.2, height: 50)
                     .background(.white)
@@ -85,16 +89,19 @@ struct YellowToonView: View {
             
             .navigationBarBackButtonHidden(false)
             .navigationBarItems(leading: Button {
-                showNewView.toggle()
+                showHomePageView.toggle()
             } label: {
                 Image(systemName: "chevron.backward")
                     .font(.system(size: 20))
                     .foregroundColor(.white)
-            }.fullScreenCover(isPresented: $showNewView) {
-                HomePageView(item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
+            }.fullScreenCover(isPresented: $showHomePageView) {
+    HomePageView(selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
                 }
             
             )
+            .fullScreenCover(isPresented: $showAIPhotosView) {
+                AIPhotosView()
+            }
         }
     }
 }
@@ -153,6 +160,7 @@ struct YellowToonCellView: View {
 }
 
 struct HeaderContents: View {
+    @Binding var showAIPhotosView: Bool
     var body: some View {
         VStack {
             Text("Get your personalized characters now!")
@@ -160,7 +168,7 @@ struct HeaderContents: View {
                 .foregroundColor(.white)
             HStack(spacing: 30) {
                 Button {
-                    print("btn tapped")
+                    showAIPhotosView.toggle()
                 } label: {
                     Text("Get Full Park")
                         .font(.system(size: 18, weight: .medium))
