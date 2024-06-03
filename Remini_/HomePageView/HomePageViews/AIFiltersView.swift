@@ -48,7 +48,7 @@ struct AIFiltersLoadingView: View {
                     .tint(.red)
             }
             .fullScreenCover(isPresented: $showNewView) {
-                HomePageView(image: [PHAsset](), selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
+    HomePageView(uiImage: UIImage(), image: [PHAsset](), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
             }
         }
             .padding(.top, -350)

@@ -7,26 +7,41 @@
 
 import SwiftUI
 import BottomSheetSwiftUI
-import PhotosUI
 import Photos
 
 struct HomePageView: View {
+    @State var uiImage: UIImage
     @State var showYellowToon = false
     @State var showDetailsView = false
     @State var showAIPhotosView = false
     @State var showingModal = false
-    @State var image = [PHAsset]()
+    @State var image: [PHAsset]
     @State var bottomSheetPosition: BottomSheetPosition = .hidden
     @State var showGenderSelector = false
-    @State var selectedSectionZeroData: SectionZeroData
     @State var item: SectionOneData
     @State var selectedCellData: SeeAllCellData
     @State var selectedSectionFourData: SectionFourData
+    //@State var selectedPhotos: PHAsset
+    func fetchPhotos() {
+        DispatchQueue.main.async {
+            PHPhotoLibrary.requestAuthorization { status in
+                if status == .authorized {
+                    let assets = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: nil)
+                    assets.enumerateObjects { (object,_, _) in
+                        self.image.append(object)
+                    }
+                    //self.image.reversed()
+                } else if status == .denied {
+                    print("\(status):  denied")
+                }
+            }
+        }
+    }
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 TopNavHomePageView()
-                MiddleHomePageView(image: $image, showDetailsView: $showDetailsView, showingModal: $showingModal, showAIPhotosView: $showAIPhotosView, showYellowToolView: $showYellowToon, selectedSectionZeroData: $selectedSectionZeroData, selectedSectionOneData: $item, selectedSectionFourData: $selectedSectionFourData)
+                MiddleHomePageView(image: $uiImage, showDetailsView: $showDetailsView, showingModal: $showingModal, showAIPhotosView: $showAIPhotosView, showYellowToolView: $showYellowToon, selectedPhotos: $image, selectedSectionOneData: $item, selectedSectionFourData: $selectedSectionFourData)
                 BottomTabHomePageView()
             }
             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(UIScreen.main.bounds.height/2)]) {
@@ -40,6 +55,11 @@ struct HomePageView: View {
             .onAppear() {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     bottomSheetPosition = .absolute(UIScreen.main.bounds.height/1.5)
+                }
+            }
+            .onAppear {
+                DispatchQueue.main.async {
+                    fetchPhotos()
                 }
             }
             .fullScreenCover(isPresented: $showDetailsView) {
@@ -62,7 +82,7 @@ struct HomePageView: View {
 
 struct HomePageView_Previews: PreviewProvider {
     static var previews: some View {
-        HomePageView(image: [PHAsset](), selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
+        HomePageView(uiImage: UIImage(), image: [PHAsset](), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
     }
 }
 
@@ -114,33 +134,19 @@ struct TopNavHomePageView: View {
 }
 
 struct MiddleHomePageView: View {
-    @Binding var image: [PHAsset]
+    @Binding var image: UIImage
     @Binding var showDetailsView: Bool
     @Binding var showingModal: Bool
     @Binding var showAIPhotosView: Bool
     @Binding var showYellowToolView: Bool
-    @Binding var selectedSectionZeroData: SectionZeroData
+    @Binding var selectedPhotos: [PHAsset]
     @Binding var selectedSectionOneData: SectionOneData
     @Binding var selectedSectionFourData: SectionFourData
     @State var showSeeAllSectionOneView = false
     @State var showSeeAllSectionThreeView = false
     @State var showYellowToon = false
-    @State var selectedPhotos: [PHAsset] = []
     @State var showPhotoLibrary: Bool = false
     @State var permissionGranted: Bool = false
-    
-    let sectionZeroItems: [SectionZeroData] = [
-    SectionZeroData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage()),
-    SectionZeroData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage()),
-    SectionZeroData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage()),
-    SectionZeroData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage()),
-    SectionZeroData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage()),
-    SectionZeroData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage()),
-    SectionZeroData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage()),
-    SectionZeroData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage()),
-    SectionZeroData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage()),
-    SectionZeroData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage())
-    ]
     
     let sectionOneItems: [SectionOneData] = [
         SectionOneData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage(), title: "Couple Wedding\n Photos"),
@@ -166,17 +172,7 @@ struct MiddleHomePageView: View {
         GridItem(.flexible(), spacing: 0, alignment: .center),
         GridItem(.flexible(), spacing: 0, alignment: .center)
     ]
-   
-    func fetchPhotos() {
-        PHPhotoLibrary.requestAuthorization { status in
-            if status == .authorized {
-                permissionGranted = true
-                showPhotoLibrary.toggle()
-            } else if status == .denied {
-                
-            }
-        }
-    }
+    
     var body: some View {
         VStack {
             ScrollView(.vertical) {
@@ -226,17 +222,14 @@ struct MiddleHomePageView: View {
                         }}) {
                             ScrollView(.horizontal) {
                                 LazyHGrid(rows: sectionZeroRows, spacing: 5) {
-                                    ForEach(0..<10) { index in
-                SectionZeroCell(item: sectionZeroItems[index], selected: $selectedSectionZeroData, showingModal: $showingModal, image: $image)
+                                    ForEach(0..<6) { index in
+                                        SectionZeroCell(showingModal: $showingModal, image: $image, photo: selectedPhotos)
                                     }
                                 }
                                 .frame(height: 250)
                             }
                             .scrollIndicators(.hidden)
                         }
-                        .onAppear {
-                                   fetchPhotos()
-                               }
                     //MARK: - Section One -
                     Section(header:   HStack{
                         Text("Couple photos")
@@ -268,7 +261,7 @@ struct MiddleHomePageView: View {
                         }
                         .scrollIndicators(.hidden)
                     }
-
+                    
                     //MARK: - Section Three -
                     Section(header:  HStack{
                         HStack(alignment: .center, spacing: 20) {
@@ -308,37 +301,37 @@ struct MiddleHomePageView: View {
                     }
                     
                     //MARK: - Section Four -
-                   // NavigationView {
-                        Section(header:  HStack{
-                            HStack(alignment: .center, spacing: 20) {
-                                Text("Yellow Toon")
-                                    .font(.system(size: 20, weight: .bold))
-                                    .foregroundColor(.white) + Text(
-                                        Image(systemName: "sun.max"))
-                                    .font(.system(size: 20, weight: .bold))
-                                    .foregroundColor(.orange)
-                            }
-                            Spacer()
-                            Button {
-                                showYellowToon.toggle()
-                            } label: {
-                                Text("See All")
-                                    .font(.system(size: 18, weight: .medium))
-                                    .foregroundColor(.white)
-                                    .frame(width: UIScreen.main.bounds.width/4, height: 40)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 25)
-                                            .stroke(.gray, lineWidth: 2)
-                                    )
-                            }
-                            .fullScreenCover(isPresented: $showYellowToon) {
-                    YellowToonView()
-                            }
-                            
-                        }) {
-                            LazyHGrid(rows: rows) {
-                                ForEach(0..<1) { index in
-                        SectionFourCell(item: sectionFourItems[index], showYellowToolView: $showYellowToolView, selected: $selectedSectionFourData)
+                    // NavigationView {
+                    Section(header:  HStack{
+                        HStack(alignment: .center, spacing: 20) {
+                            Text("Yellow Toon")
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.white) + Text(
+                                    Image(systemName: "sun.max"))
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.orange)
+                        }
+                        Spacer()
+                        Button {
+                            showYellowToon.toggle()
+                        } label: {
+                            Text("See All")
+                                .font(.system(size: 18, weight: .medium))
+                                .foregroundColor(.white)
+                                .frame(width: UIScreen.main.bounds.width/4, height: 40)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .stroke(.gray, lineWidth: 2)
+                                )
+                        }
+                        .fullScreenCover(isPresented: $showYellowToon) {
+                            YellowToonView()
+                        }
+                        
+                    }) {
+                        LazyHGrid(rows: rows) {
+                            ForEach(0..<1) { index in
+                                SectionFourCell(item: sectionFourItems[index], showYellowToolView: $showYellowToolView, selected: $selectedSectionFourData)
                                 //}
                             }
                         }
@@ -726,28 +719,40 @@ struct EnhanceImagePicker: UIViewControllerRepresentable {
 }
 
 struct SectionZeroCell: View {
-    var item: SectionZeroData
-    @Binding var selected: SectionZeroData
     @Binding var showingModal: Bool
-    @Binding var image: [PHAsset]
+    @Binding var image: UIImage
+    var photo: [PHAsset]
+//    func fetchImage() {
+//        let manager = PHImageManager.default()
+//        let option = PHImageRequestOptions()
+//        option.resizeMode = .exact
+//        option.deliveryMode = .highQualityFormat
+//        manager.requestImage(for: photo, targetSize: CGSize(width: UIScreen.main.bounds.width/3.3, height: 120), contentMode: .aspectFit, options: option) { image, _ in
+//            if let image = image {
+//                self.image = image
+//            }
+//        }
+//    }
     var body: some View {
-        VStack {
-            ZStack {
-                Image(uiImage: item.image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: UIScreen.main.bounds.width/3.3, height: 120)
-                    .background(.red)
-                    .cornerRadius(10)
-                    .onTapGesture {
-                        selected = item
-                        showingModal = true
+            VStack {
+                ZStack {
+                    if let img = image {
+                    Image(uiImage: img)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: UIScreen.main.bounds.width, height: 120)
+                        .background(.red)
+                        .cornerRadius(10)
+                        .onTapGesture {
+                            showingModal = true
+                    }
+                } else {
+                    Text("")
                 }
             }
         }
     }
 }
-
 
 struct SectionOneCell: View {
     @Binding var showDetailsView: Bool
@@ -901,7 +906,7 @@ struct ModalView: View {
                     }
                     .padding(.leading, -130)
                 }
-                    .frame(height: 20)
+                .frame(height: 20)
                 Spacer()
                     .frame(height: 200)
                 HStack {
@@ -1001,7 +1006,7 @@ struct SeeAllView: View {
                         .cornerRadius(20)
                 }
                 .fullScreenCover(isPresented: $showNewView) {
-HomePageView(image: [PHAsset](), selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
+                    HomePageView(uiImage: UIImage(), image: [PHAsset](), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
                 }
                 Text("Couple photos").font(.system(size: 24, weight: .bold)).foregroundColor(.white)
             }
@@ -1609,7 +1614,7 @@ struct GenderSelectionLoadingView: View {
             }
         }
         .fullScreenCover(isPresented: $isPresentedView) {
-            HomePageView(image: [PHAsset](), selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
+            HomePageView(uiImage: UIImage(), image: [PHAsset](), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
         }
         .background(.black.opacity(0.2))
         .ignoresSafeArea()

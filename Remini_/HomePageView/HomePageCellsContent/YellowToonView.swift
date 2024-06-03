@@ -96,7 +96,7 @@ struct YellowToonView: View {
                     .font(.system(size: 20))
                     .foregroundColor(.white)
             }.fullScreenCover(isPresented: $showHomePageView) {
-HomePageView(image: [PHAsset](), selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
+                HomePageView(uiImage: UIImage(), image: [PHAsset](), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
                 }
             
             )
