@@ -15,7 +15,7 @@ struct HomePageView: View {
     @State var showDetailsView = false
     @State var showAIPhotosView = false
     @State var showingModal = false
-    @State var image: Image = Image("")
+    @State var image = [PHAsset]()
     @State var bottomSheetPosition: BottomSheetPosition = .hidden
     @State var showGenderSelector = false
     @State var selectedSectionZeroData: SectionZeroData
@@ -62,7 +62,7 @@ struct HomePageView: View {
 
 struct HomePageView_Previews: PreviewProvider {
     static var previews: some View {
-        HomePageView(selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
+        HomePageView(image: [PHAsset](), selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
     }
 }
 
@@ -114,7 +114,7 @@ struct TopNavHomePageView: View {
 }
 
 struct MiddleHomePageView: View {
-    @Binding var image: Image
+    @Binding var image: [PHAsset]
     @Binding var showDetailsView: Bool
     @Binding var showingModal: Bool
     @Binding var showAIPhotosView: Bool
@@ -125,8 +125,9 @@ struct MiddleHomePageView: View {
     @State var showSeeAllSectionOneView = false
     @State var showSeeAllSectionThreeView = false
     @State var showYellowToon = false
-    @State private var selectedPhotos: [PHAsset] = []
-       @State private var showPhotoLibrary: Bool = false
+    @State var selectedPhotos: [PHAsset] = []
+    @State var showPhotoLibrary: Bool = false
+    @State var permissionGranted: Bool = false
     
     let sectionZeroItems: [SectionZeroData] = [
     SectionZeroData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage()),
@@ -165,7 +166,17 @@ struct MiddleHomePageView: View {
         GridItem(.flexible(), spacing: 0, alignment: .center),
         GridItem(.flexible(), spacing: 0, alignment: .center)
     ]
-    
+   
+    func fetchPhotos() {
+        PHPhotoLibrary.requestAuthorization { status in
+            if status == .authorized {
+                permissionGranted = true
+                showPhotoLibrary.toggle()
+            } else if status == .denied {
+                
+            }
+        }
+    }
     var body: some View {
         VStack {
             ScrollView(.vertical) {
@@ -223,6 +234,9 @@ struct MiddleHomePageView: View {
                             }
                             .scrollIndicators(.hidden)
                         }
+                        .onAppear {
+                                   fetchPhotos()
+                               }
                     //MARK: - Section One -
                     Section(header:   HStack{
                         Text("Couple photos")
@@ -715,7 +729,7 @@ struct SectionZeroCell: View {
     var item: SectionZeroData
     @Binding var selected: SectionZeroData
     @Binding var showingModal: Bool
-    @Binding var image: Image
+    @Binding var image: [PHAsset]
     var body: some View {
         VStack {
             ZStack {
@@ -726,14 +740,14 @@ struct SectionZeroCell: View {
                     .background(.red)
                     .cornerRadius(10)
                     .onTapGesture {
-                        //selected = item
+                        selected = item
                         showingModal = true
-                    }
+                }
             }
         }
     }
-    
 }
+
 
 struct SectionOneCell: View {
     @Binding var showDetailsView: Bool
@@ -862,7 +876,7 @@ struct SectionNineCell: View {
 
 struct ModalView: View {
     @Binding var showingModal: Bool
-    @Binding var image: Image
+    @Binding var image: [PHAsset]
     @Binding var selection: SeeAllCellData
     let dismissModal: () -> Void
     var body: some View {
@@ -987,7 +1001,7 @@ struct SeeAllView: View {
                         .cornerRadius(20)
                 }
                 .fullScreenCover(isPresented: $showNewView) {
-    HomePageView(selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
+HomePageView(image: [PHAsset](), selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
                 }
                 Text("Couple photos").font(.system(size: 24, weight: .bold)).foregroundColor(.white)
             }
@@ -1595,7 +1609,7 @@ struct GenderSelectionLoadingView: View {
             }
         }
         .fullScreenCover(isPresented: $isPresentedView) {
-            HomePageView(selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
+            HomePageView(image: [PHAsset](), selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
         }
         .background(.black.opacity(0.2))
         .ignoresSafeArea()

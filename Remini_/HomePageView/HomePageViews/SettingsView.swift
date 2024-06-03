@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Photos
 
 struct SettingsView: View {
     @State var showNewView = false
@@ -26,7 +27,7 @@ struct SettingsView: View {
                         .tint(.white)
                 }
                 .fullScreenCover(isPresented: $showNewView) {
-    HomePageView(selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
+    HomePageView(image: [PHAsset](), selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
                 }
             }
             Section(header:  Text("Settings").font(.system(size: 24, weight: .bold)).foregroundColor(.white)) {

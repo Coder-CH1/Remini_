@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Photos
 
 struct ThirdImageView: View {
     @State var isPresentedView = false
@@ -138,7 +139,7 @@ struct GiveAccessView: View {
                     .cornerRadius(30)
             }
             .fullScreenCover(isPresented: $showNewView) {
-    HomePageView(selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
+    HomePageView(image: [PHAsset](), selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
             }
             Button {
                 print("btn tapped")

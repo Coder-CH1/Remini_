@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Photos
 
 struct AIPhotosView: View {
     var body: some View {
@@ -50,7 +51,7 @@ struct AIPhotosView: View {
                             .tint(.white)
                     }
                     .fullScreenCover(isPresented: $showNewView) {
-    HomePageView(selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
+        HomePageView(image: [PHAsset](), selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
                     }
                 }
                 .padding(.top, -300)

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Photos
 
 struct ExploreView: View {
     @State var showNewView = false
@@ -26,7 +27,7 @@ struct ExploreView: View {
                 }
                 .padding(.horizontal, -80)
                 .fullScreenCover(isPresented: $showNewView) {
-    HomePageView(selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
+    HomePageView(image: [PHAsset](), selectedSectionZeroData: SectionZeroData(id: UUID(), image: UIImage()), item: SectionOneData(id: UUID(), image: UIImage(), title: ""), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selectedSectionFourData: SectionFourData(id: UUID(), image: UIImage(), title: "", icon: UIImage()))
                 }
                 Text("Explore All Features")
                     .font(.system(size: 18, weight: .bold))
