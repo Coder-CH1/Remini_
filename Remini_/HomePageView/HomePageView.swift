@@ -10,12 +10,14 @@ import BottomSheetSwiftUI
 import Photos
 
 struct HomePageView: View {
+    @State var selectedCellImage: UIImage
     @State var uiImage: UIImage
     @State var showYellowToon = false
     @State var showDetailsView = false
     @State var showAIPhotosView = false
     @State var showingModal = false
     @State var image: [PHAsset]
+    @State var selectedImage: UIImage
     @State var bottomSheetPosition: BottomSheetPosition = .hidden
     @State var showGenderSelector = false
     @State var selectedCellData: SeeAllCellData
@@ -40,7 +42,7 @@ struct HomePageView: View {
         ZStack {
             VStack(spacing: 0) {
                 TopNavHomePageView()
-                MiddleHomePageView(image: $uiImage, showDetailsView: $showDetailsView, showingModal: $showingModal, showAIPhotosView: $showAIPhotosView, showYellowToolView: $showYellowToon, selectedPhotos: $image)
+                MiddleHomePageView(selectedCellImage: $selectedCellImage, image: $uiImage, showDetailsView: $showDetailsView, showingModal: $showingModal, showAIPhotosView: $showAIPhotosView, showYellowToolView: $showYellowToon, selectedPhotos: $image)
                 BottomTabHomePageView()
             }
             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(UIScreen.main.bounds.height/2)]) {
@@ -71,9 +73,11 @@ struct HomePageView: View {
                 YellowToonView()
             }
             if $showingModal.wrappedValue {
-                ModalView(showingModal: $showingModal, image: image, selection: $selectedCellData, dismissModal: {
-                    showingModal = false
-                })
+                if let selectedImage = selectedCellImage {
+                    ModalView(selectedImage: selectedImage, showingModal: $showingModal, dismissModal: {
+                        showingModal = false
+                    })
+                }
             }
         }
     }
@@ -81,7 +85,7 @@ struct HomePageView: View {
 
 struct HomePageView_Previews: PreviewProvider {
     static var previews: some View {
-        HomePageView(uiImage: UIImage(), image: [PHAsset](), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
+        HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), image: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
     }
 }
 
@@ -133,6 +137,7 @@ struct TopNavHomePageView: View {
 }
 
 struct MiddleHomePageView: View {
+    @Binding var selectedCellImage: UIImage
     @Binding var image: UIImage
     @Binding var showDetailsView: Bool
     @Binding var showingModal: Bool
@@ -150,8 +155,8 @@ struct MiddleHomePageView: View {
         GridItem(.flexible(), spacing: 0, alignment: .center)
     ]
     let sectionZeroRows = [
-        GridItem(.flexible(), spacing: -20, alignment: .center),
-        GridItem(.flexible(), spacing: -20, alignment: .center)
+        GridItem(.flexible(), spacing: 0, alignment: .center),
+        GridItem(.flexible(), spacing: 0, alignment: .center)
     ]
    
     var body: some View {
@@ -203,8 +208,8 @@ struct MiddleHomePageView: View {
                         }}) {
                             ScrollView(.horizontal) {
                                 LazyHGrid(rows: sectionZeroRows, spacing: 5) {
-                                    ForEach(Array(selectedPhotos.enumerated()), id: \.offset) { index in
-                                        SectionZeroCell(showingModal: $showingModal, cellImage: image,  photo: selectedPhotos)
+                                    ForEach(selectedPhotos, id: \.self) { index in
+                    SectionZeroCell(showingModal: $showingModal, selectedCellImage: $selectedCellImage, cellImage: image,  photo: index)
                                     }
                                 }
                                 .frame(height: 250)
@@ -701,21 +706,20 @@ struct EnhanceImagePicker: UIViewControllerRepresentable {
 
 struct SectionZeroCell: View {
     @Binding var showingModal: Bool
+    @Binding var selectedCellImage: UIImage
     @State var cellImage: UIImage? = nil
-    var photo: [PHAsset]
+    var photo: PHAsset
     func fetchImage() {
         let manager = PHImageManager.default()
         let option = PHImageRequestOptions()
         option.resizeMode = .exact
         option.deliveryMode = .highQualityFormat
         option.isSynchronous = false
-        for asset in photo {
-        manager.requestImage(for: asset, targetSize: CGSize(width: UIScreen.main.bounds.width/3.5, height: 120), contentMode: .aspectFill, options: option) { result, _ in
+        manager.requestImage(for: photo, targetSize: CGSize(width: UIScreen.main.bounds.width/3.1, height: 120), contentMode: .aspectFill, options: option) { result, _ in
             if let result = result {
                 self.cellImage = result
             }
-        }
-    }
+      }
 }
     var body: some View {
         VStack {
@@ -724,12 +728,13 @@ struct SectionZeroCell: View {
                     Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: UIScreen.main.bounds.width/3.5, height: 120)
+                    .frame(width: UIScreen.main.bounds.width/3.1, height: 120)
                     .background(.red)
                     .cornerRadius(10)
                     .border(.red)
                     .onTapGesture {
                     showingModal = true
+                    selectedCellImage = image
                 }
             }
         }
@@ -862,9 +867,8 @@ struct SectionNineCell: View {
 }
 
 struct ModalView: View {
+    @State var selectedImage: UIImage?
     @Binding var showingModal: Bool
-    @State var image: [PHAsset] = []
-    @Binding var selection: SeeAllCellData
     let dismissModal: () -> Void
     var body: some View {
         ZStack {
@@ -872,11 +876,9 @@ struct ModalView: View {
                 .edgesIgnoringSafeArea(.vertical)
             VStack(spacing: 20) {
                 ZStack {
-                    Image(uiImage: selection.image)
+                    Image(uiImage: selectedImage!)
                         .resizable()
-                        .scaledToFit()
                         .frame(width: 400, height: 450)
-                        .background(.red).ignoresSafeArea()
                     Button(action: {
                         dismissModal()
                     }) {
@@ -987,7 +989,7 @@ struct SeeAllView: View {
                         .cornerRadius(20)
                 }
                 .fullScreenCover(isPresented: $showNewView) {
-                    HomePageView(uiImage: UIImage(), image: [PHAsset](), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
+                    HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), image: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
                 }
                 Text("Couple photos").font(.system(size: 24, weight: .bold)).foregroundColor(.white)
             }
@@ -1557,7 +1559,7 @@ struct GenderSelectionLoadingView: View {
             }
         }
         .fullScreenCover(isPresented: $isPresentedView) {
-            HomePageView(uiImage: UIImage(), image: [PHAsset](), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
+            HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), image: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
         }
         .background(.black.opacity(0.2))
         .ignoresSafeArea()

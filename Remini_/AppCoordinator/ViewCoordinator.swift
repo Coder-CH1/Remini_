@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Photos
 
 struct ViewCoordinator: View {
     @State var isActive = false

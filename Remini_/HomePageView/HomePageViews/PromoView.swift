@@ -23,7 +23,7 @@ struct PromoView: View {
                     .tint(.black)
             }
             .fullScreenCover(isPresented: $showNewView) {
-                HomePageView(uiImage: UIImage(), image: [PHAsset()], selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
+                HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), image: [PHAsset()], selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
             }
             Spacer()
                 .frame(width: UIScreen.main.bounds.width/1.1)
