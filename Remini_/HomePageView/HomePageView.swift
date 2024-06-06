@@ -8,6 +8,7 @@
 import SwiftUI
 import BottomSheetSwiftUI
 import Photos
+import CoreImage
 
 struct HomePageView: View {
     @State var selectedCellImage: UIImage
@@ -658,7 +659,7 @@ struct BottomTabHomePageCells: View {
                         .font(.system(size: 30))
                         .frame(width: UIScreen.main.bounds.width/6, height: 60)
                         .foregroundColor(.white)
-                        .background(Color(red: 0.2, green: 0.2, blue: 0.2))
+                        .background(Color(red: 2.4, green: 0.6, blue: 0.2))
                         .cornerRadius(10)
                 }
                 .fullScreenCover(isPresented: $showNewExploreView) {
@@ -731,7 +732,6 @@ struct SectionZeroCell: View {
                     .frame(width: UIScreen.main.bounds.width/3.1, height: 120)
                     .background(.red)
                     .cornerRadius(10)
-                    .border(.red)
                     .onTapGesture {
                     showingModal = true
                     selectedCellImage = image

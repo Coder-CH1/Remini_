@@ -99,20 +99,45 @@ struct LoadingView: View {
 
 struct GiveAccessView: View {
     @State var showNewView = false
+    @State var showImages = false
     let columns = [
         GridItem(.flexible(), spacing: 0, alignment: .center),
         GridItem(.flexible(), spacing: 0, alignment: .center),
         GridItem(.flexible(), spacing: 0, alignment: .center)
     ]
+    func getOffsetX(_ index: Int) -> CGFloat {
+        if index == 0 || index == 1 {
+            return 0
+        } else if index == 2 || index == 3 {
+            return index == 2 ? -100 : 100
+        } else {
+            return 100
+        }
+    }
+    func getOffsetY(_ index: Int) -> CGFloat {
+        if index == 0 || index == 1 {
+            return -100
+        } else if index == 2 || index == 3 {
+            return -100
+        } else {
+            return 100
+        }
+    }
     var body: some View {
         VStack(alignment: .center, spacing: 30) {
             LazyVGrid(columns: columns, alignment: .center, spacing: 50) {
                 ForEach(0..<6) { index in
-                    GiveAccessCellView(image: Image(systemName: "person.fill"), width: index == 1 ? 150 : 60, height: index == 2 ? 100 : 50)
+                    GiveAccessCellView(image: Image(systemName: "person.fill"), width: index == 1 ? 150 : 80, height: index == 5 ? 100 : 120)
+                        .offset(x: showImages ? 0 : getOffsetX(index), y: showImages ? 0 : getOffsetY(index))
+                        .animation(.easeInOut(duration: 3.0))
+                }
+            }
+            .onAppear() {
+                withAnimation() {
+                    showImages.toggle()
                 }
             }
             .frame(height: 250)
-            .background(.red)
             Spacer()
                 .frame(height: 50)
             HStack(alignment: .center, spacing: 20) {
