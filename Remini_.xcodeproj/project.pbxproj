@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040E4FD72C1288B1009FF842 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E4FD62C1288B1009FF842 /* Networking.swift */; };
 		041BCF692BFCE61300E0C367 /* Remini_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF682BFCE61300E0C367 /* Remini_App.swift */; };
 		041BCF6B2BFCE61300E0C367 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF6A2BFCE61300E0C367 /* OnboardingView.swift */; };
 		041BCF6D2BFCE61700E0C367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041BCF6C2BFCE61700E0C367 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040E4FD62C1288B1009FF842 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		041BCF652BFCE61300E0C367 /* Remini_.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remini_.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		041BCF682BFCE61300E0C367 /* Remini_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remini_App.swift; sourceTree = "<group>"; };
 		041BCF6A2BFCE61300E0C367 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				041BCF6C2BFCE61700E0C367 /* Assets.xcassets */,
 				041BCF6E2BFCE61700E0C367 /* Preview Content */,
 				04B5A06D2C0911DE000DA55A /* Model.swift */,
+				040E4FD62C1288B1009FF842 /* Networking.swift */,
 			);
 			path = Remini_;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				04A033412C0041AE008B8D0D /* ThirdImageView.swift in Sources */,
 				041BCF6B2BFCE61300E0C367 /* OnboardingView.swift in Sources */,
 				045CFDB82C0A163300424A28 /* YellowToonView.swift in Sources */,
+				040E4FD72C1288B1009FF842 /* Networking.swift in Sources */,
 				041BCF692BFCE61300E0C367 /* Remini_App.swift in Sources */,
 				041BCF932BFCE68100E0C367 /* SplashView.swift in Sources */,
 				04756E5F2C054E86008B1F9B /* PromoView.swift in Sources */,

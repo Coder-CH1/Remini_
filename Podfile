@@ -16,5 +16,6 @@ target 'Remini_' do
     # Pods for testing
   end
 pod ‘BottomSheetSwiftUI’
+pod 'Kingfisher'
 
 end

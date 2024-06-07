@@ -1,16 +1,20 @@
 PODS:
   - BottomSheetSwiftUI (3.1.1)
+  - Kingfisher (7.11.0)
 
 DEPENDENCIES:
   - BottomSheetSwiftUI
+  - Kingfisher
 
 SPEC REPOS:
   trunk:
     - BottomSheetSwiftUI
+    - Kingfisher
 
 SPEC CHECKSUMS:
   BottomSheetSwiftUI: 08b5ada340a164b7ef49cf04b6733a0bd3f02957
+  Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
 
-PODFILE CHECKSUM: 9c088a5010f8700fdd6a17efa5dc26e6cf276ea1
+PODFILE CHECKSUM: 605cf82cccdc058f3c6e9bb5922c23c824d0e643
 
 COCOAPODS: 1.15.2

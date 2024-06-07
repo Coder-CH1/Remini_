@@ -15,20 +15,13 @@ struct SeeAllCellData: Identifiable {
     let details: String
 }
 
-//struct SectionOneData: Identifiable {
-//    let id: UUID
-//    let image: UIImage
-//    let title: String
-//}
-//
-//struct SectionFourData: Identifiable {
-//    let id: UUID
-//    let image: UIImage
-//    let title: String
-//    let icon: UIImage
-//}
-
 struct SectionZeroData: Identifiable {
     let id: UUID    
     let image: UIImage
 }
+
+struct ImageData: Codable, Identifiable, Hashable {
+    let id: UUID 
+    let imgUrls: [String]
+}
+

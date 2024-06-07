@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Photos
+import Kingfisher
 
 struct ThirdImageView: View {
     @State var isPresentedView = false
@@ -100,6 +101,7 @@ struct LoadingView: View {
 struct GiveAccessView: View {
     @State var showNewView = false
     @State var showImages = false
+    @State var imageUrls: [ImageData] = []
     let columns = [
         GridItem(.flexible(), spacing: 0, alignment: .center),
         GridItem(.flexible(), spacing: 0, alignment: .center),
@@ -126,15 +128,19 @@ struct GiveAccessView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 30) {
             LazyVGrid(columns: columns, alignment: .center, spacing: 50) {
-                ForEach(0..<6) { index in
-                    GiveAccessCellView(image: Image(systemName: "person.fill"), width: index == 1 ? 150 : 80, height: index == 5 ? 100 : 120)
-                        .offset(x: showImages ? 0 : getOffsetX(index), y: showImages ? 0 : getOffsetY(index))
+                ForEach(imageUrls, id: \.self) { index in
+                    GiveAccessCellView(image:
+                    Image(systemName: "person.fill"), width: 100, height: 70)
+                        .offset(x: showImages ? 0 : getOffsetX(Int(1)), y: showImages ? 0 : getOffsetY(Int(3)))
                         .animation(.easeInOut(duration: 3.0))
                 }
             }
             .onAppear() {
                 withAnimation() {
                     showImages.toggle()
+                    NetworkingManager.shared.fetchImageUrls { urls in
+                        self.imageUrls = urls
+                    }
                 }
             }
             .frame(height: 250)
