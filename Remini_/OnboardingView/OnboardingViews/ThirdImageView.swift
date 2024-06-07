@@ -91,7 +91,7 @@ struct LoadingView: View {
             }
         }
         .fullScreenCover(isPresented: $isPresentedView) {
-            GiveAccessView()
+            GiveAccessView(imageData: [ImageData(imgUrls: [String]())])
         }
         .background(.black)
         .ignoresSafeArea()
@@ -101,7 +101,7 @@ struct LoadingView: View {
 struct GiveAccessView: View {
     @State var showNewView = false
     @State var showImages = false
-    @State var imageUrls: [ImageData] = []
+    @State var imageData: [ImageData]
     let columns = [
         GridItem(.flexible(), spacing: 0, alignment: .center),
         GridItem(.flexible(), spacing: 0, alignment: .center),
@@ -128,18 +128,29 @@ struct GiveAccessView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 30) {
             LazyVGrid(columns: columns, alignment: .center, spacing: 50) {
-                ForEach(imageUrls, id: \.self) { index in
-                    GiveAccessCellView(image:
-                    Image(systemName: "person.fill"), width: 100, height: 70)
-                        .offset(x: showImages ? 0 : getOffsetX(Int(1)), y: showImages ? 0 : getOffsetY(Int(3)))
-                        .animation(.easeInOut(duration: 3.0))
+                ForEach(imageData, id: \.self) { firstIndex in
+                    ForEach(firstIndex.imgUrls, id: \.self) { secondIndex in
+                    GiveAccessCellView(imageUrl: secondIndex)
+                        .frame(width: 100, height: 100)
+                        .background(.red)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .shadow(radius: 5)
+//                        .offset(x: showImages ? 0 : getOffsetX(Int(1)), y: showImages ? 0 : getOffsetY(Int(3)))
+//                        .animation(.easeInOut(duration: 3.0))
+                    
                 }
             }
+        }
             .onAppear() {
                 withAnimation() {
                     showImages.toggle()
                     NetworkingManager.shared.fetchImageUrls { urls in
-                        self.imageUrls = urls
+                        DispatchQueue.main.async {
+                            let imageDataArray = urls.imgUrls.map { url in
+                                ImageData(imgUrls: [url])
+                            }
+                            self.imageData = imageDataArray
+                        }
                     }
                 }
             }
@@ -189,14 +200,17 @@ struct GiveAccessView: View {
 }
 
 struct GiveAccessCellView: View {
-    let image: Image
-    let width: CGFloat
-    let height: CGFloat
+    let imageUrl: String
     var body: some View {
-        image
+        KFImage(URL(string: imageUrl))
+            .placeholder {
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 120)
+            }
             .resizable()
-            .scaledToFit()
-            .background(.white)
-            .frame(width: width, height: height)
+            .scaledToFill()
+            .frame(width: 100, height: 100)
     }
 }

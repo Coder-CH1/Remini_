@@ -10,17 +10,17 @@ import Foundation
 class NetworkingManager {
     static let shared = NetworkingManager()
     
-    func fetchImageUrls(completion: @escaping([ImageData]) -> Void) {
-        URLSession.shared.dataTask(with: URL(string: "http://localhost:3001/images")!) { data, response, error in
+    func fetchImageUrls(completion: @escaping(ImageData) -> Void) {
+        URLSession.shared.dataTask(with: URL(string: "http://localhost:3002/images")!) { data, response, error in
             if let error = error {
-                print("\(error.localizedDescription)")
+                print(String(describing: error))
             } else  if let data = data {
                 do {
-                    let decode = try JSONDecoder().decode([ImageData].self, from: data)
-                        completion(decode)
-                    print("\(decode.count)")
+                    let decodedData = try JSONDecoder().decode(ImageData.self, from: data)
+                        completion(decodedData)
+                    print("\(decodedData.imgUrls)")
                 } catch {
-                    print("\(error.localizedDescription)")
+                    print(String(describing: error))
                 }
             }
         }.resume()
