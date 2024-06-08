@@ -144,7 +144,7 @@ struct GiveAccessView: View {
             .onAppear() {
                 withAnimation() {
                     showImages.toggle()
-                    NetworkingManager.shared.fetchImageUrls { urls in
+                    ImageManager.shared.fetchImageUrls { urls in
                         DispatchQueue.main.async {
                             let imageDataArray = urls.imgUrls.map { url in
                                 ImageData(imgUrls: [url])

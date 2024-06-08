@@ -29,3 +29,7 @@ struct ImageData: Decodable, Hashable {
     let imgUrls: [String]
 }
 
+struct User {
+    let gender: String
+}
+

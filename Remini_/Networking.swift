@@ -7,8 +7,8 @@
 
 import Foundation
 
-class NetworkingManager {
-    static let shared = NetworkingManager()
+class ImageManager {
+    static let shared = ImageManager()
     
     func fetchImageUrls(completion: @escaping(ImageData) -> Void) {
         URLSession.shared.dataTask(with: URL(string: "http://localhost:3002/images")!) { data, response, error in
@@ -25,4 +25,8 @@ class NetworkingManager {
             }
         }.resume()
     }
+}
+
+class UserManager {
+    
 }
