@@ -20,6 +20,11 @@ struct SectionZeroData: Identifiable {
     let image: UIImage
 }
 
+struct AssetImageArray: Identifiable {
+    let id: UUID 
+    let image: Image
+}
+
 struct ImageData: Decodable, Hashable {
     let imgUrls: [String]
 }

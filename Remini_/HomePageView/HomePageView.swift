@@ -159,6 +159,16 @@ struct MiddleHomePageView: View {
         GridItem(.flexible(), spacing: 0, alignment: .center),
         GridItem(.flexible(), spacing: 0, alignment: .center)
     ]
+    
+    let sectionImages: [AssetImageArray] =
+    [
+    AssetImageArray(id: UUID(), image: Image("img1")),
+    AssetImageArray(id: UUID(), image: Image("img2")),
+    AssetImageArray(id: UUID(), image: Image("img3")),
+    AssetImageArray(id: UUID(), image: Image("img4")),
+    AssetImageArray(id: UUID(), image: Image("img5")),
+    AssetImageArray(id: UUID(), image: Image("img6")),
+    ]
    
     var body: some View {
         VStack {
@@ -239,14 +249,15 @@ struct MiddleHomePageView: View {
                             SeeAllView(selectedData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
                         }
                     }){
-                        ScrollView(.horizontal) {
+                        ScrollView(.horizontal, showsIndicators: false) {
                             LazyHGrid(rows: rows, spacing: 8) {
-                                ForEach(0..<4) { index in
-                                    SectionOneCell(showDetailsView: $showDetailsView)
+ForEach(sectionImages) { index in
+    SectionOneCell(showDetailsView: $showDetailsView, image: index.image)
                                 }
+.flipsForRightToLeftLayoutDirection(true)
+.environment(\.layoutDirection, .rightToLeft)
                             }
-                        }
-                        .scrollIndicators(.hidden)
+                        } 
                     }
                     
                     //MARK: - Section Three -
@@ -279,8 +290,8 @@ struct MiddleHomePageView: View {
                     }) {
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows) {
-                                ForEach(5..<20) { index in
-                                    SectionThreeCell(showAIPhotosView: $showAIPhotosView)
+                                ForEach(sectionImages) { index in
+                                    SectionThreeCell(showAIPhotosView: $showAIPhotosView, image: index.image)
                                 }
                             }
                         }
@@ -350,8 +361,8 @@ struct MiddleHomePageView: View {
                     }) {
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows) {
-                                ForEach(5..<20) { index in
-                                    SectionFiveCell()
+                                ForEach(sectionImages) { index in
+                                    SectionFiveCell(image: index.image)
                                 }
                             }
                         }
@@ -417,8 +428,8 @@ struct MiddleHomePageView: View {
                     }) {
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows) {
-                                ForEach(5..<20) { index in
-                                    SectionSevenCell()
+                                ForEach(sectionImages) { index in
+                                    SectionSevenCell(image: index.image)
                                 }
                             }
                         }
@@ -452,8 +463,8 @@ struct MiddleHomePageView: View {
                     }) {
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows) {
-                                ForEach(5..<20) { index in
-                                    SectionEightCell()
+                                ForEach(sectionImages) { index in
+                                    SectionEightCell(image: index.image)
                                 }
                             }
                         }
@@ -487,8 +498,8 @@ struct MiddleHomePageView: View {
                     }) {
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows) {
-                                ForEach(5..<20) { index in
-                                    SectionNineCell()
+                                ForEach(sectionImages) { index in
+                                    SectionNineCell(image: index.image)
                                 }
                             }
                         }
@@ -747,11 +758,12 @@ struct SectionZeroCell: View {
 
 struct SectionOneCell: View {
     @Binding var showDetailsView: Bool
+    let image: Image
     var body: some View {
         ZStack {
-            Image(systemName: "person.fill")
+            image
                 .resizable()
-                .scaledToFit()
+                .aspectRatio(contentMode: .fill)
                 .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
                 .background(.red)
                 .cornerRadius(30)
@@ -769,11 +781,12 @@ struct SectionOneCell: View {
 
 struct SectionThreeCell: View {
     @Binding var showAIPhotosView: Bool
+    let image: Image
     var body: some View {
         VStack {
-            Image(systemName: "person.fill")
+            image
                 .resizable()
-                .scaledToFit()
+                .aspectRatio(contentMode: .fill)
                 .frame(width: UIScreen.main.bounds.width/3.3, height: 150)
                 .background(.red)
                 .cornerRadius(30)
@@ -788,9 +801,9 @@ struct SectionFourCell: View {
     @Binding var showYellowToolView: Bool
     var body: some View {
         ZStack {
-            Image(systemName: "person.fill")
+            Image("img2")
                 .resizable()
-                .scaledToFit()
+                .aspectRatio(contentMode: .fill)
                 .frame(width: UIScreen.main.bounds.width, height: 200)
                 .background(.red)
                 .cornerRadius(10)
@@ -812,10 +825,11 @@ struct SectionFourCell: View {
 }
 
 struct SectionFiveCell: View {
+    let image: Image
     var body: some View {
-        Image(systemName: "person.fill")
+        image
             .resizable()
-            .scaledToFit()
+            .aspectRatio(contentMode: .fill)
             .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
             .background(.red)
             .cornerRadius(30)
@@ -824,9 +838,9 @@ struct SectionFiveCell: View {
 
 struct SectionSixCell: View {
     var body: some View {
-        Image(systemName: "person.fill")
+        Image("img3")
             .resizable()
-            .scaledToFit()
+            .aspectRatio(contentMode: .fill)
             .frame(width: UIScreen.main.bounds.width, height: 200)
             .background(.red)
             .cornerRadius(10)
@@ -834,10 +848,11 @@ struct SectionSixCell: View {
 }
 
 struct SectionSevenCell: View {
+    let image: Image
     var body: some View {
-        Image(systemName: "person.fill")
+        image
             .resizable()
-            .scaledToFit()
+            .aspectRatio(contentMode: .fill)
             .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
             .background(.red)
             .cornerRadius(30)
@@ -845,10 +860,11 @@ struct SectionSevenCell: View {
 }
 
 struct SectionEightCell: View {
+    let image: Image
     var body: some View {
-        Image(systemName: "person.fill")
+        image
             .resizable()
-            .scaledToFit()
+            .aspectRatio(contentMode: .fill)
             .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
             .background(.red)
             .cornerRadius(30)
@@ -856,10 +872,11 @@ struct SectionEightCell: View {
 }
 
 struct SectionNineCell: View {
+    let image: Image
     var body: some View {
-        Image(systemName: "person.fill")
+        image
             .resizable()
-            .scaledToFit()
+            .aspectRatio(contentMode: .fill)
             .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
             .background(.red)
             .cornerRadius(30)
