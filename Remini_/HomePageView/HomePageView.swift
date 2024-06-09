@@ -516,6 +516,8 @@ ForEach(sectionImages) { index in
 
 struct ChooseYourGenderBottomSheetView: View {
     let dismissBottomSheet: () -> Void
+    @AppStorage("selectGender") var selectedGender: String = ""
+    @AppStorage("hasSelectGender") var hasSelectedGender: Bool = false
     var body: some View {
         VStack {
             HStack {
