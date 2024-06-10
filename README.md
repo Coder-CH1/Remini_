@@ -10,3 +10,5 @@
    - URLSession
    - Swift Concurrency
    - Realm 
+   - Kingfisher
+   - Photos 
