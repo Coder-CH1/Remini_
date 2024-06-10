@@ -11,6 +11,7 @@ import Photos
 import CoreImage
 
 struct HomePageView: View {
+    @AppStorage("hasSeenModal") var hasSeenModal: Bool = false
     @State var selectedCellImage: UIImage
     @State var uiImage: UIImage
     @State var showYellowToon = false
@@ -47,21 +48,29 @@ struct HomePageView: View {
                 BottomTabHomePageView()
             }
             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(UIScreen.main.bounds.height/2)]) {
-                ChooseYourGenderBottomSheetView(dismissBottomSheet: {
-                    bottomSheetPosition = .hidden
-                } )
+                    ChooseYourGenderBottomSheetView(dismissBottomSheet: {
+                        bottomSheetPosition = .hidden
+                    } )
             }
             .enableBackgroundBlur(true)
             .customBackground(Color.white.cornerRadius(30))
             .showDragIndicator(false)
             .onAppear() {
+                if !hasSeenModal {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    bottomSheetPosition = .absolute(UIScreen.main.bounds.height/1.5)
+                        bottomSheetPosition = .absolute(UIScreen.main.bounds.height/1.5)
+                    hasSeenModal = true
+                    }
                 }
             }
             .onAppear {
                 DispatchQueue.main.async {
                     fetchPhotos()
+                }
+            }
+            .onAppear() {
+                if !hasSeenModal {
+                    hasSeenModal = false
                 }
             }
             .fullScreenCover(isPresented: $showDetailsView) {
@@ -516,67 +525,71 @@ ForEach(sectionImages) { index in
 
 struct ChooseYourGenderBottomSheetView: View {
     let dismissBottomSheet: () -> Void
+    @AppStorage("hasSelectedGender") var hasSelectedGender: Bool = false
     @AppStorage("selectGender") var selectedGender: String = ""
-    @AppStorage("hasSelectGender") var hasSelectedGender: Bool = false
     var body: some View {
-        VStack {
-            HStack {
-                Button {
-                    print("btn tapped")
-                    dismissBottomSheet()
-                } label: {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 20))
-                        .foregroundColor(.black)
+            VStack {
+                HStack {
+                    Button {
+                        print("btn tapped")
+                        dismissBottomSheet()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 20))
+                            .foregroundColor(.black)
+                    }
+                }.padding()
+                    .padding(.trailing, 300)
+                VStack(alignment: .center, spacing: 20) {
+                    Image(systemName: "personalhotspot")
+                        .font(.system(size: UIScreen.main.bounds.width/4))
+                    //.background(.yellow)
+                    Text("What's your gender?")
+                        .font(.title.bold())
+                    Text("We will only use this information to personalize your experience.")
+                    Button {
+                        selectedGender = "Female"
+                        hasSelectedGender = true
+                    } label: {
+                        Text("Female")
+                            .font(.system(size: 16,weight: .semibold))
+                            .foregroundColor(.black)
+                    }
+                    .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(.gray.opacity(0.3), lineWidth: 2)
+                    )
+                    
+                    Button {
+                        selectedGender = "Male"
+                        hasSelectedGender = true
+                    } label: {
+                        Text("Male")
+                            .font(.system(size: 16,weight: .semibold))
+                            .foregroundColor(.black)
+                    }
+                    .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(.gray.opacity(0.3), lineWidth: 2)
+                    )
+                    
+                    Button {
+                        selectedGender = "Other"
+                        hasSelectedGender = true
+                    } label: {
+                        Text("Other")
+                            .font(.system(size: 16,weight: .semibold))
+                            .foregroundColor(.black)
+                    }
+                    .frame(width: UIScreen.main.bounds.width - 50, height: 60)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(.gray.opacity(0.3), lineWidth: 2)
+                    )
                 }
-            }.padding()
-                .padding(.trailing, 300)
-            VStack(alignment: .center, spacing: 20) {
-                Image(systemName: "personalhotspot")
-                    .font(.system(size: UIScreen.main.bounds.width/4))
-                //.background(.yellow)
-                Text("What's your gender?")
-                    .font(.title.bold())
-                Text("We will only use this information to personalize your experience.")
-                Button {
-                    print("")
-                } label: {
-                    Text("Female")
-                        .font(.system(size: 16,weight: .semibold))
-                        .foregroundColor(.black)
-                }
-                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(.gray.opacity(0.3), lineWidth: 2)
-                )
-                
-                Button {
-                    print("")
-                } label: {
-                    Text("Male")
-                        .font(.system(size: 16,weight: .semibold))
-                        .foregroundColor(.black)
-                }
-                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(.gray.opacity(0.3), lineWidth: 2)
-                )
-                
-                Button {
-                    print("")
-                } label: {
-                    Text("Other")
-                        .font(.system(size: 16,weight: .semibold))
-                        .foregroundColor(.black)
-                }
-                .frame(width: UIScreen.main.bounds.width - 50, height: 60)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(.gray.opacity(0.3), lineWidth: 2)
-                )
-            }
+
         }
     }
 }

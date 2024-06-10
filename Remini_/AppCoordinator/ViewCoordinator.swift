@@ -9,6 +9,7 @@ import SwiftUI
 import Photos
 
 struct ViewCoordinator: View {
+    @AppStorage("hasCompletedOnboarding") var hasCompletedOnboarding: Bool = false 
     @State var isActive = false
     var body: some View {
         if !isActive {

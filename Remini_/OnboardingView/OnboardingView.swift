@@ -27,7 +27,6 @@ struct OnboardingView: View {
                         .font(.system(size: 40, weight: .semibold))
                     
                     Button(action: {
-                        print("btn tapped")
                         isPresentedWelcomeView = true
                     })
                     {
