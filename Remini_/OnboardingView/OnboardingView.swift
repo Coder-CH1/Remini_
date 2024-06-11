@@ -9,6 +9,7 @@ import SwiftUI
 import AVKit
 
 struct OnboardingView: View {
+    @AppStorage("onboardingScreenShown") var onboardingScreenShown: Bool = false
     @State var playVideo = false
     @State var isPresentedWelcomeView = false
     @State var rotatingAngle: Double = 0.0
@@ -50,6 +51,9 @@ struct OnboardingView: View {
                     .padding()
                     .offset(y: -80)
             )
+            .onAppear() {
+                UserDefaults.standard.onboardingScreenShown = true
+            }
     }
 }
 

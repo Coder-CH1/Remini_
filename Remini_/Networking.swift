@@ -63,4 +63,19 @@ class DatabaseManager {
             print("Unable to save gender: \(error)")
         }
     }
+    
+    func getUserGender() -> String? {
+        let users = Table("users")
+        let gender = Expression<String>("gender")
+        do {
+            if let user = try db?.pluck(users) {
+                return try user.get(gender)
+            } else {
+                return nil
+            }
+        } catch {
+            print("Unable to retrieve user gender\(error)")
+            return nil
+        }
+    }
 }

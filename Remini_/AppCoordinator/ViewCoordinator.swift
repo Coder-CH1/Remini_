@@ -9,11 +9,12 @@ import SwiftUI
 import Photos
 
 struct ViewCoordinator: View {
-    @AppStorage("hasCompletedOnboarding") var hasCompletedOnboarding: Bool = false 
     @State var isActive = false
     var body: some View {
         if !isActive {
             SplashView(isActive: $isActive)
+        } else if UserDefaults.standard.onboardingScreenShown {
+            HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), image: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
         } else {
             OnboardingView()
         }
@@ -42,5 +43,16 @@ struct ScaledFont: ViewModifier {
 extension View {
     func scaledFont(name: String, size: Double) -> some View {
         return self.modifier(ScaledFont(name: name, size: size))
+    }
+}
+
+extension UserDefaults {
+    var onboardingScreenShown: Bool {
+        get {
+            return (UserDefaults.standard.value(forKey: "onboardingScreenShown") as? Bool) ?? false
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "onboardingScreenShown")
+        }
     }
 }
