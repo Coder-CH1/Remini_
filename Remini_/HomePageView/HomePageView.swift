@@ -262,7 +262,7 @@ struct MiddleHomePageView: View {
                     }){
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHGrid(rows: rows, spacing: 8) {
-ForEach(sectionImages) { index in
+                    ForEach(sectionImages) { index in
     SectionOneCell(showDetailsView: $showDetailsView, image: index.image)
                                 }
 .flipsForRightToLeftLayoutDirection(true)
@@ -301,7 +301,7 @@ ForEach(sectionImages) { index in
                     }) {
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows) {
-                                ForEach(sectionImages) { index in
+                            ForEach(sectionImages) { index in
                                     SectionThreeCell(showAIPhotosView: $showAIPhotosView, image: index.image)
                                 }
                             }
@@ -439,7 +439,7 @@ ForEach(sectionImages) { index in
                     }) {
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows) {
-                                ForEach(sectionImages) { index in
+                            ForEach(sectionImages) { index in
                                     SectionSevenCell(image: index.image)
                                 }
                             }

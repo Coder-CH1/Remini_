@@ -9,6 +9,7 @@ import SwiftUI
 import Photos
 
 struct ExploreView: View {
+    @EnvironmentObject var imageDataArray: ImageDataArray
     @State var showNewView = false
     let columns = [GridItem(.flexible(), spacing: 10)]
     var body: some View {
@@ -66,9 +67,8 @@ struct ExploreCellView: View {
             HStack(spacing: 20) {
                 Image(systemName: "person.crop.circle.fill")
                     .resizable()
-                    .scaledToFit()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 90, height: 90)
-                    .background(.red)
                     .cornerRadius(45)
                 Text("Random text")
                     .font(.system(size: 14, weight: .medium))

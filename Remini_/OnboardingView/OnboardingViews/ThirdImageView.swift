@@ -45,9 +45,11 @@ struct ThirdImageView: View {
             }
             .padding(.bottom, 80)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.gray)
-        .ignoresSafeArea()
+        .background(
+        Image("img3")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+        .ignoresSafeArea())
     }
 }
 

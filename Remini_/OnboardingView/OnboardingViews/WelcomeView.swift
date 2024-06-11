@@ -14,7 +14,7 @@ struct WelcomeView: View {
         Color.black.ignoresSafeArea()
             .overlay(
                     VStack {
-                        WelcomeLazyVGridView()
+                        WelcomeLazyVGridView(image: Image(""))
                     }
             )
     }
@@ -27,10 +27,12 @@ struct WelcomeView_Previews: PreviewProvider {
 }
 
 struct WelcomeLazyVGridView: View {
+    @EnvironmentObject var imageDataArray: ImageDataArray
     @State var header = true
     @State var showContinueButton = false
     @State var cellsEnabled = true
     @State var showNextView = false
+    let image: Image
     let columns = [GridItem(.flexible())]
     var body: some View {
         VStack {
@@ -76,8 +78,8 @@ struct WelcomeLazyVGridView: View {
                         ScrollViewReader { g in
                         ScrollView {
                             LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
-                                ForEach(0..<10) { _ in
-                                    WelcomeCellView(showContinueButton: $showContinueButton, cellsEnabled: $cellsEnabled)
+                                ForEach(0..<12) { index in
+                        WelcomeCellView(showContinueButton: $showContinueButton, cellsEnabled: $cellsEnabled)
                                 }
                                 .opacity(cellsEnabled ? 1 : 0.5)
                                 .allowsHitTesting(cellsEnabled)
@@ -131,14 +133,13 @@ struct WelcomeCellView: View {
     @Binding var showContinueButton: Bool
     @Binding var cellsEnabled: Bool
     @State var isTapped: Bool = false
+    //let image: String
     let screenSize = UIScreen.main.bounds.size
     var body: some View {
         HStack(spacing: 20) {
-            Image(systemName: "person.circle.fill")
+            Image(systemName: "person.fill")
                 .resizable()
-                .scaledToFit()
-                .frame(width: 90, height: 90)
-                .background(.red)
+                .aspectRatio(contentMode: .fill)       .frame(width: 90, height: 90)
                 .cornerRadius(45)
             VStack(alignment: .leading, spacing: 10) {
                 Text("AI PHOTOS")

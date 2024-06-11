@@ -44,9 +44,11 @@ struct SecondImageView: View {
             }
             .padding(.bottom, 80)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.gray)
-        .ignoresSafeArea()
+        .background(
+        Image("img2")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+        .ignoresSafeArea())
     }
 }
 

@@ -21,14 +21,15 @@ struct SectionZeroData: Identifiable {
 }
 
 struct AssetImageArray: Identifiable {
-    let id: UUID 
-    let image: Image
+    var id = UUID()
+    static let shared = AssetImageArray(image: Image(""))
+    var image: Image
 }
 
 struct ImageData: Decodable, Hashable {
     let imgUrls: [String]
 }
 
-struct UserGender {
-    
+class ImageDataArray: ObservableObject {
+    @Published var images: [String] = ["img1", "img2", "img3", "img4", "img5", "img6"]
 }
