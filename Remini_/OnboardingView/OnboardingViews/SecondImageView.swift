@@ -10,6 +10,7 @@ import SwiftUI
 struct SecondImageView: View {
     @State var isPresentedView = false
     var body: some View {
+        ZStack {
         VStack(spacing: 30) {
             Spacer()
             Button {
@@ -44,6 +45,7 @@ struct SecondImageView: View {
             }
             .padding(.bottom, 80)
         }
+        }
         .background(
         Image("img2")
             .resizable()
@@ -51,7 +53,6 @@ struct SecondImageView: View {
         .ignoresSafeArea())
     }
 }
-
 struct SecondImageView_Previews: PreviewProvider {
     static var previews: some View {
         SecondImageView()

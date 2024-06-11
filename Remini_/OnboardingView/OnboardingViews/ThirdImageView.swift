@@ -12,6 +12,7 @@ import Kingfisher
 struct ThirdImageView: View {
     @State var isPresentedView = false
     var body: some View {
+        ZStack {
         VStack(spacing: 30) {
             Spacer()
             Button {
@@ -44,6 +45,8 @@ struct ThirdImageView: View {
                 LoadingView(isActive: true)
             }
             .padding(.bottom, 80)
+            }
+        
         }
         .background(
         Image("img3")
@@ -52,7 +55,6 @@ struct ThirdImageView: View {
         .ignoresSafeArea())
     }
 }
-
 struct ThirdImageView_Previews: PreviewProvider {
     static var previews: some View {
         ThirdImageView()
