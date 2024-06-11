@@ -1,20 +1,26 @@
 PODS:
   - BottomSheetSwiftUI (3.1.1)
-  - Kingfisher (7.11.0)
+  - Kingfisher (7.12.0)
+  - SQLite.swift (0.15.3):
+    - SQLite.swift/standard (= 0.15.3)
+  - SQLite.swift/standard (0.15.3)
 
 DEPENDENCIES:
   - BottomSheetSwiftUI
   - Kingfisher
+  - SQLite.swift
 
 SPEC REPOS:
   trunk:
     - BottomSheetSwiftUI
     - Kingfisher
+    - SQLite.swift
 
 SPEC CHECKSUMS:
   BottomSheetSwiftUI: 08b5ada340a164b7ef49cf04b6733a0bd3f02957
-  Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
+  Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
+  SQLite.swift: 8d054987f02728cc912b0eb5a9659650573a65a2
 
-PODFILE CHECKSUM: 605cf82cccdc058f3c6e9bb5922c23c824d0e643
+PODFILE CHECKSUM: c408834fa8c3764e267ecc1030db0edb1cfeff3b
 
 COCOAPODS: 1.15.2

@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SQLite3
+import SQLite
 
 class ImageManager {
     static let shared = ImageManager()
@@ -27,6 +29,38 @@ class ImageManager {
     }
 }
 
-class UserManager {
+class DatabaseManager {
+    static let shared = DatabaseManager()
+    let db: Connection?
+    private init() {
+        do {
+            db = try
+            Connection(.inMemory)
+            createTable()
+        } catch {
+            db = nil
+            print("Unable to connect to database: \(error)")
+        }
+    }
+    func createTable() {
+        let users = Table("users")
+        let gender = Expression<String>("gender")
+        do {
+            try db!.run(users.create{ t in
+                t.column(gender)
+            })
+        } catch {
+            print("Unable to create table: \(error)")
+        }
+    }
     
+    func saveGender(_ gender: String) {
+        let users = Table("users")
+        let genderColumn = Expression<String>("gender")
+        do {
+            try db?.run(users.insert(genderColumn <- gender))
+        } catch {
+            print("Unable to save gender: \(error)")
+        }
+    }
 }

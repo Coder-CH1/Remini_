@@ -9,6 +9,8 @@ import SwiftUI
 import BottomSheetSwiftUI
 import Photos
 import CoreImage
+import SQLite3
+
 
 struct HomePageView: View {
     @AppStorage("hasSeenModal") var hasSeenModal: Bool = false
@@ -524,14 +526,17 @@ ForEach(sectionImages) { index in
 
 
 struct ChooseYourGenderBottomSheetView: View {
+    let databaseManager = DatabaseManager.shared
     let dismissBottomSheet: () -> Void
     @AppStorage("hasSelectedGender") var hasSelectedGender: Bool = false
     @AppStorage("selectGender") var selectedGender: String = ""
+    func saveGenderToDatabase(gender: String) {
+        databaseManager.saveGender(gender)
+    }
     var body: some View {
             VStack {
                 HStack {
                     Button {
-                        print("btn tapped")
                         dismissBottomSheet()
                     } label: {
                         Image(systemName: "xmark")
@@ -543,13 +548,12 @@ struct ChooseYourGenderBottomSheetView: View {
                 VStack(alignment: .center, spacing: 20) {
                     Image(systemName: "personalhotspot")
                         .font(.system(size: UIScreen.main.bounds.width/4))
-                    //.background(.yellow)
                     Text("What's your gender?")
                         .font(.title.bold())
                     Text("We will only use this information to personalize your experience.")
                     Button {
                         selectedGender = "Female"
-                        hasSelectedGender = true
+                        saveGenderToDatabase(gender: selectedGender)
                     } label: {
                         Text("Female")
                             .font(.system(size: 16,weight: .semibold))
@@ -563,7 +567,7 @@ struct ChooseYourGenderBottomSheetView: View {
                     
                     Button {
                         selectedGender = "Male"
-                        hasSelectedGender = true
+                        saveGenderToDatabase(gender: selectedGender)
                     } label: {
                         Text("Male")
                             .font(.system(size: 16,weight: .semibold))
@@ -577,7 +581,7 @@ struct ChooseYourGenderBottomSheetView: View {
                     
                     Button {
                         selectedGender = "Other"
-                        hasSelectedGender = true
+                        saveGenderToDatabase(gender: selectedGender)
                     } label: {
                         Text("Other")
                             .font(.system(size: 16,weight: .semibold))
