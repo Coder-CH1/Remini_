@@ -6,11 +6,17 @@
 //
 
 import SwiftUI
+import CoreImage
+import CoreImage.CIFilterBuiltins
 
 struct FirstImageView: View {
     @State var isPresentedView = false
     @State var offset: CGFloat = 0
     @State var dragging = false
+    func filterImage() {
+        let context = CIContext()
+        let currentFilter = CIFilter.sepiaTone()
+    }
     var body: some View {
         ZStack {
             VStack(spacing: 30) {
