@@ -11,25 +11,36 @@ import Kingfisher
 
 struct ThirdImageView: View {
     @State var isPresentedView = false
+    @State var offset: CGFloat = 0
+    @State var dragging = false
     var body: some View {
         ZStack {
-            ZStack {
-                VStack {
-                    Button {
-                        print("btn tapped")
-                    } label: {
-                        Image(systemName: "arrow.left.and.right")
-                            .frame(width: 50, height: 50)
-                            .background(.white)
-                            .cornerRadius(25)
-                            .tint(.black)
+            GeometryReader { g in
+                ZStack {
+                    VStack {
+                        Button {
+                            dragging = true
+                        } label: {
+                            Image(systemName: "arrow.left.and.right")
+                                .frame(width: 50, height: 50)
+                                .background(.white)
+                                .cornerRadius(25)
+                                .tint(.black)
+                        }
                     }
+                    .padding(.leading, UIScreen.main.bounds.width/2)
+                    
                 }
-                .padding(.leading, 190)
+                .frame(width: g.size.width/2,height: g.size.height)
+                .background(.white.opacity(0.2))
+                .offset(x: offset, y: 0)
+                .gesture(DragGesture() .onChanged { gesture in
+                        offset = gesture.translation.width
+                }
+                    .onEnded { _ in
+                        offset = 0
+                    })
             }
-            .frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height).ignoresSafeArea()
-            .background(.white.opacity(0.2))
-            .padding(.leading, -200)
             VStack {
                 Spacer()
                 HStack(spacing: 30) {

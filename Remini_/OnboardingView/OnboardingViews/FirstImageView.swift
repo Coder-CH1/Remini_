@@ -16,7 +16,7 @@ struct FirstImageView: View {
             VStack(spacing: 30) {
                 GeometryReader { g in
                     ZStack(alignment: .leading) {
-                        VStack(alignment: .center) {
+                        VStack {
                             Text("Move the slider!")
                                 .frame(width: 200, height: 60)
                                 .font(.system(size: 20, weight: .semibold))
@@ -32,18 +32,10 @@ struct FirstImageView: View {
                                     .cornerRadius(25)
                                     .tint(.black)
                             }
-                            .onTapGesture {
-                                if offset == 0 {
-                                    offset = UIScreen.main.bounds.width
-                                } else {
-                                    offset = 0
-                                }
-                                dragging = false
-                            }
                         }
-                        .padding(.leading, 190)
+                        .padding(.leading, UIScreen.main.bounds.width/2)
                     }
-                    .frame(width: g.size.width/2, height: g.size.height)
+                    .frame(width: g.size.width/2,height: g.size.height)
                     .background(.white.opacity(0.2))
                     .offset(x: offset, y: 0)
                     .gesture(DragGesture() .onChanged { gesture in

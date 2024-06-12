@@ -9,12 +9,15 @@ import SwiftUI
 
 struct SecondImageView: View {
     @State var isPresentedView = false
+    @State var offset: CGFloat = 0
+    @State var dragging = false
     var body: some View {
         ZStack {
+            GeometryReader { g in
                 ZStack {
                     VStack(alignment: .center) {
                         Button {
-                            print("btn tapped")
+                            dragging = true
                         } label: {
                             Image(systemName: "arrow.left.and.right")
                                 .frame(width: 50, height: 50)
@@ -23,11 +26,18 @@ struct SecondImageView: View {
                                 .tint(.black)
                         }
                     }
-                    .padding(.leading, 190)
+                    .padding(.leading, UIScreen.main.bounds.width/2)
                 }
-                .frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height).ignoresSafeArea()
-                .background(.white.opacity(0.3))
-                .padding(.leading, -200)
+                .frame(width: g.size.width/2,height: g.size.height)
+                .background(.white.opacity(0.2))
+                .offset(x: offset, y: 0)
+                .gesture(DragGesture() .onChanged { gesture in
+                        offset = gesture.translation.width
+                }
+                    .onEnded { _ in
+                        offset = 0
+                    })
+            }
             VStack {
                 Spacer()
                 HStack(spacing: 30) {
