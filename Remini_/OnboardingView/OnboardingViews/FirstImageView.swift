@@ -34,7 +34,7 @@ struct FirstImageView: View {
                     .padding(.leading, 190)
                 }
                 .frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height).ignoresSafeArea()
-                .background(.white.opacity(0.3))
+                .background(.white.opacity(0.2))
                 .padding(.leading, -200)
             }
             
@@ -54,7 +54,6 @@ struct FirstImageView: View {
                             .cornerRadius(40)
                             .tint(.black)
                     }
-                    
                 }
                 .fullScreenCover(isPresented: $isPresentedView) {
                     SecondImageView()
@@ -63,7 +62,7 @@ struct FirstImageView: View {
             }
         }
         .background(
-            Image("img1")
+            Image("img5")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
