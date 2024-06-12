@@ -13,10 +13,11 @@ struct FirstImageView: View {
     @State var isPresentedView = false
     @State var offset: CGFloat = 0
     @State var dragging = false
-    func filterImage() {
-        let context = CIContext()
-        let currentFilter = CIFilter.sepiaTone()
-    }
+    @GestureState var dragOffset: CGSize = .zero
+//    func filterImage() {
+//        let context = CIContext()
+//        let currentFilter = CIFilter.sepiaTone()
+//    }
     var body: some View {
         ZStack {
             VStack(spacing: 30) {
@@ -37,6 +38,16 @@ struct FirstImageView: View {
                                     .background(.white)
                                     .cornerRadius(25)
                                     .tint(.black)
+                                    .offset(x: dragOffset.width, y: dragOffset.height)
+                                    .gesture(DragGesture()
+                                    .updating($dragOffset, body: { (value, state, _)  in
+                                        offset += value.translation.width
+                                        }
+                                    )
+                                        .onEnded({ _ in
+                                            offset = 0
+                                        })
+                                )
                             }
                         }
                         .padding(.leading, UIScreen.main.bounds.width/2)
@@ -49,7 +60,8 @@ struct FirstImageView: View {
                     }
                         .onEnded { _ in
                             offset = 0
-                        })
+                        }
+                    )
                 }
             }
             
