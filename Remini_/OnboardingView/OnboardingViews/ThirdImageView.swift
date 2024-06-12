@@ -13,7 +13,6 @@ struct ThirdImageView: View {
     @State var isPresentedView = false
     var body: some View {
         ZStack {
-            Spacer()
             ZStack {
                 VStack {
                     Button {

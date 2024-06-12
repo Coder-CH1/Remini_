@@ -11,7 +11,6 @@ struct SecondImageView: View {
     @State var isPresentedView = false
     var body: some View {
         ZStack {
-                Spacer()
                 ZStack {
                     VStack(alignment: .center) {
                         Button {
