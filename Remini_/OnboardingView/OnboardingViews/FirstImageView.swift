@@ -9,15 +9,17 @@ import SwiftUI
 import CoreImage
 import CoreImage.CIFilterBuiltins
 
+enum Half {
+    case left, right
+}
 struct FirstImageView: View {
     @State var isPresentedView = false
     @State var offset: CGFloat = 0
     @State var dragging = false
     @GestureState var dragOffset: CGSize = .zero
-//    func filterImage() {
-//        let context = CIContext()
-//        let currentFilter = CIFilter.sepiaTone()
-//    }
+    let gradientLayer = CAGradientLayer()
+    
+    let half: Half = .right
     var body: some View {
         ZStack {
             VStack(spacing: 30) {
@@ -45,15 +47,16 @@ struct FirstImageView: View {
                                         }
                                     )
                                         .onEnded({ _ in
-                                            offset = 0
+                                            offset = 1
                                         })
                                 )
                             }
                         }
-                        .padding(.leading, UIScreen.main.bounds.width/2)
+                        .padding(.leading, UIScreen.main.bounds.width)
                     }
-                    .frame(width: g.size.width/2,height: g.size.height)
+                    .frame(width: g.size.width,height: g.size.height)
                     .background(.white.opacity(0.2))
+                    .position(x: 0, y: g.size.height/2)
                     .offset(x: offset, y: 0)
                     .gesture(DragGesture() .onChanged { gesture in
                             offset = gesture.translation.width
@@ -64,13 +67,12 @@ struct FirstImageView: View {
                     )
                 }
             }
-            
             VStack {
                 Spacer()
                 HStack(spacing: 30) {
                     Text("Restore your \n old photos")
-                        .font(.system(size: 34, weight: .black))
-                        .foregroundColor(.white)
+                .font(.system(size: 34, weight: .black))
+                .foregroundColor(.white)
                     Button {
                         isPresentedView.toggle()
                     } label: {
@@ -84,14 +86,13 @@ struct FirstImageView: View {
                 .fullScreenCover(isPresented: $isPresentedView) {
                     SecondImageView()
                 }
-                .padding(.bottom, 80)
             }
         }
         .background(
             Image("img5")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                .frame(width: .infinity, height: UIScreen.main.bounds.height, alignment: .center)
                 .ignoresSafeArea())
     }
 }

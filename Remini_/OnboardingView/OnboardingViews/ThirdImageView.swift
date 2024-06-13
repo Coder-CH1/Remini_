@@ -34,23 +34,34 @@ struct ThirdImageView: View {
                                     }
                                 )
                                     .onEnded({ _ in
-                                        offset = 0
+                                        offset = 1
                                     })
                             )
                         }
                     }
-                    .padding(.leading, UIScreen.main.bounds.width/2)
+                    .padding(.leading, UIScreen.main.bounds.width)
                     
                 }
-                .frame(width: g.size.width/2,height: g.size.height)
+                .frame(width: g.size.width,height: g.size.height)
                 .background(.white.opacity(0.2))
+                .position(x: 0, y: g.size.height/2)
                 .offset(x: offset, y: 0)
                 .gesture(DragGesture() .onChanged { gesture in
                         offset = gesture.translation.width
                 }
                     .onEnded { _ in
                         offset = 0
-                    })
+                })
+            }
+            .onAppear() {
+                withAnimation(.easeInOut(duration: 1.2)) {
+                    offset = 100
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    withAnimation(.easeInOut(duration: 1.2)) {
+                        offset = 0
+                    }
+                }
             }
             VStack {
                 Spacer()
@@ -73,7 +84,6 @@ struct ThirdImageView: View {
                 .fullScreenCover(isPresented: $isPresentedView) {
                     LoadingView(isActive: true)
                 }
-                .padding(.bottom, 80)
             }
         }
         .background(

@@ -32,4 +32,5 @@ struct ImageData: Decodable, Hashable {
 
 class ImageDataArray: ObservableObject {
     @Published var images: [String] = ["img1", "img2", "img3", "img4", "img5", "img6"]
+//@Published var data: [CellItem] = []
 }
