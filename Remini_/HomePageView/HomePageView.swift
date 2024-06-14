@@ -1183,8 +1183,9 @@ struct PickForTwoView: View {
     let textPerson1 = "Person 1"
     let textPerson2 = "Person 2"
     let sectionZeroRows = [
-        GridItem(.flexible(), spacing: 0, alignment: .center),
-        GridItem(.flexible(), spacing: 0, alignment: .center)
+        GridItem(.flexible(), spacing: -40, alignment: .center),
+        GridItem(.flexible(), spacing: -40, alignment: .center),
+        GridItem(.flexible(), spacing: -40, alignment: .center)
     ]
     func fetchPhotos() {
         DispatchQueue.main.async {
@@ -1229,17 +1230,16 @@ struct PickForTwoView: View {
                             }
                         }
                         ) {
-                            LazyVGrid(columns: sectionZeroRows, spacing: 5) {
-                                ForEach(images, id: \.self) { index in
-                    PickForTwoViewCell(selectedCellImage1: $selectedImage1, selectedCellImage2: $selectedImage2, cellImage: $image, onTap: { image in
-                                        if  selectedImage1 == nil {
-                                            selectedImage1 = image
-                                        } else if selectedImage2 == nil {
-                                            selectedImage2 = image
-                                            showContinueButton = true
-                                        }
-                                        
-                                    }, photo: index)
+                LazyVGrid(columns: sectionZeroRows, spacing: 5) {
+                    ForEach(images, id: \.self) { index in
+                PickForTwoViewCell(selectedCellImage1: $selectedImage1, selectedCellImage2: $selectedImage2, cellImage: $image, onTap: { image in
+                    if  selectedImage1 == nil {
+                    selectedImage1 = image
+                    } else if selectedImage2 == nil {
+                    selectedImage2 = image
+                showContinueButton = true
+                        }
+                }, photo: index)
                                 }
                             }
                         }
@@ -1251,12 +1251,14 @@ struct PickForTwoView: View {
                         print("")
                     } label: {
                         VStack {
-                            Image(uiImage: selectedImage1 ?? UIImage())
-                                .font(.system(size: 50))
-                                .foregroundColor(.gray)
-                            Text(textPerson1)
-                                .font(.system(size: 14, weight: .regular))
-                                .foregroundColor(.gray)
+                            if let image = selectedImage1 {
+                                Image(uiImage: image)
+                                    .font(.system(size: 50))
+                                    .foregroundColor(.gray)
+                                Text(textPerson1)
+                                    .font(.system(size: 14, weight: .regular))
+                                    .foregroundColor(.gray)
+                            }
                         }
                         .padding(.top)
                     }
@@ -1265,12 +1267,14 @@ struct PickForTwoView: View {
                         print("")
                     } label: {
                         VStack {
-                            Image(uiImage: selectedImage2 ?? UIImage())
+                            if let image = selectedImage2 {
+                                Image(uiImage: image)
                                 .font(.system(size: 50))
                                 .foregroundColor(.gray)
-                            Text(textPerson2)
+                                Text(textPerson2)
                                 .font(.system(size: 14, weight: .regular))
                                 .foregroundColor(.gray)
+                            }
                         }
                         .padding(.top)
                     }
@@ -1316,8 +1320,8 @@ struct PickForTwoViewCell: View {
         let option = PHImageRequestOptions()
         option.resizeMode = .exact
         option.deliveryMode = .highQualityFormat
-        option.isSynchronous = false
-        manager.requestImage(for: photo, targetSize: CGSize(width: UIScreen.main.bounds.width/3.1, height: 120), contentMode: .aspectFill, options: option) { result, _ in
+        option.isSynchronous = true
+        manager.requestImage(for: photo, targetSize: CGSize(width: UIScreen.main.bounds.width/4.5, height: 120), contentMode: .aspectFill, options: option) { result, _ in
             if let result = result {
                 self.cellImage = result
             }
@@ -1328,8 +1332,7 @@ struct PickForTwoViewCell: View {
             ZStack {
                 if let image = cellImage {
                     Image(uiImage: image)
-                        .frame(width: UIScreen.main.bounds.width/3.1, height: 120)
-                        .background(.red)
+                        .frame(width: UIScreen.main.bounds.width/4.5, height: 80)
                         .cornerRadius(10)
                         .onTapGesture {
                             onTap(image)
