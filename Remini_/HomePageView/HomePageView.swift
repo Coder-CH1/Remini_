@@ -1179,7 +1179,7 @@ struct PickForTwoView: View {
     @State var selectedImage2: UIImage?
     var image: UIImage
     @State var showContinueButton = false
-    @State var images: [PHAsset]
+    @State var images: [PHAsset] = []
     let textPerson1 = "Person 1"
     let textPerson2 = "Person 2"
     let sectionZeroRows = [
@@ -1232,14 +1232,15 @@ struct PickForTwoView: View {
                         ) {
                 LazyVGrid(columns: sectionZeroRows, spacing: 5) {
                     ForEach(images, id: \.self) { index in
-                        PickForTwoViewCell(selectedCellImage1: $selectedImage1, selectedCellImage2: $selectedImage2, cellImage: image, onTap: { photo in
-                                if selectedImage1 == nil {
-                                    
-                                    selectedImage1 = photo
-                                } else if selectedImage2 == nil && selectedImage1 != photo {
-                                    selectedImage2 = photo
-                                        showContinueButton = true
-                            }
+                        PickForTwoViewCell(cellImage: image, onTap: { photo in
+                            handleImageSelection(photo)
+//                                if selectedImage1 == nil {
+//
+//                                    selectedImage1 = photo
+//                                } else if selectedImage2 == nil && selectedImage1 != photo {
+//                                    selectedImage2 = photo
+//                                        showContinueButton = true
+//                            }
                     }, photo: index)
                                 }
                             }
@@ -1308,11 +1309,19 @@ struct PickForTwoView: View {
             }
         }
     }
+    func handleImageSelection(_ image: UIImage) {
+        if selectedImage1 == nil {
+            selectedImage1 = image
+        } else if selectedImage2 == nil {
+            selectedImage2 = image
+            showContinueButton = true
+        }
+    }
 }
 
 struct PickForTwoViewCell: View {
-    @Binding var selectedCellImage1: UIImage?
-    @Binding var selectedCellImage2: UIImage?
+//    @Binding var selectedCellImage1: UIImage?
+//    @Binding var selectedCellImage2: UIImage?
     @State var cellImage: UIImage
     var onTap: (UIImage) -> Void
     var photo: PHAsset
