@@ -20,19 +20,21 @@ struct HomePageView: View {
     @State var showDetailsView = false
     @State var showAIPhotosView = false
     @State var showingModal = false
-    @State var image: [PHAsset]
+    @State var images: [PHAsset]
     @State var selectedImage: UIImage
     @State var bottomSheetPosition: BottomSheetPosition = .hidden
     @State var showGenderSelector = false
     @State var selectedCellData: SeeAllCellData
-    
+    @State var selected1: UIImage
+    @State var selected2: UIImage
+    @State var cellsImage: UIImage
     func fetchPhotos() {
         DispatchQueue.main.async {
             PHPhotoLibrary.requestAuthorization { status in
                 if status == .authorized {
                     let assets = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: nil)
                     assets.enumerateObjects { (object,_, _) in
-                        image.append(object)
+                        images.append(object)
                     }
                         //image.reversed()
                 } else if status == .denied {
@@ -46,7 +48,7 @@ struct HomePageView: View {
         ZStack {
             VStack(spacing: 0) {
                 TopNavHomePageView()
-                MiddleHomePageView(selectedCellImage: $selectedCellImage, image: $uiImage, showDetailsView: $showDetailsView, showingModal: $showingModal, showAIPhotosView: $showAIPhotosView, showYellowToolView: $showYellowToon, selectedPhotos: $image)
+                MiddleHomePageView(selectedCellImage: $selectedCellImage, image: $uiImage, showDetailsView: $showDetailsView, showingModal: $showingModal, showAIPhotosView: $showAIPhotosView, showYellowToolView: $showYellowToon, selectedPhotos: $images)
                 BottomTabHomePageView()
             }
             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(UIScreen.main.bounds.height/2)]) {
@@ -76,7 +78,7 @@ struct HomePageView: View {
                 }
             }
             .fullScreenCover(isPresented: $showDetailsView) {
-                DetailsView(selection1: $selectedCellData)
+                DetailsView(selected1: selected1, selected2: selected2,image: cellsImage, selection1: $selectedCellData)
             }
             .fullScreenCover(isPresented: $showAIPhotosView) {
                 AIPhotosView()
@@ -97,7 +99,7 @@ struct HomePageView: View {
 
 struct HomePageView_Previews: PreviewProvider {
     static var previews: some View {
-        HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), image: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
+        HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
     }
 }
 
@@ -1025,7 +1027,7 @@ struct SeeAllView: View {
                         .cornerRadius(20)
                 }
                 .fullScreenCover(isPresented: $showNewView) {
-                    HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), image: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
+    HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
                 }
                 Text("Couple photos").font(.system(size: 24, weight: .bold)).foregroundColor(.white)
             }
@@ -1047,7 +1049,7 @@ struct SeeAllView: View {
             .padding(.top)
             
             .fullScreenCover(isPresented: $showDetailsView) {
-                DetailsView(selection1: $selectedData)
+                DetailsView(selected1: UIImage(),selected2: UIImage(),image: UIImage(), selection1: $selectedData)
             }
         }
         .padding(.bottom)
@@ -1111,6 +1113,9 @@ struct SeeAllCellView: View{
 
 struct DetailsView: View {
     @State var showPickForTwo = false
+    @State var selected1: UIImage
+    @State var selected2: UIImage
+    @State var image: UIImage
     @Binding var selection1: SeeAllCellData
     
     var body: some View {
@@ -1140,7 +1145,7 @@ struct DetailsView: View {
                         Text("Create beautiful wedding pictures of you\n and your better half")
                             .font(.system(size: 12, weight: .regular))
                             .foregroundColor(.white)
-                        NavigationLink(destination: PickForTwoView(), isActive: $showPickForTwo) {
+        NavigationLink(destination: PickForTwoView(selectedImage1:selected1 ,selectedImage2: selected2,image: image, images: [PHAsset]()), isActive: $showPickForTwo) {
                             Button {
                                 showPickForTwo.toggle()
                             } label: {
@@ -1170,16 +1175,32 @@ struct DetailsView: View {
 
 struct PickForTwoView: View {
     @State var showSelectGenderView = false
-    @State var selectedImage1: Image?
-    @State var selectedImage2: Image?
+    @State var selectedImage1: UIImage?
+    @State var selectedImage2: UIImage?
+    @State var image: UIImage
     @State var showContinueButton = false
+    @State var images: [PHAsset]
     let textPerson1 = "Person 1"
     let textPerson2 = "Person 2"
     let sectionZeroRows = [
-        GridItem(.flexible(), spacing: -20, alignment: .center),
-        GridItem(.flexible(), spacing: -20, alignment: .center),
-        GridItem(.flexible(), spacing: -20, alignment: .center)
+        GridItem(.flexible(), spacing: 0, alignment: .center),
+        GridItem(.flexible(), spacing: 0, alignment: .center)
     ]
+    func fetchPhotos() {
+        DispatchQueue.main.async {
+            PHPhotoLibrary.requestAuthorization { status in
+                if status == .authorized {
+                    let assets = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: nil)
+                    assets.enumerateObjects { (object,_, _) in
+                        images.append(object)
+                    }
+                        //image.reversed()
+                } else if status == .denied {
+                    
+                }
+            }
+        }
+    }
     var body: some View {
         NavigationView {
             VStack {
@@ -1209,16 +1230,16 @@ struct PickForTwoView: View {
                         }
                         ) {
                             LazyVGrid(columns: sectionZeroRows, spacing: 5) {
-                                ForEach(0..<18) { index in
-                                    PickForTwoViewCell(onTap: { image in
-                                        if selectedImage1 == nil {
+                                ForEach(images, id: \.self) { index in
+                    PickForTwoViewCell(selectedCellImage1: $selectedImage1, selectedCellImage2: $selectedImage2, cellImage: $image, onTap: { image in
+                                        if  selectedImage1 == nil {
                                             selectedImage1 = image
                                         } else if selectedImage2 == nil {
                                             selectedImage2 = image
                                             showContinueButton = true
                                         }
                                         
-                                    })
+                                    }, photo: index)
                                 }
                             }
                         }
@@ -1230,7 +1251,7 @@ struct PickForTwoView: View {
                         print("")
                     } label: {
                         VStack {
-                            selectedImage1
+                            Image(uiImage: selectedImage1 ?? UIImage())
                                 .font(.system(size: 50))
                                 .foregroundColor(.gray)
                             Text(textPerson1)
@@ -1244,7 +1265,7 @@ struct PickForTwoView: View {
                         print("")
                     } label: {
                         VStack {
-                            selectedImage2
+                            Image(uiImage: selectedImage2 ?? UIImage())
                                 .font(.system(size: 50))
                                 .foregroundColor(.gray)
                             Text(textPerson2)
@@ -1276,29 +1297,55 @@ struct PickForTwoView: View {
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/1.1)
             .background(Color.black.ignoresSafeArea())
         }
+        .onAppear {
+            DispatchQueue.main.async {
+                fetchPhotos()
+            }
+        }
     }
 }
 
 struct PickForTwoViewCell: View {
-    var onTap: (Image) -> Void
+    @Binding var selectedCellImage1: UIImage?
+    @Binding var selectedCellImage2: UIImage?
+    @Binding var cellImage: UIImage
+    var onTap: (UIImage) -> Void
+    var photo: PHAsset
+    func fetchImage() {
+        let manager = PHImageManager.default()
+        let option = PHImageRequestOptions()
+        option.resizeMode = .exact
+        option.deliveryMode = .highQualityFormat
+        option.isSynchronous = false
+        manager.requestImage(for: photo, targetSize: CGSize(width: UIScreen.main.bounds.width/3.1, height: 120), contentMode: .aspectFill, options: option) { result, _ in
+            if let result = result {
+                self.cellImage = result
+            }
+        }
+    }
     var body: some View {
         VStack {
             ZStack {
-                Image(systemName: "person.fill")
-                    .frame(width: UIScreen.main.bounds.width/3.3, height: 120)
-                    .background(.red)
-                    .cornerRadius(10)
-                    .onTapGesture {
-                        onTap(Image(systemName: "person.fill"))
+                if let image = cellImage {
+                    Image(uiImage: image)
+                        .frame(width: UIScreen.main.bounds.width/3.1, height: 120)
+                        .background(.red)
+                        .cornerRadius(10)
+                        .onTapGesture {
+                            onTap(image)
                     }
+                }
+            }
+            .onAppear() {
+                fetchImage()
             }
         }
     }
 }
 
 struct FirstSelectGenderView: View {
-    @Binding var selectedImage1: Image?
-    @Binding var selectedImage2: Image?
+    @Binding var selectedImage1: UIImage?
+    @Binding var selectedImage2: UIImage?
     @State var selectedGender: String? = nil
     @State var isNextButtonEnabled = false
     @State var showNextView = false
@@ -1310,7 +1357,7 @@ struct FirstSelectGenderView: View {
             HStack(spacing: 20) {
                 VStack {
                     if let image1 = selectedImage1 {
-                        image1
+                        Image(uiImage: image1)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 150, height: 150)
@@ -1324,7 +1371,7 @@ struct FirstSelectGenderView: View {
                 }
                 VStack {
                     if let image2 = selectedImage2 {
-                        image2
+                        Image(uiImage: image2)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 150, height: 150)
@@ -1424,8 +1471,8 @@ struct FirstSelectGenderView: View {
 }
 
 struct SecondSelectGenderView: View {
-    @Binding var selectedImage1: Image?
-    @Binding var selectedImage2: Image?
+    @Binding var selectedImage1: UIImage?
+    @Binding var selectedImage2: UIImage?
     @State var selectedGender: String? = nil
     @State var isNextButtonEnabled = false
     @State var showNextView = false
@@ -1439,7 +1486,7 @@ struct SecondSelectGenderView: View {
             HStack(spacing: 20) {
                 VStack {
                     if let image1 = selectedImage1 {
-                        image1
+                        Image(uiImage: image1)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 150, height: 150)
@@ -1455,7 +1502,7 @@ struct SecondSelectGenderView: View {
                 }
                 VStack {
                     if let image2 = selectedImage2 {
-                        image2
+                        Image(uiImage: image2)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 150, height: 150)
@@ -1595,7 +1642,7 @@ struct GenderSelectionLoadingView: View {
             }
         }
         .fullScreenCover(isPresented: $isPresentedView) {
-            HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), image: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
+            HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
         }
         .background(.black.opacity(0.2))
         .ignoresSafeArea()

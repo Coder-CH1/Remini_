@@ -51,7 +51,7 @@ struct AIPhotosView: View {
                             .tint(.white)
                     }
                     .fullScreenCover(isPresented: $showNewView) {
-                        HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), image: [PHAsset()], selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
+HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
                     }
                 }
                 .padding(.top, -300)
