@@ -1232,14 +1232,14 @@ struct PickForTwoView: View {
                         ) {
                 LazyVGrid(columns: sectionZeroRows, spacing: 5) {
                     ForEach(images, id: \.self) { index in
-                PickForTwoViewCell(selectedCellImage1: $selectedImage1, selectedCellImage2: $selectedImage2, cellImage: $image, onTap: { image in
-                    if  selectedImage1 == nil {
-                    selectedImage1 = image
+                        PickForTwoViewCell(selectedCellImage1: $selectedImage1, selectedCellImage2: $selectedImage2, cellImage: $image, onTap: { image in
+                    if selectedImage1 == nil {
+                        selectedImage1 = image
                     } else if selectedImage2 == nil {
                     selectedImage2 = image
                 showContinueButton = true
                         }
-                }, photo: index)
+                        }, photo: index)
                                 }
                             }
                         }
