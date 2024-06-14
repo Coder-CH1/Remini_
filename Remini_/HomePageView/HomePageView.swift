@@ -1177,7 +1177,7 @@ struct PickForTwoView: View {
     @State var showSelectGenderView = false
     @State var selectedImage1: UIImage?
     @State var selectedImage2: UIImage?
-    @State var image: UIImage
+    var image: UIImage
     @State var showContinueButton = false
     @State var images: [PHAsset]
     let textPerson1 = "Person 1"
@@ -1233,15 +1233,12 @@ struct PickForTwoView: View {
                 LazyVGrid(columns: sectionZeroRows, spacing: 5) {
                     ForEach(images, id: \.self) { index in
                         PickForTwoViewCell(selectedCellImage1: $selectedImage1, selectedCellImage2: $selectedImage2, cellImage: image, onTap: { photo in
-                            DispatchQueue.main.async {
                                 if selectedImage1 == nil {
-                                    selectedImage1 = image
-                                } else if selectedImage2 == nil {
-                                    selectedImage2 = image
-                                    if selectedImage1 != nil && selectedImage2 != nil {
+                                    
+                                    selectedImage1 = photo
+                                } else if selectedImage2 == nil && selectedImage1 != photo {
+                                    selectedImage2 = photo
                                         showContinueButton = true
-                                    }
-                                }
                             }
                     }, photo: index)
                                 }
