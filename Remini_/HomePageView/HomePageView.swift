@@ -1232,14 +1232,18 @@ struct PickForTwoView: View {
                         ) {
                 LazyVGrid(columns: sectionZeroRows, spacing: 5) {
                     ForEach(images, id: \.self) { index in
-                        PickForTwoViewCell(selectedCellImage1: $selectedImage1, selectedCellImage2: $selectedImage2, cellImage: $image, onTap: { image in
-                    if selectedImage1 == nil {
-                        selectedImage1 = image
-                    } else if selectedImage2 == nil {
-                    selectedImage2 = image
-                showContinueButton = true
-                        }
-                        }, photo: index)
+                        PickForTwoViewCell(selectedCellImage1: $selectedImage1, selectedCellImage2: $selectedImage2, cellImage: image, onTap: { photo in
+                            DispatchQueue.main.async {
+                                if selectedImage1 == nil {
+                                    selectedImage1 = image
+                                } else if selectedImage2 == nil {
+                                    selectedImage2 = image
+                                    if selectedImage1 != nil && selectedImage2 != nil {
+                                        showContinueButton = true
+                                    }
+                                }
+                            }
+                    }, photo: index)
                                 }
                             }
                         }
@@ -1312,7 +1316,7 @@ struct PickForTwoView: View {
 struct PickForTwoViewCell: View {
     @Binding var selectedCellImage1: UIImage?
     @Binding var selectedCellImage2: UIImage?
-    @Binding var cellImage: UIImage
+    @State var cellImage: UIImage
     var onTap: (UIImage) -> Void
     var photo: PHAsset
     func fetchImage() {
