@@ -14,7 +14,7 @@ struct WelcomeView: View {
         Color.black.ignoresSafeArea()
             .overlay(
                     VStack {
-                        WelcomeLazyVGridView(image: Image(""))
+                        WelcomeLazyVGridView(appImageData: AppImageData(), image: Image(""))
                     }
             )
     }
@@ -27,13 +27,15 @@ struct WelcomeView_Previews: PreviewProvider {
 }
 
 struct WelcomeLazyVGridView: View {
-    @EnvironmentObject var imageDataArray: ImageDataArray
+    @ObservedObject var appImageData: AppImageData
     @State var header = true
     @State var showContinueButton = false
     @State var cellsEnabled = true
     @State var showNextView = false
     let image: Image
-    let columns = [GridItem(.flexible())]
+    let columns = [
+        GridItem(.flexible())
+    ]
     var body: some View {
         VStack {
             VStack {
@@ -52,7 +54,6 @@ struct WelcomeLazyVGridView: View {
                                 .foregroundColor(.white)
                             Spacer()
                             Button(action: {
-                                print("btn tapped")
                                 showNextView.toggle()
                             }) {
                                 Text("Skip")
@@ -78,8 +79,8 @@ struct WelcomeLazyVGridView: View {
                         ScrollViewReader { g in
                         ScrollView {
                             LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
-                                ForEach(0..<12) { index in
-                        WelcomeCellView(showContinueButton: $showContinueButton, cellsEnabled: $cellsEnabled)
+                                ForEach(appImageData.imageData, id: \.self) { index in
+                                    WelcomeCellView(showContinueButton: $showContinueButton, cellsEnabled: $cellsEnabled, imageData: index).id(UUID())
                                 }
                                 .opacity(cellsEnabled ? 1 : 0.5)
                                 .allowsHitTesting(cellsEnabled)
@@ -133,29 +134,28 @@ struct WelcomeCellView: View {
     @Binding var showContinueButton: Bool
     @Binding var cellsEnabled: Bool
     @State var isTapped: Bool = false
-    //let image: String
+    let imageData: AppImageModel
     let screenSize = UIScreen.main.bounds.size
     var body: some View {
         HStack(spacing: 20) {
-            Image(systemName: "person.fill")
-                .resizable()
-                .aspectRatio(contentMode: .fill)       .frame(width: 90, height: 90)
-                .cornerRadius(45)
+            Image(imageData.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)       .frame(width: 90, height: 90)
+                    .cornerRadius(45)
             VStack(alignment: .leading, spacing: 10) {
-                Text("AI PHOTOS")
+                Text(imageData.text1)
                     .font(.system(size: 12, weight: .medium))
                     .foregroundColor(.gray)
-                Text("Random text")
+                Text(imageData.text2)
                     .font(.system(size: 14, weight: .medium))
                     .foregroundColor(.white)
             }
             Spacer()
             Button(action: {
-                print("btn tapped")
                 showContinueButton = true
                 isTapped.toggle()
             }) {
-                Image(systemName: isTapped ? "checkmark.circle.fill" : "circle")
+                Image(systemName: isTapped ? imageData.buttonImage2 : imageData.buttonImage1)
                     .font(.system(size: 40))
                     .foregroundColor(isTapped ? .white : .gray)
             }
@@ -213,7 +213,6 @@ look at our [Privacy Policy](link1).
         VStack {
                 VStack(spacing: 20) {
                     Button(action: {
-                        print("btn tapped")
                         showNextView.toggle()
                     }) {
                         Text("Accept All and Continue")
@@ -227,7 +226,6 @@ look at our [Privacy Policy](link1).
                     .background(.white)
                     .cornerRadius(30)
                     Button(action: {
-                        print("btn tapped")
                     }) {
                         Text("Refuse")
                             .font(.system(size: 16, weight: .bold))
@@ -238,7 +236,6 @@ look at our [Privacy Policy](link1).
                     .background(.white)
                     .cornerRadius(30)
                     Button(action: {
-                        print("btn tapped")
                     }) {
                         Text("Customize Preferences")
                             .font(.system(size: 16, weight: .bold))
@@ -321,7 +318,6 @@ struct OnboardingLoadingView: View {
                         .font(.system(size: 40, weight: .semibold))
                     
                     Button(action: {
-                        print("btn tapped")
                         isPresentedWelcomeView = true
                     })
                     {

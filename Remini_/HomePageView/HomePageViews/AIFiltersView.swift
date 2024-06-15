@@ -44,8 +44,8 @@ struct AIFiltersLoadingView: View {
                 presentationMode.wrappedValue.dismiss()
             } label: {
                 Image(systemName: "xmark")
-                    .font(.system(size: 20))
-                    .tint(.red)
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(.white)
             }
             .fullScreenCover(isPresented: $showNewView) {
         HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
