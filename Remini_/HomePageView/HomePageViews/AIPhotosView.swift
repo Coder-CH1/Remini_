@@ -47,14 +47,14 @@ struct AIPhotosView: View {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image(systemName: "xmark")
-                            .font(.system(size: 30))
-                            .tint(.white)
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(.white)
                     }
                     .fullScreenCover(isPresented: $showNewView) {
 HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
                     }
                 }
-                .padding(.top, -300)
+                .padding(.top, 400)
                 .foregroundColor(.white)
                 .offset(x: UIScreen.main.bounds.width / -2.5, y: UIScreen.main.bounds.height / -2.4)
                 VStack(alignment: .center, spacing: 30) {

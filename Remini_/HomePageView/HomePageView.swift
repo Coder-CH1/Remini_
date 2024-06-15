@@ -1183,9 +1183,9 @@ struct PickForTwoView: View {
     let textPerson1 = "Person 1"
     let textPerson2 = "Person 2"
     let sectionZeroRows = [
-        GridItem(.flexible(), spacing: -40, alignment: .center),
-        GridItem(.flexible(), spacing: -40, alignment: .center),
-        GridItem(.flexible(), spacing: -40, alignment: .center)
+        GridItem(.flexible(), spacing: -80, alignment: .center),
+        GridItem(.flexible(), spacing: -80, alignment: .center),
+        GridItem(.flexible(), spacing: -80, alignment: .center)
     ]
     func fetchPhotos() {
         DispatchQueue.main.async {
