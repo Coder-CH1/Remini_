@@ -46,7 +46,7 @@ struct OnboardingView: View {
                     .cornerRadius(30)
                 }
                     .fullScreenCover(isPresented: $isPresentedWelcomeView) {
-                        WelcomeView()
+                        WelcomeView(appImageModel: AppImageModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}))
                     }
                     .padding()
                     .offset(y: -80)

@@ -9,7 +9,7 @@ import SwiftUI
 import Photos
 
 struct ExploreView: View {
-    @EnvironmentObject var imageDataArray: AppImageData
+    @EnvironmentObject var imageDataArray: AppImageModel
     @State var showNewView = false
     let columns = [GridItem(.flexible(), spacing: 10)]
     var body: some View {

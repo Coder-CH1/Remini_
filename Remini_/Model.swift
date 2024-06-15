@@ -30,7 +30,7 @@ struct ImageData: Decodable, Hashable {
     let imgUrls: [String]
 }
 
-struct AppImageModel: Hashable, Identifiable {
+class AppImageModel: ObservableObject, Hashable, Identifiable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(text1)
         hasher.combine(text2)
@@ -45,21 +45,28 @@ struct AppImageModel: Hashable, Identifiable {
     let buttonImage1: String
     let buttonImage2: String
     let buttonAction: () -> Void
-}
-
-class AppImageData: ObservableObject {
+    
+    init(id: UUID = UUID(), image: String, text1: String, text2: String, buttonImage1: String, buttonImage2: String, buttonAction: @escaping () -> Void) {
+        self.id = id
+        self.image = image
+        self.text1 = text1
+        self.text2 = text2
+        self.buttonImage1 = buttonImage1
+        self.buttonImage2 = buttonImage2
+        self.buttonAction = buttonAction
+    }
     @Published var imageData: [AppImageModel] = [
-        AppImageModel(image: "img1", text1: "AI PHOTOS", text2: "", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
+        AppImageModel(id: UUID(), image: "img1", text1: "AI PHOTOS", text2: "", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
                 }),
-                AppImageModel(image: "img2", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
+                AppImageModel(id: UUID(), image: "img2", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
                 }),
-                AppImageModel(image: "img3", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
+                AppImageModel(id: UUID(), image: "img3", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
                 }),
-                AppImageModel(image: "img4", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
+                AppImageModel(id: UUID(), image: "img4", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
                 }),
-                AppImageModel(image: "img5", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2:  "checkmark.circle.fill", buttonAction: {
+                AppImageModel(id: UUID(), image: "img5", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2:  "checkmark.circle.fill", buttonAction: {
                 }),
-                AppImageModel(image: "img6", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2:  "checkmark.circle.fill", buttonAction: {
+                AppImageModel(id: UUID(), image: "img6", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2:  "checkmark.circle.fill", buttonAction: {
         })
     ]
 }

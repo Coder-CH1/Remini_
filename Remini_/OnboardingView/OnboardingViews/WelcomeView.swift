@@ -9,25 +9,26 @@ import SwiftUI
 import AVKit
 
 struct WelcomeView: View {
+    @StateObject var appImageModel = AppImageModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {})
     @State var show = false
     var body: some View {
         Color.black.ignoresSafeArea()
             .overlay(
                     VStack {
-                        WelcomeLazyVGridView(appImageData: AppImageData(), image: Image(""))
-                    }
-            )
+                        WelcomeLazyVGridView(appImageData: appImageModel, image: Image(""))
+            }
+        )
     }
 }
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        WelcomeView(appImageModel: AppImageModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}))
     }
 }
 
 struct WelcomeLazyVGridView: View {
-    @ObservedObject var appImageData: AppImageData
+    @StateObject var appImageData = AppImageModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {})
     @State var header = true
     @State var showContinueButton = false
     @State var cellsEnabled = true
@@ -80,7 +81,7 @@ struct WelcomeLazyVGridView: View {
                         ScrollView {
                             LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
                                 ForEach(appImageData.imageData, id: \.self) { index in
-                                    WelcomeCellView(showContinueButton: $showContinueButton, cellsEnabled: $cellsEnabled, imageData: index).id(UUID())
+                WelcomeCellView(showContinueButton: $showContinueButton, cellsEnabled: $cellsEnabled, imageData: index)
                                 }
                                 .opacity(cellsEnabled ? 1 : 0.5)
                                 .allowsHitTesting(cellsEnabled)
@@ -134,7 +135,7 @@ struct WelcomeCellView: View {
     @Binding var showContinueButton: Bool
     @Binding var cellsEnabled: Bool
     @State var isTapped: Bool = false
-    let imageData: AppImageModel
+    @StateObject var imageData = AppImageModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {})
     let screenSize = UIScreen.main.bounds.size
     var body: some View {
         HStack(spacing: 20) {
