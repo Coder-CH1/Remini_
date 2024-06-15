@@ -1195,7 +1195,6 @@ struct PickForTwoView: View {
                     assets.enumerateObjects { (object,_, _) in
                         images.append(object)
                     }
-                        //image.reversed()
                 } else if status == .denied {
                     
                 }
@@ -1234,13 +1233,6 @@ struct PickForTwoView: View {
                     ForEach(images, id: \.self) { index in
                         PickForTwoViewCell(cellImage: image, onTap: { photo in
                             handleImageSelection(photo)
-//                                if selectedImage1 == nil {
-//
-//                                    selectedImage1 = photo
-//                                } else if selectedImage2 == nil && selectedImage1 != photo {
-//                                    selectedImage2 = photo
-//                                        showContinueButton = true
-//                            }
                     }, photo: index)
                                 }
                             }
@@ -1320,8 +1312,6 @@ struct PickForTwoView: View {
 }
 
 struct PickForTwoViewCell: View {
-//    @Binding var selectedCellImage1: UIImage?
-//    @Binding var selectedCellImage2: UIImage?
     @State var cellImage: UIImage
     var onTap: (UIImage) -> Void
     var photo: PHAsset
