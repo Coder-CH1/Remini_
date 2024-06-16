@@ -155,6 +155,25 @@ struct YellowToonCellView: View {
                 .cornerRadius(10)
                 .padding(.leading, 3)
                 .padding(.trailing, 3)
+            ZStack {
+                Button {
+                    
+                } label: {
+                    HStack {
+                        Text("Use this")
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundColor(.white)
+                        Image(systemName: "chevron.forward")
+                            .foregroundColor(.gray)
+                            .frame(width: 20, height: 20)
+                    }
+                    .frame(width: UIScreen.main.bounds.width/4, height: 50)
+                    .background(.black)
+                    .cornerRadius(25)
+                }
+            }
+            .padding(.top, 170)
+            .padding(.trailing, -60)
         }
     }
 }

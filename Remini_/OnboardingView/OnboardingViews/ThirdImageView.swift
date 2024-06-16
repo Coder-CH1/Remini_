@@ -154,7 +154,7 @@ struct GiveAccessView: View {
         if index == 0 || index == 1 {
             return 0
         } else if index == 2 || index == 3 {
-            return index == 2 ? -100 : 100
+            return index == 2 ? -10 : 100
         } else {
             return -100
         }
@@ -165,7 +165,7 @@ struct GiveAccessView: View {
         } else if index == 2 || index == 3 {
             return -100
         } else {
-            return -100
+            return 100
         }
     }
     

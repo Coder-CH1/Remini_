@@ -30,7 +30,8 @@ struct SettingsView: View {
 HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
                 }
             }
-            Section(header:  Text("Settings").font(.system(size: 24, weight: .bold)).foregroundColor(.white)) {
+            .padding(.leading)
+            Section(header: HStack {  Text("Settings").font(.system(size: 24, weight: .bold)).foregroundColor(.white)}.padding(.leading)) {
                 ScrollView(.vertical) {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(0..<12) { index in
@@ -57,7 +58,7 @@ struct SettingsView_Previews: PreviewProvider {
 struct SettingsCellView: View{
     var body: some View {
         VStack {
-            Image(systemName: "person.fill")
+            Image(systemName: "")
                 .frame(width: UIScreen.main.bounds.width/1.1, height: 150)
                 .background(.red)
                 .cornerRadius(20)
