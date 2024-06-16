@@ -24,7 +24,7 @@ struct HomePageView: View {
     @State var selectedImage: UIImage
     @State var bottomSheetPosition: BottomSheetPosition = .hidden
     @State var showGenderSelector = false
-    @State var selectedCellData: SeeAllCellData
+    @State var selectedCellData: AppDataModel
     @State var selected1: UIImage
     @State var selected2: UIImage
     @State var cellsImage: UIImage
@@ -99,7 +99,7 @@ struct HomePageView: View {
 
 struct HomePageView_Previews: PreviewProvider {
     static var previews: some View {
-        HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
+        HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
     }
 }
 
@@ -259,7 +259,7 @@ struct MiddleHomePageView: View {
                                 )
                         }
                         .fullScreenCover(isPresented: $showSeeAllSectionOneView) {
-                            SeeAllView(selectedData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
+                SeeAllView(selectedData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}))
                         }
                     }){
                         ScrollView(.horizontal, showsIndicators: false) {
@@ -989,24 +989,13 @@ extension CGRect {
 }
 
 struct SeeAllView: View {
-    @State var selectedData: SeeAllCellData
+    @State var selectedData: AppDataModel
+    @StateObject var imageDataArray = Data()
     @State var showNewView = false
     @State var showDetailsView = false
     @Environment(\.presentationMode) var presentationMode
     let columns = [
         GridItem(.flexible(), spacing: 0, alignment: .center)
-    ]
-    let seeAllCellItems: [SeeAllCellData] = [
-        SeeAllCellData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage(), title: "Title Text", details: "12 PHOTOS"),
-        SeeAllCellData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage(), title: "Title Text", details: "12 PHOTOS"),
-        SeeAllCellData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage(), title: "Title Text", details: "12 PHOTOS"),
-        SeeAllCellData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage(), title: "Title Text", details: "12 PHOTOS"),
-        SeeAllCellData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage(), title: "Title Text", details: "12 PHOTOS"),
-        SeeAllCellData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage(), title: "Title Text", details: "12 PHOTOS"),
-        SeeAllCellData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage(), title: "Title Text", details: "12 PHOTOS"),
-        SeeAllCellData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage(), title: "Title Text", details: "12 PHOTOS"),
-        SeeAllCellData(id: UUID(), image: UIImage(systemName: "person.fill") ?? UIImage(), title: "Title Text", details: "12 PHOTOS"),
-        SeeAllCellData(id: UUID(), image:  UIImage(systemName: "person.fill") ?? UIImage(), title: "Title Text", details: "12 PHOTOS")
     ]
     
     var body: some View {
@@ -1027,7 +1016,7 @@ struct SeeAllView: View {
                         .cornerRadius(20)
                 }
                 .fullScreenCover(isPresented: $showNewView) {
-    HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
+    HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData:AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
                 }
                 Text("Couple photos").font(.system(size: 24, weight: .bold)).foregroundColor(.white)
             }
@@ -1035,12 +1024,12 @@ struct SeeAllView: View {
             VStack {
                 ScrollView(.vertical) {
                     LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(0..<10) { index in
-                            SeeAllCellView(item: seeAllCellItems[index], isSelected: $selectedData)
+                        ForEach(imageDataArray.imageData, id: \.id) { index in
+                            SeeAllCellView(imageData: index, isSelected: $selectedData)
                                 .onTapGesture {
-                                    selectedData = seeAllCellItems[index]
+                                    selectedData = index
                                     showDetailsView.toggle()
-                                }
+                            }
                         }
                     }
                 }
@@ -1054,36 +1043,32 @@ struct SeeAllView: View {
         }
         .padding(.bottom)
         .background(Color(red: 0.1, green: 0.1, blue: 0.1))
-        //        }
-        //        .accentColor(.white)
     }
 }
 
 struct SeeAllView_Previews: PreviewProvider {
     static var previews: some View {
-        SeeAllView(selectedData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""))
+        SeeAllView(selectedData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}))
     }
 }
 
 struct SeeAllCellView: View{
-    let item: SeeAllCellData
-    @Binding var isSelected: SeeAllCellData
+    var imageData: AppDataModel
+    @Binding var isSelected: AppDataModel
     var body: some View {
         VStack {
-            Image(uiImage: item.image)
+            Image(imageData.image)
                 .resizable()
-                .scaledToFit()
-                .frame(width: UIScreen.main.bounds.width/1.1, height: 150)
-                .background(.red)
+                .aspectRatio(CGSize(width: UIScreen.main.bounds.width/1.1, height: 150),contentMode: .fill)
             VStack(spacing: 5) {
                 HStack {
-                    Text(item.title)
+                    Text(imageData.text1)
                         .font(.system(size: 18, weight: .bold))
                         .foregroundColor(.white)
                 }
                 .padding(.leading, -160)
                 HStack(spacing: 70) {
-                    Text(item.details)
+                    Text(imageData.text2)
                         .background(Rectangle().fill(.gray))
                         .frame(width: UIScreen.main.bounds.width/3.2, height: 40)
                         .font(.system(size: 18, weight: .semibold))
@@ -1096,17 +1081,18 @@ struct SeeAllCellView: View{
                         Text("Get This Pack")
                             .font(.system(size: 16, weight: .bold))
                             .foregroundColor(.black)
-                            .frame(width: UIScreen.main.bounds.width/3, height: 60)
+                            .frame(width: UIScreen.main.bounds.width/3, height: 50)
                             .background(.white)
                             .cornerRadius(30)
                     }
                 }
             }
-            .padding(.leading)
+            //.padding(.top)
             .frame(width: UIScreen.main.bounds.width/1.1, height: 100)
+            .background(.black).ignoresSafeArea()
         }
-        .frame(width: UIScreen.main.bounds.width/1.1, height: 250)
-        .background(.secondary)
+        .frame(width: UIScreen.main.bounds.width/1.1, height: 300)
+        .background(.black)
         .cornerRadius(20)
     }
 }
@@ -1116,28 +1102,27 @@ struct DetailsView: View {
     @State var selected1: UIImage
     @State var selected2: UIImage
     @State var image: UIImage
-    @Binding var selection1: SeeAllCellData
+    @Binding var selection1: AppDataModel
     
     var body: some View {
         NavigationView {
             VStack {
                 if let selection = selection1 {
-                    Image(uiImage: selection.image)
+                    Image(selection.image)
                         .resizable()
-                        .scaledToFit()
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/2).ignoresSafeArea()
-                        .background(.red)
                     Spacer()
                     VStack(alignment: .center, spacing: 20) {
                         VStack(spacing: 30) {
-                            Text(selection.details)
+                            Text(selection.text1)
                                 .background(Rectangle().fill(.gray))
                                 .frame(width: UIScreen.main.bounds.width/3.2, height: 40)
                                 .font(.system(size: 18, weight: .semibold))
                                 .foregroundColor(.white)
                                 .background(.gray)
                                 .cornerRadius(10)
-                            Text(selection.title)
+                            Text(selection.text2)
                                 .font(.system(size: 18, weight: .bold))
                                 .foregroundColor(.white)
                         }
@@ -1645,7 +1630,7 @@ struct GenderSelectionLoadingView: View {
             }
         }
         .fullScreenCover(isPresented: $isPresentedView) {
-            HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
+            HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
         }
         .background(.black.opacity(0.2))
         .ignoresSafeArea()

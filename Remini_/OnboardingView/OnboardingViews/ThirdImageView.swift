@@ -141,6 +141,7 @@ struct LoadingView: View {
 }
 
 struct GiveAccessView: View {
+    @StateObject var imageDataArray = Data()
     @State var showNewView = false
     @State var showImages = false
     @StateObject var appImageModel = Data()
@@ -167,20 +168,12 @@ struct GiveAccessView: View {
             return -100
         }
     }
-    var sectionImages: [AssetImageArray] =
-    [
-    AssetImageArray(id: UUID(), image: Image("img1")),
-    AssetImageArray(id: UUID(), image: Image("img2")),
-    AssetImageArray(id: UUID(), image: Image("img3")),
-    AssetImageArray(id: UUID(), image: Image("img4")),
-    AssetImageArray(id: UUID(), image: Image("img5")),
-    AssetImageArray(id: UUID(), image: Image("img6")),
-    ]
+    
     var body: some View {
         VStack(alignment: .center, spacing: 30) {
             LazyVGrid(columns: columns, alignment: .center, spacing: 50) {
-                ForEach(sectionImages) { index in
-                    GiveAccessCellView(image: index.image)
+                ForEach(imageDataArray.imageData, id: \.id) { index in
+                    GiveAccessCellView(imageData: index)
                         .frame(width: 100, height: 100)
                         .background(.red)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -214,7 +207,7 @@ struct GiveAccessView: View {
                     .cornerRadius(30)
             }
             .fullScreenCover(isPresented: $showNewView) {
-                HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
+        HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
             }
             Button {
                 print("btn tapped")
@@ -233,9 +226,9 @@ struct GiveAccessView: View {
 }
 
 struct GiveAccessCellView: View {
-    var image: Image
+    var imageData: AppDataModel
     var body: some View {
-        image
+        Image(imageData.image)
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(width: 100, height: 120)

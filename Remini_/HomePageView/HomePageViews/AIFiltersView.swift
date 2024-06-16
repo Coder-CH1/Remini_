@@ -39,7 +39,6 @@ struct AIFiltersLoadingView: View {
                 .ignoresSafeArea()
             VStack(alignment: .center) {
             Button {
-                print("btn tapped")
                 showNewView.toggle()
                 presentationMode.wrappedValue.dismiss()
             } label: {
@@ -48,7 +47,7 @@ struct AIFiltersLoadingView: View {
                     .foregroundColor(.white)
             }
             .fullScreenCover(isPresented: $showNewView) {
-        HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: SeeAllCellData(id: UUID(), image: UIImage(), title: "", details: ""), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
+        HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
             }
         }
             .padding(.top, -350)
@@ -65,12 +64,11 @@ struct AIFiltersLoadingView: View {
                 Spacer()
                     .frame(height: 40)
                 VStack(spacing: 25) {
-                    Image(systemName: "person.fill")
+                    Image("img2")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: 120, height: 120)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 60)
-                                .stroke(.white, lineWidth: 6)
-                        )
+                        .cornerRadius(60)
                     Text("This is you")
                         .font(.system(size: 15, weight: .regular))
                         .foregroundColor(.white)
@@ -88,11 +86,15 @@ struct AIFiltersLoadingView: View {
                 Spacer()
                     .frame(height: 20)
                 HStack {
-                    Image(systemName: "person.fill")
+                    Image("img3")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: UIScreen.main.bounds.width/2, height: 150)
                         .background(.red)
                         .cornerRadius(20)
-                    Image(systemName: "person.fill")
+                    Image("img4")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: UIScreen.main.bounds.width/2, height: 150)
                         .background(.red)
                         .cornerRadius(20)
