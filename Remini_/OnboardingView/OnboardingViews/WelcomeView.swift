@@ -28,7 +28,7 @@ struct WelcomeView_Previews: PreviewProvider {
 }
 
 struct WelcomeLazyVGridView: View {
-    var appImageData: [AppImageModel]
+    var appImageData: [AppDataModel]
     @State var header = true
     @State var showContinueButton = false
     @State var cellsEnabled = true
@@ -135,7 +135,7 @@ struct WelcomeCellView: View {
     @Binding var showContinueButton: Bool
     @Binding var cellsEnabled: Bool
     @State var isTapped: Bool = false
-    var imageData: AppImageModel
+    var imageData: AppDataModel
     let screenSize = UIScreen.main.bounds.size
     var body: some View {
         HStack(spacing: 20) {

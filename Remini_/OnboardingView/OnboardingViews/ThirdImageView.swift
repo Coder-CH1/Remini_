@@ -133,7 +133,7 @@ struct LoadingView: View {
             }
         }
         .fullScreenCover(isPresented: $isPresentedView) {
-            GiveAccessView(imageData: [ImageData(imgUrls: [String]())])
+            GiveAccessView()
         }
         .background(.black)
         .ignoresSafeArea()
@@ -143,7 +143,7 @@ struct LoadingView: View {
 struct GiveAccessView: View {
     @State var showNewView = false
     @State var showImages = false
-    @State var imageData: [ImageData]
+    @StateObject var appImageModel = Data()
     let columns = [
         GridItem(.flexible(), spacing: 0, alignment: .center),
         GridItem(.flexible(), spacing: 0, alignment: .center),
@@ -155,50 +155,41 @@ struct GiveAccessView: View {
         } else if index == 2 || index == 3 {
             return index == 2 ? -100 : 100
         } else {
-            return 100
+            return -100
         }
     }
     func getOffsetY(_ index: Int) -> CGFloat {
         if index == 0 || index == 1 {
-            return -100
+            return 0
         } else if index == 2 || index == 3 {
             return -100
         } else {
-            return 100
+            return -100
         }
     }
+    var sectionImages: [AssetImageArray] =
+    [
+    AssetImageArray(id: UUID(), image: Image("img1")),
+    AssetImageArray(id: UUID(), image: Image("img2")),
+    AssetImageArray(id: UUID(), image: Image("img3")),
+    AssetImageArray(id: UUID(), image: Image("img4")),
+    AssetImageArray(id: UUID(), image: Image("img5")),
+    AssetImageArray(id: UUID(), image: Image("img6")),
+    ]
     var body: some View {
         VStack(alignment: .center, spacing: 30) {
             LazyVGrid(columns: columns, alignment: .center, spacing: 50) {
-                ForEach(imageData, id: \.self) { firstIndex in
-                    ForEach(firstIndex.imgUrls, id: \.self) { secondIndex in
-                    GiveAccessCellView(imageUrl: secondIndex)
+                ForEach(sectionImages) { index in
+                    GiveAccessCellView(image: index.image)
                         .frame(width: 100, height: 100)
                         .background(.red)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .shadow(radius: 5)
-//                        .offset(x: showImages ? 0 : getOffsetX(Int(1)), y: showImages ? 0 : getOffsetY(Int(3)))
-//                        .animation(.easeInOut(duration: 3.0))
-                    
+                        .offset(x: showImages ? 0 : getOffsetX(Int(1)), y: showImages ? 0 : getOffsetY(Int(3)))
+                        .animation(.easeInOut(duration: 3.0))
                 }
             }
-        }
-            .onAppear() {
-                withAnimation() {
-                    showImages.toggle()
-                    ImageManager.shared.fetchImageUrls { urls in
-                        DispatchQueue.main.async {
-                            let imageDataArray = urls.imgUrls.map { url in
-                                ImageData(imgUrls: [url])
-                            }
-                            self.imageData = imageDataArray
-                        }
-                    }
-                }
-            }
-            .frame(height: 250)
-            Spacer()
-                .frame(height: 50)
+            .frame(height: 200)
             HStack(alignment: .center, spacing: 20) {
                 Text("Get the most out of\nRemini ")
                     .font(.system(size: 35, weight: .bold))
@@ -242,17 +233,11 @@ struct GiveAccessView: View {
 }
 
 struct GiveAccessCellView: View {
-    let imageUrl: String
+    var image: Image
     var body: some View {
-        KFImage(URL(string: imageUrl))
-            .placeholder {
-                Image(systemName: "person.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 120)
-            }
+        image
             .resizable()
-            .scaledToFill()
-            .frame(width: 100, height: 100)
+            .aspectRatio(contentMode: .fill)
+            .frame(width: 100, height: 120)
     }
 }

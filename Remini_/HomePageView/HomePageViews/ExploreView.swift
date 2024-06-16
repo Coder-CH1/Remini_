@@ -9,7 +9,7 @@ import SwiftUI
 import Photos
 
 struct ExploreView: View {
-    @EnvironmentObject var imageDataArray: AppImageModel
+    @StateObject var imageDataArray = Data()
     @State var showNewView = false
     let columns = [GridItem(.flexible(), spacing: 10)]
     var body: some View {
@@ -36,8 +36,8 @@ HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset]
             }
             ScrollView {
                 LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
-                    ForEach(0..<10) { _ in
-                        ExploreCellView()
+                    ForEach(imageDataArray.imageData, id: \.id) { index in
+                        ExploreCellView(imageData: index)
                     }
                 }
                 .padding(.top, 30)
@@ -58,6 +58,7 @@ struct ExploreView_Previews: PreviewProvider {
 }
 
 struct ExploreCellView: View {
+    var imageData: AppDataModel
     @State var showImagePickerView = false
     @State var selectedImage: UIImage? = nil
     @State var isTapped: Bool = false
@@ -65,12 +66,12 @@ struct ExploreCellView: View {
     var body: some View {
         VStack {
             HStack(spacing: 20) {
-                Image(systemName: "person.crop.circle.fill")
+                Image(imageData.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 90, height: 90)
                     .cornerRadius(45)
-                Text("Random text")
+                Text(imageData.text2)
                     .font(.system(size: 14, weight: .medium))
                     .foregroundColor(.white)
                 Spacer()
