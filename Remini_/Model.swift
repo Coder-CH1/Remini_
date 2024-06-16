@@ -39,7 +39,7 @@ class AppDataModel: ObservableObject, Identifiable, Hashable {
         lhs.text1 == rhs.text1 && lhs.text2 == rhs.text2
     }
     var id = UUID()
-    let image: String
+    var image: String
     let text1: String
     let text2: String
     let buttonImage1: String
@@ -58,18 +58,17 @@ class AppDataModel: ObservableObject, Identifiable, Hashable {
 }
 class Data: ObservableObject {
      @Published var imageData: [AppDataModel] = [
-        AppDataModel(id: UUID(), image: "img1", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
+        AppDataModel(id: UUID(), image: "img1", text1: "AI PHOTOS", text2: "Enhance Your Photos", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
             }),
-        AppDataModel(id: UUID(), image: "img2", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
+        AppDataModel(id: UUID(), image: "img2", text1: "AI PHOTOS", text2: "Aging Video", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
             }),
-        AppDataModel(id: UUID(), image: "img3", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
+        AppDataModel(id: UUID(), image: "img3", text1: "AI PHOTOS", text2: "Business Headshots", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
             }),
-        AppDataModel(id: UUID(), image: "img4", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
+        AppDataModel(id: UUID(), image: "img4", text1: "AI PHOTOS", text2: "Old Money Filter", buttonImage1: "circle", buttonImage2: "checkmark.circle.fill", buttonAction: {
             }),
-        AppDataModel(id: UUID(), image: "img5", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2:  "checkmark.circle.fill", buttonAction: {
+        AppDataModel(id: UUID(), image: "img5", text1: "AI PHOTOS", text2: "Videogames filters", buttonImage1: "circle", buttonImage2:  "checkmark.circle.fill", buttonAction: {
             }),
-        AppDataModel(id: UUID(), image: "img6", text1: "AI PHOTOS", text2: "Random text", buttonImage1: "circle", buttonImage2:  "checkmark.circle.fill", buttonAction: {
+        AppDataModel(id: UUID(), image: "img6", text1: "AI PHOTOS", text2: "Fix Blurry Photos", buttonImage1: "circle", buttonImage2:  "checkmark.circle.fill", buttonAction: {
             })
         ]
-    //}
 }

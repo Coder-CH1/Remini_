@@ -14,6 +14,7 @@ import SQLite3
 
 struct HomePageView: View {
     @AppStorage("hasSeenModal") var hasSeenModal: Bool = false
+    @StateObject var imageData = Data()
     @State var selectedCellImage: UIImage
     @State var uiImage: UIImage
     @State var showYellowToon = false
@@ -36,7 +37,6 @@ struct HomePageView: View {
                     assets.enumerateObjects { (object,_, _) in
                         images.append(object)
                     }
-                        //image.reversed()
                 } else if status == .denied {
                     
                 }
@@ -48,7 +48,7 @@ struct HomePageView: View {
         ZStack {
             VStack(spacing: 0) {
                 TopNavHomePageView()
-                MiddleHomePageView(selectedCellImage: $selectedCellImage, image: $uiImage, showDetailsView: $showDetailsView, showingModal: $showingModal, showAIPhotosView: $showAIPhotosView, showYellowToolView: $showYellowToon, selectedPhotos: $images)
+MiddleHomePageView(selectedCellImage: $selectedCellImage, img: $uiImage, showDetailsView: $showDetailsView, showingModal: $showingModal, showAIPhotosView: $showAIPhotosView, showYellowToolView: $showYellowToon, selectedPhotos: $images, selectededCellData: $selectedCellData, imageData: $imageData.imageData)
                 BottomTabHomePageView()
             }
             .bottomSheet(bottomSheetPosition: $bottomSheetPosition, switchablePositions: [.absolute(UIScreen.main.bounds.height/2)]) {
@@ -99,7 +99,7 @@ struct HomePageView: View {
 
 struct HomePageView_Previews: PreviewProvider {
     static var previews: some View {
-        HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
+        HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
     }
 }
 
@@ -152,12 +152,14 @@ struct TopNavHomePageView: View {
 
 struct MiddleHomePageView: View {
     @Binding var selectedCellImage: UIImage
-    @Binding var image: UIImage
+    @Binding var img: UIImage
     @Binding var showDetailsView: Bool
     @Binding var showingModal: Bool
     @Binding var showAIPhotosView: Bool
     @Binding var showYellowToolView: Bool
     @Binding var selectedPhotos: [PHAsset]
+    @Binding var selectededCellData: AppDataModel
+    @Binding var imageData: [AppDataModel]
     @State var showSeeAllSectionOneView = false
     @State var showSeeAllSectionThreeView = false
     @State var showYellowToon = false
@@ -171,16 +173,6 @@ struct MiddleHomePageView: View {
     let sectionZeroRows = [
         GridItem(.flexible(), spacing: 0, alignment: .center),
         GridItem(.flexible(), spacing: 0, alignment: .center)
-    ]
-    
-    let sectionImages: [AssetImageArray] =
-    [
-    AssetImageArray(id: UUID(), image: Image("img1")),
-    AssetImageArray(id: UUID(), image: Image("img2")),
-    AssetImageArray(id: UUID(), image: Image("img3")),
-    AssetImageArray(id: UUID(), image: Image("img4")),
-    AssetImageArray(id: UUID(), image: Image("img5")),
-    AssetImageArray(id: UUID(), image: Image("img6")),
     ]
    
     var body: some View {
@@ -233,7 +225,7 @@ struct MiddleHomePageView: View {
                             ScrollView(.horizontal) {
                                 LazyHGrid(rows: sectionZeroRows, spacing: 5) {
                                     ForEach(selectedPhotos, id: \.self) { index in
-                    SectionZeroCell(showingModal: $showingModal, selectedCellImage: $selectedCellImage, cellImage: image,  photo: index)
+                    SectionZeroCell(showingModal: $showingModal, selectedCellImage: $selectedCellImage, cellImage: img,  photo: index)
                                     }
                                 }
                                 .frame(height: 250)
@@ -264,8 +256,8 @@ struct MiddleHomePageView: View {
                     }){
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHGrid(rows: rows, spacing: 8) {
-                    ForEach(sectionImages) { index in
-    SectionOneCell(showDetailsView: $showDetailsView, image: index.image)
+                                ForEach($imageData, id: \.id) { index in
+                                    SectionOneCell(showDetailsView: $showDetailsView, imageData: index, selectedCellData: $selectededCellData)
                                 }
 .flipsForRightToLeftLayoutDirection(true)
 .environment(\.layoutDirection, .rightToLeft)
@@ -303,8 +295,8 @@ struct MiddleHomePageView: View {
                     }) {
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows) {
-                            ForEach(sectionImages) { index in
-                                    SectionThreeCell(showAIPhotosView: $showAIPhotosView, image: index.image)
+                                ForEach(imageData, id: \.id) { index in
+                                    SectionThreeCell(showAIPhotosView: $showAIPhotosView, imageData: index)
                                 }
                             }
                         }
@@ -374,8 +366,8 @@ struct MiddleHomePageView: View {
                     }) {
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows) {
-                                ForEach(sectionImages) { index in
-                                    SectionFiveCell(image: index.image)
+                                ForEach(imageData, id: \.id) { index in
+                                    SectionFiveCell(imageData: index)
                                 }
                             }
                         }
@@ -441,8 +433,8 @@ struct MiddleHomePageView: View {
                     }) {
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows) {
-                            ForEach(sectionImages) { index in
-                                    SectionSevenCell(image: index.image)
+                                ForEach(imageData, id: \.id) { index in
+                                SectionSevenCell(imageData: index)
                                 }
                             }
                         }
@@ -476,8 +468,8 @@ struct MiddleHomePageView: View {
                     }) {
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows) {
-                                ForEach(sectionImages) { index in
-                                    SectionEightCell(image: index.image)
+                                ForEach(imageData, id: \.id) { index in
+                                    SectionEightCell(imageData: index)
                                 }
                             }
                         }
@@ -511,8 +503,8 @@ struct MiddleHomePageView: View {
                     }) {
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: rows) {
-                                ForEach(sectionImages) { index in
-                                    SectionNineCell(image: index.image)
+                                ForEach(imageData, id: \.self) { index in
+                                    SectionNineCell(imageData: index)
                                 }
                             }
                         }
@@ -779,14 +771,14 @@ struct SectionZeroCell: View {
 
 struct SectionOneCell: View {
     @Binding var showDetailsView: Bool
-    let image: Image
+    @Binding var imageData: AppDataModel
+    @Binding var selectedCellData: AppDataModel
     var body: some View {
         ZStack {
-            image
+            Image(imageData.image)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
-                .background(.red)
                 .cornerRadius(30)
             Text("hi")
                 .font(.system(size: 12, weight: .bold))
@@ -794,7 +786,7 @@ struct SectionOneCell: View {
                 .padding(.all, 5)
         }
         .onTapGesture {
-            //selected = item
+            selectedCellData = imageData
             showDetailsView = true
         }
     }
@@ -802,10 +794,10 @@ struct SectionOneCell: View {
 
 struct SectionThreeCell: View {
     @Binding var showAIPhotosView: Bool
-    let image: Image
+    let imageData: AppDataModel
     var body: some View {
         VStack {
-            image
+            Image(imageData.image)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: UIScreen.main.bounds.width/3.3, height: 150)
@@ -846,9 +838,9 @@ struct SectionFourCell: View {
 }
 
 struct SectionFiveCell: View {
-    let image: Image
+    let imageData: AppDataModel
     var body: some View {
-        image
+        Image(imageData.image)
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
@@ -869,9 +861,9 @@ struct SectionSixCell: View {
 }
 
 struct SectionSevenCell: View {
-    let image: Image
+    let imageData: AppDataModel
     var body: some View {
-        image
+        Image(imageData.image)
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
@@ -881,9 +873,9 @@ struct SectionSevenCell: View {
 }
 
 struct SectionEightCell: View {
-    let image: Image
+    let imageData: AppDataModel
     var body: some View {
-        image
+        Image(imageData.image)
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
@@ -893,9 +885,9 @@ struct SectionEightCell: View {
 }
 
 struct SectionNineCell: View {
-    let image: Image
+    let imageData: AppDataModel
     var body: some View {
-        image
+        Image(imageData.image)
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(width: UIScreen.main.bounds.width/3.3, height: 170)
@@ -1003,7 +995,6 @@ struct SeeAllView: View {
         VStack(alignment: .leading) {
             HStack(spacing: 30) {
                 Button {
-                    print("btn tapped")
                     presentationMode.wrappedValue.dismiss()
                     showNewView.toggle()
                 } label: {
@@ -1016,7 +1007,7 @@ struct SeeAllView: View {
                         .cornerRadius(20)
                 }
                 .fullScreenCover(isPresented: $showNewView) {
-    HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData:AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
+HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
                 }
                 Text("Couple photos").font(.system(size: 24, weight: .bold)).foregroundColor(.white)
             }
@@ -1630,7 +1621,7 @@ struct GenderSelectionLoadingView: View {
             }
         }
         .fullScreenCover(isPresented: $isPresentedView) {
-            HomePageView(selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
+HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
         }
         .background(.black.opacity(0.2))
         .ignoresSafeArea()

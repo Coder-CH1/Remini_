@@ -67,6 +67,16 @@ struct FirstImageView: View {
                     )
                 }
             }
+            .onAppear() {
+                withAnimation(.easeInOut(duration: 1.2)) {
+                    offset = 100
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    withAnimation(.easeInOut(duration: 1.2)) {
+                        offset = 0
+                    }
+                }
+            }
             VStack {
                 Spacer()
                 HStack(spacing: 30) {
