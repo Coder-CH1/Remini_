@@ -9,13 +9,13 @@ import SwiftUI
 import AVKit
 
 struct WelcomeView: View {
-    @StateObject var appImageModel = AppImageModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {})
+    @StateObject var appImageModel = Data()
     @State var show = false
     var body: some View {
         Color.black.ignoresSafeArea()
             .overlay(
                     VStack {
-                        WelcomeLazyVGridView(appImageData: appImageModel, image: Image(""))
+                        WelcomeLazyVGridView(appImageData: appImageModel.imageData, image: Image(""))
             }
         )
     }
@@ -23,12 +23,12 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView(appImageModel: AppImageModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}))
+        WelcomeView(appImageModel: Data())
     }
 }
 
 struct WelcomeLazyVGridView: View {
-    @StateObject var appImageData = AppImageModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {})
+    var appImageData: [AppImageModel]
     @State var header = true
     @State var showContinueButton = false
     @State var cellsEnabled = true
@@ -80,7 +80,7 @@ struct WelcomeLazyVGridView: View {
                         ScrollViewReader { g in
                         ScrollView {
                             LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
-                                ForEach(appImageData.imageData, id: \.self) { index in
+                                ForEach(appImageData, id: \.id) { index in
                 WelcomeCellView(showContinueButton: $showContinueButton, cellsEnabled: $cellsEnabled, imageData: index)
                                 }
                                 .opacity(cellsEnabled ? 1 : 0.5)
@@ -91,7 +91,7 @@ struct WelcomeLazyVGridView: View {
                                 DispatchQueue.main.async {
                                     header = geometryProxy.frame(in: .named("1")).minY >= 0
                                 }
-                                return Color.clear
+                               return Color.clear
                             })
                         }
                     }
@@ -135,7 +135,7 @@ struct WelcomeCellView: View {
     @Binding var showContinueButton: Bool
     @Binding var cellsEnabled: Bool
     @State var isTapped: Bool = false
-    @StateObject var imageData = AppImageModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {})
+    var imageData: AppImageModel
     let screenSize = UIScreen.main.bounds.size
     var body: some View {
         HStack(spacing: 20) {
