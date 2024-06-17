@@ -1224,8 +1224,10 @@ struct PickForTwoView: View {
                         VStack {
                             if let image = selectedImage1 {
                                 Image(uiImage: image)
-                                    .font(.system(size: 50))
-                                    .foregroundColor(.gray)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 50, height: 50)
+                                    .cornerRadius(5)
                                 Text(textPerson1)
                                     .font(.system(size: 14, weight: .regular))
                                     .foregroundColor(.gray)
@@ -1240,8 +1242,10 @@ struct PickForTwoView: View {
                         VStack {
                             if let image = selectedImage2 {
                                 Image(uiImage: image)
-                                .font(.system(size: 50))
-                                .foregroundColor(.gray)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 50, height: 50)
+                                    .cornerRadius(5)
                                 Text(textPerson2)
                                 .font(.system(size: 14, weight: .regular))
                                 .foregroundColor(.gray)
@@ -1316,7 +1320,7 @@ struct PickForTwoViewCell: View {
                         .frame(width: UIScreen.main.bounds.width/4.5, height: 80)
                         .cornerRadius(10)
                         .onTapGesture {
-                            onTap(image)
+                            self.onTap(image)
                     }
                 }
             }
