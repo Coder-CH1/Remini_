@@ -11,3 +11,4 @@
    - Kingfisher
    - Photos 
    - AVKit
+   - Singleton Pattern Design
