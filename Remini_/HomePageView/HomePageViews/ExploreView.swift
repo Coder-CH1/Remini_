@@ -7,9 +7,11 @@
 
 import SwiftUI
 import Photos
+import PhotosUI
 
 struct ExploreView: View {
     @StateObject var imageDataArray = Data()
+    @State var selectedImages: Image
     @State var showNewView = false
     let columns = [GridItem(.flexible(), spacing: 10)]
     var body: some View {
@@ -37,7 +39,7 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
             ScrollView {
                 LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
                     ForEach(imageDataArray.imageData, id: \.id) { index in
-                        ExploreCellView(imageData: index)
+                        ExploreCellView(selectedImages: selectedImages, imageData: index)
                     }
                 }
                 .padding(.top, 30)
@@ -53,11 +55,13 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
 
 struct ExploreView_Previews: PreviewProvider {
     static var previews: some View {
-        ExploreView()
+        ExploreView(selectedImages: Image(systemName: ""))
     }
 }
 
 struct ExploreCellView: View {
+    @State var selectedImages: Image
+    @State var selectedItems: PhotosPickerItem?
     var imageData: AppDataModel
     @State var showImagePickerView = false
     @State var selectedImage: UIImage? = nil
@@ -75,12 +79,16 @@ struct ExploreCellView: View {
                     .font(.system(size: 14, weight: .medium))
                     .foregroundColor(.white)
                 Spacer()
-                Button(action: {
-                    showImagePickerView.toggle()
-                }) {
-                    Image(systemName: "chevron.right")
-                        .font(.system(size: 20))
-                        .foregroundColor(.white)
+                PhotosPicker(
+                    selection: $selectedItems,
+                    matching: .images) {
+                        Button(action: {
+                            showImagePickerView.toggle()
+                        }) {
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 20))
+                                .foregroundColor(.white)
+                    }
                 }
             }
             .padding(.trailing, 20)

@@ -7,8 +7,10 @@
 
 import SwiftUI
 import Photos
+import PhotosUI
 
 struct AIFiltersView: View {
+    @State var selectedItems = [PhotosPickerItem]()
     var body: some View {
         ZStack {
             ZStack {
@@ -26,6 +28,8 @@ struct AIFiltersView_Previews: PreviewProvider {
 }
 
 struct AIFiltersLoadingView: View {
+    @State var selectedImages = [Image]()
+    @State var selectedItems = [PhotosPickerItem]()
     @State var showImagePickerView = false
     @State var selectedImage: UIImage? = nil
     @State var showNewView = false
@@ -102,8 +106,10 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
                 Spacer()
                     .frame(height: 40)
                 HStack {
+                        PhotosPicker(
+                            selection: $selectedItems,
+                            matching: .images) {
                     Button {
-                        print("btn tapped")
                         showImagePickerView.toggle()
                     } label: {
                         HStack(spacing: 30) {
@@ -121,6 +127,7 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
                     .frame(width: UIScreen.main.bounds.width - 100, height: 60)
                     .background(.white)
                     .cornerRadius(30)
+                }
                 }
             }
             if isLoading {
@@ -142,6 +149,18 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
                 }
             } else {
                 
+            }
+        }
+        .onChange(of: selectedItems) {newValue in
+            newValue.forEach { item in
+                Task {
+                    selectedImages.removeAll()
+                    for item in selectedItems {
+                            if let data = try? await item.loadTransferable(type: Image.self) {
+                                selectedImages.append(data)
+                        }
+                    }
+                }
             }
         }
         .onAppear() {

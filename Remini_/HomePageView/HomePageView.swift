@@ -684,7 +684,7 @@ struct BottomTabHomePageCells: View {
                         .cornerRadius(10)
                 }
                 .fullScreenCover(isPresented: $showNewExploreView) {
-                    ExploreView()
+                    ExploreView(selectedImages: Image(systemName: ""))
                 }
                 Text("Explore")
                     .scaledFont(name: "", size: 15)
