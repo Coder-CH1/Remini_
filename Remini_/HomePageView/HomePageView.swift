@@ -1078,7 +1078,6 @@ struct SeeAllCellView: View{
                     }
                 }
             }
-            //.padding(.top)
             .frame(width: UIScreen.main.bounds.width/1.1, height: 100)
             .background(.black).ignoresSafeArea()
         }
@@ -1153,7 +1152,7 @@ struct PickForTwoView: View {
     @State var showSelectGenderView = false
     @State var selectedImage1: UIImage?
     @State var selectedImage2: UIImage?
-    var image: UIImage
+    @State var image: UIImage
     @State var showContinueButton = false
     @State var images: [PHAsset] = []
     let textPerson1 = "Person 1"
@@ -1169,7 +1168,7 @@ struct PickForTwoView: View {
                 if status == .authorized {
                     let assets = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: nil)
                     assets.enumerateObjects { (object,_, _) in
-                        images.append(object)
+                        self.images.append(object)
                     }
                 } else if status == .denied {
                     
@@ -1208,7 +1207,9 @@ struct PickForTwoView: View {
                 LazyVGrid(columns: sectionZeroRows, spacing: 5) {
                     ForEach(images, id: \.self) { index in
                         PickForTwoViewCell(cellImage: image, onTap: { photo in
+                            print("chidiogo")
                             handleImageSelection(photo)
+                            print("chidiogo")
                     }, photo: index)
                                 }
                             }
@@ -1278,11 +1279,13 @@ struct PickForTwoView: View {
         }
     }
     func handleImageSelection(_ image: UIImage) {
-        if selectedImage1 == nil {
-            selectedImage1 = image
-        } else if selectedImage2 == nil {
-            selectedImage2 = image
-            showContinueButton = true
+        DispatchQueue.main.async {
+            if self.selectedImage1 == nil {
+                self.selectedImage1 = image
+            } else if self.selectedImage2 == nil {
+                self.selectedImage2 = image
+                self.showContinueButton = true
+            }
         }
     }
 }
@@ -1298,8 +1301,10 @@ struct PickForTwoViewCell: View {
         option.deliveryMode = .highQualityFormat
         option.isSynchronous = true
         manager.requestImage(for: photo, targetSize: CGSize(width: UIScreen.main.bounds.width/4.5, height: 120), contentMode: .aspectFill, options: option) { result, _ in
-            if let result = result {
-                self.cellImage = result
+            DispatchQueue.main.async {
+                if let result = result {
+                    self.cellImage = result
+                }
             }
         }
     }
