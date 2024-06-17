@@ -1052,13 +1052,16 @@ struct SeeAllCellView: View{
                 }
                 .padding(.leading, -160)
                 HStack(spacing: 70) {
-                    Text(imageData.text2)
-                        .background(Rectangle().fill(.gray))
-                        .frame(width: UIScreen.main.bounds.width/3.2, height: 40)
-                        .font(.system(size: 18, weight: .semibold))
-                        .foregroundColor(.white)
-                        .background(.gray)
-                        .cornerRadius(10)
+                    VStack (alignment: .trailing){
+                        Text(imageData.text2)
+                            .background(Rectangle().fill(.gray))
+                            .frame(width: UIScreen.main.bounds.width/3.0, height: 40)
+                            .font(.system(size: 12, weight: .semibold))
+                            .lineLimit(0)
+                            .foregroundColor(.white)
+                            .background(.gray)
+                            .cornerRadius(10)
+                    }
                     Button {
                         print("")
                     } label: {
@@ -1142,6 +1145,8 @@ struct DetailsView: View {
 }
 
 struct PickForTwoView: View {
+    @State var selectedImage: UIImage? = nil
+    @State var showImagePickerView = false
     @State var showSelectGenderView = false
     @State var selectedImage1: UIImage?
     @State var selectedImage2: UIImage?
@@ -1186,7 +1191,7 @@ struct PickForTwoView: View {
                                 .font(.system(size: 20, weight: .bold))
                                 .foregroundColor(.white)
                             Button {
-                                print("btn tapped")
+                                showImagePickerView.toggle()
                             } label: {
                                 Text("Open Gallery")
                                     .font(.system(size: 18, weight: .medium))
@@ -1195,12 +1200,14 @@ struct PickForTwoView: View {
                                     .background(Color(red: 0.1, green: 0.1, blue: 0.1))
                                     .cornerRadius(25)
                             }
+                            .fullScreenCover(isPresented: $showImagePickerView) {
+                                PickForTwoImagePicker(selectedImage: $selectedImage)
+                            }
                         }
                         ) {
                 LazyVGrid(columns: sectionZeroRows, spacing: 5) {
                     ForEach(images, id: \.self) { index in
                         PickForTwoViewCell(cellImage: image, onTap: { photo in
-                            print("chidiogo")
                             handleImageSelection(photo)
                             print("chidiogo")
                     }, photo: index)
@@ -1627,5 +1634,34 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
         }
         .background(.black.opacity(0.2))
         .ignoresSafeArea()
+    }
+}
+
+struct PickForTwoImagePicker: UIViewControllerRepresentable {
+    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        @Binding var selectedImage: UIImage?
+        init(selectedImage: Binding<UIImage?>) {
+            self._selectedImage = selectedImage
+        }
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            guard let image = info[.originalImage] as? UIImage else {return}
+            selectedImage = image
+            picker.dismiss(animated: true)
+        }
+    }
+    @Binding var selectedImage: UIImage?
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(selectedImage: $selectedImage)
+    }
+    
+    func makeUIViewController(context: Context) ->  UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.delegate = context.coordinator
+        return picker
+    }
+    
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
+        
     }
 }

@@ -15,7 +15,7 @@ struct YellowToonView: View {
         appearance.backgroundColor = .black
         UINavigationBar.appearance().standardAppearance = appearance
     }
-    @StateObject var imageData = Data()
+    @StateObject var imageDataArray = Data()
     @State var showBottomButton = false
     @State var scrollViewOffset: CGFloat = 0
     @State var scrollViewContentOffset: CGFloat = 0
@@ -46,8 +46,8 @@ struct YellowToonView: View {
                         HeaderContents(showAIPhotosView: $showAIPhotosView)
                     }) {
                         LazyVGrid(columns: columns, spacing: 10) {
-                            ForEach(0..<6) { index in
-                                YellowToonCellView()
+                            ForEach(imageDataArray.imageData, id: \.id) { index in
+                                YellowToonCellView(imageData: index)
                             }
                         }
                     }
@@ -148,9 +148,12 @@ struct ViewOffsetKey: PreferenceKey {
 }
 
 struct YellowToonCellView: View {
+    var imageData: AppDataModel
     var body: some View {
         ZStack {
-            Image(systemName: "")
+            Image(imageData.image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
                 .frame(width: UIScreen.main.bounds.width/2, height: 250)
                 .background(.red)
                 .cornerRadius(10)

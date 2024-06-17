@@ -76,7 +76,6 @@ struct ExploreCellView: View {
                     .foregroundColor(.white)
                 Spacer()
                 Button(action: {
-                    print("btn tapped")
                     showImagePickerView.toggle()
                 }) {
                     Image(systemName: "chevron.right")
