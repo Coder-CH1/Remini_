@@ -10,6 +10,7 @@ import BottomSheetSwiftUI
 import Photos
 import CoreImage
 import SQLite3
+import PhotosUI
 
 
 struct HomePageView: View {
@@ -1209,6 +1210,7 @@ struct PickForTwoView: View {
                     ForEach(images, id: \.self) { index in
                         PickForTwoViewCell(cellImage: image, onTap: { photo in
                             handleImageSelection(photo)
+                            images.append(index)
                             print("chidiogo")
                     }, photo: index)
                                 }
@@ -1284,6 +1286,7 @@ struct PickForTwoView: View {
     }
     func handleImageSelection(_ image: UIImage) {
         DispatchQueue.main.async {
+            print("monkey")
             if self.selectedImage1 == nil {
                 self.selectedImage1 = image
             } else if self.selectedImage2 == nil {
@@ -1351,7 +1354,6 @@ struct FirstSelectGenderView: View {
                             .frame(width: 150, height: 150)
                             .background(.red)
                             .cornerRadius(25)
-                        
                     }
                     Text(textPerson1)
                         .font(.system(size: 20, weight: .bold))

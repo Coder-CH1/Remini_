@@ -6,22 +6,27 @@
 //
 
 import SwiftUI
+import UIKit
 import Photos
+import PhotosUI
 
 struct AIPhotosView: View {
+    @State var selectedItems = [PhotosPickerItem]()
     var body: some View {
         VStack(alignment: .leading) {
-            AIPhotosLoadingView()
+            AIPhotosLoadingView(selectedItems: selectedItems)
         }
     }
-    
+}
     struct AIPhotosView_Previews: PreviewProvider {
         static var previews: some View {
-            AIPhotosView()
+            AIPhotosView(selectedItems: [PhotosPickerItem(itemIdentifier: "")])
         }
     }
     
     struct AIPhotosLoadingView: View {
+        @State var selectedImages = [Image]()
+        @State var selectedItems = [PhotosPickerItem]()
         @State var showImagePickerView = false
         @State var selectedImage: UIImage? = nil
         @State var showNewView = false
@@ -71,6 +76,9 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
                             .foregroundColor(.yellow)
                     }
                     HStack {
+                        PhotosPicker(
+                            selection: $selectedItems,
+                            matching: .images) {
                         Button {
                             print("btn tapped")
                             showImagePickerView.toggle()
@@ -91,6 +99,7 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
                         .background(.white)
                         .cornerRadius(30)
                     }
+                }
                     .padding(.bottom, 50)
                 }
                 if isLoading {
@@ -114,6 +123,18 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
                     
                 }
             }
+            .onChange(of: selectedItems) {newValue in
+                newValue.forEach { item in
+                    Task {
+                        selectedImages.removeAll()
+                        for item in selectedItems {
+                                if let data = try? await item.loadTransferable(type: Image.self) {
+                                    selectedImages.append(data)
+                            }
+                        }
+                    }
+                }
+            }
             .onAppear() {
                 startLoading()
             }
@@ -132,7 +153,6 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
             }
         }
     }
-}
     struct AIPhotosImagePicker: UIViewControllerRepresentable {
         class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
             @Binding var selectedImage: UIImage?
