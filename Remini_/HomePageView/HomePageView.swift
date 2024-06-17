@@ -335,7 +335,6 @@ struct MiddleHomePageView: View {
                         LazyHGrid(rows: rows) {
                             ForEach(0..<1) { index in
                                 SectionFourCell(showYellowToolView: $showYellowToolView)
-                                //}
                             }
                         }
                     }
@@ -517,8 +516,6 @@ struct MiddleHomePageView: View {
     }
 }
 
-
-
 struct ChooseYourGenderBottomSheetView: View {
     let databaseManager = DatabaseManager.shared
     let dismissBottomSheet: () -> Void
@@ -585,9 +582,8 @@ struct ChooseYourGenderBottomSheetView: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 25)
                             .stroke(.gray.opacity(0.3), lineWidth: 2)
-                    )
-                }
-
+                )
+            }
         }
     }
 }
@@ -699,7 +695,6 @@ struct BottomTabHomePageCells: View {
     }
 }
 
-
 struct EnhanceImagePicker: UIViewControllerRepresentable {
     class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         @Binding var selectedImage: UIImage?
@@ -725,7 +720,6 @@ struct EnhanceImagePicker: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
-        
     }
 }
 
@@ -831,7 +825,6 @@ struct SectionFourCell: View {
             .padding(.top, 150)
         }
         .onTapGesture {
-            //selected = item
             showYellowToolView = true
         }
     }

@@ -15,6 +15,7 @@ struct YellowToonView: View {
         appearance.backgroundColor = .black
         UINavigationBar.appearance().standardAppearance = appearance
     }
+    @StateObject var imageData = Data()
     @State var showBottomButton = false
     @State var scrollViewOffset: CGFloat = 0
     @State var scrollViewContentOffset: CGFloat = 0
@@ -207,7 +208,7 @@ struct HeaderContents: View {
 struct TopHeaderContent: View {
     var body: some View {
         VStack {
-            Text("15 PHOTOS")
+            Text("6 PHOTOS")
                 .background(Rectangle().fill(.gray))
                 .frame(width: UIScreen.main.bounds.width/3.2, height: 40)
                 .font(.system(size: 18, weight: .semibold))
