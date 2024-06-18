@@ -11,6 +11,7 @@ import Photos
 import CoreImage
 import SQLite3
 import PhotosUI
+import ObjectiveC
 
 
 struct HomePageView: View {
@@ -79,10 +80,10 @@ MiddleHomePageView(selectedCellImage: $selectedCellImage, img: $uiImage, showDet
                 }
             }
             .fullScreenCover(isPresented: $showDetailsView) {
-                DetailsView(selected1: selected1, selected2: selected2,image: cellsImage, selection1: $selectedCellData)
+                DetailsView(showPickForTwo: Bool(), selected1: UIImage(),selected2: UIImage(),selectedImages: [Image(systemName: "")], selectedImage: UIImage(), image: UIImage(), selection1: $selectedCellData)
             }
             .fullScreenCover(isPresented: $showAIPhotosView) {
-                AIPhotosView()
+                AIPhotosLoadingView(selectedImages: [Image(systemName: "")], selectedCount: Int())
             }
             .fullScreenCover(isPresented: $showYellowToon) {
                 YellowToonView()
@@ -290,7 +291,7 @@ struct MiddleHomePageView: View {
                                 )
                         }
                         .fullScreenCover(isPresented: $showSeeAllSectionThreeView) {
-                            AIPhotosView()
+                            AIPhotosLoadingView(selectedImages: [Image(systemName: "")], selectedCount: Int())
                         }
                         
                     }) {
@@ -645,7 +646,7 @@ struct BottomTabHomePageCells: View {
                         .cornerRadius(10)
                 }
                 .fullScreenCover(isPresented: $showNewAIPhotosView) {
-                    AIPhotosView()
+                    AIPhotosLoadingView(selectedImages: [Image(systemName: "")], selectedCount: Int())
                 }
                 Text("AI Photos")
                     .scaledFont(name: "", size: 15)
@@ -684,7 +685,7 @@ struct BottomTabHomePageCells: View {
                         .cornerRadius(10)
                 }
                 .fullScreenCover(isPresented: $showNewExploreView) {
-                    ExploreView(selectedImages: Image(systemName: ""))
+                    ExploreView(selectedImg: Image(systemName: ""))
                 }
                 Text("Explore")
                     .scaledFont(name: "", size: 15)
@@ -1023,7 +1024,7 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
             .padding(.top)
             
             .fullScreenCover(isPresented: $showDetailsView) {
-                DetailsView(selected1: UIImage(),selected2: UIImage(),image: UIImage(), selection1: $selectedData)
+                DetailsView(showPickForTwo: Bool(), selected1: UIImage(),selected2: UIImage(),selectedImages: [Image(systemName: "")], selectedImage: UIImage(), image: UIImage(), selection1: $selectedData)
             }
         }
         .padding(.bottom)
@@ -1088,6 +1089,8 @@ struct DetailsView: View {
     @State var showPickForTwo = false
     @State var selected1: UIImage
     @State var selected2: UIImage
+    @State var selectedImages: [Image]
+    @State var selectedImage: UIImage
     @State var image: UIImage
     @Binding var selection1: AppDataModel
     
@@ -1117,7 +1120,7 @@ struct DetailsView: View {
                         Text("Create beautiful wedding pictures of you\n and your better half")
                             .font(.system(size: 12, weight: .regular))
                             .foregroundColor(.white)
-        NavigationLink(destination: PickForTwoView(selectedImage1:selected1 ,selectedImage2: selected2,image: image, images: [PHAsset]()), isActive: $showPickForTwo) {
+                        NavigationLink(destination: PickForTwoView(selectedImages: [Image(systemName: "")], selectedImage: UIImage(), selectedImage1:selected1 ,selectedImage2: selected2,image: image, images: [PHAsset]()), isActive: $showPickForTwo) {
                             Button {
                                 showPickForTwo.toggle()
                             } label: {
@@ -1146,7 +1149,8 @@ struct DetailsView: View {
 }
 
 struct PickForTwoView: View {
-    @State var selectedImage: UIImage? = nil
+    @State var selectedImages: [Image]
+    @State var selectedImage: UIImage?
     @State var showImagePickerView = false
     @State var showSelectGenderView = false
     @State var selectedImage1: UIImage?
@@ -1202,16 +1206,15 @@ struct PickForTwoView: View {
                                     .cornerRadius(25)
                             }
                             .fullScreenCover(isPresented: $showImagePickerView) {
-                                PickForTwoImagePicker(selectedImage: $selectedImage)
+                                PickForTwoImagePicker(selectedImage: $selectedImage, selectedImages: $selectedImages)
                             }
                         }
                         ) {
                 LazyVGrid(columns: sectionZeroRows, spacing: 5) {
                     ForEach(images, id: \.self) { index in
                         PickForTwoViewCell(cellImage: image, onTap: { photo in
-                            handleImageSelection(photo)
-                            images.append(index)
-                            print("chidiogo")
+                                handleImageSelection(photo)
+                                images.append(index)
                     }, photo: index)
                                 }
                             }
@@ -1640,30 +1643,47 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
 }
 
 struct PickForTwoImagePicker: UIViewControllerRepresentable {
-    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        @Binding var selectedImage: UIImage?
-        init(selectedImage: Binding<UIImage?>) {
-            self._selectedImage = selectedImage
-        }
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            guard let image = info[.originalImage] as? UIImage else {return}
-            selectedImage = image
-            picker.dismiss(animated: true)
-        }
-    }
     @Binding var selectedImage: UIImage?
+    @Binding var selectedImages: [Image]
     
-    func makeCoordinator() -> Coordinator {
-        Coordinator(selectedImage: $selectedImage)
-    }
-    
-    func makeUIViewController(context: Context) ->  UIImagePickerController {
-        let picker = UIImagePickerController()
+    func makeUIViewController(context: Context) ->  PHPickerViewController {
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 0
+        config.filter = .images
+        let picker = PHPickerViewController(configuration: config)
         picker.delegate = context.coordinator
         return picker
     }
     
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
+    func makeCoordinator() -> Coordinator {
+        Coordinator(selectedImage: $selectedImage, selectedImages: $selectedImages)
+    }
+    
+    class Coordinator: NSObject, PHPickerViewControllerDelegate {
+        @Binding var selectedImage: UIImage?
+        @Binding var selectedImages: [Image]
         
+        init(selectedImage: Binding<UIImage?>, selectedImages: Binding<[Image]>) {
+            self._selectedImage = selectedImage
+            self._selectedImages = selectedImages
+        }
+        
+        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+                picker.dismiss(animated: true)
+                for result in results {
+                    if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
+                        result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                            if let error = error {
+                                print("Error loading image: \(error.localizedDescription)")
+                            } else if let image = image as? UIImage {
+                                self?.selectedImage = image
+                                self?.selectedImages.append(Image(uiImage: image))
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
     }
 }

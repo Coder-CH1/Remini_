@@ -122,7 +122,7 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
                         }
                     }
                     .fullScreenCover(isPresented: $showImagePickerView) {
-                        AIFiltersImagePicker(selectedImage: $selectedImage)
+                        AIFiltersImagePicker(selectedImage: $selectedImage, selectedImages: $selectedImages)
                     }
                     .frame(width: UIScreen.main.bounds.width - 100, height: 60)
                     .background(.white)
@@ -151,18 +151,6 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
                 
             }
         }
-        .onChange(of: selectedItems) {newValue in
-            newValue.forEach { item in
-                Task {
-                    selectedImages.removeAll()
-                    for item in selectedItems {
-                            if let data = try? await item.loadTransferable(type: Image.self) {
-                                selectedImages.append(data)
-                        }
-                    }
-                }
-            }
-        }
         .onAppear() {
             startLoading()
         }
@@ -183,30 +171,47 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
 }
 
 struct AIFiltersImagePicker: UIViewControllerRepresentable {
-    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        @Binding var selectedImage: UIImage?
-        init(selectedImage: Binding<UIImage?>) {
-            self._selectedImage = selectedImage
-        }
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            guard let image = info[.originalImage] as? UIImage else {return}
-            selectedImage = image
-            picker.dismiss(animated: true)
-        }
-    }
     @Binding var selectedImage: UIImage?
+    @Binding var selectedImages: [Image]
     
-    func makeCoordinator() -> Coordinator {
-        Coordinator(selectedImage: $selectedImage)
-    }
-     
-    func makeUIViewController(context: Context) ->  UIImagePickerController {
-        let picker = UIImagePickerController()
+    func makeUIViewController(context: Context) ->  PHPickerViewController {
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 0
+        config.filter = .images
+        let picker = PHPickerViewController(configuration: config)
         picker.delegate = context.coordinator
         return picker
     }
     
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
+    func makeCoordinator() -> Coordinator {
+        Coordinator(selectedImage: $selectedImage, selectedImages: $selectedImages)
+    }
+    
+    class Coordinator: NSObject, PHPickerViewControllerDelegate {
+        @Binding var selectedImage: UIImage?
+        @Binding var selectedImages: [Image]
         
+        init(selectedImage: Binding<UIImage?>, selectedImages: Binding<[Image]>) {
+            self._selectedImage = selectedImage
+            self._selectedImages = selectedImages
+        }
+        
+        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+                picker.dismiss(animated: true)
+                for result in results {
+                    if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
+                        result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                            if let error = error {
+                                print("Error loading image: \(error.localizedDescription)")
+                            } else if let image = image as? UIImage {
+                                self?.selectedImage = image
+                                self?.selectedImages.append(Image(uiImage: image))
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
     }
 }

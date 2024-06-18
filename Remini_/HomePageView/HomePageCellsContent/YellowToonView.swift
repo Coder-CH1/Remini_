@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Photos
+import PhotosUI
 
 
 struct YellowToonView: View {
@@ -77,7 +78,7 @@ struct YellowToonView: View {
                             .font(.system(size: 20))
                             .foregroundColor(.black)
                             .fullScreenCover(isPresented: $showAIPhotosView) {
-                                AIPhotosView()
+                                AIPhotosLoadingView(selectedImages: [Image(systemName: "")], selectedCount: Int())
                             }
                     }
                     .frame(width: UIScreen.main.bounds.width/1.2, height: 50)
@@ -103,7 +104,7 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
             
             )
             .fullScreenCover(isPresented: $showAIPhotosView) {
-                AIPhotosView()
+                AIPhotosLoadingView(selectedImages: [Image(systemName: "")], selectedCount: Int())
             }
         }
     }

@@ -11,7 +11,7 @@ import PhotosUI
 
 struct ExploreView: View {
     @StateObject var imageDataArray = Data()
-    @State var selectedImages: Image
+    @State var selectedImg: Image
     @State var showNewView = false
     let columns = [GridItem(.flexible(), spacing: 10)]
     var body: some View {
@@ -39,7 +39,7 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
             ScrollView {
                 LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
                     ForEach(imageDataArray.imageData, id: \.id) { index in
-                        ExploreCellView(selectedImages: selectedImages, imageData: index)
+                        ExploreCellView(selectedImg: selectedImg, imageData: index)
                     }
                 }
                 .padding(.top, 30)
@@ -55,12 +55,12 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
 
 struct ExploreView_Previews: PreviewProvider {
     static var previews: some View {
-        ExploreView(selectedImages: Image(systemName: ""))
+        ExploreView(selectedImg: Image(systemName: ""))
     }
 }
 
 struct ExploreCellView: View {
-    @State var selectedImages: Image
+    @State var selectedImg: Image
     @State var selectedItems: PhotosPickerItem?
     var imageData: AppDataModel
     @State var showImagePickerView = false
@@ -93,7 +93,7 @@ struct ExploreCellView: View {
             }
             .padding(.trailing, 20)
             .fullScreenCover(isPresented: $showImagePickerView) {
-                ExploreImagePicker(selectedImage: $selectedImage)
+                ExploreImagePicker(selectedImage: $selectedImage, selectedImg: $selectedImg)
             }
             .frame(width: screenSize.width, height: UIScreen.main.bounds.height/8)
             .background(.secondary)
@@ -103,30 +103,47 @@ struct ExploreCellView: View {
 }
 
 struct ExploreImagePicker: UIViewControllerRepresentable {
-    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        @Binding var selectedImage: UIImage?
-        init(selectedImage: Binding<UIImage?>) {
-            self._selectedImage = selectedImage
-        }
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            guard let image = info[.originalImage] as? UIImage else {return}
-            selectedImage = image
-            picker.dismiss(animated: true)
-        }
-    }
     @Binding var selectedImage: UIImage?
+    @Binding var selectedImg: Image
     
-    func makeCoordinator() -> Coordinator {
-        Coordinator(selectedImage: $selectedImage)
-    }
-    
-    func makeUIViewController(context: Context) ->  UIImagePickerController {
-        let picker = UIImagePickerController()
+    func makeUIViewController(context: Context) ->  PHPickerViewController {
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 0
+        config.filter = .images
+        let picker = PHPickerViewController(configuration: config)
         picker.delegate = context.coordinator
         return picker
     }
     
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
+    func makeCoordinator() -> Coordinator {
+        Coordinator(selectedImage: $selectedImage, selectedImg: $selectedImg)
+    }
+    
+    class Coordinator: NSObject, PHPickerViewControllerDelegate {
+        @Binding var selectedImage: UIImage?
+        @Binding var selectedImg: Image
         
+        init(selectedImage: Binding<UIImage?>, selectedImg: Binding<Image>) {
+            self._selectedImage = selectedImage
+            self._selectedImg = selectedImg
+        }
+        
+        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+                picker.dismiss(animated: true)
+                for result in results {
+                    if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
+                        result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                            if let error = error {
+                                print("Error loading image: \(error.localizedDescription)")
+                            } else if let image = image as? UIImage {
+                                self?.selectedImage = image
+                                self?.selectedImg = Image(uiImage: image)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
     }
 }

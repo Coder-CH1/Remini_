@@ -10,174 +10,219 @@ import UIKit
 import Photos
 import PhotosUI
 
-struct AIPhotosView: View {
-    @State var selectedItems = [PhotosPickerItem]()
+struct AIPhotosLoadingView: View {
+    @State var selectedImages: [Image] = []
+    @State var selectedCount: Int
+    @State var showImagePickerView = false
+    @State var selectedImage: UIImage? = nil
+    @State var showNewView = false
+    @State var isLoading = false
+    @State var rotatingAngle: Double = 0.0
+    @State var trimAmount: Double = 0.1
+    @State var showNextScreen = false
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        VStack(alignment: .leading) {
-            AIPhotosLoadingView(selectedItems: selectedItems)
+        ZStack(alignment: .top) {
+            Rectangle()
+                .fill(Color.black)
+                .frame(height: UIScreen.main.bounds.height)
+                .blur(radius: 10)
+            Image("backimage")
+                .scaledToFit()
+                .aspectRatio(contentMode: .fill)
+                .frame(height: UIScreen.main.bounds.height/2)
+            VStack(alignment: .center) {
+                Button {
+                    showNewView.toggle()
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.white)
+                }
+                .fullScreenCover(isPresented: $showNewView) {
+HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
+                }
+            }
+            .padding(.top, 400)
+            .foregroundColor(.white)
+            .offset(x: UIScreen.main.bounds.width / -2.5, y: UIScreen.main.bounds.height / -2.4)
+            VStack(alignment: .center, spacing: 30) {
+                Spacer()
+                Text("Revamp reality with\n AI Filters")
+                    .font(.system(size: 35, weight: .bold))
+                    .foregroundColor(.white)
+                HStack {
+                    Text("Transform your selfies through the magic of AI")
+                        .font(.system(size: 15, weight: .regular))
+                        .foregroundColor(.white)
+                    Image(systemName: "carrot.fill")
+                        .font(.system(size: 15))
+                        .foregroundColor(.yellow)
+                }
+                HStack {
+                    Button {
+                        showImagePickerView.toggle()
+                    } label: {
+                        HStack(spacing: 30) {
+                            Text("Upload Photo")
+                                .font(.system(size: 16, weight: .semibold))
+                                .foregroundColor(.black)
+                            Image(systemName: "camera")
+                                .font(.system(size: 20))
+                                .foregroundColor(.black)
+                        }
+                    }
+                    .fullScreenCover(isPresented: $showImagePickerView) {
+                        AIPhotosImagePicker(selectedImage: $selectedImage, selectedImages: $selectedImages, showNextScreen: $showNextScreen) {_ in
+                            self.showNextScreen.toggle()
+                        }
+                        
+                    }
+                    .frame(width: UIScreen.main.bounds.width - 100, height: 60)
+                    .background(.white)
+                    .cornerRadius(30)
+            }
+                .padding(.bottom, 50)
+            }
+            if isLoading {
+                ZStack {
+                    Color.black
+                        .ignoresSafeArea()
+                    Circle()
+                        .trim(from: trimAmount, to: 1)
+                        .stroke(
+                            Color.white,
+                            style:
+                                StrokeStyle(lineWidth: 5, lineCap:
+                                        .round, lineJoin:
+                                        .round, miterLimit:
+                                        .infinity, dashPhase: 0))
+                        .frame(width: 20, height: 20)
+                        .rotationEffect(.degrees(rotatingAngle))
+                        .animation(.linear(duration: 1.5).repeatForever(), value: rotatingAngle)
+                }
+            } else {
+                
+            }
+        }
+        .onAppear() {
+            startLoading()
+        }
+    }
+    func startLoading() {
+        isLoading = true
+        withAnimation(.linear(duration: 1.5).repeatForever()) {
+            self.rotatingAngle = 360.0
+        }
+        rotatingAngle = 360.0
+        trimAmount = 0.4
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            withAnimation {
+                isLoading = false
+            }
         }
     }
 }
-    struct AIPhotosView_Previews: PreviewProvider {
+struct AIPhotosLoadingView_Previews: PreviewProvider {
         static var previews: some View {
-            AIPhotosView(selectedItems: [PhotosPickerItem(itemIdentifier: "")])
+            AIPhotosLoadingView(selectedImages: [Image(systemName: "")], selectedCount: Int())
         }
+    }
+struct AIPhotosImagePicker: UIViewControllerRepresentable {
+    @Binding var selectedImage: UIImage?
+    @Binding var selectedImages: [Image]
+    @Binding var showNextScreen: Bool
+    var onSelectionComplete: (Bool) -> Void
+    
+    func makeUIViewController(context: Context) ->  PHPickerViewController {
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 0
+        config.filter = .images
+        let picker = PHPickerViewController(configuration: config)
+        picker.delegate = context.coordinator
+        return picker
     }
     
-    struct AIPhotosLoadingView: View {
-        @State var selectedImages = [Image]()
-        @State var selectedItems = [PhotosPickerItem]()
-        @State var showImagePickerView = false
-        @State var selectedImage: UIImage? = nil
-        @State var showNewView = false
-        @State var isLoading = false
-        @State var rotatingAngle: Double = 0.0
-        @State var trimAmount: Double = 0.1
-        @Environment(\.presentationMode) var presentationMode
-        var body: some View {
-            ZStack(alignment: .top) {
-                Rectangle()
-                    .fill(Color.black)
-                    .frame(height: UIScreen.main.bounds.height)
-                    .blur(radius: 10)
-                Image("backimage")
-                    //.resizable()
-                    .scaledToFit()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: UIScreen.main.bounds.height/2)
-                VStack(alignment: .center) {
-                    Button {
-                        print("btn tapped")
-                        showNewView.toggle()
-                        presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.white)
-                    }
-                    .fullScreenCover(isPresented: $showNewView) {
-HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
-                    }
-                }
-                .padding(.top, 400)
-                .foregroundColor(.white)
-                .offset(x: UIScreen.main.bounds.width / -2.5, y: UIScreen.main.bounds.height / -2.4)
-                VStack(alignment: .center, spacing: 30) {
-                    Spacer()
-                    Text("Revamp reality with\n AI Filters")
-                        .font(.system(size: 35, weight: .bold))
-                        .foregroundColor(.white)
-                    HStack {
-                        Text("Transform your selfies through the magic of AI")
-                            .font(.system(size: 15, weight: .regular))
-                            .foregroundColor(.white)
-                        Image(systemName: "carrot.fill")
-                            .font(.system(size: 15))
-                            .foregroundColor(.yellow)
-                    }
-                    HStack {
-                        PhotosPicker(
-                            selection: $selectedItems,
-                            matching: .images) {
-                        Button {
-                            print("btn tapped")
-                            showImagePickerView.toggle()
-                        } label: {
-                            HStack(spacing: 30) {
-                                Text("Upload Photo")
-                                    .font(.system(size: 16, weight: .semibold))
-                                    .foregroundColor(.black)
-                                Image(systemName: "camera")
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.black)
-                            }
-                        }
-                        .fullScreenCover(isPresented: $showImagePickerView) {
-                            AIPhotosImagePicker(selectedImage: $selectedImage)
-                        }
-                        .frame(width: UIScreen.main.bounds.width - 100, height: 60)
-                        .background(.white)
-                        .cornerRadius(30)
-                    }
-                }
-                    .padding(.bottom, 50)
-                }
-                if isLoading {
-                    ZStack {
-                        Color.black
-                            .ignoresSafeArea()
-                        Circle()
-                            .trim(from: trimAmount, to: 1)
-                            .stroke(
-                                Color.white,
-                                style:
-                                    StrokeStyle(lineWidth: 5, lineCap:
-                                            .round, lineJoin:
-                                            .round, miterLimit:
-                                            .infinity, dashPhase: 0))
-                            .frame(width: 20, height: 20)
-                            .rotationEffect(.degrees(rotatingAngle))
-                            .animation(.linear(duration: 1.5).repeatForever(), value: rotatingAngle)
-                    }
-                } else {
-                    
-                }
-            }
-            .onChange(of: selectedItems) {newValue in
-                newValue.forEach { item in
-                    Task {
-                        selectedImages.removeAll()
-                        for item in selectedItems {
-                                if let data = try? await item.loadTransferable(type: Image.self) {
-                                    selectedImages.append(data)
+    func makeCoordinator() -> Coordinator {
+        Coordinator(selectedImage: $selectedImage, selectedImages: $selectedImages, showNextScreen: $showNextScreen, onSelectionComplete: {_ in })
+    }
+    
+    class Coordinator: NSObject, PHPickerViewControllerDelegate {
+        @Binding var selectedImage: UIImage?
+        @Binding var selectedImages: [Image]
+        @Binding var showNextScreen: Bool
+        var onSelectionComplete: (Bool) -> Void
+        
+        init(selectedImage: Binding<UIImage?>, selectedImages: Binding<[Image]>, showNextScreen: Binding<Bool>, onSelectionComplete: @escaping (Bool) -> Void) {
+            self._selectedImage = selectedImage
+            self._selectedImages = selectedImages
+            self._showNextScreen = showNextScreen
+            self.onSelectionComplete = onSelectionComplete
+        }
+        
+        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+            picker.dismiss(animated: true)
+            for result in results {
+                if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
+                    result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                        if let error = error {
+                            print("Error loading image: \(error.localizedDescription)")
+                        } else if let image = image as? UIImage {
+                            self?.selectedImage = image
+                            self?.selectedImages.append(Image(uiImage: image))
+                            if self?.selectedImages.count ?? 1 > 0 {
+                                self?.onSelectionComplete(true)
+                                self?.showNextScreen.toggle()
+                                
                             }
                         }
                     }
                 }
-            }
-            .onAppear() {
-                startLoading()
             }
         }
-        func startLoading() {
-            isLoading = true
-            withAnimation(.linear(duration: 1.5).repeatForever()) {
-                self.rotatingAngle = 360.0
-            }
-            rotatingAngle = 360.0
-            trimAmount = 0.4
+    }
+    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
+    }
+}
+
+struct AITransformationLoadingView: View {
+    @State var isPresentedView = false
+    @State var isActive: Bool
+    @State var rotatingAngle: Double = 0.0
+    @State var trimAmount: Double = 0.1
+    var body: some View {
+        VStack {
+            Circle()
+                .trim(from: trimAmount, to: 1)
+                .stroke(
+                    Color.white,
+                    style:
+                        StrokeStyle(lineWidth: 5, lineCap:
+                                .round, lineJoin:
+                                .round, miterLimit:
+                                .infinity, dashPhase: 0))
+                .frame(width: 20, height: 20)
+                .rotationEffect(.degrees(rotatingAngle))
+                .animation(.linear(duration: 1.5).repeatForever(), value: rotatingAngle)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.black)
+        .ignoresSafeArea()
+        .onAppear{
+            self.rotatingAngle = 360.0
+            self.trimAmount = 1
             DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 withAnimation {
-                    isLoading = false
+                    self.isActive = true
+                    isPresentedView.toggle()
                 }
             }
         }
+        .fullScreenCover(isPresented: $isPresentedView) {
+            GiveAccessView()
+        }
+        .background(.black)
+        .ignoresSafeArea()
     }
-    struct AIPhotosImagePicker: UIViewControllerRepresentable {
-        class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-            @Binding var selectedImage: UIImage?
-            init(selectedImage: Binding<UIImage?>) {
-                self._selectedImage = selectedImage
-            }
-            func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-                guard let image = info[.originalImage] as? UIImage else {return}
-                selectedImage = image
-                picker.dismiss(animated: true)
-            }
-        }
-        @Binding var selectedImage: UIImage?
-        
-        func makeCoordinator() -> Coordinator {
-            Coordinator(selectedImage: $selectedImage)
-        }
-         
-        func makeUIViewController(context: Context) ->  UIImagePickerController {
-            let picker = UIImagePickerController()
-            picker.delegate = context.coordinator
-            return picker
-        }
-        
-        func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
-            
-        }
-    }
+}
