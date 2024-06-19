@@ -25,7 +25,7 @@ struct AIPhotosLoadingView: View {
     var body: some View {
         VStack {
             if showLoadingView && selectedImages.count > 0 {
-                AITransformationLoadingView(isActive: true)
+                AITransformationLoadingView(    isActive: true)
                     .opacity(0.3)
             } else {
                 ZStack(alignment: .top) {
