@@ -175,7 +175,6 @@ struct AIPhotosImagePicker: UIViewControllerRepresentable {
         }
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            picker.dismiss(animated: true)
             for result in results {
                 if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
                     result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
@@ -184,8 +183,11 @@ struct AIPhotosImagePicker: UIViewControllerRepresentable {
                         } else if let image = image as? UIImage {
                             self?.selectedImage = image
                             self?.selectedImages.append(Image(uiImage: image))
-                            if self?.selectedImages.count ?? 1 > 0 {
-                                self?.showNextScreen = false
+                            self?.selectedImages.append(Image(uiImage: image))
+                            self?.showNextScreen = true
+                            DispatchQueue.main.async {
+                                let transformAIView = AITransformationLoadingView(isActive: true)
+                            picker.present(UIHostingController(rootView: transformAIView), animated: true)
                             }
                         }
                     }
@@ -230,6 +232,9 @@ struct AITransformationLoadingView: View {
                     isPresentedView.toggle()
                 }
             }
+        }
+        .fullScreenCover(isPresented: $isPresentedView) {
+            TransformedImageView()
         }
         .background(.white)
         .ignoresSafeArea()

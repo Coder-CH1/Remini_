@@ -666,7 +666,7 @@ struct BottomTabHomePageCells: View {
                         .cornerRadius(10)
                 }
                 .fullScreenCover(isPresented: $showNewAIFiltersView) {
-                    AIFiltersView()
+                    AIFiltersLoadingView()
                 }
                 Text("AI Filters")
                     .scaledFont(name: "", size: 15)
@@ -1153,6 +1153,7 @@ struct PickForTwoView: View {
     @State var selectedImage: UIImage?
     @State var showImagePickerView = false
     @State var showSelectGenderView = false
+    @State var showNextScreen = false
     @State var selectedImage1: UIImage?
     @State var selectedImage2: UIImage?
     @State var image: UIImage
@@ -1206,7 +1207,7 @@ struct PickForTwoView: View {
                                     .cornerRadius(25)
                             }
                             .fullScreenCover(isPresented: $showImagePickerView) {
-                                PickForTwoImagePicker(selectedImage: $selectedImage, selectedImages: $selectedImages)
+                                PickForTwoImagePicker(selectedImage: $selectedImage, selectedImages: $selectedImages, showNextScreen: $showNextScreen)
                             }
                         }
                         ) {
@@ -1645,6 +1646,7 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
 struct PickForTwoImagePicker: UIViewControllerRepresentable {
     @Binding var selectedImage: UIImage?
     @Binding var selectedImages: [Image]
+    @Binding var showNextScreen: Bool
     
     func makeUIViewController(context: Context) ->  PHPickerViewController {
         var config = PHPickerConfiguration()
@@ -1656,20 +1658,21 @@ struct PickForTwoImagePicker: UIViewControllerRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(selectedImage: $selectedImage, selectedImages: $selectedImages)
+        Coordinator(selectedImage: $selectedImage, selectedImages: $selectedImages, showNextScreen: $showNextScreen)
     }
     
     class Coordinator: NSObject, PHPickerViewControllerDelegate {
         @Binding var selectedImage: UIImage?
         @Binding var selectedImages: [Image]
+        @Binding var showNextScreen: Bool
         
-        init(selectedImage: Binding<UIImage?>, selectedImages: Binding<[Image]>) {
+        init(selectedImage: Binding<UIImage?>, selectedImages: Binding<[Image]>, showNextScreen: Binding<Bool>) {
             self._selectedImage = selectedImage
             self._selectedImages = selectedImages
+            self._showNextScreen = showNextScreen
         }
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-                picker.dismiss(animated: true)
                 for result in results {
                     if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
                         result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
@@ -1678,6 +1681,10 @@ struct PickForTwoImagePicker: UIViewControllerRepresentable {
                             } else if let image = image as? UIImage {
                                 self?.selectedImage = image
                                 self?.selectedImages.append(Image(uiImage: image))
+                                DispatchQueue.main.async {
+                                    let transformAIView = AITransformationLoadingView(isActive: true)
+                                picker.present(UIHostingController(rootView: transformAIView), animated: true)
+                                }
                             }
                         }
                     }

@@ -9,24 +9,6 @@ import SwiftUI
 import Photos
 import PhotosUI
 
-struct AIFiltersView: View {
-    @State var selectedItems = [PhotosPickerItem]()
-    var body: some View {
-        ZStack {
-            ZStack {
-                AIFiltersLoadingView()
-                
-            }
-        }
-    }
-}
-
-struct AIFiltersView_Previews: PreviewProvider {
-    static var previews: some View {
-        AIFiltersView()
-    }
-}
-
 struct AIFiltersLoadingView: View {
     @State var selectedImages = [Image]()
     @State var selectedItems = [PhotosPickerItem]()
@@ -34,6 +16,7 @@ struct AIFiltersLoadingView: View {
     @State var selectedImage: UIImage? = nil
     @State var showNewView = false
     @State var isLoading = false
+    @State var showNextScreen = false
     @State var rotatingAngle: Double = 0.0
     @State var trimAmount: Double = 0.1
     @Environment(\.presentationMode) var presentationMode
@@ -122,7 +105,7 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
                         }
                     }
                     .fullScreenCover(isPresented: $showImagePickerView) {
-                        AIFiltersImagePicker(selectedImage: $selectedImage, selectedImages: $selectedImages)
+                        AIFiltersImagePicker(selectedImage: $selectedImage, selectedImages: $selectedImages, showNextScreen: $showNextScreen)
                     }
                     .frame(width: UIScreen.main.bounds.width - 100, height: 60)
                     .background(.white)
@@ -170,9 +153,16 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
     }
 }
 
+struct AIFiltersLoadingView_Previews: PreviewProvider {
+    static var previews: some View {
+        AIFiltersLoadingView()
+    }
+}
+
 struct AIFiltersImagePicker: UIViewControllerRepresentable {
     @Binding var selectedImage: UIImage?
     @Binding var selectedImages: [Image]
+    @Binding var showNextScreen: Bool
     
     func makeUIViewController(context: Context) ->  PHPickerViewController {
         var config = PHPickerConfiguration()
@@ -184,20 +174,20 @@ struct AIFiltersImagePicker: UIViewControllerRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(selectedImage: $selectedImage, selectedImages: $selectedImages)
+        Coordinator(selectedImage: $selectedImage, selectedImages: $selectedImages, showNextScreen: $showNextScreen)
     }
     
     class Coordinator: NSObject, PHPickerViewControllerDelegate {
         @Binding var selectedImage: UIImage?
         @Binding var selectedImages: [Image]
-        
-        init(selectedImage: Binding<UIImage?>, selectedImages: Binding<[Image]>) {
+        @Binding var showNextScreen: Bool
+        init(selectedImage: Binding<UIImage?>, selectedImages: Binding<[Image]>, showNextScreen: Binding<Bool>) {
             self._selectedImage = selectedImage
             self._selectedImages = selectedImages
+            self._showNextScreen = showNextScreen
         }
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-                picker.dismiss(animated: true)
                 for result in results {
                     if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
                         result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
@@ -206,6 +196,11 @@ struct AIFiltersImagePicker: UIViewControllerRepresentable {
                             } else if let image = image as? UIImage {
                                 self?.selectedImage = image
                                 self?.selectedImages.append(Image(uiImage: image))
+                                
+                                DispatchQueue.main.async {
+                                    let transformAIView = AITransformationLoadingView(isActive: true)
+                                picker.present(UIHostingController(rootView: transformAIView), animated: true)
+                                }
                             }
                         }
                     }

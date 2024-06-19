@@ -13,6 +13,7 @@ struct ExploreView: View {
     @StateObject var imageDataArray = Data()
     @State var selectedImg: Image
     @State var showNewView = false
+    @State var showNextScreen = false
     let columns = [GridItem(.flexible(), spacing: 10)]
     var body: some View {
         VStack {
@@ -60,6 +61,7 @@ struct ExploreView_Previews: PreviewProvider {
 }
 
 struct ExploreCellView: View {
+    @State var showNextScreen = false
     @State var selectedImg: Image
     @State var selectedItems: PhotosPickerItem?
     var imageData: AppDataModel
@@ -93,7 +95,7 @@ struct ExploreCellView: View {
             }
             .padding(.trailing, 20)
             .fullScreenCover(isPresented: $showImagePickerView) {
-                ExploreImagePicker(selectedImage: $selectedImage, selectedImg: $selectedImg)
+                ExploreImagePicker(selectedImage: $selectedImage, selectedImg: $selectedImg, showNextScreen: $showNextScreen)
             }
             .frame(width: screenSize.width, height: UIScreen.main.bounds.height/8)
             .background(.secondary)
@@ -105,6 +107,7 @@ struct ExploreCellView: View {
 struct ExploreImagePicker: UIViewControllerRepresentable {
     @Binding var selectedImage: UIImage?
     @Binding var selectedImg: Image
+    @Binding var showNextScreen: Bool
     
     func makeUIViewController(context: Context) ->  PHPickerViewController {
         var config = PHPickerConfiguration()
@@ -116,20 +119,21 @@ struct ExploreImagePicker: UIViewControllerRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(selectedImage: $selectedImage, selectedImg: $selectedImg)
+        Coordinator(selectedImage: $selectedImage, selectedImg: $selectedImg, showNextScreen: $showNextScreen)
     }
     
     class Coordinator: NSObject, PHPickerViewControllerDelegate {
         @Binding var selectedImage: UIImage?
         @Binding var selectedImg: Image
+        @Binding var showNextScreen: Bool
         
-        init(selectedImage: Binding<UIImage?>, selectedImg: Binding<Image>) {
+        init(selectedImage: Binding<UIImage?>, selectedImg: Binding<Image>, showNextScreen: Binding<Bool>) {
             self._selectedImage = selectedImage
             self._selectedImg = selectedImg
+            self._showNextScreen = showNextScreen
         }
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-                picker.dismiss(animated: true)
                 for result in results {
                     if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
                         result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
@@ -138,6 +142,10 @@ struct ExploreImagePicker: UIViewControllerRepresentable {
                             } else if let image = image as? UIImage {
                                 self?.selectedImage = image
                                 self?.selectedImg = Image(uiImage: image)
+                                DispatchQueue.main.async {
+                                    let transformAIView = AITransformationLoadingView(isActive: true)
+                                picker.present(UIHostingController(rootView: transformAIView), animated: true)
+                                }
                             }
                         }
                     }
