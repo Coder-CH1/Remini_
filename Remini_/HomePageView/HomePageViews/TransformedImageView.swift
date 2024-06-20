@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import CoreML
+import MLKit
+import MLKitImageLabeling
 import CoreImage
 
 struct TransformedImageView: View {
