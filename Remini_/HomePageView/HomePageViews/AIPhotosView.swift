@@ -145,6 +145,7 @@ struct AIPhotosLoadingView_Previews: PreviewProvider {
             AIPhotosLoadingView(selectedImages: [Image(systemName: "")], selectedCount: Int())
         }
     }
+
 struct AIPhotosImagePicker: UIViewControllerRepresentable {
     @Binding var selectedImage: UIImage?
     @Binding var selectedImages: [Image]
@@ -175,19 +176,26 @@ struct AIPhotosImagePicker: UIViewControllerRepresentable {
         }
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            for result in results {
-                if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
-                    result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
-                        if let error = error {
-                            print("Error loading image: \(error.localizedDescription)")
-                        } else if let image = image as? UIImage {
-                            self?.selectedImage = image
-                            self?.selectedImages.append(Image(uiImage: image))
-                            self?.selectedImages.append(Image(uiImage: image))
-                            self?.showNextScreen = true
-                            DispatchQueue.main.async {
-                                let transformAIView = AITransformationLoadingView(isActive: true)
-                            picker.present(UIHostingController(rootView: transformAIView), animated: true)
+            if results.isEmpty {
+                picker.dismiss(animated: true)
+            } else {
+                for result in results {
+                    if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
+                        result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                            if let error = error {
+                                print("Error loading image: \(error.localizedDescription)")
+                            } else if let image = image as? UIImage {
+            self?.selectedImage = image
+            self?.selectedImages.append(Image(uiImage: image))
+            self?.selectedImages.append(Image(uiImage: image))
+            self?.showNextScreen = true
+            DispatchQueue.main.async {
+                let transformAIView = AITransformationLoadingView(isActive: true)
+                let hosting = UIHostingController(rootView: transformAIView)
+                picker.present(UIHostingController(rootView: transformAIView), animated: true)
+                hosting.modalPresentationStyle = .fullScreen
+                picker.present(hosting, animated: true)
+                                }
                             }
                         }
                     }
@@ -198,6 +206,11 @@ struct AIPhotosImagePicker: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
     }
+    func pickerDidCancel(_ picker: PHPickerViewController) {
+            // Handle cancel action here
+            self.showNextScreen = false // Set this to false or handle as needed
+            picker.dismiss(animated: true)
+        }
 }
 
 struct AITransformationLoadingView: View {
@@ -221,7 +234,7 @@ struct AITransformationLoadingView: View {
                 .animation(.linear(duration: 1.5).repeatForever(), value: rotatingAngle)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.black)
+        .background(.black.opacity(0.7))
         .ignoresSafeArea()
         .onAppear{
             self.rotatingAngle = 360.0

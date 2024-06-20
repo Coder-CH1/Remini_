@@ -1673,17 +1673,25 @@ struct PickForTwoImagePicker: UIViewControllerRepresentable {
         }
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+            if results.isEmpty {
+                picker.dismiss(animated: true)
+            } else {
                 for result in results {
                     if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
                         result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
                             if let error = error {
                                 print("Error loading image: \(error.localizedDescription)")
                             } else if let image = image as? UIImage {
-                                self?.selectedImage = image
-                                self?.selectedImages.append(Image(uiImage: image))
-                                DispatchQueue.main.async {
-                                    let transformAIView = AITransformationLoadingView(isActive: true)
-                                picker.present(UIHostingController(rootView: transformAIView), animated: true)
+            self?.selectedImage = image
+            self?.selectedImages.append(Image(uiImage: image))
+            self?.selectedImages.append(Image(uiImage: image))
+            self?.showNextScreen = true
+            DispatchQueue.main.async {
+                let transformAIView = AITransformationLoadingView(isActive: true)
+                let hosting = UIHostingController(rootView: transformAIView)
+                picker.present(UIHostingController(rootView: transformAIView), animated: true)
+                hosting.modalPresentationStyle = .fullScreen
+                picker.present(hosting, animated: true)
                                 }
                             }
                         }
@@ -1691,6 +1699,7 @@ struct PickForTwoImagePicker: UIViewControllerRepresentable {
                 }
             }
         }
+    }
     func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
     }
 }
