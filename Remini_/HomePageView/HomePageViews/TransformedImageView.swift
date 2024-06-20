@@ -7,8 +7,11 @@
 
 import SwiftUI
 import CoreImage
+import CoreML
 
 struct TransformedImageView: View {
+    @State var selectedImages: [Image] = []
+    @State var selectedImage: UIImage?
     var body: some View {
         VStack {
             HStack {

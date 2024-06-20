@@ -209,7 +209,8 @@ struct AIPhotosImagePicker: UIViewControllerRepresentable {
 }
 
 struct AITransformationLoadingView: View {
-    @State var selectedImages: [UIImage] = []
+    @State var selectedImage: UIImage?
+    @State var selectedImages: [Image] = []
     @State var isPresentedView = false
     @State var isActive: Bool
     @State var rotatingAngle: Double = 0.0

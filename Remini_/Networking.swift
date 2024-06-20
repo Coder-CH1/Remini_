@@ -79,7 +79,3 @@ class DatabaseManager {
         }
     }
 }
-
-func performFaceSwap(targetImageUrl: String, sourceImageUrl: String, completion: @escaping (Data?, Error?) -> Void) {
-    
-}
