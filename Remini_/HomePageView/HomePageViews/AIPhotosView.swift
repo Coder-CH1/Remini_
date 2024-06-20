@@ -206,35 +206,36 @@ struct AIPhotosImagePicker: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
     }
-    func pickerDidCancel(_ picker: PHPickerViewController) {
-            // Handle cancel action here
-            self.showNextScreen = false // Set this to false or handle as needed
-            picker.dismiss(animated: true)
-        }
 }
 
 struct AITransformationLoadingView: View {
+    @State var selectedImages: [UIImage] = []
     @State var isPresentedView = false
     @State var isActive: Bool
     @State var rotatingAngle: Double = 0.0
     @State var trimAmount: Double = 0.1
     var body: some View {
         VStack {
-            Circle()
-                .trim(from: trimAmount, to: 1)
-                .stroke(
-                    Color.white,
-                    style:
-                        StrokeStyle(lineWidth: 5, lineCap:
-                                .round, lineJoin:
-                                .round, miterLimit:
-                                .infinity, dashPhase: 0))
-                .frame(width: 20, height: 20)
-                .rotationEffect(.degrees(rotatingAngle))
-                .animation(.linear(duration: 1.5).repeatForever(), value: rotatingAngle)
+            HStack(alignment: .center, spacing: 20) {
+                Text("Loading...")
+                    .font(.system(size: 30, weight: .bold))
+                    .foregroundColor(.white)
+                Circle()
+                    .trim(from: trimAmount, to: 1)
+                    .stroke(
+                        Color.white,
+                        style:
+                            StrokeStyle(lineWidth: 5, lineCap:
+                                    .round, lineJoin:
+                                    .round, miterLimit:
+                                    .infinity, dashPhase: 0))
+                    .frame(width: 20, height: 20)
+                    .rotationEffect(.degrees(rotatingAngle))
+                    .animation(.linear(duration: 1.5).repeatForever(), value: rotatingAngle)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.black.opacity(0.7))
+        .background(.black)
         .ignoresSafeArea()
         .onAppear{
             self.rotatingAngle = 360.0

@@ -297,7 +297,6 @@
 				041BCF622BFCE61300E0C367 /* Frameworks */,
 				041BCF632BFCE61300E0C367 /* Resources */,
 				2DCF256D8E2B3D7850C3A7B4 /* [CP] Embed Pods Frameworks */,
-				32C27A42B1ED81B67E1E3337 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -336,7 +335,6 @@
 				041BCF7C2BFCE61700E0C367 /* Frameworks */,
 				041BCF7D2BFCE61700E0C367 /* Resources */,
 				08E0B6E8CB075DB025ED0610 /* [CP] Embed Pods Frameworks */,
-				D6CC64A34C184F53A384C931 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -455,23 +453,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Remini_/Pods-Remini_-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		32C27A42B1ED81B67E1E3337 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Remini_/Pods-Remini_-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Remini_/Pods-Remini_-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Remini_/Pods-Remini_-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3A8AAC1FA350F1CADAA415EE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -536,23 +517,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D6CC64A34C184F53A384C931 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
