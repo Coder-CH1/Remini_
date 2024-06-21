@@ -42,7 +42,7 @@ struct SplashView: View {
                     }
                     .background(.black)
                     .ignoresSafeArea()
-            )
+        )
     }
 }
 struct SplashView_Previews: PreviewProvider {

@@ -38,13 +38,12 @@ struct OnboardingView: View {
                                 Image(systemName: "chevron.right")
                                     .foregroundColor(.white)
                                     .padding(.trailing, -40)
-                            
                         }
                     }
                     .frame(width: UIScreen.main.bounds.width - 100, height: 60)
                     .background(Color.black)
                     .cornerRadius(30)
-                }
+                    }
                     .fullScreenCover(isPresented: $isPresentedWelcomeView) {
                         WelcomeView(appImageModel: Data())
                     }
@@ -53,7 +52,7 @@ struct OnboardingView: View {
             )
             .onAppear() {
                 UserDefaults.standard.onboardingScreenShown = true
-            }
+        }
     }
 }
 

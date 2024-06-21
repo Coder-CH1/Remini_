@@ -26,7 +26,6 @@ struct ExploreView: View {
                         Image(systemName: "chevron.down")
                             .font(.system(size: 30, weight: .semibold))
                             .foregroundColor(.white)
-                        
                     }
                 }
                 .padding(.horizontal, -80)

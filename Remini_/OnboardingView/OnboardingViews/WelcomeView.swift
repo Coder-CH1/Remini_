@@ -344,22 +344,21 @@ struct OnboardingLoadingView: View {
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                                         withAnimation {
                                             onboardingState  = true
-                                        }
                                     }
                                 }
-                            
+                            }
                         }
                     }
                     .frame(width: UIScreen.main.bounds.width - 100, height: 60)
                     .background(.black.opacity(0.3))
                     .cornerRadius(30)
-                }
+                    }
                     .fullScreenCover(isPresented: $isPresentedWelcomeView) {
                         FirstImageView()
                     }
                     .padding()
                     .offset(y: -80)
-            )
+        )
     }
 }
 

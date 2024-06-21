@@ -79,7 +79,7 @@ struct YellowToonView: View {
                             .foregroundColor(.black)
                             .fullScreenCover(isPresented: $showAIPhotosView) {
                                 AIPhotosLoadingView(selectedImages: [Image(systemName: "")], selectedCount: Int())
-                            }
+                        }
                     }
                     .frame(width: UIScreen.main.bounds.width/1.2, height: 50)
                     .background(.white)
@@ -100,9 +100,7 @@ struct YellowToonView: View {
                     .foregroundColor(.white)
             }.fullScreenCover(isPresented: $showHomePageView) {
 HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage(), images: [PHAsset](), selectedImage: UIImage(), selectedCellData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}), selected1: UIImage(), selected2: UIImage(), cellsImage: UIImage())
-                }
-            
-            )
+            })
             .fullScreenCover(isPresented: $showAIPhotosView) {
                 AIPhotosLoadingView(selectedImages: [Image(systemName: "")], selectedCount: Int())
             }
@@ -122,11 +120,10 @@ extension View {
             GeometryReader { proxy in
                 Color.clear
                     .preference(key: ViewOffsetKey.self, value: proxy.frame(in: .named("scrollView")).minY)
-            }
+                }
                 .onPreferenceChange(ViewOffsetKey.self) { value in
                     scrollViewOffset.wrappedValue = value
-                }
-        )
+        })
     }
     
     func contentOffsetChanged(scrollViewContentOffset: Binding<CGFloat>) -> some View {
@@ -134,11 +131,10 @@ extension View {
             GeometryReader { proxy in
                 Color.clear
                     .preference(key: ViewOffsetKey.self, value: proxy.frame(in: .named("scrollView")).minY)
-            }
+                }
                 .onPreferenceChange(ViewOffsetKey.self) { value in
                     scrollViewContentOffset.wrappedValue = value
-                }
-        )
+        })
     }
 }
 

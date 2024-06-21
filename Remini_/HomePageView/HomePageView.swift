@@ -250,8 +250,7 @@ struct MiddleHomePageView: View {
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 25)
                                         .stroke(.gray, lineWidth: 2)
-                                )
-                        }
+                        )}
                         .fullScreenCover(isPresented: $showSeeAllSectionOneView) {
                 SeeAllView(selectedData: AppDataModel(image: "", text1: "", text2: "", buttonImage1: "", buttonImage2: "", buttonAction: {}))
                         }
@@ -327,8 +326,7 @@ struct MiddleHomePageView: View {
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 25)
                                         .stroke(.gray, lineWidth: 2)
-                                )
-                        }
+                        )}
                         .fullScreenCover(isPresented: $showYellowToon) {
                             YellowToonView()
                         }
@@ -361,8 +359,7 @@ struct MiddleHomePageView: View {
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 25)
                                         .stroke(.gray, lineWidth: 2)
-                                )
-                        }
+                                )}
                         
                     }) {
                         ScrollView(.horizontal) {
@@ -396,8 +393,7 @@ struct MiddleHomePageView: View {
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 25)
                                         .stroke(.gray, lineWidth: 2)
-                                )
-                        }
+                                )}
                         
                     }) {
                         LazyHGrid(rows: rows) {
@@ -428,8 +424,7 @@ struct MiddleHomePageView: View {
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 25)
                                         .stroke(.gray, lineWidth: 2)
-                                )
-                        }
+                                )}
                         
                     }) {
                         ScrollView(.horizontal) {
@@ -463,8 +458,7 @@ struct MiddleHomePageView: View {
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 25)
                                         .stroke(.gray, lineWidth: 2)
-                                )
-                        }
+                                )}
                         
                     }) {
                         ScrollView(.horizontal) {
@@ -498,8 +492,7 @@ struct MiddleHomePageView: View {
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 25)
                                         .stroke(.gray, lineWidth: 2)
-                                )
-                        }
+                                )}
                         
                     }) {
                         ScrollView(.horizontal) {
@@ -584,8 +577,7 @@ struct ChooseYourGenderBottomSheetView: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 25)
                             .stroke(.gray.opacity(0.3), lineWidth: 2)
-                )
-            }
+            )}
         }
     }
 }
@@ -957,8 +949,7 @@ struct ModalView: View {
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
                                 .stroke(.gray.opacity(0.3), lineWidth: 2)
-                        )
-                    }
+                        )}
                 }
                 .padding(.bottom, 10)
             }
@@ -1397,8 +1388,7 @@ struct FirstSelectGenderView: View {
                 .frame(width: UIScreen.main.bounds.width - 50, height: 60)
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
-                        .stroke(selectedGender == "Female" ? .white : .gray.opacity(0.3), lineWidth: 2)
-                )
+                        .stroke(selectedGender == "Female" ? .white : .gray.opacity(0.3), lineWidth: 2))
                 
                 Button {
                     selectedGender = "Male"
@@ -1411,8 +1401,7 @@ struct FirstSelectGenderView: View {
                 .frame(width: UIScreen.main.bounds.width - 50, height: 60)
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
-                        .stroke(selectedGender == "Male" ? .white : .gray.opacity(0.3), lineWidth: 2)
-                )
+                        .stroke(selectedGender == "Male" ? .white : .gray.opacity(0.3), lineWidth: 2))
     NavigationLink(destination: SecondSelectGenderView(selectedImage1: $selectedImage1, selectedImage2: $selectedImage2, textPerson1: textPerson1, textPerson2: textPerson2), isActive: $showNextView) {
                     Button {
                         selectedGender = "Other"
@@ -1425,8 +1414,7 @@ struct FirstSelectGenderView: View {
                     .frame(width: UIScreen.main.bounds.width - 50, height: 60)
                     .overlay(
                         RoundedRectangle(cornerRadius: 25)
-                            .stroke(selectedGender == "Other" ? .white : .gray.opacity(0.3), lineWidth: 2)
-                    )
+                            .stroke(selectedGender == "Other" ? .white : .gray.opacity(0.3), lineWidth: 2))
                 }
                 .navigationBarBackButtonHidden(true)
                 .navigationBarTitle("")
@@ -1460,7 +1448,6 @@ struct FirstSelectGenderView: View {
         }
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         .background(Color.black.ignoresSafeArea())
-        //}
     }
 }
 
@@ -1527,8 +1514,7 @@ struct SecondSelectGenderView: View {
                 .frame(width: UIScreen.main.bounds.width - 50, height: 60)
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
-                        .stroke(selectedGender == "Female" ? .white : .gray.opacity(0.3), lineWidth: 2)
-                )
+                        .stroke(selectedGender == "Female" ? .white : .gray.opacity(0.3), lineWidth: 2))
                 
                 Button {
                     selectedGender = "Male"
@@ -1542,8 +1528,7 @@ struct SecondSelectGenderView: View {
                 .frame(width: UIScreen.main.bounds.width - 50, height: 60)
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
-                        .stroke(selectedGender == "Male" ? .white : .gray.opacity(0.3), lineWidth: 2)
-                )
+                        .stroke(selectedGender == "Male" ? .white : .gray.opacity(0.3), lineWidth: 2))
                 Button {
                     selectedGender = "Other"
                     isNextButtonEnabled = true
@@ -1556,8 +1541,7 @@ struct SecondSelectGenderView: View {
                 .frame(width: UIScreen.main.bounds.width - 50, height: 60)
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
-                        .stroke(selectedGender == "Other" ? .white : .gray.opacity(0.3), lineWidth: 2)
-                )
+                        .stroke(selectedGender == "Other" ? .white : .gray.opacity(0.3), lineWidth: 2))
             }
             .frame(width: UIScreen.main.bounds.width, height: 300)
             .background(.secondary)
@@ -1599,7 +1583,6 @@ struct SecondSelectGenderView: View {
         }
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         .background(Color.black.ignoresSafeArea())
-        //}
     }
 }
 struct GenderSelectionLoadingView: View {

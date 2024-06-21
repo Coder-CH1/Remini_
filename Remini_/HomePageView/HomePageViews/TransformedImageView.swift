@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CoreImage
-import CoreML
+import CoreGraphics
 
 struct TransformedImageView: View {
     @State var selectedImages: [Image] = []
@@ -30,6 +30,7 @@ struct TransformedImageView: View {
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: UIScreen.main.bounds.width/2, height: 400)
                                 .background(.white)
+                                .cornerRadius(10)
                         }
                     }
                 }

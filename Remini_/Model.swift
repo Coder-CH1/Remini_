@@ -70,5 +70,5 @@ class Data: ObservableObject {
             }),
         AppDataModel(id: UUID(), image: "img6", text1: "AI PHOTOS", text2: "Fix Blurry Photos", buttonImage1: "circle", buttonImage2:  "checkmark.circle.fill", buttonAction: {
             })
-        ]
+    ]
 }
