@@ -2,7 +2,9 @@
   *Technologies:*
 
    - SwiftUi
-   - Core ML
+   - OpenCV
+   - Core Image
+   - Core Foundation 
    - Express JS
    - SQLite
    - URLSession
