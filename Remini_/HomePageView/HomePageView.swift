@@ -1111,7 +1111,7 @@ struct DetailsView: View {
                         Text("Create beautiful wedding pictures of you\n and your better half")
                             .font(.system(size: 12, weight: .regular))
                             .foregroundColor(.white)
-                        NavigationLink(destination: PickForTwoView(selectedImages: [Image(systemName: "")], selectedImage: UIImage(), selectedImage1:selected1 ,selectedImage2: selected2,image: image, images: [PHAsset]()), isActive: $showPickForTwo) {
+                        NavigationLink(destination: PickForTwoView(selectedImages: [Image(systemName: "")], selectedImage: UIImage(), selectedImage1:selected1 ,selectedImage2: selected2,selectedImagesForLazyVGrid: [UIImage](), image: image, images: [PHAsset]()), isActive: $showPickForTwo) {
                             Button {
                                 showPickForTwo.toggle()
                             } label: {
@@ -1147,6 +1147,7 @@ struct PickForTwoView: View {
     @State var showNextScreen = false
     @State var selectedImage1: UIImage?
     @State var selectedImage2: UIImage?
+    @State var selectedImagesForLazyVGrid: [UIImage]
     @State var image: UIImage
     @State var showContinueButton = false
     @State var images: [PHAsset] = []
@@ -1678,6 +1679,55 @@ struct PickForTwoImagePicker: UIViewControllerRepresentable {
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
+    }
+}
+
+struct PickForTwoLazyVGridImagePicker: UIViewControllerRepresentable {
+    @Binding var selectedImage: UIImage?
+    @Binding var selectedImages: [Image]
+    @Binding var showNextScreen: Bool
+    
+    func makeUIViewController(context: Context) ->  PHPickerViewController {
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 0
+        config.filter = .images
+        let picker = PHPickerViewController(configuration: config)
+        picker.delegate = context.coordinator
+        return picker
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(selectedImage: $selectedImage, selectedImages: $selectedImages, showNextScreen: $showNextScreen, parent: PickForTwoView(selectedImages: [Image(systemName: "")], selectedImagesForLazyVGrid: [UIImage](), image: UIImage()))
+    }
+    
+    class Coordinator: NSObject, PHPickerViewControllerDelegate {
+        @Binding var selectedImage: UIImage?
+        @Binding var selectedImages: [Image]
+        @Binding var showNextScreen: Bool
+        var parent: PickForTwoView
+        
+        init(selectedImage: Binding<UIImage?>, selectedImages: Binding<[Image]>, showNextScreen: Binding<Bool>, parent: PickForTwoView) {
+            self._selectedImage = selectedImage
+            self._selectedImages = selectedImages
+            self._showNextScreen = showNextScreen
+            self.parent = parent
+        }
+        
+        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+            for result in results {
+                result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] result, error in
+                    if let error = error {
+                        print("\(error.localizedDescription)")
+                    } else if let image = result as? UIImage {
+                        self?.selectedImage = image
+                        self?.selectedImages.append(Image(uiImage: image))
+                        //self?.parent.upd
                     }
                 }
             }
