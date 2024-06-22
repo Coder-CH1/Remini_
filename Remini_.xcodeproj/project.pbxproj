@@ -19,6 +19,19 @@
 		041BCF932BFCE68100E0C367 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF922BFCE68100E0C367 /* SplashView.swift */; };
 		044030AD2C03F627008FE57A /* FirstImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0333C2BFF5A4A008B8D0D /* FirstImageView.swift */; };
 		044030AE2C03F627008FE57A /* FirstImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0333C2BFF5A4A008B8D0D /* FirstImageView.swift */; };
+		0458C48E2C26776C00E019CF /* iOS.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4802C26776B00E019CF /* iOS.cmake */; };
+		0458C48F2C26776C00E019CF /* Toolchain-Catalyst_Xcode.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4822C26776B00E019CF /* Toolchain-Catalyst_Xcode.cmake */; };
+		0458C4902C26776C00E019CF /* Toolchain-iPhoneSimulator_Xcode.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4832C26776B00E019CF /* Toolchain-iPhoneSimulator_Xcode.cmake */; };
+		0458C4912C26776C00E019CF /* common-ios-toolchain.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4842C26776B00E019CF /* common-ios-toolchain.cmake */; };
+		0458C4922C26776C00E019CF /* xcodebuild_wrapper.in in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4852C26776B00E019CF /* xcodebuild_wrapper.in */; };
+		0458C4932C26776C00E019CF /* Toolchain-iPhoneOS_Xcode.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4862C26776B00E019CF /* Toolchain-iPhoneOS_Xcode.cmake */; };
+		0458C4942C26776C00E019CF /* run_tests.py in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4872C26776B00E019CF /* run_tests.py */; };
+		0458C4952C26776C00E019CF /* Info.Dynamic.plist.in in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4882C26776B00E019CF /* Info.Dynamic.plist.in */; };
+		0458C4962C26776C00E019CF /* build_docs.py in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4892C26776B00E019CF /* build_docs.py */; };
+		0458C4972C26776C00E019CF /* __init__.py in Resources */ = {isa = PBXBuildFile; fileRef = 0458C48A2C26776B00E019CF /* __init__.py */; };
+		0458C4982C26776C00E019CF /* build_framework.py in Resources */ = {isa = PBXBuildFile; fileRef = 0458C48B2C26776B00E019CF /* build_framework.py */; };
+		0458C4992C26776C00E019CF /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0458C48C2C26776B00E019CF /* readme.txt */; };
+		0458C49A2C26776C00E019CF /* Info.plist.in in Resources */ = {isa = PBXBuildFile; fileRef = 0458C48D2C26776B00E019CF /* Info.plist.in */; };
 		045CFDB82C0A163300424A28 /* YellowToonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045CFDB72C0A163300424A28 /* YellowToonView.swift */; };
 		04756E5F2C054E86008B1F9B /* PromoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04756E5E2C054E86008B1F9B /* PromoView.swift */; };
 		04A033292BFD29C8008B8D0D /* ViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A033282BFD29C8008B8D0D /* ViewCoordinator.swift */; };
@@ -14341,6 +14354,19 @@
 		041BCF832BFCE61700E0C367 /* Remini_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remini_UITests.swift; sourceTree = "<group>"; };
 		041BCF852BFCE61700E0C367 /* Remini_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remini_UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		041BCF922BFCE68100E0C367 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		0458C4802C26776B00E019CF /* iOS.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iOS.cmake; sourceTree = "<group>"; };
+		0458C4822C26776B00E019CF /* Toolchain-Catalyst_Xcode.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Toolchain-Catalyst_Xcode.cmake"; sourceTree = "<group>"; };
+		0458C4832C26776B00E019CF /* Toolchain-iPhoneSimulator_Xcode.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Toolchain-iPhoneSimulator_Xcode.cmake"; sourceTree = "<group>"; };
+		0458C4842C26776B00E019CF /* common-ios-toolchain.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "common-ios-toolchain.cmake"; sourceTree = "<group>"; };
+		0458C4852C26776B00E019CF /* xcodebuild_wrapper.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = xcodebuild_wrapper.in; sourceTree = "<group>"; };
+		0458C4862C26776B00E019CF /* Toolchain-iPhoneOS_Xcode.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Toolchain-iPhoneOS_Xcode.cmake"; sourceTree = "<group>"; };
+		0458C4872C26776B00E019CF /* run_tests.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = run_tests.py; sourceTree = "<group>"; };
+		0458C4882C26776B00E019CF /* Info.Dynamic.plist.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.Dynamic.plist.in; sourceTree = "<group>"; };
+		0458C4892C26776B00E019CF /* build_docs.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = build_docs.py; sourceTree = "<group>"; };
+		0458C48A2C26776B00E019CF /* __init__.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		0458C48B2C26776B00E019CF /* build_framework.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = build_framework.py; sourceTree = "<group>"; };
+		0458C48C2C26776B00E019CF /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		0458C48D2C26776B00E019CF /* Info.plist.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.plist.in; sourceTree = "<group>"; };
 		045CFDB72C0A163300424A28 /* YellowToonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowToonView.swift; sourceTree = "<group>"; };
 		04756E5E2C054E86008B1F9B /* PromoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoView.swift; sourceTree = "<group>"; };
 		04A033252BFCF998008B8D0D /* Remini--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Remini--Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -53479,6 +53505,7 @@
 		041BCF672BFCE61300E0C367 /* Remini_ */ = {
 			isa = PBXGroup;
 			children = (
+				0458C47C2C26776B00E019CF /* ios */,
 				04A0332A2BFD85B8008B8D0D /* onboardingImg.mp4 */,
 				04A033252BFCF998008B8D0D /* Remini--Info.plist */,
 				041BCF682BFCE61300E0C367 /* Remini_App.swift */,
@@ -53585,6 +53612,58 @@
 				04B52C722C209850003C75B6 /* TransformedImageView.swift */,
 			);
 			path = HomePageViews;
+			sourceTree = "<group>";
+		};
+		0458C47C2C26776B00E019CF /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				0458C47D2C26776B00E019CF /* cmake */,
+				0458C4872C26776B00E019CF /* run_tests.py */,
+				0458C4882C26776B00E019CF /* Info.Dynamic.plist.in */,
+				0458C4892C26776B00E019CF /* build_docs.py */,
+				0458C48A2C26776B00E019CF /* __init__.py */,
+				0458C48B2C26776B00E019CF /* build_framework.py */,
+				0458C48C2C26776B00E019CF /* readme.txt */,
+				0458C48D2C26776B00E019CF /* Info.plist.in */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		0458C47D2C26776B00E019CF /* cmake */ = {
+			isa = PBXGroup;
+			children = (
+				0458C47E2C26776B00E019CF /* Modules */,
+				0458C4812C26776B00E019CF /* Toolchains */,
+			);
+			path = cmake;
+			sourceTree = "<group>";
+		};
+		0458C47E2C26776B00E019CF /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				0458C47F2C26776B00E019CF /* Platform */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		0458C47F2C26776B00E019CF /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				0458C4802C26776B00E019CF /* iOS.cmake */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		0458C4812C26776B00E019CF /* Toolchains */ = {
+			isa = PBXGroup;
+			children = (
+				0458C4822C26776B00E019CF /* Toolchain-Catalyst_Xcode.cmake */,
+				0458C4832C26776B00E019CF /* Toolchain-iPhoneSimulator_Xcode.cmake */,
+				0458C4842C26776B00E019CF /* common-ios-toolchain.cmake */,
+				0458C4852C26776B00E019CF /* xcodebuild_wrapper.in */,
+				0458C4862C26776B00E019CF /* Toolchain-iPhoneOS_Xcode.cmake */,
+			);
+			path = Toolchains;
 			sourceTree = "<group>";
 		};
 		1ECF6976A4F9814D639CED5B /* Pods */ = {
@@ -53815,9 +53894,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0458C4992C26776C00E019CF /* readme.txt in Resources */,
+				0458C4932C26776C00E019CF /* Toolchain-iPhoneOS_Xcode.cmake in Resources */,
+				0458C4972C26776C00E019CF /* __init__.py in Resources */,
 				04A0332B2BFD85B9008B8D0D /* onboardingImg.mp4 in Resources */,
+				0458C4912C26776C00E019CF /* common-ios-toolchain.cmake in Resources */,
+				0458C48F2C26776C00E019CF /* Toolchain-Catalyst_Xcode.cmake in Resources */,
+				0458C4962C26776C00E019CF /* build_docs.py in Resources */,
 				041BCF702BFCE61700E0C367 /* Preview Assets.xcassets in Resources */,
+				0458C49A2C26776C00E019CF /* Info.plist.in in Resources */,
 				041BCF6D2BFCE61700E0C367 /* Assets.xcassets in Resources */,
+				0458C4982C26776C00E019CF /* build_framework.py in Resources */,
+				0458C4952C26776C00E019CF /* Info.Dynamic.plist.in in Resources */,
+				0458C4922C26776C00E019CF /* xcodebuild_wrapper.in in Resources */,
+				0458C48E2C26776C00E019CF /* iOS.cmake in Resources */,
+				0458C4942C26776C00E019CF /* run_tests.py in Resources */,
+				0458C4902C26776C00E019CF /* Toolchain-iPhoneSimulator_Xcode.cmake in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
