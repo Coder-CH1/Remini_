@@ -9,6 +9,52 @@
 /* Begin PBXBuildFile section */
 		040E4FD72C1288B1009FF842 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E4FD62C1288B1009FF842 /* Networking.swift */; };
 		04110AB62C260C4100D071A5 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04110AB52C260C4100D071A5 /* CustomFont.swift */; };
+		041945C82C26B16A00A3DA35 /* Pods_Remini_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041945C72C26B16A00A3DA35 /* Pods_Remini_.framework */; };
+		041945FA2C26B23900A3DA35 /* iOS.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 041945EC2C26B23900A3DA35 /* iOS.cmake */; };
+		041945FB2C26B23900A3DA35 /* iOS.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 041945EC2C26B23900A3DA35 /* iOS.cmake */; };
+		041945FC2C26B23900A3DA35 /* iOS.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 041945EC2C26B23900A3DA35 /* iOS.cmake */; };
+		041945FD2C26B23900A3DA35 /* Toolchain-Catalyst_Xcode.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 041945EE2C26B23900A3DA35 /* Toolchain-Catalyst_Xcode.cmake */; };
+		041945FE2C26B23900A3DA35 /* Toolchain-Catalyst_Xcode.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 041945EE2C26B23900A3DA35 /* Toolchain-Catalyst_Xcode.cmake */; };
+		041945FF2C26B23900A3DA35 /* Toolchain-Catalyst_Xcode.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 041945EE2C26B23900A3DA35 /* Toolchain-Catalyst_Xcode.cmake */; };
+		041946002C26B23900A3DA35 /* Toolchain-iPhoneSimulator_Xcode.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 041945EF2C26B23900A3DA35 /* Toolchain-iPhoneSimulator_Xcode.cmake */; };
+		041946012C26B23900A3DA35 /* Toolchain-iPhoneSimulator_Xcode.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 041945EF2C26B23900A3DA35 /* Toolchain-iPhoneSimulator_Xcode.cmake */; };
+		041946022C26B23900A3DA35 /* Toolchain-iPhoneSimulator_Xcode.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 041945EF2C26B23900A3DA35 /* Toolchain-iPhoneSimulator_Xcode.cmake */; };
+		041946032C26B23900A3DA35 /* common-ios-toolchain.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 041945F02C26B23900A3DA35 /* common-ios-toolchain.cmake */; };
+		041946042C26B23900A3DA35 /* common-ios-toolchain.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 041945F02C26B23900A3DA35 /* common-ios-toolchain.cmake */; };
+		041946052C26B23900A3DA35 /* common-ios-toolchain.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 041945F02C26B23900A3DA35 /* common-ios-toolchain.cmake */; };
+		041946062C26B23900A3DA35 /* xcodebuild_wrapper.in in Resources */ = {isa = PBXBuildFile; fileRef = 041945F12C26B23900A3DA35 /* xcodebuild_wrapper.in */; };
+		041946072C26B23900A3DA35 /* xcodebuild_wrapper.in in Resources */ = {isa = PBXBuildFile; fileRef = 041945F12C26B23900A3DA35 /* xcodebuild_wrapper.in */; };
+		041946082C26B23900A3DA35 /* xcodebuild_wrapper.in in Resources */ = {isa = PBXBuildFile; fileRef = 041945F12C26B23900A3DA35 /* xcodebuild_wrapper.in */; };
+		041946092C26B23900A3DA35 /* Toolchain-iPhoneOS_Xcode.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 041945F22C26B23900A3DA35 /* Toolchain-iPhoneOS_Xcode.cmake */; };
+		0419460A2C26B23900A3DA35 /* Toolchain-iPhoneOS_Xcode.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 041945F22C26B23900A3DA35 /* Toolchain-iPhoneOS_Xcode.cmake */; };
+		0419460B2C26B23900A3DA35 /* Toolchain-iPhoneOS_Xcode.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 041945F22C26B23900A3DA35 /* Toolchain-iPhoneOS_Xcode.cmake */; };
+		0419460C2C26B23900A3DA35 /* run_tests.py in Resources */ = {isa = PBXBuildFile; fileRef = 041945F32C26B23900A3DA35 /* run_tests.py */; };
+		0419460D2C26B23900A3DA35 /* run_tests.py in Resources */ = {isa = PBXBuildFile; fileRef = 041945F32C26B23900A3DA35 /* run_tests.py */; };
+		0419460E2C26B23900A3DA35 /* run_tests.py in Resources */ = {isa = PBXBuildFile; fileRef = 041945F32C26B23900A3DA35 /* run_tests.py */; };
+		0419460F2C26B23900A3DA35 /* Info.Dynamic.plist.in in Resources */ = {isa = PBXBuildFile; fileRef = 041945F42C26B23900A3DA35 /* Info.Dynamic.plist.in */; };
+		041946102C26B23900A3DA35 /* Info.Dynamic.plist.in in Resources */ = {isa = PBXBuildFile; fileRef = 041945F42C26B23900A3DA35 /* Info.Dynamic.plist.in */; };
+		041946112C26B23900A3DA35 /* Info.Dynamic.plist.in in Resources */ = {isa = PBXBuildFile; fileRef = 041945F42C26B23900A3DA35 /* Info.Dynamic.plist.in */; };
+		041946122C26B23900A3DA35 /* build_docs.py in Resources */ = {isa = PBXBuildFile; fileRef = 041945F52C26B23900A3DA35 /* build_docs.py */; };
+		041946132C26B23900A3DA35 /* build_docs.py in Resources */ = {isa = PBXBuildFile; fileRef = 041945F52C26B23900A3DA35 /* build_docs.py */; };
+		041946142C26B23900A3DA35 /* build_docs.py in Resources */ = {isa = PBXBuildFile; fileRef = 041945F52C26B23900A3DA35 /* build_docs.py */; };
+		041946152C26B23900A3DA35 /* __init__.py in Resources */ = {isa = PBXBuildFile; fileRef = 041945F62C26B23900A3DA35 /* __init__.py */; };
+		041946162C26B23900A3DA35 /* __init__.py in Resources */ = {isa = PBXBuildFile; fileRef = 041945F62C26B23900A3DA35 /* __init__.py */; };
+		041946172C26B23900A3DA35 /* __init__.py in Resources */ = {isa = PBXBuildFile; fileRef = 041945F62C26B23900A3DA35 /* __init__.py */; };
+		041946182C26B23900A3DA35 /* build_framework.py in Resources */ = {isa = PBXBuildFile; fileRef = 041945F72C26B23900A3DA35 /* build_framework.py */; };
+		041946192C26B23900A3DA35 /* build_framework.py in Resources */ = {isa = PBXBuildFile; fileRef = 041945F72C26B23900A3DA35 /* build_framework.py */; };
+		0419461A2C26B23900A3DA35 /* build_framework.py in Resources */ = {isa = PBXBuildFile; fileRef = 041945F72C26B23900A3DA35 /* build_framework.py */; };
+		0419461B2C26B23900A3DA35 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 041945F82C26B23900A3DA35 /* readme.txt */; };
+		0419461C2C26B23900A3DA35 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 041945F82C26B23900A3DA35 /* readme.txt */; };
+		0419461D2C26B23900A3DA35 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 041945F82C26B23900A3DA35 /* readme.txt */; };
+		0419461E2C26B23900A3DA35 /* Info.plist.in in Resources */ = {isa = PBXBuildFile; fileRef = 041945F92C26B23900A3DA35 /* Info.plist.in */; };
+		0419461F2C26B23900A3DA35 /* Info.plist.in in Resources */ = {isa = PBXBuildFile; fileRef = 041945F92C26B23900A3DA35 /* Info.plist.in */; };
+		041946202C26B23900A3DA35 /* Info.plist.in in Resources */ = {isa = PBXBuildFile; fileRef = 041945F92C26B23900A3DA35 /* Info.plist.in */; };
+		041946212C26B27900A3DA35 /* build_framework.py in Frameworks */ = {isa = PBXBuildFile; fileRef = 0458C49F2C26ADE300E019CF /* build_framework.py */; };
+		041946232C26B31000A3DA35 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041946222C26B31000A3DA35 /* AssetsLibrary.framework */; };
+		041946252C26B32600A3DA35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041946242C26B32500A3DA35 /* CoreGraphics.framework */; };
+		041946272C26B33800A3DA35 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041946262C26B33700A3DA35 /* CoreMedia.framework */; };
+		041946292C26B34400A3DA35 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041946282C26B34300A3DA35 /* CoreFoundation.framework */; };
+		0419462B2C26B34D00A3DA35 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0419462A2C26B34D00A3DA35 /* Accelerate.framework */; };
 		041BCF692BFCE61300E0C367 /* Remini_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF682BFCE61300E0C367 /* Remini_App.swift */; };
 		041BCF6B2BFCE61300E0C367 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF6A2BFCE61300E0C367 /* OnboardingView.swift */; };
 		041BCF6D2BFCE61700E0C367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041BCF6C2BFCE61700E0C367 /* Assets.xcassets */; };
@@ -19,19 +65,6 @@
 		041BCF932BFCE68100E0C367 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF922BFCE68100E0C367 /* SplashView.swift */; };
 		044030AD2C03F627008FE57A /* FirstImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0333C2BFF5A4A008B8D0D /* FirstImageView.swift */; };
 		044030AE2C03F627008FE57A /* FirstImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0333C2BFF5A4A008B8D0D /* FirstImageView.swift */; };
-		0458C48E2C26776C00E019CF /* iOS.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4802C26776B00E019CF /* iOS.cmake */; };
-		0458C48F2C26776C00E019CF /* Toolchain-Catalyst_Xcode.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4822C26776B00E019CF /* Toolchain-Catalyst_Xcode.cmake */; };
-		0458C4902C26776C00E019CF /* Toolchain-iPhoneSimulator_Xcode.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4832C26776B00E019CF /* Toolchain-iPhoneSimulator_Xcode.cmake */; };
-		0458C4912C26776C00E019CF /* common-ios-toolchain.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4842C26776B00E019CF /* common-ios-toolchain.cmake */; };
-		0458C4922C26776C00E019CF /* xcodebuild_wrapper.in in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4852C26776B00E019CF /* xcodebuild_wrapper.in */; };
-		0458C4932C26776C00E019CF /* Toolchain-iPhoneOS_Xcode.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4862C26776B00E019CF /* Toolchain-iPhoneOS_Xcode.cmake */; };
-		0458C4942C26776C00E019CF /* run_tests.py in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4872C26776B00E019CF /* run_tests.py */; };
-		0458C4952C26776C00E019CF /* Info.Dynamic.plist.in in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4882C26776B00E019CF /* Info.Dynamic.plist.in */; };
-		0458C4962C26776C00E019CF /* build_docs.py in Resources */ = {isa = PBXBuildFile; fileRef = 0458C4892C26776B00E019CF /* build_docs.py */; };
-		0458C4972C26776C00E019CF /* __init__.py in Resources */ = {isa = PBXBuildFile; fileRef = 0458C48A2C26776B00E019CF /* __init__.py */; };
-		0458C4982C26776C00E019CF /* build_framework.py in Resources */ = {isa = PBXBuildFile; fileRef = 0458C48B2C26776B00E019CF /* build_framework.py */; };
-		0458C4992C26776C00E019CF /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0458C48C2C26776B00E019CF /* readme.txt */; };
-		0458C49A2C26776C00E019CF /* Info.plist.in in Resources */ = {isa = PBXBuildFile; fileRef = 0458C48D2C26776B00E019CF /* Info.plist.in */; };
 		045CFDB82C0A163300424A28 /* YellowToonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045CFDB72C0A163300424A28 /* YellowToonView.swift */; };
 		04756E5F2C054E86008B1F9B /* PromoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04756E5E2C054E86008B1F9B /* PromoView.swift */; };
 		04A033292BFD29C8008B8D0D /* ViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A033282BFD29C8008B8D0D /* ViewCoordinator.swift */; };
@@ -49,11 +82,11 @@
 		04A033492C01F561008B8D0D /* AIPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A033482C01F561008B8D0D /* AIPhotosView.swift */; };
 		04A0334B2C01F598008B8D0D /* AIFiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0334A2C01F598008B8D0D /* AIFiltersView.swift */; };
 		04A0334D2C01F5BB008B8D0D /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0334C2C01F5BB008B8D0D /* ExploreView.swift */; };
+		04A50C122C26C157006C5CC2 /* OpenCVWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A50C112C26C157006C5CC2 /* OpenCVWrapper.swift */; };
 		04B52C732C209850003C75B6 /* TransformedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B52C722C209850003C75B6 /* TransformedImageView.swift */; };
 		04B5A06E2C0911DE000DA55A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A06D2C0911DE000DA55A /* Model.swift */; };
 		A34321E135AEAFF843116D31 /* Pods_Remini_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C53656B1A5B83CA3D8EDA2 /* Pods_Remini_Tests.framework */; };
 		C75525284E742E55F7802092 /* Pods_Remini__Remini_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2F36E454B18E71468CAFE1 /* Pods_Remini__Remini_UITests.framework */; };
-		E786A616AF7CED39CC565D4F /* Pods_Remini_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D2052ED94B7195DD3D08F4 /* Pods_Remini_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -14343,6 +14376,26 @@
 		0411FFFB2C25AC6E00D071A5 /* test_gaussian_mix.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = test_gaussian_mix.py; sourceTree = "<group>"; };
 		0411FFFD2C25AC6E00D071A5 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		0411FFFF2C25AC6E00D071A5 /* pycompat.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = pycompat.hpp; sourceTree = "<group>"; };
+		041945C52C26B14E00A3DA35 /* BottomSheetSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BottomSheetSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		041945C72C26B16A00A3DA35 /* Pods_Remini_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Remini_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		041945EC2C26B23900A3DA35 /* iOS.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iOS.cmake; sourceTree = "<group>"; };
+		041945EE2C26B23900A3DA35 /* Toolchain-Catalyst_Xcode.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Toolchain-Catalyst_Xcode.cmake"; sourceTree = "<group>"; };
+		041945EF2C26B23900A3DA35 /* Toolchain-iPhoneSimulator_Xcode.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Toolchain-iPhoneSimulator_Xcode.cmake"; sourceTree = "<group>"; };
+		041945F02C26B23900A3DA35 /* common-ios-toolchain.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "common-ios-toolchain.cmake"; sourceTree = "<group>"; };
+		041945F12C26B23900A3DA35 /* xcodebuild_wrapper.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = xcodebuild_wrapper.in; sourceTree = "<group>"; };
+		041945F22C26B23900A3DA35 /* Toolchain-iPhoneOS_Xcode.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Toolchain-iPhoneOS_Xcode.cmake"; sourceTree = "<group>"; };
+		041945F32C26B23900A3DA35 /* run_tests.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = run_tests.py; sourceTree = "<group>"; };
+		041945F42C26B23900A3DA35 /* Info.Dynamic.plist.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.Dynamic.plist.in; sourceTree = "<group>"; };
+		041945F52C26B23900A3DA35 /* build_docs.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = build_docs.py; sourceTree = "<group>"; };
+		041945F62C26B23900A3DA35 /* __init__.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		041945F72C26B23900A3DA35 /* build_framework.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = build_framework.py; sourceTree = "<group>"; };
+		041945F82C26B23900A3DA35 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		041945F92C26B23900A3DA35 /* Info.plist.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.plist.in; sourceTree = "<group>"; };
+		041946222C26B31000A3DA35 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		041946242C26B32500A3DA35 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		041946262C26B33700A3DA35 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		041946282C26B34300A3DA35 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		0419462A2C26B34D00A3DA35 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		041BCF652BFCE61300E0C367 /* Remini_.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remini_.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		041BCF682BFCE61300E0C367 /* Remini_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remini_App.swift; sourceTree = "<group>"; };
 		041BCF6A2BFCE61300E0C367 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -14354,19 +14407,7 @@
 		041BCF832BFCE61700E0C367 /* Remini_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remini_UITests.swift; sourceTree = "<group>"; };
 		041BCF852BFCE61700E0C367 /* Remini_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remini_UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		041BCF922BFCE68100E0C367 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
-		0458C4802C26776B00E019CF /* iOS.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iOS.cmake; sourceTree = "<group>"; };
-		0458C4822C26776B00E019CF /* Toolchain-Catalyst_Xcode.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Toolchain-Catalyst_Xcode.cmake"; sourceTree = "<group>"; };
-		0458C4832C26776B00E019CF /* Toolchain-iPhoneSimulator_Xcode.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Toolchain-iPhoneSimulator_Xcode.cmake"; sourceTree = "<group>"; };
-		0458C4842C26776B00E019CF /* common-ios-toolchain.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "common-ios-toolchain.cmake"; sourceTree = "<group>"; };
-		0458C4852C26776B00E019CF /* xcodebuild_wrapper.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = xcodebuild_wrapper.in; sourceTree = "<group>"; };
-		0458C4862C26776B00E019CF /* Toolchain-iPhoneOS_Xcode.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Toolchain-iPhoneOS_Xcode.cmake"; sourceTree = "<group>"; };
-		0458C4872C26776B00E019CF /* run_tests.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = run_tests.py; sourceTree = "<group>"; };
-		0458C4882C26776B00E019CF /* Info.Dynamic.plist.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.Dynamic.plist.in; sourceTree = "<group>"; };
-		0458C4892C26776B00E019CF /* build_docs.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = build_docs.py; sourceTree = "<group>"; };
-		0458C48A2C26776B00E019CF /* __init__.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
-		0458C48B2C26776B00E019CF /* build_framework.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = build_framework.py; sourceTree = "<group>"; };
-		0458C48C2C26776B00E019CF /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
-		0458C48D2C26776B00E019CF /* Info.plist.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.plist.in; sourceTree = "<group>"; };
+		0458C49F2C26ADE300E019CF /* build_framework.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = build_framework.py; path = "../../Downloads/opencv-4.8.0 2/platforms/ios/build_framework.py"; sourceTree = "<group>"; };
 		045CFDB72C0A163300424A28 /* YellowToonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowToonView.swift; sourceTree = "<group>"; };
 		04756E5E2C054E86008B1F9B /* PromoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoView.swift; sourceTree = "<group>"; };
 		04A033252BFCF998008B8D0D /* Remini--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Remini--Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -14381,6 +14422,7 @@
 		04A033482C01F561008B8D0D /* AIPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPhotosView.swift; sourceTree = "<group>"; };
 		04A0334A2C01F598008B8D0D /* AIFiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFiltersView.swift; sourceTree = "<group>"; };
 		04A0334C2C01F5BB008B8D0D /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		04A50C112C26C157006C5CC2 /* OpenCVWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCVWrapper.swift; sourceTree = "<group>"; };
 		04B52C722C209850003C75B6 /* TransformedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformedImageView.swift; sourceTree = "<group>"; };
 		04B5A06D2C0911DE000DA55A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		05D2052ED94B7195DD3D08F4 /* Pods_Remini_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Remini_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -14399,7 +14441,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E786A616AF7CED39CC565D4F /* Pods_Remini_.framework in Frameworks */,
+				0419462B2C26B34D00A3DA35 /* Accelerate.framework in Frameworks */,
+				041946292C26B34400A3DA35 /* CoreFoundation.framework in Frameworks */,
+				041946272C26B33800A3DA35 /* CoreMedia.framework in Frameworks */,
+				041946252C26B32600A3DA35 /* CoreGraphics.framework in Frameworks */,
+				041946232C26B31000A3DA35 /* AssetsLibrary.framework in Frameworks */,
+				041946212C26B27900A3DA35 /* build_framework.py in Frameworks */,
+				041945C82C26B16A00A3DA35 /* Pods_Remini_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53480,6 +53528,58 @@
 			path = src2;
 			sourceTree = "<group>";
 		};
+		041945E82C26B23900A3DA35 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				041945E92C26B23900A3DA35 /* cmake */,
+				041945F32C26B23900A3DA35 /* run_tests.py */,
+				041945F42C26B23900A3DA35 /* Info.Dynamic.plist.in */,
+				041945F52C26B23900A3DA35 /* build_docs.py */,
+				041945F62C26B23900A3DA35 /* __init__.py */,
+				041945F72C26B23900A3DA35 /* build_framework.py */,
+				041945F82C26B23900A3DA35 /* readme.txt */,
+				041945F92C26B23900A3DA35 /* Info.plist.in */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		041945E92C26B23900A3DA35 /* cmake */ = {
+			isa = PBXGroup;
+			children = (
+				041945EA2C26B23900A3DA35 /* Modules */,
+				041945ED2C26B23900A3DA35 /* Toolchains */,
+			);
+			path = cmake;
+			sourceTree = "<group>";
+		};
+		041945EA2C26B23900A3DA35 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				041945EB2C26B23900A3DA35 /* Platform */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		041945EB2C26B23900A3DA35 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				041945EC2C26B23900A3DA35 /* iOS.cmake */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		041945ED2C26B23900A3DA35 /* Toolchains */ = {
+			isa = PBXGroup;
+			children = (
+				041945EE2C26B23900A3DA35 /* Toolchain-Catalyst_Xcode.cmake */,
+				041945EF2C26B23900A3DA35 /* Toolchain-iPhoneSimulator_Xcode.cmake */,
+				041945F02C26B23900A3DA35 /* common-ios-toolchain.cmake */,
+				041945F12C26B23900A3DA35 /* xcodebuild_wrapper.in */,
+				041945F22C26B23900A3DA35 /* Toolchain-iPhoneOS_Xcode.cmake */,
+			);
+			path = Toolchains;
+			sourceTree = "<group>";
+		};
 		041BCF5C2BFCE61300E0C367 = {
 			isa = PBXGroup;
 			children = (
@@ -53505,7 +53605,8 @@
 		041BCF672BFCE61300E0C367 /* Remini_ */ = {
 			isa = PBXGroup;
 			children = (
-				0458C47C2C26776B00E019CF /* ios */,
+				04A50C102C26C12D006C5CC2 /* OpenCVClass */,
+				041945E82C26B23900A3DA35 /* ios */,
 				04A0332A2BFD85B8008B8D0D /* onboardingImg.mp4 */,
 				04A033252BFCF998008B8D0D /* Remini--Info.plist */,
 				041BCF682BFCE61300E0C367 /* Remini_App.swift */,
@@ -53614,56 +53715,12 @@
 			path = HomePageViews;
 			sourceTree = "<group>";
 		};
-		0458C47C2C26776B00E019CF /* ios */ = {
+		04A50C102C26C12D006C5CC2 /* OpenCVClass */ = {
 			isa = PBXGroup;
 			children = (
-				0458C47D2C26776B00E019CF /* cmake */,
-				0458C4872C26776B00E019CF /* run_tests.py */,
-				0458C4882C26776B00E019CF /* Info.Dynamic.plist.in */,
-				0458C4892C26776B00E019CF /* build_docs.py */,
-				0458C48A2C26776B00E019CF /* __init__.py */,
-				0458C48B2C26776B00E019CF /* build_framework.py */,
-				0458C48C2C26776B00E019CF /* readme.txt */,
-				0458C48D2C26776B00E019CF /* Info.plist.in */,
+				04A50C112C26C157006C5CC2 /* OpenCVWrapper.swift */,
 			);
-			path = ios;
-			sourceTree = "<group>";
-		};
-		0458C47D2C26776B00E019CF /* cmake */ = {
-			isa = PBXGroup;
-			children = (
-				0458C47E2C26776B00E019CF /* Modules */,
-				0458C4812C26776B00E019CF /* Toolchains */,
-			);
-			path = cmake;
-			sourceTree = "<group>";
-		};
-		0458C47E2C26776B00E019CF /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				0458C47F2C26776B00E019CF /* Platform */,
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
-		0458C47F2C26776B00E019CF /* Platform */ = {
-			isa = PBXGroup;
-			children = (
-				0458C4802C26776B00E019CF /* iOS.cmake */,
-			);
-			path = Platform;
-			sourceTree = "<group>";
-		};
-		0458C4812C26776B00E019CF /* Toolchains */ = {
-			isa = PBXGroup;
-			children = (
-				0458C4822C26776B00E019CF /* Toolchain-Catalyst_Xcode.cmake */,
-				0458C4832C26776B00E019CF /* Toolchain-iPhoneSimulator_Xcode.cmake */,
-				0458C4842C26776B00E019CF /* common-ios-toolchain.cmake */,
-				0458C4852C26776B00E019CF /* xcodebuild_wrapper.in */,
-				0458C4862C26776B00E019CF /* Toolchain-iPhoneOS_Xcode.cmake */,
-			);
-			path = Toolchains;
+			path = OpenCVClass;
 			sourceTree = "<group>";
 		};
 		1ECF6976A4F9814D639CED5B /* Pods */ = {
@@ -53682,6 +53739,14 @@
 		4C00BE37F0220AEAFF185384 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0419462A2C26B34D00A3DA35 /* Accelerate.framework */,
+				041946282C26B34300A3DA35 /* CoreFoundation.framework */,
+				041946262C26B33700A3DA35 /* CoreMedia.framework */,
+				041946242C26B32500A3DA35 /* CoreGraphics.framework */,
+				041946222C26B31000A3DA35 /* AssetsLibrary.framework */,
+				041945C72C26B16A00A3DA35 /* Pods_Remini_.framework */,
+				041945C52C26B14E00A3DA35 /* BottomSheetSwiftUI.framework */,
+				0458C49F2C26ADE300E019CF /* build_framework.py */,
 				0411E8CF2C25AC6300D071A5 /* opencv-4.8.0 */,
 				0411E8CD2C25AC4900D071A5 /* QuartzCore.framework */,
 				0411C6E32C25AB9100D071A5 /* opencv-4.8.0 */,
@@ -53894,22 +53959,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0458C4992C26776C00E019CF /* readme.txt in Resources */,
-				0458C4932C26776C00E019CF /* Toolchain-iPhoneOS_Xcode.cmake in Resources */,
-				0458C4972C26776C00E019CF /* __init__.py in Resources */,
+				0419461B2C26B23900A3DA35 /* readme.txt in Resources */,
+				041946092C26B23900A3DA35 /* Toolchain-iPhoneOS_Xcode.cmake in Resources */,
+				041946152C26B23900A3DA35 /* __init__.py in Resources */,
 				04A0332B2BFD85B9008B8D0D /* onboardingImg.mp4 in Resources */,
-				0458C4912C26776C00E019CF /* common-ios-toolchain.cmake in Resources */,
-				0458C48F2C26776C00E019CF /* Toolchain-Catalyst_Xcode.cmake in Resources */,
-				0458C4962C26776C00E019CF /* build_docs.py in Resources */,
+				041946032C26B23900A3DA35 /* common-ios-toolchain.cmake in Resources */,
+				041945FD2C26B23900A3DA35 /* Toolchain-Catalyst_Xcode.cmake in Resources */,
+				041946122C26B23900A3DA35 /* build_docs.py in Resources */,
 				041BCF702BFCE61700E0C367 /* Preview Assets.xcassets in Resources */,
-				0458C49A2C26776C00E019CF /* Info.plist.in in Resources */,
+				0419461E2C26B23900A3DA35 /* Info.plist.in in Resources */,
 				041BCF6D2BFCE61700E0C367 /* Assets.xcassets in Resources */,
-				0458C4982C26776C00E019CF /* build_framework.py in Resources */,
-				0458C4952C26776C00E019CF /* Info.Dynamic.plist.in in Resources */,
-				0458C4922C26776C00E019CF /* xcodebuild_wrapper.in in Resources */,
-				0458C48E2C26776C00E019CF /* iOS.cmake in Resources */,
-				0458C4942C26776C00E019CF /* run_tests.py in Resources */,
-				0458C4902C26776C00E019CF /* Toolchain-iPhoneSimulator_Xcode.cmake in Resources */,
+				041946182C26B23900A3DA35 /* build_framework.py in Resources */,
+				0419460F2C26B23900A3DA35 /* Info.Dynamic.plist.in in Resources */,
+				041946062C26B23900A3DA35 /* xcodebuild_wrapper.in in Resources */,
+				041945FA2C26B23900A3DA35 /* iOS.cmake in Resources */,
+				0419460C2C26B23900A3DA35 /* run_tests.py in Resources */,
+				041946002C26B23900A3DA35 /* Toolchain-iPhoneSimulator_Xcode.cmake in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53917,7 +53982,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041945FE2C26B23900A3DA35 /* Toolchain-Catalyst_Xcode.cmake in Resources */,
 				04A0332C2BFD85B9008B8D0D /* onboardingImg.mp4 in Resources */,
+				041946132C26B23900A3DA35 /* build_docs.py in Resources */,
+				0419460D2C26B23900A3DA35 /* run_tests.py in Resources */,
+				0419461C2C26B23900A3DA35 /* readme.txt in Resources */,
+				041946042C26B23900A3DA35 /* common-ios-toolchain.cmake in Resources */,
+				041946072C26B23900A3DA35 /* xcodebuild_wrapper.in in Resources */,
+				041946192C26B23900A3DA35 /* build_framework.py in Resources */,
+				0419461F2C26B23900A3DA35 /* Info.plist.in in Resources */,
+				0419460A2C26B23900A3DA35 /* Toolchain-iPhoneOS_Xcode.cmake in Resources */,
+				041945FB2C26B23900A3DA35 /* iOS.cmake in Resources */,
+				041946012C26B23900A3DA35 /* Toolchain-iPhoneSimulator_Xcode.cmake in Resources */,
+				041946162C26B23900A3DA35 /* __init__.py in Resources */,
+				041946102C26B23900A3DA35 /* Info.Dynamic.plist.in in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53925,7 +54003,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041945FF2C26B23900A3DA35 /* Toolchain-Catalyst_Xcode.cmake in Resources */,
 				04A0332D2BFD85B9008B8D0D /* onboardingImg.mp4 in Resources */,
+				041946142C26B23900A3DA35 /* build_docs.py in Resources */,
+				0419460E2C26B23900A3DA35 /* run_tests.py in Resources */,
+				0419461D2C26B23900A3DA35 /* readme.txt in Resources */,
+				041946052C26B23900A3DA35 /* common-ios-toolchain.cmake in Resources */,
+				041946082C26B23900A3DA35 /* xcodebuild_wrapper.in in Resources */,
+				0419461A2C26B23900A3DA35 /* build_framework.py in Resources */,
+				041946202C26B23900A3DA35 /* Info.plist.in in Resources */,
+				0419460B2C26B23900A3DA35 /* Toolchain-iPhoneOS_Xcode.cmake in Resources */,
+				041945FC2C26B23900A3DA35 /* iOS.cmake in Resources */,
+				041946022C26B23900A3DA35 /* Toolchain-iPhoneSimulator_Xcode.cmake in Resources */,
+				041946172C26B23900A3DA35 /* __init__.py in Resources */,
+				041946112C26B23900A3DA35 /* Info.Dynamic.plist.in in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54045,6 +54136,7 @@
 				041BCF6B2BFCE61300E0C367 /* OnboardingView.swift in Sources */,
 				045CFDB82C0A163300424A28 /* YellowToonView.swift in Sources */,
 				04110AB62C260C4100D071A5 /* CustomFont.swift in Sources */,
+				04A50C122C26C157006C5CC2 /* OpenCVWrapper.swift in Sources */,
 				040E4FD72C1288B1009FF842 /* Networking.swift in Sources */,
 				04B52C732C209850003C75B6 /* TransformedImageView.swift in Sources */,
 				041BCF692BFCE61300E0C367 /* Remini_App.swift in Sources */,
@@ -54201,6 +54293,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = $;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -54261,6 +54354,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
