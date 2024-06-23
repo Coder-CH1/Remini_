@@ -16,6 +16,7 @@
 		041BCF842BFCE61700E0C367 /* Remini_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF832BFCE61700E0C367 /* Remini_UITests.swift */; };
 		041BCF862BFCE61700E0C367 /* Remini_UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF852BFCE61700E0C367 /* Remini_UITestsLaunchTests.swift */; };
 		041BCF932BFCE68100E0C367 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF922BFCE68100E0C367 /* SplashView.swift */; };
+		04283F872C28A7E900F3259D /* PytorchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04283F862C28A7E900F3259D /* PytorchModel.swift */; };
 		044030AD2C03F627008FE57A /* FirstImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0333C2BFF5A4A008B8D0D /* FirstImageView.swift */; };
 		044030AE2C03F627008FE57A /* FirstImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0333C2BFF5A4A008B8D0D /* FirstImageView.swift */; };
 		045CFDB82C0A163300424A28 /* YellowToonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045CFDB72C0A163300424A28 /* YellowToonView.swift */; };
@@ -14345,6 +14346,7 @@
 		041BCF832BFCE61700E0C367 /* Remini_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remini_UITests.swift; sourceTree = "<group>"; };
 		041BCF852BFCE61700E0C367 /* Remini_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remini_UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		041BCF922BFCE68100E0C367 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		04283F862C28A7E900F3259D /* PytorchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PytorchModel.swift; sourceTree = "<group>"; };
 		0458C49F2C26ADE300E019CF /* build_framework.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = build_framework.py; path = "../../Downloads/opencv-4.8.0 2/platforms/ios/build_framework.py"; sourceTree = "<group>"; };
 		045CFDB72C0A163300424A28 /* YellowToonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowToonView.swift; sourceTree = "<group>"; };
 		04756E5E2C054E86008B1F9B /* PromoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoView.swift; sourceTree = "<group>"; };
@@ -53496,6 +53498,7 @@
 				04B5A06D2C0911DE000DA55A /* Model.swift */,
 				040E4FD62C1288B1009FF842 /* Networking.swift */,
 				04110AB52C260C4100D071A5 /* CustomFont.swift */,
+				04283F862C28A7E900F3259D /* PytorchModel.swift */,
 			);
 			path = Remini_;
 			sourceTree = "<group>";
@@ -53964,6 +53967,7 @@
 				045CFDB82C0A163300424A28 /* YellowToonView.swift in Sources */,
 				04110AB62C260C4100D071A5 /* CustomFont.swift in Sources */,
 				040E4FD72C1288B1009FF842 /* Networking.swift in Sources */,
+				04283F872C28A7E900F3259D /* PytorchModel.swift in Sources */,
 				04B52C732C209850003C75B6 /* TransformedImageView.swift in Sources */,
 				041BCF692BFCE61300E0C367 /* Remini_App.swift in Sources */,
 				041BCF932BFCE68100E0C367 /* SplashView.swift in Sources */,
