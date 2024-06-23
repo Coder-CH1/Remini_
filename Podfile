@@ -18,5 +18,7 @@ target 'Remini_' do
 pod 'BottomSheetSwiftUI'
 pod 'Kingfisher'
 pod ’SQLite.swift’ 
+pod 'OpenCV'
+
 end
 
