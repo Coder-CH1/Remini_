@@ -15,7 +15,7 @@ struct SplashView: View {
         Color.black.ignoresSafeArea()
             .overlay(
                 VStack(spacing: 0) {
-                     Image(uiImage: UIImage(named: "reminiLogo")!)
+                    Image("reminiLogo")
                             .resizable()
                             .frame(width: 300, height: 300)
                         Circle()

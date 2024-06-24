@@ -8,10 +8,8 @@
 import SwiftUI
 import BottomSheetSwiftUI
 import Photos
-import CoreImage
 import SQLite3
 import PhotosUI
-import ObjectiveC
 
 
 struct HomePageView: View {
@@ -1679,55 +1677,6 @@ struct PickForTwoImagePicker: UIViewControllerRepresentable {
                                 }
                             }
                         }
-                    }
-                }
-            }
-        }
-    }
-    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
-    }
-}
-
-struct PickForTwoLazyVGridImagePicker: UIViewControllerRepresentable {
-    @Binding var selectedImage: UIImage?
-    @Binding var selectedImages: [Image]
-    @Binding var showNextScreen: Bool
-    
-    func makeUIViewController(context: Context) ->  PHPickerViewController {
-        var config = PHPickerConfiguration()
-        config.selectionLimit = 0
-        config.filter = .images
-        let picker = PHPickerViewController(configuration: config)
-        picker.delegate = context.coordinator
-        return picker
-    }
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(selectedImage: $selectedImage, selectedImages: $selectedImages, showNextScreen: $showNextScreen, parent: PickForTwoView(selectedImages: [Image(systemName: "")], selectedImagesForLazyVGrid: [UIImage](), image: UIImage()))
-    }
-    
-    class Coordinator: NSObject, PHPickerViewControllerDelegate {
-        @Binding var selectedImage: UIImage?
-        @Binding var selectedImages: [Image]
-        @Binding var showNextScreen: Bool
-        var parent: PickForTwoView
-        
-        init(selectedImage: Binding<UIImage?>, selectedImages: Binding<[Image]>, showNextScreen: Binding<Bool>, parent: PickForTwoView) {
-            self._selectedImage = selectedImage
-            self._selectedImages = selectedImages
-            self._showNextScreen = showNextScreen
-            self.parent = parent
-        }
-        
-        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            for result in results {
-                result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] result, error in
-                    if let error = error {
-                        print("\(error.localizedDescription)")
-                    } else if let image = result as? UIImage {
-                        self?.selectedImage = image
-                        self?.selectedImages.append(Image(uiImage: image))
-                        //self?.parent.upd
                     }
                 }
             }

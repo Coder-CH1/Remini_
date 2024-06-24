@@ -16,7 +16,6 @@
 		041BCF842BFCE61700E0C367 /* Remini_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF832BFCE61700E0C367 /* Remini_UITests.swift */; };
 		041BCF862BFCE61700E0C367 /* Remini_UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF852BFCE61700E0C367 /* Remini_UITestsLaunchTests.swift */; };
 		041BCF932BFCE68100E0C367 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF922BFCE68100E0C367 /* SplashView.swift */; };
-		04283F872C28A7E900F3259D /* PytorchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04283F862C28A7E900F3259D /* PytorchModel.swift */; };
 		044030AD2C03F627008FE57A /* FirstImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0333C2BFF5A4A008B8D0D /* FirstImageView.swift */; };
 		044030AE2C03F627008FE57A /* FirstImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0333C2BFF5A4A008B8D0D /* FirstImageView.swift */; };
 		045CFDB82C0A163300424A28 /* YellowToonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045CFDB72C0A163300424A28 /* YellowToonView.swift */; };
@@ -35,6 +34,7 @@
 		04A033492C01F561008B8D0D /* AIPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A033482C01F561008B8D0D /* AIPhotosView.swift */; };
 		04A0334B2C01F598008B8D0D /* AIFiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0334A2C01F598008B8D0D /* AIFiltersView.swift */; };
 		04A0334D2C01F5BB008B8D0D /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0334C2C01F5BB008B8D0D /* ExploreView.swift */; };
+		04B00B422C29B34F007CBC7D /* Remini--Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B00B412C29B34F007CBC7D /* Remini--Info.plist */; };
 		04B52C732C209850003C75B6 /* TransformedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B52C722C209850003C75B6 /* TransformedImageView.swift */; };
 		04B5A06E2C0911DE000DA55A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A06D2C0911DE000DA55A /* Model.swift */; };
 		A34321E135AEAFF843116D31 /* Pods_Remini_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C53656B1A5B83CA3D8EDA2 /* Pods_Remini_Tests.framework */; };
@@ -14346,11 +14346,9 @@
 		041BCF832BFCE61700E0C367 /* Remini_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remini_UITests.swift; sourceTree = "<group>"; };
 		041BCF852BFCE61700E0C367 /* Remini_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remini_UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		041BCF922BFCE68100E0C367 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
-		04283F862C28A7E900F3259D /* PytorchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PytorchModel.swift; sourceTree = "<group>"; };
 		0458C49F2C26ADE300E019CF /* build_framework.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = build_framework.py; path = "../../Downloads/opencv-4.8.0 2/platforms/ios/build_framework.py"; sourceTree = "<group>"; };
 		045CFDB72C0A163300424A28 /* YellowToonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowToonView.swift; sourceTree = "<group>"; };
 		04756E5E2C054E86008B1F9B /* PromoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoView.swift; sourceTree = "<group>"; };
-		04A033252BFCF998008B8D0D /* Remini--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Remini--Info.plist"; sourceTree = SOURCE_ROOT; };
 		04A033282BFD29C8008B8D0D /* ViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoordinator.swift; sourceTree = "<group>"; };
 		04A0332A2BFD85B8008B8D0D /* onboardingImg.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboardingImg.mp4; sourceTree = "<group>"; };
 		04A0332E2BFE2953008B8D0D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -14362,6 +14360,7 @@
 		04A033482C01F561008B8D0D /* AIPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPhotosView.swift; sourceTree = "<group>"; };
 		04A0334A2C01F598008B8D0D /* AIFiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFiltersView.swift; sourceTree = "<group>"; };
 		04A0334C2C01F5BB008B8D0D /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		04B00B412C29B34F007CBC7D /* Remini--Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Remini--Info.plist"; sourceTree = "<group>"; };
 		04B52C722C209850003C75B6 /* TransformedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformedImageView.swift; sourceTree = "<group>"; };
 		04B5A06D2C0911DE000DA55A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		05D2052ED94B7195DD3D08F4 /* Pods_Remini_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Remini_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53486,19 +53485,18 @@
 		041BCF672BFCE61300E0C367 /* Remini_ */ = {
 			isa = PBXGroup;
 			children = (
+				04B00B412C29B34F007CBC7D /* Remini--Info.plist */,
 				04A0332A2BFD85B8008B8D0D /* onboardingImg.mp4 */,
-				04A033252BFCF998008B8D0D /* Remini--Info.plist */,
 				041BCF682BFCE61300E0C367 /* Remini_App.swift */,
 				044030A92C03F593008FE57A /* AppCoordinator */,
 				044030AA2C03F5BC008FE57A /* SplashView */,
 				044030AB2C03F5D3008FE57A /* OnboardingView */,
 				044030AF2C03F636008FE57A /* HomePageView */,
-				041BCF6C2BFCE61700E0C367 /* Assets.xcassets */,
 				041BCF6E2BFCE61700E0C367 /* Preview Content */,
 				04B5A06D2C0911DE000DA55A /* Model.swift */,
 				040E4FD62C1288B1009FF842 /* Networking.swift */,
 				04110AB52C260C4100D071A5 /* CustomFont.swift */,
-				04283F862C28A7E900F3259D /* PytorchModel.swift */,
+				041BCF6C2BFCE61700E0C367 /* Assets.xcassets */,
 			);
 			path = Remini_;
 			sourceTree = "<group>";
@@ -53641,7 +53639,6 @@
 				041BCF622BFCE61300E0C367 /* Frameworks */,
 				041BCF632BFCE61300E0C367 /* Resources */,
 				2DCF256D8E2B3D7850C3A7B4 /* [CP] Embed Pods Frameworks */,
-				AD28919C7B1964968D47744A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -53680,7 +53677,6 @@
 				041BCF7C2BFCE61700E0C367 /* Frameworks */,
 				041BCF7D2BFCE61700E0C367 /* Resources */,
 				08E0B6E8CB075DB025ED0610 /* [CP] Embed Pods Frameworks */,
-				2E9928363DD4801C6EE928D3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -53833,6 +53829,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B00B422C29B34F007CBC7D /* Remini--Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53887,23 +53884,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Remini_/Pods-Remini_-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2E9928363DD4801C6EE928D3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3A8AAC1FA350F1CADAA415EE /* [CP] Check Pods Manifest.lock */ = {
@@ -53972,23 +53952,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AD28919C7B1964968D47744A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Remini_/Pods-Remini_-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Remini_/Pods-Remini_-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Remini_/Pods-Remini_-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -54003,7 +53966,6 @@
 				045CFDB82C0A163300424A28 /* YellowToonView.swift in Sources */,
 				04110AB62C260C4100D071A5 /* CustomFont.swift in Sources */,
 				040E4FD72C1288B1009FF842 /* Networking.swift in Sources */,
-				04283F872C28A7E900F3259D /* PytorchModel.swift in Sources */,
 				04B52C732C209850003C75B6 /* TransformedImageView.swift in Sources */,
 				041BCF692BFCE61300E0C367 /* Remini_App.swift in Sources */,
 				041BCF932BFCE68100E0C367 /* SplashView.swift in Sources */,
