@@ -1,9 +1,9 @@
 CLANG_CXX_LANGUAGE_STANDARD = c++14
 CLANG_CXX_LIBRARY = libc++
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/BottomSheetSwiftUI" "${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher" "${PODS_CONFIGURATION_BUILD_DIR}/SQLite.swift"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/BottomSheetSwiftUI" "${PODS_CONFIGURATION_BUILD_DIR}/Harbeth" "${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher" "${PODS_CONFIGURATION_BUILD_DIR}/SQLite.swift"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/BottomSheetSwiftUI/BottomSheetSwiftUI.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SQLite.swift/SQLite.framework/Headers" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/LibTorch" $(inherited) "$(PODS_ROOT)/LibTorch/install/include/"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/BottomSheetSwiftUI/BottomSheetSwiftUI.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Harbeth/Harbeth.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SQLite.swift/SQLite.framework/Headers" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/LibTorch" $(inherited) "$(PODS_ROOT)/LibTorch/install/include/"
 OTHER_LDFLAGS = $(inherited) -l"c++" -l"sqlite3" -l"stdc++" -framework "Accelerate" -framework "BottomSheetSwiftUI" -framework "CFNetwork" -framework "Kingfisher" -framework "SQLite" -weak_framework "Combine" -weak_framework "SwiftUI" -force_load $(PODS_ROOT)/LibTorch/install/lib/libtorch.a -force_load $(PODS_ROOT)/LibTorch/install/lib/libtorch_cpu.a
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

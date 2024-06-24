@@ -19,6 +19,7 @@ pod 'BottomSheetSwiftUI'
 pod 'Kingfisher'
 pod ’SQLite.swift’ 
 pod 'LibTorch', '~> 1.9.0'
-
+pod ‘Harbeth’
+pod ‘BBMetalImage’
 end
 
