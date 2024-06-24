@@ -18,6 +18,8 @@
 		041BCF932BFCE68100E0C367 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF922BFCE68100E0C367 /* SplashView.swift */; };
 		044030AD2C03F627008FE57A /* FirstImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0333C2BFF5A4A008B8D0D /* FirstImageView.swift */; };
 		044030AE2C03F627008FE57A /* FirstImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0333C2BFF5A4A008B8D0D /* FirstImageView.swift */; };
+		044D3AFE2C2A160900C4F949 /* onboardingImg.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04A0332A2BFD85B8008B8D0D /* onboardingImg.mp4 */; };
+		044D3AFF2C2A161700C4F949 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041BCF6C2BFCE61700E0C367 /* Assets.xcassets */; };
 		045CFDB82C0A163300424A28 /* YellowToonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045CFDB72C0A163300424A28 /* YellowToonView.swift */; };
 		04756E5F2C054E86008B1F9B /* PromoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04756E5E2C054E86008B1F9B /* PromoView.swift */; };
 		04A033292BFD29C8008B8D0D /* ViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A033282BFD29C8008B8D0D /* ViewCoordinator.swift */; };
@@ -53829,6 +53831,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044D3AFF2C2A161700C4F949 /* Assets.xcassets in Resources */,
+				044D3AFE2C2A160900C4F949 /* onboardingImg.mp4 in Resources */,
 				04B00B422C29B34F007CBC7D /* Remini--Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
