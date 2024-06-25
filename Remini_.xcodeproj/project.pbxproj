@@ -14351,6 +14351,7 @@
 		0458C49F2C26ADE300E019CF /* build_framework.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = build_framework.py; path = "../../Downloads/opencv-4.8.0 2/platforms/ios/build_framework.py"; sourceTree = "<group>"; };
 		045CFDB72C0A163300424A28 /* YellowToonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowToonView.swift; sourceTree = "<group>"; };
 		04756E5E2C054E86008B1F9B /* PromoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoView.swift; sourceTree = "<group>"; };
+		048857162C2A48CE0029C120 /* PCH.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCH.pch; sourceTree = "<group>"; };
 		04A033282BFD29C8008B8D0D /* ViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoordinator.swift; sourceTree = "<group>"; };
 		04A0332A2BFD85B8008B8D0D /* onboardingImg.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboardingImg.mp4; sourceTree = "<group>"; };
 		04A0332E2BFE2953008B8D0D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -53499,6 +53500,7 @@
 				040E4FD62C1288B1009FF842 /* Networking.swift */,
 				04110AB52C260C4100D071A5 /* CustomFont.swift */,
 				041BCF6C2BFCE61700E0C367 /* Assets.xcassets */,
+				048857162C2A48CE0029C120 /* PCH.pch */,
 			);
 			path = Remini_;
 			sourceTree = "<group>";
@@ -54229,6 +54231,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fmodules",
+					"-fcxx-modules",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chidiogo.Remini-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -54261,6 +54268,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fmodules",
+					"-fcxx-modules",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chidiogo.Remini-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

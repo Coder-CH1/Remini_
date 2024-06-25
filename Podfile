@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, ’14.0’
 
 target 'Remini_' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -9,6 +9,7 @@ target 'Remini_' do
   pod 'BottomSheetSwiftUI'
   pod 'Kingfisher'
   pod 'SQLite.swift'
+  pod ‘OpenCV’, ‘2.4.9’
 
   target 'Remini_Tests' do
     inherit! :search_paths
@@ -19,4 +20,3 @@ target 'Remini_' do
     # Pods for testing
   end
 end
-
