@@ -1289,18 +1289,6 @@ struct PickForTwoView: View {
             }
         }
     }
-    func getUIImage(from phAsset: PHAsset) -> UIImage? {
-        let manager = PHImageManager.default()
-        let option = PHImageRequestOptions()
-        option.resizeMode = .exact
-        option.deliveryMode = .highQualityFormat
-        option.isSynchronous = true
-        var result: UIImage?
-        manager.requestImage(for: phAsset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: option) { image, _ in
-            result = image
-        }
-        return result
-    }
 }
 
 struct PickForTwoViewCell: View {
