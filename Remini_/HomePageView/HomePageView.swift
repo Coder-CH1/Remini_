@@ -78,7 +78,7 @@ MiddleHomePageView(selectedCellImage: $selectedCellImage, img: $uiImage, showDet
                 }
             }
             .fullScreenCover(isPresented: $showDetailsView) {
-                DetailsView(showPickForTwo: Bool(), selected1: UIImage(),selected2: UIImage(),selectedImages: [Image(systemName: "")], selectedImage: UIImage(), image: UIImage(), selection1: $selectedCellData)
+                DetailsView(showPickForTwo: Bool(), selected1: PHAsset(),selected2: PHAsset(),selectedImages: [Image(systemName: "")], selectedImage: UIImage(), image: UIImage(), selection1: $selectedCellData)
             }
             .fullScreenCover(isPresented: $showAIPhotosView) {
                 AIPhotosLoadingView(selectedImages: [Image(systemName: "")], selectedCount: Int())
@@ -1013,7 +1013,7 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
             .padding(.top)
             
             .fullScreenCover(isPresented: $showDetailsView) {
-                DetailsView(showPickForTwo: Bool(), selected1: UIImage(),selected2: UIImage(),selectedImages: [Image(systemName: "")], selectedImage: UIImage(), image: UIImage(), selection1: $selectedData)
+                DetailsView(showPickForTwo: Bool(), selected1: PHAsset(),selected2: PHAsset(),selectedImages: [Image(systemName: "")], selectedImage: UIImage(), image: UIImage(), selection1: $selectedData)
             }
         }
         .padding(.bottom)
@@ -1076,8 +1076,8 @@ struct SeeAllCellView: View{
 
 struct DetailsView: View {
     @State var showPickForTwo = false
-    @State var selected1: UIImage
-    @State var selected2: UIImage
+    @State var selected1: PHAsset
+    @State var selected2: PHAsset
     @State var selectedImages: [Image]
     @State var selectedImage: UIImage
     @State var image: UIImage
@@ -1109,7 +1109,7 @@ struct DetailsView: View {
                         Text("Create beautiful wedding pictures of you\n and your better half")
                             .font(.system(size: 12, weight: .regular))
                             .foregroundColor(.white)
-                        NavigationLink(destination: PickForTwoView(selectedImages: [Image(systemName: "")], selectedImage: UIImage(), selectedImage1:selected1 ,selectedImage2: selected2,selectedImagesForLazyVGrid: [UIImage](), image: image, images: [PHAsset]()), isActive: $showPickForTwo) {
+NavigationLink(destination: PickForTwoView(selectedImages: [Image(systemName: "")], selectedImage: UIImage(), selectedImage1:UIImage() ,selectedImage2: UIImage(),selectedImagesForLazyVGrid: [UIImage](), image: image, images: [PHAsset]()), isActive: $showPickForTwo) {
                             Button {
                                 showPickForTwo.toggle()
                             } label: {
@@ -1289,6 +1289,18 @@ struct PickForTwoView: View {
             }
         }
     }
+    func getUIImage(from phAsset: PHAsset) -> UIImage? {
+        let manager = PHImageManager.default()
+        let option = PHImageRequestOptions()
+        option.resizeMode = .exact
+        option.deliveryMode = .highQualityFormat
+        option.isSynchronous = true
+        var result: UIImage?
+        manager.requestImage(for: phAsset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: option) { image, _ in
+            result = image
+        }
+        return result
+    }
 }
 
 struct PickForTwoViewCell: View {
@@ -1305,6 +1317,7 @@ struct PickForTwoViewCell: View {
             DispatchQueue.main.async {
                 if let result = result {
                     self.cellImage = result
+                    self.onTap(result)
                 }
             }
         }
