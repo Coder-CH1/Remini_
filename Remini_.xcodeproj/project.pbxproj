@@ -14355,6 +14355,7 @@
 		048857172C2A4CD80029C120 /* OpenCVHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVHeader.h; sourceTree = "<group>"; };
 		048857182C2A4D830029C120 /* Remini_-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Remini_-Bridging-Header.h"; sourceTree = "<group>"; };
 		048857192C2A4D840029C120 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
+		0488571B2C2A4F140029C120 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		04A033282BFD29C8008B8D0D /* ViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoordinator.swift; sourceTree = "<group>"; };
 		04A0332A2BFD85B8008B8D0D /* onboardingImg.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboardingImg.mp4; sourceTree = "<group>"; };
 		04A0332E2BFE2953008B8D0D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -53506,6 +53507,7 @@
 				048857172C2A4CD80029C120 /* OpenCVHeader.h */,
 				048857192C2A4D840029C120 /* OpenCVWrapper.mm */,
 				048857182C2A4D830029C120 /* Remini_-Bridging-Header.h */,
+				0488571B2C2A4F140029C120 /* PrefixHeader.pch */,
 			);
 			path = Remini_;
 			sourceTree = "<group>";
@@ -54226,6 +54228,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Remini_/Preview Content\"";
 				DEVELOPMENT_TEAM = SFJ8H3MDYC;
 				ENABLE_PREVIEWS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Remini_/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Remini--Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
@@ -54266,6 +54270,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Remini_/Preview Content\"";
 				DEVELOPMENT_TEAM = SFJ8H3MDYC;
 				ENABLE_PREVIEWS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Remini_/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Remini--Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
