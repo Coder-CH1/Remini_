@@ -1317,7 +1317,7 @@ struct PickForTwoViewCell: View {
                         .frame(width: UIScreen.main.bounds.width/4.5, height: 80)
                         .cornerRadius(10)
                         .onTapGesture {
-                            self.onTap(image)
+                            fetchImage()
                     }
                 }
             }
