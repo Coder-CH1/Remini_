@@ -14354,7 +14354,7 @@
 		0458C49F2C26ADE300E019CF /* build_framework.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = build_framework.py; path = "../../Downloads/opencv-4.8.0 2/platforms/ios/build_framework.py"; sourceTree = "<group>"; };
 		045CFDB72C0A163300424A28 /* YellowToonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowToonView.swift; sourceTree = "<group>"; };
 		04756E5E2C054E86008B1F9B /* PromoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoView.swift; sourceTree = "<group>"; };
-		048857172C2A4CD80029C120 /* OpenCVHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVHeader.h; sourceTree = "<group>"; };
+		048857172C2A4CD80029C120 /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
 		048857182C2A4D830029C120 /* Remini_-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Remini_-Bridging-Header.h"; sourceTree = "<group>"; };
 		048857192C2A4D840029C120 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
 		0488571B2C2A4F140029C120 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -53506,7 +53506,7 @@
 				040E4FD62C1288B1009FF842 /* Networking.swift */,
 				04110AB52C260C4100D071A5 /* CustomFont.swift */,
 				041BCF6C2BFCE61700E0C367 /* Assets.xcassets */,
-				048857172C2A4CD80029C120 /* OpenCVHeader.h */,
+				048857172C2A4CD80029C120 /* OpenCVWrapper.h */,
 				048857192C2A4D840029C120 /* OpenCVWrapper.mm */,
 				048857182C2A4D830029C120 /* Remini_-Bridging-Header.h */,
 				0488571B2C2A4F140029C120 /* PrefixHeader.pch */,
