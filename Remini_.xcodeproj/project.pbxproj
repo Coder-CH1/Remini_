@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		040E4FD72C1288B1009FF842 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E4FD62C1288B1009FF842 /* Networking.swift */; };
+		040F46C32C2AB4600021CCCF /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 048857192C2A4D840029C120 /* OpenCVWrapper.mm */; };
+		040F46C72C2AB46B0021CCCF /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 048857192C2A4D840029C120 /* OpenCVWrapper.mm */; };
 		04110AB62C260C4100D071A5 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04110AB52C260C4100D071A5 /* CustomFont.swift */; };
 		041945C82C26B16A00A3DA35 /* Pods_Remini_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041945C72C26B16A00A3DA35 /* Pods_Remini_.framework */; };
 		041BCF692BFCE61300E0C367 /* Remini_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF682BFCE61300E0C367 /* Remini_App.swift */; };
@@ -54000,6 +54002,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040F46C32C2AB4600021CCCF /* OpenCVWrapper.mm in Sources */,
 				044030AE2C03F627008FE57A /* FirstImageView.swift in Sources */,
 				041BCF7A2BFCE61700E0C367 /* Remini_Tests.swift in Sources */,
 				04A033302BFE2953008B8D0D /* WelcomeView.swift in Sources */,
@@ -54010,6 +54013,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040F46C72C2AB46B0021CCCF /* OpenCVWrapper.mm in Sources */,
 				04A033312BFE2953008B8D0D /* WelcomeView.swift in Sources */,
 				044030AD2C03F627008FE57A /* FirstImageView.swift in Sources */,
 				041BCF862BFCE61700E0C367 /* Remini_UITestsLaunchTests.swift in Sources */,
@@ -54231,6 +54235,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Remini_/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)/**",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/BottomSheetSwiftUI/BottomSheetSwiftUI.framework/Headers\"/**",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers\"/**",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SQLite.swift/SQLite.framework/Headers\"/**",
+				);
 				INFOPLIST_FILE = "Remini--Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow Remini to access photos and media on your device?";
@@ -54243,11 +54253,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_CPLUSPLUSFLAGS = (
-					"$(OTHER_CFLAGS)",
-					"-fmodules",
-					"-fcxx-modules",
-				);
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chidiogo.Remini-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -54285,11 +54291,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_CPLUSPLUSFLAGS = (
-					"$(OTHER_CFLAGS)",
-					"-fmodules",
-					"-fcxx-modules",
-				);
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chidiogo.Remini-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

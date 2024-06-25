@@ -8,5 +8,7 @@
 #ifndef OpenCVHeader_h
 #define OpenCVHeader_h
 
+#import <opencv2/opencv.hpp>
 
 #endif /* OpenCVHeader_h */
+
