@@ -1197,7 +1197,7 @@ struct PickForTwoView: View {
                                     .cornerRadius(25)
                             }
                             .fullScreenCover(isPresented: $showImagePickerView) {
-                                PickForTwoImagePicker(selectedImage: $selectedImage, selectedImages: $selectedImages, showNextScreen: $showNextScreen)
+        PickForTwoImagePicker(selectedImage: $selectedImage, selectedImages: $selectedImages, showNextScreen: $showNextScreen)
                             }
                         }
                         ) {
