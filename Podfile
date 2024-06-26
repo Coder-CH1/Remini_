@@ -10,6 +10,7 @@ target 'Remini_' do
   pod 'Kingfisher'
   pod 'SQLite.swift'
   pod 'OpenCV'
+  pod 'TensorFlowLiteSwift'
 
 
   target 'Remini_Tests' do

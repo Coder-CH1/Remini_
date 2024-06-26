@@ -8,6 +8,7 @@
 import SwiftUI
 import Photos
 import PhotosUI
+import CoreML
 
 
 struct YellowToonView: View {
