@@ -14355,7 +14355,6 @@
 		045CFDB72C0A163300424A28 /* YellowToonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowToonView.swift; sourceTree = "<group>"; };
 		04756E5E2C054E86008B1F9B /* PromoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoView.swift; sourceTree = "<group>"; };
 		048857172C2A4CD80029C120 /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
-		048857182C2A4D830029C120 /* Remini_-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Remini_-Bridging-Header.h"; sourceTree = "<group>"; };
 		048857192C2A4D840029C120 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
 		0488571B2C2A4F140029C120 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		04A033282BFD29C8008B8D0D /* ViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoordinator.swift; sourceTree = "<group>"; };
@@ -14372,6 +14371,7 @@
 		04B00B412C29B34F007CBC7D /* Remini--Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Remini--Info.plist"; sourceTree = "<group>"; };
 		04B52C722C209850003C75B6 /* TransformedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformedImageView.swift; sourceTree = "<group>"; };
 		04B5A06D2C0911DE000DA55A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		04CD9F6D2C2C31AA00454086 /* Remini_-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Remini_-Bridging-Header.h"; sourceTree = "<group>"; };
 		05D2052ED94B7195DD3D08F4 /* Pods_Remini_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Remini_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3665E5BE4D11E4904CA866A5 /* Pods-Remini_.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Remini_.debug.xcconfig"; path = "Target Support Files/Pods-Remini_/Pods-Remini_.debug.xcconfig"; sourceTree = "<group>"; };
 		4A7B816E463B32B5AA817574 /* Pods-Remini_-Remini_UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Remini_-Remini_UITests.release.xcconfig"; path = "Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -53508,7 +53508,7 @@
 				041BCF6C2BFCE61700E0C367 /* Assets.xcassets */,
 				048857172C2A4CD80029C120 /* OpenCVWrapper.h */,
 				048857192C2A4D840029C120 /* OpenCVWrapper.mm */,
-				048857182C2A4D830029C120 /* Remini_-Bridging-Header.h */,
+				04CD9F6D2C2C31AA00454086 /* Remini_-Bridging-Header.h */,
 				0488571B2C2A4F140029C120 /* PrefixHeader.pch */,
 			);
 			path = Remini_;

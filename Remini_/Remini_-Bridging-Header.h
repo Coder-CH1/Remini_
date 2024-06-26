@@ -1,5 +1,12 @@
 //
-//  Use this file to import your target's public headers that you would like to expose to Swift.
+//  Remini_-Bridging-Header.h
+//  Remini_
+//
+//  Created by Mac on 26/06/2024.
 //
 
-#import "OpenCVWrapper.h"
+#ifndef Remini__Bridging_Header_h
+#define Remini__Bridging_Header_h
+
+
+#endif /* Remini__Bridging_Header_h */
