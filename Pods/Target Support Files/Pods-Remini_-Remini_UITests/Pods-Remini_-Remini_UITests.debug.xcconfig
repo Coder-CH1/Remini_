@@ -1,11 +1,13 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
+CLANG_CXX_LANGUAGE_STANDARD = c++14
+CLANG_CXX_LIBRARY = libc++
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/BottomSheetSwiftUI" "${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher" "${PODS_CONFIGURATION_BUILD_DIR}/SQLite.swift" "${PODS_ROOT}/OpenCV"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/BottomSheetSwiftUI/BottomSheetSwiftUI.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SQLite.swift/SQLite.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/BottomSheetSwiftUI/BottomSheetSwiftUI.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SQLite.swift/SQLite.framework/Headers" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/LibTorch" $(inherited) "$(PODS_ROOT)/LibTorch/install/include/"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) /usr/lib/swift "$(PLATFORM_DIR)/Developer/Library/Frameworks" '@executable_path/Frameworks' '@loader_path/Frameworks'
-LIBRARY_SEARCH_PATHS = $(inherited) "${TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}" /usr/lib/swift
-OTHER_LDFLAGS = $(inherited) -ObjC -l"sqlite3" -l"stdc++" -framework "AVFoundation" -framework "Accelerate" -framework "AssetsLibrary" -framework "BottomSheetSwiftUI" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreImage" -framework "CoreMedia" -framework "CoreVideo" -framework "Foundation" -framework "Kingfisher" -framework "QuartzCore" -framework "SQLite" -framework "UIKit" -framework "opencv2" -weak_framework "Combine" -weak_framework "SwiftUI"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/LibTorch/install/lib" "${TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}" /usr/lib/swift
+OTHER_LDFLAGS = $(inherited) -ObjC -l"XNNPACK" -l"c++" -l"c10" -l"clog" -l"cpuinfo" -l"eigen_blas" -l"pthreadpool" -l"pytorch_qnnpack" -l"sqlite3" -l"stdc++" -l"torch" -l"torch_cpu" -framework "AVFoundation" -framework "Accelerate" -framework "AssetsLibrary" -framework "BottomSheetSwiftUI" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreImage" -framework "CoreMedia" -framework "CoreVideo" -framework "Foundation" -framework "Kingfisher" -framework "QuartzCore" -framework "SQLite" -framework "UIKit" -framework "opencv2" -weak_framework "Combine" -weak_framework "SwiftUI" -force_load $(PODS_ROOT)/LibTorch/install/lib/libtorch.a -force_load $(PODS_ROOT)/LibTorch/install/lib/libtorch_cpu.a
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

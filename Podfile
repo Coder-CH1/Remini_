@@ -10,7 +10,7 @@ target 'Remini_' do
   pod 'Kingfisher'
   pod 'SQLite.swift'
   pod 'OpenCV'
-  pod 'TensorFlowLiteSwift', '~> 0.0.1-nightly', :subspecs => ['CoreML', 'Metal']
+  pod 'LibTorch', '1.13.0'
 
 
   target 'Remini_Tests' do
