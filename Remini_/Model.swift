@@ -72,3 +72,8 @@ class Data: ObservableObject {
             })
     ]
 }
+
+//struct IdentifiableImage: Identifiable, Hashable {
+//    let id = UUID()
+//    let image: Image
+//}
