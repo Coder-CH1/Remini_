@@ -11,7 +11,6 @@ import Photos
 import SQLite3
 import PhotosUI
 
-
 struct HomePageView: View {
     @AppStorage("hasSeenModal") var hasSeenModal: Bool = false
     @StateObject var imageData = Data()
