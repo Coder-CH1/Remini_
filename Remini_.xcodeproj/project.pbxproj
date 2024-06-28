@@ -18,8 +18,6 @@
 		041BCF842BFCE61700E0C367 /* Remini_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF832BFCE61700E0C367 /* Remini_UITests.swift */; };
 		041BCF862BFCE61700E0C367 /* Remini_UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF852BFCE61700E0C367 /* Remini_UITestsLaunchTests.swift */; };
 		041BCF932BFCE68100E0C367 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BCF922BFCE68100E0C367 /* SplashView.swift */; };
-		0436EA3F2C2F4FE2001C020B /* build_framework.py in Resources */ = {isa = PBXBuildFile; fileRef = 0436EA3E2C2F4FE2001C020B /* build_framework.py */; };
-		0436EA412C2F506E001C020B /* build_framework.py in Frameworks */ = {isa = PBXBuildFile; fileRef = 0436EA402C2F506E001C020B /* build_framework.py */; };
 		044030AD2C03F627008FE57A /* FirstImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0333C2BFF5A4A008B8D0D /* FirstImageView.swift */; };
 		044030AE2C03F627008FE57A /* FirstImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0333C2BFF5A4A008B8D0D /* FirstImageView.swift */; };
 		044D3AFE2C2A160900C4F949 /* onboardingImg.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04A0332A2BFD85B8008B8D0D /* onboardingImg.mp4 */; };
@@ -14353,7 +14351,6 @@
 		041BCF832BFCE61700E0C367 /* Remini_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remini_UITests.swift; sourceTree = "<group>"; };
 		041BCF852BFCE61700E0C367 /* Remini_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remini_UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		041BCF922BFCE68100E0C367 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
-		0436EA3E2C2F4FE2001C020B /* build_framework.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = build_framework.py; sourceTree = "<group>"; };
 		0436EA402C2F506E001C020B /* build_framework.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = build_framework.py; path = "../../Downloads/opencv-4.8.0 3/platforms/ios/build_framework.py"; sourceTree = "<group>"; };
 		0458C49F2C26ADE300E019CF /* build_framework.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = build_framework.py; path = "../../Downloads/opencv-4.8.0 2/platforms/ios/build_framework.py"; sourceTree = "<group>"; };
 		045CFDB72C0A163300424A28 /* YellowToonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowToonView.swift; sourceTree = "<group>"; };
@@ -14392,7 +14389,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0436EA412C2F506E001C020B /* build_framework.py in Frameworks */,
 				041945C82C26B16A00A3DA35 /* Pods_Remini_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53499,7 +53495,6 @@
 		041BCF672BFCE61300E0C367 /* Remini_ */ = {
 			isa = PBXGroup;
 			children = (
-				0436EA3E2C2F4FE2001C020B /* build_framework.py */,
 				04B00B412C29B34F007CBC7D /* Remini--Info.plist */,
 				04A0332A2BFD85B8008B8D0D /* onboardingImg.mp4 */,
 				041BCF682BFCE61300E0C367 /* Remini_App.swift */,
@@ -53852,7 +53847,6 @@
 			files = (
 				044D3AFF2C2A161700C4F949 /* Assets.xcassets in Resources */,
 				044D3AFE2C2A160900C4F949 /* onboardingImg.mp4 in Resources */,
-				0436EA3F2C2F4FE2001C020B /* build_framework.py in Resources */,
 				04B00B422C29B34F007CBC7D /* Remini--Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54240,17 +54234,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Remini_/Preview Content\"";
 				DEVELOPMENT_TEAM = SFJ8H3MDYC;
 				ENABLE_PREVIEWS = YES;
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
-					"$(inherited)",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/BottomSheetSwiftUI\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/SQLite.swift\"",
-					"\"${PODS_ROOT}/OpenCV\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Remini_/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "$(inherited)/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Remini--Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow Remini to access photos and media on your device?";
@@ -54287,10 +54275,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Remini_/Preview Content\"";
 				DEVELOPMENT_TEAM = SFJ8H3MDYC;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Remini_/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Remini--Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow Remini to access photos and media on your device?";
