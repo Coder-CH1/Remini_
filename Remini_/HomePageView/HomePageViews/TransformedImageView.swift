@@ -11,14 +11,7 @@ import CoreImage
 struct TransformedImageView: View {
     @State var selectedImages: [UIImage] = []
     @State var filteredImages: [UIImage] = []
-    func applyFilter(to image: UIImage) -> UIImage {
-        let ciImage = CIImage(image: image)!
-        let filter = CIFilter(name: "CIPhotoEffect")
-        filter?.setValue(ciImage, forKey: kCIInputImageKey)
-        let outputImage = filter?.outputImage ?? UIImage()
-        let uiImage = UIImage(ciImage: outputImage as! CIImage)
-        return uiImage
-    }
+    
     var body: some View {
         VStack {
             HStack {

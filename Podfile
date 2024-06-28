@@ -10,7 +10,6 @@ target 'Remini_' do
   pod 'Kingfisher'
   pod 'SQLite.swift'
   pod 'OpenCV'
-  pod 'LibTorch', '1.13.0'
 
 
   target 'Remini_Tests' do

@@ -24,10 +24,6 @@ struct AIPhotosLoadingView: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         VStack {
-            if showLoadingView && selectedImages.count > 0 {
-                AITransformationLoadingView(    isActive: true)
-                    .opacity(0.3)
-            } else {
                 ZStack(alignment: .top) {
                     Rectangle()
                         .fill(Color.black)
@@ -115,13 +111,8 @@ HomePageView(imageData: Data(), selectedCellImage: UIImage(), uiImage: UIImage()
                     }
                 }
                 .onChange(of: showNextScreen) { newValue in
-                    print("hi")
                     if newValue {
                         showNextScreen = true
-                    }
-                }
-                .onDisappear {
-                    
                 }
             }
         }
