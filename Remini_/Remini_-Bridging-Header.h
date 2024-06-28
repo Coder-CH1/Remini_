@@ -9,5 +9,7 @@
 #define Remini__Bridging_Header_h
 
 #import "OpenCVWrapper.h"
+#import <UIKit/UIKit.h>
+#import <opencv2/opencv.hpp>
 
 #endif /* Remini__Bridging_Header_h */

@@ -54242,12 +54242,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Remini_/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)/**",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/BottomSheetSwiftUI/BottomSheetSwiftUI.framework/Headers\"/**",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers\"/**",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/SQLite.swift/SQLite.framework/Headers\"/**",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = "Remini--Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow Remini to access photos and media on your device?";
@@ -54268,6 +54263,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${PODS_ROOT}";
 			};
 			name = Debug;
 		};
@@ -54286,6 +54282,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Remini_/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Remini--Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow Remini to access photos and media on your device?";
@@ -54305,6 +54302,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Remini_/Remini_-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${PODS_ROOT}";
 			};
 			name = Release;
 		};
