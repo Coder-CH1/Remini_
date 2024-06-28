@@ -7,11 +7,20 @@
 
 import SwiftUI
 import CoreImage
+import UIKit
 
 struct TransformedImageView: View {
     @State var selectedImages: [UIImage] = []
     @State var filteredImages: [UIImage] = []
-    
+    func processImages() -> [UIImage] {
+        var processedImages: [UIImage] = []
+        for image in selectedImages {
+            if let processedImage = OpenCVWrapper.processImage(image) {
+                processedImages.append(processedImage)
+            }
+        }
+        return processedImages
+    }
     var body: some View {
         VStack {
             HStack {
@@ -33,6 +42,9 @@ struct TransformedImageView: View {
                                 .cornerRadius(10)
                         }
                     }
+                }
+                .onAppear() {
+                    self.filteredImages = processImages()
                 }
             }
         }

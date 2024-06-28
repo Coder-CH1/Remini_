@@ -8,4 +8,6 @@
 #ifndef Remini__Bridging_Header_h
 #define Remini__Bridging_Header_h
 
+#import "OpenCVWrapper.h"
+
 #endif /* Remini__Bridging_Header_h */
