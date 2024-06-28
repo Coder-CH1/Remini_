@@ -10,7 +10,7 @@ import CoreImage
 import UIKit
 
 struct TransformedImageView: View {
-    @State var selectedImages: [UIImage] = []
+    @Binding var selectedImages: [UIImage]
     @State var filteredImages: [UIImage] = []
     func processImages() -> [UIImage] {
         var processedImages: [UIImage] = []
@@ -33,8 +33,8 @@ struct TransformedImageView: View {
             HStack {
                 ScrollView(.horizontal,showsIndicators: false) {
                     HStack(spacing: 30) {
-                        ForEach(0..<10) { index in
-                            Image(systemName: "person.fill")
+                        ForEach(selectedImages, id: \.self) { index in
+                            Image(uiImage: index)
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: UIScreen.main.bounds.width/2, height: 400)
@@ -55,6 +55,6 @@ struct TransformedImageView: View {
 
 struct TransformedImageView_Previews: PreviewProvider {
     static var previews: some View {
-        TransformedImageView()
+        TransformedImageView(selectedImages: .constant([UIImage()]))
     }
 }

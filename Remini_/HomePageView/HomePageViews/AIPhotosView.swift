@@ -200,8 +200,8 @@ struct AIPhotosImagePicker: UIViewControllerRepresentable {
 }
 
 struct AITransformationLoadingView: View {
-    @State var selectedImage: UIImage?
-    @State var selectedImages: [Image] = []
+    @State var selectedImages: [UIImage] = []
+    //@State var selectedImages: [Image] = []
     @State var isPresentedView = false
     @State var isActive: Bool
     @State var rotatingAngle: Double = 0.0
@@ -240,7 +240,7 @@ struct AITransformationLoadingView: View {
             }
         }
         .fullScreenCover(isPresented: $isPresentedView) {
-            TransformedImageView()
+            TransformedImageView(selectedImages: $selectedImages)
         }
         .background(.white)
         .ignoresSafeArea()
