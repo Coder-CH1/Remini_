@@ -8,7 +8,7 @@
 #ifndef OpenCVWrapper_h
 #define OpenCVWrapper_h
 
-#import <opencv2/opencv.hpp>
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 @interface OpenCVWrapper : NSObject

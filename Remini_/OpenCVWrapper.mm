@@ -7,8 +7,9 @@
 
 // OpenCVWrapper.m
 
+#import <opencv2/opencv.hpp>
+//#import <opencv2/imgcodecs/ios.h>
 #import "OpenCVWrapper.h"
-//#import <UIKit/UIKit.h>
 
 @implementation OpenCVWrapper
 
