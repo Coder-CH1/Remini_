@@ -10,6 +10,7 @@
    - URLSession
    - Swift Concurrency
    - Kingfisher
-   - Photos 
+   - Photos
+   - PhotoUI 
    - AVKit
    - Singleton Pattern Design
