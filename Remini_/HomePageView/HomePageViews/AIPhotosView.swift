@@ -167,6 +167,7 @@ struct AIPhotosImagePicker: UIViewControllerRepresentable {
         }
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+            let sharedViewModel = SharedViewModel()
             if results.isEmpty {
                 picker.dismiss(animated: true)
             } else {
@@ -177,7 +178,7 @@ struct AIPhotosImagePicker: UIViewControllerRepresentable {
                                 print("Error loading image: \(error.localizedDescription)")
                             } else if let image = image as? UIImage {
             self?.selectedImage = image
-            self?.selectedImages.append(Image(uiImage: image))
+            sharedViewModel.selectedImages.append(image)
             self?.selectedImages.append(Image(uiImage: image))
             self?.showNextScreen = true
             DispatchQueue.main.async {
@@ -200,6 +201,7 @@ struct AIPhotosImagePicker: UIViewControllerRepresentable {
 }
 
 struct AITransformationLoadingView: View {
+    @StaticString var sharedViewModel = SharedViewModel()
     @State var selectedImages: [UIImage] = []
     //@State var selectedImages: [Image] = []
     @State var isPresentedView = false
@@ -239,8 +241,12 @@ struct AITransformationLoadingView: View {
                 }
             }
         }
-        .fullScreenCover(isPresented: $isPresentedView) {
-            TransformedImageView(selectedImages: $selectedImages)
+        if sharedViewModel.selectedImages.isEmpty {
+            AIPhotosLoadingView()
+        } else {
+            .fullScreenCover(isPresented: $isPresentedView) {
+                TransformedImageView(selectedImages: $selectedImages)
+            }
         }
         .background(.white)
         .ignoresSafeArea()

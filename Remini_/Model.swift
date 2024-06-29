@@ -73,7 +73,6 @@ class Data: ObservableObject {
     ]
 }
 
-//struct IdentifiableImage: Identifiable, Hashable {
-//    let id = UUID()
-//    let image: UIImage
-//}
+class SharedViewModel {
+    @Published var selectedImages: [UIImage] = []
+}
