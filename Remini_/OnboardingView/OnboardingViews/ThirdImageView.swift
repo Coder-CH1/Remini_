@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Photos
-import Kingfisher
+//import Kingfisher
 
 struct ThirdImageView: View {
     @State var isPresentedView = false
