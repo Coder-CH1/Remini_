@@ -260,7 +260,7 @@ struct MiddleHomePageView: View {
 .flipsForRightToLeftLayoutDirection(true)
 .environment(\.layoutDirection, .rightToLeft)
                             }
-                        } 
+                        }
                     }
                     
                     //MARK: - Section Three -

@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-Remini_-Remini_UITests/Pods-Remini_-Remini_UITests-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/BottomSheetSwiftUI/BottomSheetSwiftUI.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
+${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework
