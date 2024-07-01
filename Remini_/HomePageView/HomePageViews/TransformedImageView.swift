@@ -12,15 +12,7 @@ import UIKit
 struct TransformedImageView: View {
     @Binding var selectedImages: [UIImage]
     @State var filteredImages: [UIImage] = []
-    func processImages() -> [UIImage] {
-        var processedImages: [UIImage] = []
-        for image in selectedImages {
-            if let processedImage = OpenCVWrapper.processImage(image) {
-                processedImages.append(processedImage)
-            }
-        }
-        return processedImages
-    }
+    
     var body: some View {
         VStack {
             HStack {
