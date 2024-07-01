@@ -15,6 +15,6 @@ _Technologies Used_
 - _Swift Concurrency_: Implemented for asynchronous programming and concurrent task management.
 - _Kingfisher_: Used for image caching and loading.
 - _Photos_: Integrated for photo library access and management.
-- _PhotoUI_: Utilized for photo editing and manipulation.
+- _PhotoUI_: Utilized for photo editing and manipulation in the project.
 - _AVKit_: Used for video-visual processing and playback.
 - _Singleton Pattern_: Implemented for efficient memory management and resource sharing.
