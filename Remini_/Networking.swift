@@ -6,8 +6,8 @@
 //
 
 import Foundation
+import SQLite
 import SQLite3
-// SQLite
 
 class ImageManager {
     static let shared = ImageManager()
@@ -79,3 +79,6 @@ class DatabaseManager {
         }
     }
 }
+
+
+

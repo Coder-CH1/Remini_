@@ -201,7 +201,7 @@ struct AIPhotosImagePicker: UIViewControllerRepresentable {
 }
 
 struct AITransformationLoadingView: View {
-    @StaticString var sharedViewModel = SharedViewModel()
+    //var sharedViewModel = SharedViewModel()
     @State var selectedImages: [UIImage] = []
     //@State var selectedImages: [Image] = []
     @State var isPresentedView = false
@@ -241,12 +241,12 @@ struct AITransformationLoadingView: View {
                 }
             }
         }
-        if sharedViewModel.selectedImages.isEmpty {
-            AIPhotosLoadingView()
-        } else {
+//        if sharedViewModel.selectedImages.isEmpty {
+//            AIPhotosLoadingView(selectedImages: <#[Image]#>, selectedCount: <#Int#>)
+//        } else {
             .fullScreenCover(isPresented: $isPresentedView) {
                 TransformedImageView(selectedImages: $selectedImages)
-            }
+            //}
         }
         .background(.white)
         .ignoresSafeArea()

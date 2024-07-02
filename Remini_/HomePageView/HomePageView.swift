@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-import BottomSheetSwiftUI
+import BottomSheet
 import Photos
-import SQLite3
 import PhotosUI
+import SQLite3
 
 struct HomePageView: View {
     @AppStorage("hasSeenModal") var hasSeenModal: Bool = false
@@ -515,7 +515,10 @@ struct ChooseYourGenderBottomSheetView: View {
     @AppStorage("selectGender") var selectedGender: String = ""
     func saveGenderToDatabase(gender: String) {
         databaseManager.saveGender(gender)
+        hasSelectedGender = true
+        selectedGender = gender
     }
+
     var body: some View {
             VStack {
                 HStack {

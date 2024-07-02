@@ -36,7 +36,7 @@ struct TransformedImageView: View {
                     }
                 }
                 .onAppear() {
-                    self.filteredImages = processImages()
+//                    self.filteredImages = processImages()
                 }
             }
         }

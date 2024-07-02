@@ -76,3 +76,7 @@ class Data: ObservableObject {
 class SharedViewModel {
     @Published var selectedImages: [UIImage] = []
 }
+
+//class UserObject: Object {
+//    @Persisted var selectedGender: String = ""
+//}
